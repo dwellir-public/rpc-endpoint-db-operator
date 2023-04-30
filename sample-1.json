@@ -1,0 +1,9 @@
+{
+  "chainId": 1,
+  "chainName": "Ethereum Mainnet",
+  "urls": [
+    "https://eth-mainnet.alchemyapi.io/v2/your-api-key",
+    "https://mainnet.infura.io/v3/your-project-id",
+    "https://api.mycryptoapi.com/eth"
+  ]
+}
