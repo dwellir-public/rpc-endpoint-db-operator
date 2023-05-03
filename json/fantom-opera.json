@@ -1,0 +1,9 @@
+{
+    "native_id": 250,
+    "chain_name": "Fantom Opera",
+    "urls": [
+      "https://rpc.ftm.tools", 
+      "https://fantom.publicnode.com"
+    ]
+  }
+  

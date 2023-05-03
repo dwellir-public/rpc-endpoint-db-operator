@@ -1,0 +1,8 @@
+{
+    "native_id": 43113,
+    "chain_name": "Avalanche Fuji Testnet",
+    "urls": [
+      "https://api.avax-test.network/ext/bc/C/rpc"
+    ]
+  }
+  

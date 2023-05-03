@@ -1,0 +1,8 @@
+{
+  "native_id": 1,
+  "chain_name": "Ethereum Mainnet",
+  "urls": [
+    "https://cloudflare-eth.com",
+    "https://ethereum.publicnode.com"
+  ]
+}

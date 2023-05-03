@@ -1,0 +1,10 @@
+{
+    "native_id": 56,
+    "chain_name": "Binance Smart Chain",
+    "urls": [
+      "https://bsc-dataseed1.binance.org",
+      "https://bsc-dataseed1.defibit.io",
+      "https://bsc-dataseed1.ninicoin.io"
+    ]
+  }
+  

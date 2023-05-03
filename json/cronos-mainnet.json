@@ -1,0 +1,9 @@
+{
+    "native_id": 25,
+    "chain_name": "Cronos Mainnet Beta",
+    "urls": [
+      "https://evm.cronos.org", 
+      "https://cronos-evm.publicnode.com"
+    ]
+  }
+  

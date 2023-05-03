@@ -1,0 +1,10 @@
+{
+    "native_id": 80001,
+    "chain_name": "Polygon Mumbai",
+    "urls": [
+      "https://matic-mumbai.chainstacklabs.com",
+      "https://rpc-mumbai.maticvigil.com",
+      "https://matic-testnet-archive-rpc.bwarelabs.com"  
+    ]
+  }
+  

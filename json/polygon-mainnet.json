@@ -1,0 +1,12 @@
+{
+    "native_id": 137,
+    "chain_name": "Polygon Mainnet",
+    "urls": [
+        "https://polygon-rpc.com/",
+        "https://matic-mainnet.chainstacklabs.com",
+        "https://rpc-mainnet.maticvigil.com",
+        "https://rpc-mainnet.matic.quiknode.pro",
+        "https://polygon-bor.publicnode.com"
+    ]
+}
+  
