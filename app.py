@@ -1,30 +1,31 @@
 #!/bin/env python3
-
+import os
 from collections import OrderedDict
 import json
 from flask import Flask, jsonify, request
 import sqlite3
+import logging
+
+
+logging.basicConfig(level=logging.INFO)
+# logging.basicConfig(filename='app.log', level=logging.INFO)
 
 app = Flask(__name__)
-
-import os
-
-app = Flask(__name__)
-
 app.config['DATABASE'] = os.path.join(os.path.dirname(__file__), 'live_database.db')
 
 # Create the database table if it doesn't exist
-def create_table():
-    print(f"CREATING {app.config['DATABASE']}")
+def create_table_if_not_exist():
+    app.logger.info(f"CREATING database and tables {app.config['DATABASE']}")
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
-    cursor.execute('''CREATE TABLE IF NOT EXISTS chain_data
+    cursor.execute('''CREATE TABLE IF NOT EXISTS chains_public_rpcs
                       (id INTEGER PRIMARY KEY AUTOINCREMENT,
-                       chain_id INTEGER NOT NULL,
+                       native_id INTEGER NOT NULL,
                        chain_name TEXT NOT NULL UNIQUE,
                        urls TEXT NOT NULL)''')
     conn.commit()
     conn.close()
+
 
 # Create a new record
 @app.route('/create', methods=['POST'])
@@ -34,11 +35,14 @@ def create_record():
     data = request.get_json()
 
     # Check that all three entries are present
-    if not all(key in data for key in ('chain_id', 'chain_name', 'urls')):
+    if not all(key in data for key in ('native_id', 'chain_name', 'urls')):
         return jsonify({'error': 'All three entries are required'}), 400
 
+    # Info
+    app.logger.info(f'Create: {data}')
+
     # Extract the data from the request
-    chain_id = data['chain_id']
+    native_id = data['native_id']
     chain_name = data['chain_name']
     urls = data['urls']
 
@@ -49,7 +53,7 @@ def create_record():
     try:
         conn = sqlite3.connect(app.config['DATABASE'])
         c = conn.cursor()
-        c.execute('INSERT INTO chain_data (chain_id, chain_name, urls) VALUES (?, ?, ?)', (chain_id, chain_name, urls_json))
+        c.execute('INSERT INTO chains_public_rpcs (native_id, chain_name, urls) VALUES (?, ?, ?)', (native_id, chain_name, urls_json))
         record_id = c.lastrowid
         conn.commit()
         conn.close()
@@ -58,7 +62,7 @@ def create_record():
         conn.rollback()  # Roll back the transaction
         conn.close()
         # Check the error message to see if the UNIQUE constraint was violated
-        if "UNIQUE constraint failed: chain_data.chain_name" in str(e):
+        if "UNIQUE constraint failed: chains_public_rpcs.chain_name" in str(e):
             error_msg = f"Chain name '{chain_name}' already exists."
         else:
             error_msg = str(e)
@@ -72,14 +76,14 @@ def create_record():
 def get_all_records():
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
-    cursor.execute('''SELECT id, chain_id, chain_name, urls
-                      FROM chain_data''')
+    cursor.execute('''SELECT id, native_id, chain_name, urls
+                      FROM chains_public_rpcs''')
     records = cursor.fetchall()
     conn.close()
     results = []
     for record in records:
         results.append({'id': record[0],
-                        'chain_id': record[1],
+                        'native_id': record[1],
                         'chain_name': record[2],
                         'urls': json.loads(record[3])})
     return jsonify(results)
@@ -89,14 +93,14 @@ def get_all_records():
 def get_record(record_id):
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
-    cursor.execute('''SELECT id, chain_id, chain_name, urls
-                      FROM chain_data
+    cursor.execute('''SELECT id, native_id, chain_name, urls
+                      FROM chains_public_rpcs
                       WHERE id = ?''', (record_id,))
     record = cursor.fetchone()
     conn.close()
     if record:
         return jsonify({'id': record[0],
-                        'chain_id': record[1],
+                        'native_id': record[1],
                         'chain_name': record[2],
                         'urls': json.loads(record[3])})
     else:
@@ -107,7 +111,7 @@ def get_record(record_id):
 @app.route('/update/<int:record_id>', methods=['PUT'])
 def update_record(record_id):
     try:
-        chain_id = request.json['chain_id']
+        native_id = request.json['native_id']
         chain_name = request.json['chain_name']
         urls = request.json['urls']
     except KeyError as e:
@@ -117,15 +121,15 @@ def update_record(record_id):
     try:
         conn = sqlite3.connect(app.config['DATABASE'])
         cursor = conn.cursor()
-        cursor.execute('''UPDATE chain_data
-                        SET chain_id = ?, chain_name = ?, urls = ?
+        cursor.execute('''UPDATE chains_public_rpcs
+                        SET native_id = ?, chain_name = ?, urls = ?
                         WHERE id = ?''',
-                    (chain_id, chain_name, urls_json, record_id))
+                    (native_id, chain_name, urls_json, record_id))
     except sqlite3.IntegrityError as e:
         conn.rollback()  # Roll back the transaction
         conn.close()
         # Check the error message to see if the UNIQUE constraint was violated
-        if "UNIQUE constraint failed: chain_data.chain_name" in str(e):
+        if "UNIQUE constraint failed: chains_public_rpcs.chain_name" in str(e):
             error_msg = f"Chain name '{chain_name}' already exists."
         else:
             error_msg = str(e)
@@ -140,7 +144,7 @@ def update_record(record_id):
         return jsonify({'error': 'No such record.'})
     else:
         return jsonify({'id': record_id,
-                    'chain_id': chain_id,
+                    'native_id': native_id,
                     'chain_name': chain_name,
                     'urls': urls})
 
@@ -150,7 +154,7 @@ def update_record(record_id):
 def delete_record(record_id):
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
-    cursor.execute('''DELETE FROM chain_data
+    cursor.execute('''DELETE FROM chains_public_rpcs
                       WHERE id = ?''', (record_id,))
     conn.commit()
     conn.close()
@@ -160,7 +164,7 @@ def delete_record(record_id):
 def get_chain_info():
     # Get parameters from the request URL
     chain_name = request.args.get('chain_name')
-    chain_id = request.args.get('chain_id')
+    native_id = request.args.get('native_id')
 
     # Connect to the app.config['DATABASE']
     conn = sqlite3.connect(app.config['DATABASE'])
@@ -168,9 +172,9 @@ def get_chain_info():
 
     # Query the app.config['DATABASE'] based on whether chain name or chain ID was provided
     if chain_name:
-        c.execute("SELECT * FROM chain_data WHERE chain_name=?", (chain_name,))
-    elif chain_id:
-        c.execute("SELECT * FROM chain_data WHERE chain_id=?", (chain_id,))
+        c.execute("SELECT * FROM chains_public_rpcs WHERE chain_name=?", (chain_name,))
+    elif native_id:
+        c.execute("SELECT * FROM chains_public_rpcs WHERE native_id=?", (native_id,))
     else:
         return jsonify({'error': 'Missing required parameters'}), 400
 
@@ -187,7 +191,7 @@ def get_chain_info():
         urls = json.loads(result[3])
         result_dict = {
             'id': result[0],
-            'chain_id': result[1],
+            'native_id': result[1],
             'chain_name': result[2],
             'urls': urls
         }
@@ -198,6 +202,6 @@ def get_chain_info():
     return jsonify(result_dicts), 200
 
 if __name__ == '__main__':
-    create_table()
+    create_table_if_not_exist()
     app.run(debug=True)
 

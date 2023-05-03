@@ -3,7 +3,7 @@ import sqlite3
 import tempfile
 import unittest
 import json
-from app import app, create_table
+from app import app, create_table_if_not_exist
 
 class CRUDTestCase(unittest.TestCase):
 
@@ -22,7 +22,7 @@ class CRUDTestCase(unittest.TestCase):
         
         # Reference data.
         self.data_1 = {
-            'chain_id': 1,
+            'native_id': 1,
             'chain_name': 'Ethereum',
             'urls': [
                 'https://foo/bar',
@@ -30,7 +30,7 @@ class CRUDTestCase(unittest.TestCase):
             ]
         }
         self.data_2 = {
-            'chain_id': 2,
+            'native_id': 2,
             'chain_name': 'Bitcoin',
             'urls': [
                 'https://bit/bar',
@@ -48,14 +48,14 @@ class CRUDTestCase(unittest.TestCase):
 
     def init_db(self):
         # Use the same create_table as for the live database.
-        create_table()
+        create_table_if_not_exist()
 
     def populate_db(self):
         conn = sqlite3.connect(app.config['DATABASE'])
         c = conn.cursor()
-        c.execute("INSERT INTO chain_data (chain_id, chain_name, urls) VALUES (?, ?, ?)",
+        c.execute("INSERT INTO chains_public_rpcs (native_id, chain_name, urls) VALUES (?, ?, ?)",
                 (1, "Ethereum", '["https://eth1-archive-1.dwellir.com", "wss://eth1-archive-2.dwellir.com"]'))
-        c.execute("INSERT INTO chain_data (chain_id, chain_name, urls) VALUES (?, ?, ?)",
+        c.execute("INSERT INTO chains_public_rpcs (native_id, chain_name, urls) VALUES (?, ?, ?)",
                 (2, "Binance Smart Chain", '["https://bsc-dataseed1.binance.org","https://bsc.publicnode.com","wss://bsc-ws-node.nariox.org"]'))
         conn.commit()
         conn.close()
@@ -63,18 +63,18 @@ class CRUDTestCase(unittest.TestCase):
 
     def test_create_record_missing_entry(self):
         # Send a request without the urls entry
-        data = {'chain_id': 1, 'chain_name': 'Ethereum'}
+        data = {'native_id': 1, 'chain_name': 'Ethereum'}
         response = self.app.post('/create', json=data)
         self.assertEqual(response.status_code, 400)
         self.assertIn('error', response.json)
 
         # Send a request without the chain_name entry
-        data = {'chain_id': 1, 'urls': ['https://mainnet.infura.io/v3/...', 'https://ropsten.infura.io/v3/...']}
+        data = {'native_id': 1, 'urls': ['https://mainnet.infura.io/v3/...', 'https://ropsten.infura.io/v3/...']}
         response = self.app.post('/create', json=data)
         self.assertEqual(response.status_code, 400)
         self.assertIn('error', response.json)
 
-        # Send a request without the chain_id entry
+        # Send a request without the native_id entry
         data = {'chain_name': 'Ethereum', 'urls': ['https://mainnet.infura.io/v3/...', 'https://ropsten.infura.io/v3/...']}
         response = self.app.post('/create', json=data)
         self.assertEqual(response.status_code, 400)
@@ -82,13 +82,15 @@ class CRUDTestCase(unittest.TestCase):
 
     def test_create_record_no_duplicate_names(self):
         # Send a request with all three entries
-        data = {'chain_id': 1, 'chain_name': 'Ethereum', 'urls': ['https://mainnet.infura.io/v3/...', 'https://ropsten.infura.io/v3/...']}
+        data = {'native_id': 1, 'chain_name': 'Ethereum', 'urls': ['https://mainnet.infura.io/v3/...', 'https://ropsten.infura.io/v3/...']}
         response = self.app.post('/create', json=data)
         self.assertEqual(response.status_code, 400)
 
     def test_create_record_success(self):
         # Send a request with all three entries
-        data = {'chain_id': 999, 'chain_name': 'TESTNAME', 'urls': ['https://foo.bar', 'https://foo.bar']}
+        data = {'native_id': 999, 
+                'chain_name': 'TESTNAME', 
+                'urls': ['https://foo.bar', 'https://foo.bar']}
         response = self.app.post('/create', json=data)
         self.assertEqual(response.status_code, 201)
         self.assertIn('message', response.json)
@@ -96,11 +98,11 @@ class CRUDTestCase(unittest.TestCase):
         # Check that the record was inserted into the database
         conn = sqlite3.connect(app.config['DATABASE'])
         c = conn.cursor()
-        c.execute('SELECT * FROM chain_data WHERE id = ?', (response.json['id'],))
+        c.execute('SELECT * FROM chains_public_rpcs WHERE id = ?', (response.json['id'],))
         record = c.fetchone()
         conn.close()
         self.assertIsNotNone(record)
-        self.assertEqual(record[1], data['chain_id'])
+        self.assertEqual(record[1], data['native_id'])
         self.assertEqual(record[2], data['chain_name'])
         self.assertEqual(json.loads(record[3]), data['urls'])
 
@@ -111,7 +113,7 @@ class CRUDTestCase(unittest.TestCase):
 
     def test_get_record_by_id(self):
         chaindata = {
-            'chain_id': 2,
+            'native_id': 2,
             'chain_name': 'Bitcoin',
             'urls': [
                 'https://bit/bar',
@@ -127,7 +129,7 @@ class CRUDTestCase(unittest.TestCase):
     def test_update_record(self):
         # Create a new record
         chaindata = {
-            'chain_id': 2,
+            'native_id': 2,
             'chain_name': 'Bitcoin 2',
             'urls': [
                 'https://bit/bar',
@@ -138,21 +140,21 @@ class CRUDTestCase(unittest.TestCase):
         record_id = create_response.json['id']
 
         # Update the record
-        new_data = {'chain_id': 2, 'chain_name': 'test-update-chainName', 'urls': ['test-update-url']}
+        new_data = {'native_id': 2, 'chain_name': 'test-update-chainName', 'urls': ['test-update-url']}
         update_response = self.app.put('/update/{}'.format(record_id), json=new_data)
         assert update_response.status_code == 200
 
         # Get the updated record and check its values
         get_response = self.app.get('/get/{}'.format(record_id))
         updated_record = get_response.json
-        assert updated_record['chain_id'] == new_data['chain_id']
+        assert updated_record['native_id'] == new_data['native_id']
         assert updated_record['chain_name'] == new_data['chain_name']
         actual_urls = updated_record['urls']
         self.assertListEqual(new_data['urls'], actual_urls)
 
     def test_delete_record(self):
         chaindata = {
-            'chain_id': 2,
+            'native_id': 2,
             'chain_name': 'Bitcoin 2',
             'urls': [
                 'https://bit/bar',
@@ -171,17 +173,17 @@ class CRUDTestCase(unittest.TestCase):
         self.assertIsNotNone(response.json, msg='Response is not valid JSON')
         self.assertGreaterEqual(len(response.json), 1)
         self.assertEqual(response.json[0]['id'], 1)
-        self.assertEqual(response.json[0]['chain_id'], 1)
+        self.assertEqual(response.json[0]['native_id'], 1)
         self.assertEqual(response.json[0]['chain_name'], 'Ethereum')
         self.assertIsInstance(response.json[0]['urls'], list)
 
-    def test_get_chain_info_by_chain_id(self):
-        response = self.app.get('/chain_info?chain_id=1')
+    def test_get_chain_info_by_native_id(self):
+        response = self.app.get('/chain_info?native_id=1')
         self.assertEqual(response.status_code, 200)
         self.assertGreaterEqual(len(response.json), 1)
         self.assertIsNotNone(response.json, msg='Response is not valid JSON')
         self.assertEqual(response.json[0]['id'], 1)
-        self.assertEqual(response.json[0]['chain_id'], 1)
+        self.assertEqual(response.json[0]['native_id'], 1)
         self.assertEqual(response.json[0]['chain_name'], 'Ethereum')
         self.assertIsInstance(response.json[0]['urls'], list)
 
