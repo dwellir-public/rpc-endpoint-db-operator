@@ -5,5 +5,5 @@
       "https://evm.cronos.org", 
       "https://cronos-evm.publicnode.com"
     ],
-    "rpc_class": "cronos"
+    "rpc_class": "ethereum"
   }

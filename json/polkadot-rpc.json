@@ -1,0 +1,9 @@
+{
+    "native_id": 1,
+    "chain_name": "Polkadot Relaychain",
+    "urls": [
+      "https://polkadot-rpc.dwellir.com"
+    ],
+    "rpc_class": "substrate"
+}
+  

@@ -3,6 +3,6 @@
     "chain_name": "Cronos Testnet",
     "urls": [ "https://evm-t3.cronos.org"
     ],
-    "rpc_class": "cronos"
+    "rpc_class": "ethereum"
   }
   

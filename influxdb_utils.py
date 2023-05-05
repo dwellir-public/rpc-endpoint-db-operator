@@ -5,17 +5,25 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 def new_latest_block_height_point(url: str, api: str, latest_block_height: int):
     # create a Point object for the latest block height data
     latest_block_height_point = Point("latest_block_height") \
-        .tag("endpoint", url) \
+        .tag("url", url) \
         .tag("api", api) \
         .field("block_height", latest_block_height) \
         .time(datetime.utcnow())
 
     return latest_block_height_point
 
-def new_latency_point(url: str, api: str, http_code: int, ssl_verify_result: int, 
-                   time_redirect: float, time_namelookup: float, time_connect: float, 
-                   time_appconnect: float, time_pretransfer: float, time_starttransfer: float, 
-                   time_total: float, exitcode: int, errormsg: str):
+def new_latency_point(url: str, api: str, data: dict):
+    http_code = int(data.get('http_code', None))
+    ssl_verify_result = int(data.get('ssl_verify_result', None))
+    time_redirect = float(data.get('time_redirect', None))
+    time_namelookup = float(data.get('time_namelookup', None))
+    time_connect = float(data.get('time_connect', None))
+    time_appconnect = float(data.get('time_appconnect', None))
+    time_pretransfer = float(data.get('time_pretransfer', None))
+    time_starttransfer = float(data.get('time_starttransfer', None))
+    time_total = float(data.get('time_total', None))
+    exitcode = int(data.get('exitcode', None))
+    errormsg = str(data.get('errormsg', None))
 
     # create a Point object for the latency data
     latency_point = Point("latency") \

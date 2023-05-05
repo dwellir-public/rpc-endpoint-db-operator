@@ -20,7 +20,7 @@ def import_json_file(filename, db_filename):
     for row in data:
         native_id = row['native_id']
         chain_name = row['chain_name']
-        rpc_class = row['chain_name']
+        rpc_class = row['rpc_class']
         urls = json.dumps(row['urls'])
         c.execute("INSERT INTO chains_public_rpcs (native_id, chain_name, urls) VALUES (?, ?, ?, ?)", (native_id, chain_name, urls, rpc_class))
     conn.commit()

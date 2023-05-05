@@ -73,16 +73,17 @@ for item in response.json():
         all_url_api_tuples.append((rpc,endpoint_tuple[1]))
 
 
-async def collect_info_from_endpoint(endpoint):
+async def collect_info_from_endpoint(url, api_type):
     """
     Collect info.  (latency + latest_block)
     """
     try:
         info = await asyncio.wait_for(
-            loop.run_in_executor(None, query_for_latency_and_blockheight, endpoint[0], endpoint[1]),
+            loop.run_in_executor(None, query_for_latency_and_blockheight, url, api_type),
             timeout=5
         )
-    except:
+    except Exception as e:
+        print(f"Error fetching blockheight and latency from {url}:", e)
         info = None
     return info
 
@@ -96,19 +97,28 @@ def write_to_influxdb(url, token, org, bucket, records):
 loop = asyncio.get_event_loop()
 while True:
     # Get block heights from all endpoints asynchronously
-    tasks = [collect_info_from_endpoint(endpoint) for endpoint in all_url_api_tuples]
+    tasks = [collect_info_from_endpoint(url, api_type) for url, api_type in all_url_api_tuples]
     
     #TODO: Make it time out!
     info = loop.run_until_complete(asyncio.gather(*tasks))
 
     # Write data to InfluxDB
+    all_records = []
     for endpoint, info_dict in zip(all_url_api_tuples, info):
         if info_dict:
-            print(info_dict)
             blockheight_point = new_latest_block_height_point(endpoint[0], endpoint[1], info_dict['latest_block_height'])
-            latency_point = new_latency_point(info_dict)
-            write_to_influxdb(INFLUXDB_URL,INFLUXDB_TOKEN,INFLUXDB_ORG,INFLUXDB_BUCKET, all_records)
+            latency_point = new_latency_point(endpoint[0], endpoint[1], info_dict)
+            # Append the records to all_records
+            records = []
+            records.append(blockheight_point)
+            records.append(latency_point)
+            try:
+                print(f"Writing to database {endpoint}: Block: {info_dict['latest_block_height']} Total Latency: {info_dict['time_total']}")
+                write_to_influxdb(INFLUXDB_URL,INFLUXDB_TOKEN,INFLUXDB_ORG,INFLUXDB_BUCKET, records)
+            except Exception as e:
+                print(f"Something went horribly wrong while trying to insert into influxdb {endpoint}: {info_dict}", e)
         else:
-            print(f"Couldn't get blockheight for {endpoint}. Skipping.")
+            print(f"Couldn't get information from {endpoint}. Skipping.")
+    
     # Wait for 5 seconds
     time.sleep(5)

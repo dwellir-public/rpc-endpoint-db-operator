@@ -1,5 +1,7 @@
 import requests
 from urllib.parse import urlparse
+from requests.exceptions import RequestException, Timeout, ConnectionError, HTTPError
+from urllib3.exceptions import NameResolutionError
 
 def is_valid_url(url):
     valid_schemes = ['ws', 'wss', 'http', 'https']
@@ -42,15 +44,22 @@ def get_eth_block_height_ethbased(api_url, chain_id=1):
 ##########################################
 
 
-def query_for_latency_and_blockheight(url, api):
-    
+def query_for_latency_and_blockheight(url, api_type):
+    print(f"Querying API: {url} with API type: {api_type}")
+
     if not is_valid_url(url):
         raise ValueError('Invalid URL')
 
-    if api == 'ethereum':
+    if api_type == 'ethereum':
         data = '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
-    elif api == 'substrate':
+    elif api_type == 'substrate':
         data = '{"jsonrpc":"2.0","method":"chain_getHeader","params":[],"id":1}'
+    elif api_type == 'aptos':
+        # Also, uses the http GET method
+        data = '{"jsonrpc":"2.0","method":"block_number","params":[],"id":1}'
+    else:
+        print(f"Unrecognized api: {api_type}")
+        raise ValueError(f"Unrecognized api: {api_type}")
 
     headers = {
             'Content-Type': 'application/json',
@@ -59,16 +68,20 @@ def query_for_latency_and_blockheight(url, api):
         }
 
     try:
-        response = requests.post(url, headers=headers, data=data)
-        response.raise_for_status()
-        # Latest block (eth or substrate)
-        result = response.json().get('result')
-        latest_block_height = int(result, 16) if api == 'ethereum' else int(result['number'], 16)
-
-        # Latency
+        if api_type == 'aptos':
+            response = requests.get(url, headers=headers, data=data)
+            response.raise_for_status()
+            latest_block_height = int(response.json()['block_height'])
+        else:
+            response = requests.post(url, headers=headers, data=data)
+            response.raise_for_status()
+            result = response.json().get('result')
+            latest_block_height = int(result, 16) if api_type == 'ethereum' else int(result['number'], 16)
+        
+        # Latency, isn't actually getting the same data as with curl -w
         time_total = response.elapsed.total_seconds()
         http_code = response.status_code
-        ssl_verify_result = 1 if response.url.startswith('https') else 0
+        ssl_verify_result = 1 if response.url.startswith('https') or response.url.startswith('wss') else 0
         time_redirect = response.history[0].elapsed.total_seconds() if response.history else 0
         time_namelookup = response.elapsed.total_seconds() - time_total
         time_connect = response.elapsed.total_seconds() - time_total
@@ -76,7 +89,10 @@ def query_for_latency_and_blockheight(url, api):
         time_pretransfer = response.elapsed.total_seconds() - time_total
         time_starttransfer = response.elapsed.total_seconds() - time_total
         exit_code = 0
-    except (requests.exceptions.RequestException, ValueError) as e:
+        error_msg = ''
+    except (requests.RequestException, requests.Timeout, ConnectionError, requests.HTTPError, NameResolutionError) as e:
+    #except (requests.exceptions.RequestException, requests.exceptions.NameResolutionError, ValueError) as e:
+        print(f"Failed getting into from {url}")
         time_total = 0
         http_code = 0
         ssl_verify_result = 0
@@ -87,7 +103,7 @@ def query_for_latency_and_blockheight(url, api):
         time_pretransfer = 0
         time_starttransfer = 0
         exit_code = 1
-        error_msg = str(e)
+        error_msg = ''
         latest_block_height = 0
 
     info = {
