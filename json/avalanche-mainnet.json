@@ -4,6 +4,7 @@
     "urls": [
        "https://api.avax.network/ext/bc/C/rpc",
        "https://avalanche-c-chain.publicnode.com"
-    ]
+    ],
+    "rpc_class": "ethereum"
   }
   

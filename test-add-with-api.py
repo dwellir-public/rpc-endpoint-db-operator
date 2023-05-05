@@ -31,20 +31,22 @@ created_chains = []
 for chain in chains:
     response = requests.post(url, json=chain)
     if response.status_code == 201:
-        print(f'Added chain with ID {response.json()["id"]}')
+        print('Added chain with ID "{response.json()["id"]}"')
+
+        # print(f"Added chain with ID {response.json()['id']}")
         created_chains.append(response.json()["id"])
     else:
-        print(f'Error adding chain: {response.json()}')
+        print('Error adding chain:', response.json())
 
 # Print all chains
 response = requests.get('http://localhost:5000/all')
 if response.status_code == 200:
     for chain in response.json():
-        print(f'Chain({chain["id"]}) {chain["chain_name"]} with native_id {chain["native_id"]} has URLs:')
+        print('Chain("{chain["id"]}") "{chain["chain_name"]}" with native_id "{chain["native_id"]}" has URLs:')
         for url in chain['urls']:
-            print(f' - {url}')
+            print('{url}')
 else:
-    print(f'Error retrieving chains: {response.json()}')
+    print('"Error retrieving chains: "{response.json()}"')
 
 # Delete all created chains
 for id in created_chains:

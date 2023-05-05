@@ -3,6 +3,7 @@
     "chain_name": "Fantom Testnet",
     "urls": [
       "https://rpc.testnet.fantom.network"
-    ]
+    ],
+    "rpc_class": "ethereum"
   }
   

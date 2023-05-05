@@ -20,8 +20,9 @@ def import_json_file(filename, db_filename):
     for row in data:
         native_id = row['native_id']
         chain_name = row['chain_name']
+        rpc_class = row['chain_name']
         urls = json.dumps(row['urls'])
-        c.execute("INSERT INTO chain_data (native_id, chain_name, urls) VALUES (?, ?, ?)", (native_id, chain_name, urls))
+        c.execute("INSERT INTO chains_public_rpcs (native_id, chain_name, urls) VALUES (?, ?, ?, ?)", (native_id, chain_name, urls, rpc_class))
     conn.commit()
     conn.close()
 
@@ -32,13 +33,17 @@ def export_json_file(filename, db_filename):
     """
     conn = sqlite3.connect(db_filename)
     c = conn.cursor()
-    rows = c.execute("SELECT native_id, chain_name, urls FROM chain_data").fetchall()
+    rows = c.execute("SELECT native_id, chain_name, urls, rpc_class FROM chains_public_rpcs").fetchall()
     data = []
     for row in rows:
         native_id = row[0]
         chain_name = row[1]
         urls = json.loads(row[2])
-        data.append({'native_id': native_id, 'chain_name': chain_name, 'urls': urls})
+        rpc_class = json.loads(row[2])
+        data.append({'native_id': native_id, 
+                     'chain_name': chain_name, 
+                     'urls': urls,
+                     'rpc_class': rpc_class})
     with open(filename, 'w') as f:
         json.dump(data, f)
     conn.close()

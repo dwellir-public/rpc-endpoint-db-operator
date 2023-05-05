@@ -3,6 +3,7 @@
     "chain_name": "Avalanche Fuji Testnet",
     "urls": [
       "https://api.avax-test.network/ext/bc/C/rpc"
-    ]
-  }
+    ],
+    "rpc_class": "ethereum"
+}
   

@@ -4,5 +4,6 @@
   "urls": [
     "https://cloudflare-eth.com",
     "https://ethereum.publicnode.com"
-  ]
+  ],
+  "rpc_class": "ethereum"
 }

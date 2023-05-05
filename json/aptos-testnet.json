@@ -3,6 +3,7 @@
     "chain_name": "Aptos Devnet",
     "urls": [
       "https://fullnode.devnet.aptoslabs.com/v1/"
-    ]
+    ],
+    "rpc_class": "aptos"
   }
   

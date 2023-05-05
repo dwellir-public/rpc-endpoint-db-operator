@@ -4,6 +4,7 @@
     "urls": [
       "https://rpc.ftm.tools", 
       "https://fantom.publicnode.com"
-    ]
+    ],
+    "rpc_class": "ethereum"
   }
   

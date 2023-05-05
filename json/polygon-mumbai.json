@@ -5,6 +5,6 @@
       "https://matic-mumbai.chainstacklabs.com",
       "https://rpc-mumbai.maticvigil.com",
       "https://matic-testnet-archive-rpc.bwarelabs.com"  
-    ]
-  }
-  
+    ],
+    "rpc_class": "ethereum"
+}
