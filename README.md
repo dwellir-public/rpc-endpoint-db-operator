@@ -4,30 +4,54 @@
 
 ### Descripton:
 
- - db-init.py:  This script creates a sqlite database with RPC endpoint information and performs an initial healthcheck.
+This repo holds tools to maintain a database of public API:s for blockchains.
 
-It will need the json files from this repo: https://github.com/ethereum-lists/chains/tree/master/_data
+It also holds a tool to update an influx database with latency and blockheight information.
 
-This repos/json-files contains a vast number of EIP155 chains (Ethereum etc.) which is a large class of chains.
+### Start and initialize the database
 
-The data is inserted into a table in the datbase.
+The API endpoint database is a sqlite database which is also interfaced/used via a Flask API.
 
-Once the sqlite database has been created, you can query it like this:
-    
-    # Get some data about API endpoints that was responding within 3 seconds:
-    $ sqlite3 rpc_database.db
-    sqlite> SELECT chains.chainId,rpcs.id,highestBlock,rpcs.latency FROM rpcs,chains WHERE latency < 3;
+Start the database like this.
 
+    python3 ./app.y
 
+Populate the database with initial information. This is read from a set of .json files in the directory "json".
 
- - cronos-blockdiff.py: This is an example script that meters an RPC endpoint and inserts the meassurements into an influxdb (Which is intended for grafana)
+    python3 add-from-directory-json.py -d json
 
+### Start the influx updater
 
-The intention is to tag the data with (at least) the following information: 
+    python3 ./update_influxdb.py
 
-    bucket: blockheights
-    Measurement: block_number
-    tag_1=juju_model,value=string    # The juju model where the data comes from.
-    tag_2=network_name,value=string  # A canonical name for the chain.
-    tag_3=endpoint_url,value=string  # The URL used to retrieve the data.
-    tag_4=network_id,value=string    # The network ID returned from the chain. Helps identify correctly the source of the datapoint.
+### Query the database via the API 
+
+The Flask API supportes all CRUD: "Create, Read, Update, Delete".
+
+    curl -X POST -H "Content-Type: application/json" -d \
+    '{
+    "native_id": 999,
+    "chain_name": "TESTCHAIN",
+    "urls": ["https://foo.bar", "https://foo.bar"],
+    "rpc_class": "polkadot"} ' http://localhost:5000/create
+
+    {
+    "id": 1,
+    "message": "Record created successfully"
+    }
+
+Get the record
+
+    curl http://127.0.0.1:5000/get/1
+
+Update the record
+
+    curl -X PUT -H "Content-Type: application/json" -d '{"native_id": 888, "chain_name": "My test chain", "urls": ["https://polkadot-rpc.dwellir.com"], "rpc_class": "substrate"}' http://localhost:5000/update/1
+
+Delete the record
+
+    curl -X DELETE http://localhost:5000/delete/1
+
+Get all records
+
+    curl http://localhost:5000/all

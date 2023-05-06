@@ -5,7 +5,7 @@ import json
 from flask import Flask, jsonify, request
 import sqlite3
 import logging
-
+from urllib.parse import urlparse
 
 logging.basicConfig(level=logging.INFO)
 # logging.basicConfig(filename='app.log', level=logging.INFO)
@@ -28,6 +28,26 @@ def create_table_if_not_exist():
     conn.close()
 
 
+def is_valid_api(api):
+    """
+    Test that api string is valid.
+    """
+    return api in ['substrate', 'ethereum', 'aptos']
+
+
+def is_valid_url(url):
+    """
+    Test that a url is valid, e.g. only http(s) and ws(s).
+    """
+    ALLOWED_SCHEMES = {'http', 'https', 'ws', 'wss'}
+    try:
+        result = urlparse(url)
+        return all([result.scheme in ALLOWED_SCHEMES, result.netloc])
+    except ValueError:
+        return False
+
+
+
 # Create a new record
 @app.route('/create', methods=['POST'])
 def create_record():
@@ -48,9 +68,14 @@ def create_record():
     urls = data['urls']
     rpc_class = data['rpc_class']
 
+    if not is_valid_api(rpc_class):
+        return jsonify({'error': {'error': "Invalid api"}}), 500
+
     # Serialize the urls list to a JSON string
     urls_json = json.dumps(urls)
-
+    if not all(is_valid_url(url) for url in urls):
+        return jsonify({'error': {'error': "Invalid url(s)."}}), 500
+    
     # Insert the record into the app.config['DATABASE']
     try:
         conn = sqlite3.connect(app.config['DATABASE'])
@@ -123,7 +148,14 @@ def update_record(record_id):
     except KeyError as e:
         return jsonify({'error': 'Missing required parameters'}), 400
 
-    urls_json = json.dumps(urls)  # Convert list of URLs to JSON string
+    if not is_valid_api(rpc_class):
+        return jsonify({'error': {'error': "Invalid api"}}), 500
+
+    # Make sure urls are OK
+    urls_json = json.dumps(urls)
+    if not all(is_valid_url(url) for url in urls):
+        return jsonify({'error': "Invalid url(s)"}), 500
+    
     try:
         conn = sqlite3.connect(app.config['DATABASE'])
         cursor = conn.cursor()
@@ -152,7 +184,8 @@ def update_record(record_id):
         return jsonify({'id': record_id,
                     'native_id': native_id,
                     'chain_name': chain_name,
-                    'urls': urls})
+                    'urls': urls,
+                    'rpc_class': rpc_class})
 
 
 # Delete a record by ID

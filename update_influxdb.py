@@ -73,6 +73,22 @@ for item in response.json():
         all_url_api_tuples.append((rpc,endpoint_tuple[1]))
 
 
+def test_influxdb_connection(host, port, token, org, bucket):
+    """
+    Test the connection to the database.
+    """
+    client = InfluxDBClient(url=f"http://{host}:{port}", token=token)
+    try:
+        query_api = client.query_api()
+        health = query_api.health()
+        if health['status'] == 'pass':
+            return True
+        else:
+            return False
+    except Exception as e:
+        print(e)
+        return False
+
 async def collect_info_from_endpoint(url, api_type):
     """
     Collect info.  (latency + latest_block)
@@ -94,6 +110,11 @@ def write_to_influxdb(url, token, org, bucket, records):
     write_api.write(bucket=bucket, record=records)
 
 # Main loop
+
+if not test_influxdb_connection(INFLUXDB_URL,8086,INFLUXDB_TOKEN, INFLUXDB_ORG, INFLUXDB_BUCKET):
+    print("Couldn't connect to influxdb.")
+    sys.exit(1)
+
 loop = asyncio.get_event_loop()
 while True:
     # Get block heights from all endpoints asynchronously
