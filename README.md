@@ -8,6 +8,36 @@ This repo holds tools to maintain a database of public API:s for blockchains.
 
 It also holds a tool to update an influx database with latency and blockheight information.
 
+
+## Prepare the environment
+
+Install and setup influxdb2
+  
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D8FF8E1F7DF8B07E
+    sudo apt-key update
+    echo "deb https://repos.influxdata.com/ubuntu jammy stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+    curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+    sudo apt-get update
+    sudo apt install influxdb2
+    sudo systemctl enable influxdb --now
+    sudo influx setup
+
+Install python libs etc.
+    python3 -m venv venv
+    source venv/bin/activate
+    sudo apt-get install python3-pip
+    sudo pip3 install -r requirements.txt
+
+
+Create a token that can read and write to all buckets. (may be a bit much, but yeah.) Get the token value.
+
+    sudo influx auth create --write-buckets --read-buckets
+
+Create a bucket for the blockheight data
+
+    sudo influx bucket create -n blockheights -r 30d
+
+
 ### Start and initialize the database
 
 The API endpoint database is a sqlite database which is also interfaced/used via a Flask API.
