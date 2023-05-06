@@ -39,11 +39,9 @@ def test_influxdb_connection(url, token, org, bucket):
     """
     Test the connection to the database.
     """
-    client = InfluxDBClient(url=url, token=token)
+    client = InfluxDBClient(url=url, token=token, org=org)
     try:
-        query_api = client.query_api()
-        health = query_api.health()
-        if health['status'] == 'pass':
+        if client.ping():
             return True
         else:
             return False

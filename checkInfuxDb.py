@@ -1,11 +1,16 @@
+#!/usr/bin/env python3
 import argparse
 import json
-from influxdb_client import InfluxDBClient, exceptions
-
+from influxdb_client import InfluxDBClient
 
 def test_influxdb_connection(url, token, org, bucket):
     try:
         client = InfluxDBClient(url=url, token=token, org=org)
+        if client.ping():
+            print("Server responds")
+        else:
+            print("Server is not respongding to ping()")
+
         query_api = client.query_api()
 
         query = f'from(bucket: "{bucket}") |> range(start: -1h) |> last()'
@@ -13,10 +18,8 @@ def test_influxdb_connection(url, token, org, bucket):
 
         print(f'Successfully connected to InfluxDB instance at {url}')
         print(f'Result: {result}')
-        return True
-    except exceptions.InfluxDBError as e:
+    except Exception as e:
         print(f'Error connecting to InfluxDB instance at {url}: {str(e)}')
-        return False
 
 
 if __name__ == '__main__':
@@ -31,4 +34,3 @@ if __name__ == '__main__':
     influxdb_bucket = config['INFLUXDB_BUCKET']
 
     test_influxdb_connection(influxdb_url,influxdb_token, influxdb_org, influxdb_bucket)
-

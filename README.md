@@ -17,12 +17,13 @@ Install and setup influxdb2
     sudo apt-key update
     echo "deb https://repos.influxdata.com/ubuntu jammy stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
     curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
-    sudo apt-get update
+    sudo apt-get updat
     sudo apt install influxdb2
     sudo systemctl enable influxdb --now
     sudo influx setup
 
 Install python libs etc.
+    sudo apt install python3.10-venv
     python3 -m venv venv
     source venv/bin/activate
     sudo apt-get install python3-pip
