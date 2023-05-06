@@ -2,9 +2,8 @@
     "native_id": 0,
     "chain_name": "",
     "urls": [
-      "https://",
-      "https://"
+        "https://",
+        "https://"
     ],
-    "rpc_class": ""
+    "api_class": ""
 }
-  

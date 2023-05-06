@@ -1,9 +1,14 @@
 {
-    "native_id": 1,
+    "api_class": "substrate",
     "chain_name": "Polkadot Relaychain",
+    "id": 3,
+    "native_id": 1,
     "urls": [
-      "https://polkadot-rpc.dwellir.com"
-    ],
-    "rpc_class": "substrate"
-}
-  
+      "https://polkadot-rpc.dwellir.com",
+      "https://polkadot-rpc-tn.dwellir.com",
+      "https://polkadot-rpc-ng-1.dwellir.com",
+      "wss://rpc.polkadot.io",
+      "wss://rpc.darwinia.network",
+      "wss://polkadot.elara.patract.io"
+    ]
+  }

@@ -29,8 +29,8 @@ client = InfluxDBClient(url=influxdb_url, token=influxdb_token)
 response = requests.get(f'{rpc_flask_api}/all')
 all_url_api_tuples = []
 for item in response.json():
-    # Tuple of (url,rpc_class)
-    endpoint_tuple = (item['urls'], item['rpc_class'])
+    # Tuple of (url,api_class)
+    endpoint_tuple = (item['urls'], item['api_class'])
     for rpc in endpoint_tuple[0]:
         all_url_api_tuples.append((rpc,endpoint_tuple[1]))
 

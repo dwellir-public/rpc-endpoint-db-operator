@@ -64,7 +64,7 @@ The Flask API supportes all CRUD: "Create, Read, Update, Delete".
     "native_id": 999,
     "chain_name": "TESTCHAIN",
     "urls": ["https://foo.bar", "https://foo.bar"],
-    "rpc_class": "polkadot"} ' http://localhost:5000/create
+    "api_class": "polkadot"} ' http://localhost:5000/create
 
     {
     "id": 1,
@@ -77,7 +77,7 @@ Get the record
 
 Update the record
 
-    curl -X PUT -H "Content-Type: application/json" -d '{"native_id": 888, "chain_name": "My test chain", "urls": ["https://polkadot-rpc.dwellir.com"], "rpc_class": "substrate"}' http://localhost:5000/update/1
+    curl -X PUT -H "Content-Type: application/json" -d '{"native_id": 888, "chain_name": "My test chain", "urls": ["https://polkadot-rpc.dwellir.com"], "api_class": "substrate"}' http://localhost:5000/update/1
 
 Delete the record
 

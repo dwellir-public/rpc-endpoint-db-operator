@@ -2,9 +2,10 @@
     "native_id": 250,
     "chain_name": "Fantom Opera",
     "urls": [
-      "https://rpc.ftm.tools", 
-      "https://fantom.publicnode.com"
+        "https://rpc.ftm.tools",
+        "https://fantom.publicnode.com",
+        "https://fantom-mainnet-archive-rpc-1.dwellir.com",
+        "https://fantom-mainnet-archive-rpc-2.dwellir.com"
     ],
-    "rpc_class": "ethereum"
-  }
-  
+    "api_class": "ethereum"
+}

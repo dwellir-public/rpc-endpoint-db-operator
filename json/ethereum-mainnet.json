@@ -1,9 +1,11 @@
 {
-  "native_id": 1,
-  "chain_name": "Ethereum Mainnet",
-  "urls": [
-    "https://cloudflare-eth.com",
-    "https://ethereum.publicnode.com"
-  ],
-  "rpc_class": "ethereum"
+    "native_id": 1,
+    "chain_name": "Ethereum Mainnet",
+    "urls": [
+        "https://cloudflare-eth.com",
+        "https://ethereum.publicnode.com",
+        "https://eth-mainnet-full-rpc-1.dwellir.com",
+        "https://eth-mainnet-full-rpc-2.dwellir.com"
+    ],
+    "api_class": "ethereum"
 }

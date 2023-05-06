@@ -23,7 +23,7 @@ def create_table_if_not_exist():
                        native_id INTEGER NOT NULL,
                        chain_name TEXT NOT NULL UNIQUE,
                        urls TEXT NOT NULL,
-                       rpc_class TEXT NOT NULL)''')
+                       api_class TEXT NOT NULL)''')
     conn.commit()
     conn.close()
 
@@ -56,7 +56,7 @@ def create_record():
     data = request.get_json()
 
     # Check that all three entries are present
-    if not all(key in data for key in ('native_id', 'chain_name', 'urls', 'rpc_class')):
+    if not all(key in data for key in ('native_id', 'chain_name', 'urls', 'api_class')):
         return jsonify({'error': 'All three entries are required'}), 400
 
     # Info
@@ -66,9 +66,9 @@ def create_record():
     native_id = data['native_id']
     chain_name = data['chain_name']
     urls = data['urls']
-    rpc_class = data['rpc_class']
+    api_class = data['api_class']
 
-    if not is_valid_api(rpc_class):
+    if not is_valid_api(api_class):
         return jsonify({'error': {'error': "Invalid api"}}), 500
 
     # Serialize the urls list to a JSON string
@@ -80,8 +80,8 @@ def create_record():
     try:
         conn = sqlite3.connect(app.config['DATABASE'])
         c = conn.cursor()
-        c.execute('INSERT INTO chains_public_rpcs (native_id, chain_name, urls, rpc_class) VALUES (?, ?, ?, ?)', 
-                  (native_id, chain_name, urls_json, rpc_class))
+        c.execute('INSERT INTO chains_public_rpcs (native_id, chain_name, urls, api_class) VALUES (?, ?, ?, ?)', 
+                  (native_id, chain_name, urls_json, api_class))
         record_id = c.lastrowid
         conn.commit()
         conn.close()
@@ -104,7 +104,7 @@ def create_record():
 def get_all_records():
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
-    cursor.execute('''SELECT id, native_id, chain_name, urls, rpc_class
+    cursor.execute('''SELECT id, native_id, chain_name, urls, api_class
                       FROM chains_public_rpcs''')
     records = cursor.fetchall()
     conn.close()
@@ -114,7 +114,7 @@ def get_all_records():
                         'native_id': record[1],
                         'chain_name': record[2],
                         'urls': json.loads(record[3]),
-                        'rpc_class': record[4],})
+                        'api_class': record[4],})
     return jsonify(results)
 
 # Get a specific record by ID
@@ -122,7 +122,7 @@ def get_all_records():
 def get_record(record_id):
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
-    cursor.execute('''SELECT id, native_id, chain_name, urls, rpc_class
+    cursor.execute('''SELECT id, native_id, chain_name, urls, api_class
                       FROM chains_public_rpcs
                       WHERE id = ?''', (record_id,))
     record = cursor.fetchone()
@@ -132,7 +132,7 @@ def get_record(record_id):
                         'native_id': record[1],
                         'chain_name': record[2],
                         'urls': json.loads(record[3]),
-                        'rpc_class': record[4]})
+                        'api_class': record[4]})
     else:
         return jsonify({'error': 'Record not found'}), 404
 
@@ -144,11 +144,11 @@ def update_record(record_id):
         native_id = request.json['native_id']
         chain_name = request.json['chain_name']
         urls = request.json['urls']
-        rpc_class = request.json['rpc_class']
+        api_class = request.json['api_class']
     except KeyError as e:
         return jsonify({'error': 'Missing required parameters'}), 400
 
-    if not is_valid_api(rpc_class):
+    if not is_valid_api(api_class):
         return jsonify({'error': {'error': "Invalid api"}}), 500
 
     # Make sure urls are OK
@@ -160,9 +160,9 @@ def update_record(record_id):
         conn = sqlite3.connect(app.config['DATABASE'])
         cursor = conn.cursor()
         cursor.execute('''UPDATE chains_public_rpcs
-                        SET native_id = ?, chain_name = ?, urls = ?, rpc_class = ?
+                        SET native_id = ?, chain_name = ?, urls = ?, api_class = ?
                         WHERE id = ?''',
-                    (native_id, chain_name, urls_json, rpc_class, record_id))
+                    (native_id, chain_name, urls_json, api_class, record_id))
     except sqlite3.IntegrityError as e:
         conn.rollback()  # Roll back the transaction
         conn.close()
@@ -185,7 +185,7 @@ def update_record(record_id):
                     'native_id': native_id,
                     'chain_name': chain_name,
                     'urls': urls,
-                    'rpc_class': rpc_class})
+                    'api_class': api_class})
 
 
 # Delete a record by ID

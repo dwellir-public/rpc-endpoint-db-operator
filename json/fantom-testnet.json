@@ -2,8 +2,9 @@
     "native_id": 4002,
     "chain_name": "Fantom Testnet",
     "urls": [
-      "https://rpc.testnet.fantom.network"
+        "https://rpc.testnet.fantom.network",
+        "https://fantom-testnet-archive-rpc-1.dwellir.com",
+        "https://fantom-testnet-archive-rpc-2.dwellir.com"
     ],
-    "rpc_class": "ethereum"
-  }
-  
+    "api_class": "ethereum"
+}

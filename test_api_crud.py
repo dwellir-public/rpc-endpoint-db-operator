@@ -53,9 +53,9 @@ class CRUDTestCase(unittest.TestCase):
     def populate_db(self):
         conn = sqlite3.connect(app.config['DATABASE'])
         c = conn.cursor()
-        c.execute("INSERT INTO chains_public_rpcs (native_id, chain_name, urls, rpc_class) VALUES (?, ?, ?, ?)",
+        c.execute("INSERT INTO chains_public_rpcs (native_id, chain_name, urls, api_class) VALUES (?, ?, ?, ?)",
                 (1, "Ethereum", '["https://eth1-archive-1.dwellir.com", "wss://eth1-archive-2.dwellir.com"]', 'ethereum'))
-        c.execute("INSERT INTO chains_public_rpcs (native_id, chain_name, urls, rpc_class) VALUES (?, ?, ?, ?)",
+        c.execute("INSERT INTO chains_public_rpcs (native_id, chain_name, urls, api_class) VALUES (?, ?, ?, ?)",
                 (2, "Binance Smart Chain", '["https://bsc-dataseed1.binance.org","https://bsc.publicnode.com","wss://bsc-ws-node.nariox.org"]', 'ethereum'))
         conn.commit()
         conn.close()
@@ -91,7 +91,7 @@ class CRUDTestCase(unittest.TestCase):
         data = {'native_id': 999, 
                 'chain_name': 'TESTNAME', 
                 'urls': ['https://foo.bar', 'https://foo.bar'],
-                'rpc_class': 'substrate'}
+                'api_class': 'substrate'}
         response = self.app.post('/create', json=data)
         print("===============", response)
         self.assertEqual(response.status_code, 201)
@@ -121,7 +121,7 @@ class CRUDTestCase(unittest.TestCase):
                 'https://bit/bar',
                 'wss://smoke/hammer:1234'
             ],
-            'rpc_class': 'aptos'
+            'api_class': 'aptos'
         }
         response = self.app.post('/create', json=chaindata)
         record_id = response.json['id']
@@ -138,7 +138,7 @@ class CRUDTestCase(unittest.TestCase):
                 'https://bit/bar',
                 'wss://smoke/hammer:1234'
             ],
-            'rpc_class': 'substrate'
+            'api_class': 'substrate'
         }
         create_response = self.app.post('/create', json=chaindata)
         record_id = create_response.json['id']
@@ -147,7 +147,7 @@ class CRUDTestCase(unittest.TestCase):
         new_data = {'native_id': 2, 
                     'chain_name': 'test-update-chainName', 
                     'urls': ['https://dwellir.com:455'], 
-                    'rpc_class': 'ethereum'}
+                    'api_class': 'ethereum'}
         update_response = self.app.put('/update/{}'.format(record_id), json=new_data)
         assert update_response.status_code == 200
 
@@ -156,8 +156,8 @@ class CRUDTestCase(unittest.TestCase):
         updated_record = get_response.json
         assert updated_record['native_id'] == new_data['native_id']
         assert updated_record['chain_name'] == new_data['chain_name']
-        print("##############", new_data['rpc_class'], updated_record['rpc_class'])
-        assert updated_record['rpc_class'] == new_data['rpc_class']
+        print("##############", new_data['api_class'], updated_record['api_class'])
+        assert updated_record['api_class'] == new_data['api_class']
         actual_urls = updated_record['urls']
         self.assertListEqual(new_data['urls'], actual_urls)
 
@@ -169,7 +169,7 @@ class CRUDTestCase(unittest.TestCase):
                 'https://bit/bar',
                 'wss://smoke/hammer:1234'
             ],
-            'rpc_class': 'substrate'
+            'api_class': 'substrate'
         }
         response = self.app.post('/create', json=chaindata)
         record_id = response.json['id']
