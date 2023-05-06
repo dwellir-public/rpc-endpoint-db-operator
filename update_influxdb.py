@@ -73,7 +73,7 @@ def write_to_influxdb(url, token, org, bucket, records):
 
 # Main loop
 
-if not test_influxdb_connection(influxdb_url,8086,influxdb_token, influxdb_org, influxdb_bucket):
+if not test_influxdb_connection(influxdb_url,influxdb_token, influxdb_org, influxdb_bucket):
     print("Couldn't connect to influxdb.")
     sys.exit(1)
 
