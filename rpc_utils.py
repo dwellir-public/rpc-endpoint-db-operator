@@ -89,6 +89,8 @@ def query_for_latency_and_blockheight(url, api_type):
             response = requests.get(url, headers=headers, data=data)
             response.raise_for_status()
             latest_block_height = int(response.json()['block_height'])
+        elif api_type == "substrate":
+            latest_block_height = get_substrate_blockheight_wss(url)
         else:
             response = requests.post(url, headers=headers, data=data)
             response.raise_for_status()
