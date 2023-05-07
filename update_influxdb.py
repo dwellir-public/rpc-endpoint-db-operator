@@ -137,7 +137,8 @@ if __name__ == '__main__':
                 records.append(latency_point)
                 try:
                     logger.debug(f"Writing to database {endpoint}: Block: {info_dict['latest_block_height']} Total Latency: {info_dict['time_total']}")
-                    if int(latency_point.field('exitcode')) > 0:
+                    logger.debug(latency_point)
+                    if int(latency_point['exitcode']) > 0:
                         logger.warning(f"Non zero exit_code found for {endpoint}. I will store the information in influx, but this is an indication that the endpoint isnt healthy.")
     
                     write_to_influxdb(influxdb_url,influxdb_token,influxdb_org,influxdb_bucket, records)
