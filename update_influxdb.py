@@ -61,6 +61,7 @@ def load_endpoints(rpc_flask_api, cache_refresh_interval=3600):
     # Refresh cache if needed
     if force_refresh_cache:
         try:
+            logger.info("Updating cache from endpoints API")
             all_url_api_tuples = get_all_endpoints_from_api(rpc_flask_api)
             last_cache_refresh = time.time()
 
@@ -94,8 +95,7 @@ def get_all_endpoints_from_api(rpc_flask_api):
 # Main loop
 def main(logger, request_timeout, influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, collect_info_from_endpoint, write_to_influxdb):
     loop = asyncio.get_event_loop()
-    # Load the cache at start.
-    all_url_api_tuples = load_endpoints(rpc_flask_api)
+
     while True:
         # Get all RPC endpoints from all chains.
         # Place them in a list with their corresponding class.
