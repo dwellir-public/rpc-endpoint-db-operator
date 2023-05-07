@@ -76,7 +76,7 @@ def get_all_endpoints_from_api(rpc_flask_api):
     return all_url_api_tuples
 
 # Main loop
-async def main(logger, write_to_influxdb):
+async def main(logger):
     # LOAD CONFIG
     with open('config.json') as f:
         config = json.load(f)
@@ -144,5 +144,5 @@ if __name__ == '__main__':
     logger.addHandler(console_handler)
     
     # Main
-    asyncio.run(main(logger, write_to_influxdb))
+    asyncio.run(main(logger))
     # main(logger, collect_info_from_endpoint, write_to_influxdb)
