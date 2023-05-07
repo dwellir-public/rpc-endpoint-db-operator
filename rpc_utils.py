@@ -18,15 +18,12 @@ async def get_aptos(api_url):
             async with session.get(api_url) as resp:
                 end_time = time.monotonic()
                 response = await resp.json()
-                highest_block = int(response['block_height'])
-                latency = (end_time - start_time)
-                http_code = resp.status
-                exit_code = 0
+            highest_block = int(response['block_height'])
+            latency = (end_time - start_time)
+            http_code = resp.status
+            exit_code = 0
         except aiohttp.ClientError as e:
-            highest_block = None
-            latency = None
-            http_code = None
-            exit_code = 1
+            return None,None,None,None
         return highest_block, latency, http_code, exit_code
 
 
@@ -37,15 +34,12 @@ async def get_substrate(api_url):
             async with session.post(api_url, json={"jsonrpc":"2.0","id":1,"method":"chain_getHeader","params":[]}) as resp:
                 end_time = time.monotonic()
                 response = await resp.json()
-                highest_block = int(response['result']['number'], 16)
-                latency = (end_time - start_time)
-                http_code = resp.status
-                exit_code = 0
+            highest_block = int(response['result']['number'], 16)
+            latency = (end_time - start_time)
+            http_code = resp.status
+            exit_code = 0
         except aiohttp.ClientError as e:
-            highest_block = None
-            latency = None
-            http_code = None
-            exit_code = 1
+            return None,None,None,None
         return highest_block, latency, http_code, exit_code
 
 
@@ -56,16 +50,15 @@ async def get_ethereum(api_url, chain_id=1):
             async with session.post(api_url, json={'jsonrpc': '2.0', 'method': 'eth_blockNumber', 'params': [], 'id': str({chain_id}) }) as resp:
                 end_time = time.monotonic()
                 response = await resp.json()
-                print(response)
-                highest_block = int(response['result'], 16)
-                latency = (end_time - start_time)
-                http_code = resp.status
-                exit_code = 0
+            
+            print(response)
+            highest_block = int(response['result'], 16)
+            latency = (end_time - start_time)
+            http_code = resp.status
+            exit_code = 0
         except aiohttp.ClientError as e:
-            highest_block = None
-            latency = None
-            http_code = None
-            exit_code = 1
+            return None,None,None,None
+        
         return highest_block, latency, http_code, exit_code
 
 ##########################################
