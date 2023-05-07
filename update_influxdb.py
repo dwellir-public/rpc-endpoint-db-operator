@@ -163,7 +163,7 @@ async def main(logger, collect_info_from_endpoint, write_to_influxdb):
                     if int(info_dict['exitcode']) > 0:
                         logger.warning(f"Non zero exit_code found for {endpoint}. I will store the information in influx, but this is an indication that the endpoint isnt healthy.")
     
-                    await write_to_influxdb(influxdb_url,influxdb_token,influxdb_org,influxdb_bucket, records)
+                    write_to_influxdb(influxdb_url,influxdb_token,influxdb_org,influxdb_bucket, records)
                 
                 except Exception as e:
                     logger.error(f"Something went horribly wrong while trying to insert into influxdb {endpoint}: {info_dict}", e)
