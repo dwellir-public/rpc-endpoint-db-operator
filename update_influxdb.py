@@ -50,7 +50,7 @@ def load_endpoints(rpc_flask_api, force_refresh_cache=False):
     except (FileNotFoundError, json.JSONDecodeError):
         all_url_api_tuples = None
 
-    if all_url_api_tuples is None or force_refresh_cache:
+    if all_url_api_tuples is None:
         try:
             all_url_api_tuples = get_all_endpoints_from_api(rpc_flask_api)
         except Exception as e:
@@ -70,8 +70,17 @@ def load_endpoints(rpc_flask_api, force_refresh_cache=False):
 
     return all_url_api_tuples
 
-# Main loop
+def get_all_endpoints_from_api(rpc_flask_api):
+    response = requests.get(f'{rpc_flask_api}/all')
+    all_url_api_tuples = []
+    for item in response.json():
+        # Tuple of (url,api_class)
+        endpoint_tuple = (item['urls'], item['api_class'])
+        for rpc in endpoint_tuple[0]:
+            all_url_api_tuples.append((rpc,endpoint_tuple[1]))
+    return all_url_api_tuples
 
+# Main loop
 def main(logger, request_timeout, influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, collect_info_from_endpoint, write_to_influxdb):
     loop = asyncio.get_event_loop()
     # Load the cache at start.
@@ -113,15 +122,6 @@ def main(logger, request_timeout, influxdb_url, influxdb_token, influxdb_org, in
     # Wait for 5 seconds
         time.sleep(5)
 
-def get_all_endpoints_from_api(rpc_flask_api):
-    response = requests.get(f'{rpc_flask_api}/all')
-    all_url_api_tuples = []
-    for item in response.json():
-        # Tuple of (url,api_class)
-        endpoint_tuple = (item['urls'], item['api_class'])
-        for rpc in endpoint_tuple[0]:
-            all_url_api_tuples.append((rpc,endpoint_tuple[1]))
-    return all_url_api_tuples
 
 if __name__ == '__main__':
     
