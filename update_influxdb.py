@@ -94,8 +94,16 @@ async def main(logger):
         logger.error("Couldn't connect to influxdb. Exit.")
         sys.exit(1)
 
-    loop = asyncio.get_event_loop()
+    try:
+        loop = asyncio.get_event_loop()
+    except RuntimeError as ex:
+        if "no current event loop" in str(ex):
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+        else:
+            raise
 
+    
     while True:
         # Get all RPC endpoints from all chains.
         # Place them in a list with their corresponding class.
@@ -104,8 +112,10 @@ async def main(logger):
         all_url_api_tuples = load_endpoints(rpc_flask_api,cache_refresh_interval=cache_max_age)
 
         print("==============", all_url_api_tuples)
+
+        info = loop.run_until_complete(fetch_all_info(all_url_api_tuples))
         
-        info = loop.run_until_complete(await fetch_all_info(all_url_api_tuples))
+        # info = loop.run_until_complete(await fetch_all_info(all_url_api_tuples))
 
         print(info)
 

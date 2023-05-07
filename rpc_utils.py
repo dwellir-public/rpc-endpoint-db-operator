@@ -115,8 +115,9 @@ async def fetch_info(api_url, api_class):
     return info
 
 async def fetch_all_info(all_url_api_tuples):
+    loop = asyncio.get_event_loop() #Reuse the current event loop
     tasks = []
     for url, api_class in all_url_api_tuples:
-        tasks.append(asyncio.create_task(fetch_info(url, api_class)))
+        tasks.append(loop.create_task(fetch_info(url, api_class)))
     results = await asyncio.gather(*tasks, return_exceptions=True)
     return results
