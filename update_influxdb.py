@@ -42,31 +42,42 @@ def write_to_influxdb(url, token, org, bucket, records):
         logger.critical(f"Failed writing to influx. This shouldn't happen. {str(e)}")
         sys.exit(1)
 
-def load_endpoints(rpc_flask_api, force_refresh_cache=False):
+def load_endpoints(rpc_flask_api, cache_refresh_interval=3600):
+    """Load endpoints from cache or refresh if cache is stale."""
+
     # Load cached value from file
     try:
         with open('cache.json', 'r') as f:
-            all_url_api_tuples = json.load(f)
+            all_url_api_tuples, last_cache_refresh = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
-        all_url_api_tuples = None
+        all_url_api_tuples, last_cache_refresh = None, 0
 
-    if all_url_api_tuples is None:
+    # Check if cache is stale
+    if time.time() - last_cache_refresh > cache_refresh_interval:
+        force_refresh_cache = True
+    else:
+        force_refresh_cache = False
+
+    # Refresh cache if needed
+    if force_refresh_cache:
         try:
             all_url_api_tuples = get_all_endpoints_from_api(rpc_flask_api)
+            last_cache_refresh = time.time()
+
+            # Save updated cache to file
+            with open('cache.json', 'w') as f:
+                json.dump((all_url_api_tuples, last_cache_refresh), f)
 
         except Exception as e:
             # Log the error
-            logger.error(f"An error occurred while getting endpoints: {str(e)}, using old cache.json.")
+            logger.error(f"An error occurred while getting endpoints: {str(e)}")
 
             # Load the previous cache value
             with open('cache.json', 'r') as f:
-                all_url_api_tuples = json.load(f)
+                all_url_api_tuples, last_cache_refresh = json.load(f)
+
     else:
         logger.info("Using cached endpoints")
-
-    # Save the updated endpoints to file
-    with open('cache.json', 'w') as f:
-        json.dump(all_url_api_tuples, f)
 
     return all_url_api_tuples
 
