@@ -1,9 +1,5 @@
 ### endpointdb
 
-
-
-### Descripton:
-
 This repo holds tools to maintain a database of public API:s for blockchains.
 
 It also holds a tool to update an influx database with latency and blockheight information.
@@ -86,3 +82,25 @@ Delete the record
 Get all records
 
     curl http://localhost:5000/all
+
+
+## Configure grafana
+
+Use Flux and use your token.
+
+![Example image](grafana-datasource-setup.png?raw=true "Example image")
+
+
+## Influx query in grafana
+
+Use this example query in grafana.
+
+Example:
+
+```
+from(bucket: "blockheights")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "block_latency")
+  |> filter(fn: (r) => r["url"] == "https://bsc-dataseed1.binance.org" or r["url"] == "https://bsc-dataseed1.defibit.io" or r["url"] == "https://bsc-dataseed1.ninicoin.io")
+  |> filter(fn: (r) => r["_field"] == "block_height" or r["_field"] == "time_total")
+```

@@ -109,7 +109,6 @@ if __name__ == '__main__':
         else:
             raise
 
-    
     while True:
         # Get all RPC endpoints from all chains.
         # Place them in a list with their corresponding class.
