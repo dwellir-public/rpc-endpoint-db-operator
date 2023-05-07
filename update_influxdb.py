@@ -93,7 +93,6 @@ if __name__ == '__main__':
     influxdb_token = config['INFLUXDB_TOKEN']
     influxdb_org = config['INFLUXDB_ORG']
     influxdb_bucket = config['INFLUXDB_BUCKET']
-    rpc_request_timeout = config['RPC_REQUEST_TIMEOUT']
     cache_max_age=config['CACHE_MAX_AGE']
 
     # Test connection to influx before attemting start.
@@ -117,26 +116,14 @@ if __name__ == '__main__':
         # This is all the endpoints we are to query and update the influxdb with.
         # all_url_api_tuples = get_all_endpoints_from_api(rpc_flask_api)
         all_url_api_tuples = load_endpoints(rpc_flask_api,cache_refresh_interval=cache_max_age)
-
-        print("==============", all_url_api_tuples)
-
-        # info = loop.run_until_complete(fetch_all_info(all_url_api_tuples))
         
         info = loop.run_until_complete(fetch_all_info(all_url_api_tuples))
 
-        print("============================================")
-
-        print(info)
-
         for endpoint, info_dict in zip(all_url_api_tuples, info):
             if info_dict:
-                # blockheight_point = new_latest_block_height_point(endpoint[0], endpoint[1], info_dict['latest_block_height'])
-                # latency_point = new_latency_point(endpoint[0], endpoint[1], info_dict)
                 bcp = new_block_latency_point(endpoint[0], endpoint[1], info_dict)
                 records = []
                 records.append(bcp)
-                # records.append(blockheight_point)
-                # records.append(latency_point)
                 try:
                     logger.debug(f"Writing to database {endpoint}: Block: {info_dict['latest_block_height']} Total Latency: {info_dict['time_total']}")
                     logger.debug(info_dict)
