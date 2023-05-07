@@ -115,7 +115,6 @@ async def main(logger, collect_info_from_endpoint, write_to_influxdb):
     with open('config.json') as f:
         config = json.load(f)
 
-    loop = asyncio.get_event_loop()
     rpc_flask_api = config['RPC_FLASK_API']
     influxdb_url = config['INFLUXDB_URL']
     influxdb_token = config['INFLUXDB_TOKEN']
