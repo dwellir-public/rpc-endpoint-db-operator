@@ -12,14 +12,14 @@ from rpc_utils import get_eth_block_height_ethbased, get_block_height_aptos, que
 from influxdb_utils import new_latency_point, new_latest_block_height_point, test_influxdb_connection
 from color_logger import ColoredFormatter
 
-async def collect_info_from_endpoint(loop, url, api_type):
+async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
     """
     Collect info.  (latency + latest_block)
     """
     try:
         info = await asyncio.wait_for(
             loop.run_in_executor(None, query_for_latency_and_blockheight, url, api_type),
-            timeout=5
+            timeout=request_timeout
         )
     except asyncio.exceptions.TimeoutError as timeouterror:
         logger.error(f"A timeout occured while trying to get into from {url} {timeouterror}")
@@ -42,11 +42,11 @@ def write_to_influxdb(url, token, org, bucket, records):
 
 # Main loop
 
-def main(logger, influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, all_url_api_tuples, collect_info_from_endpoint, write_to_influxdb):
+def main(logger, request_timeout, influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, all_url_api_tuples, collect_info_from_endpoint, write_to_influxdb):
     loop = asyncio.get_event_loop()
     while True:
     # Get block heights from all endpoints asynchronously
-        tasks = [collect_info_from_endpoint(loop, url, api_type) for url, api_type in all_url_api_tuples]
+        tasks = [collect_info_from_endpoint(loop, request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
     
     #TODO: Make it time out!
         info = loop.run_until_complete(asyncio.gather(*tasks))
@@ -93,6 +93,7 @@ if __name__ == '__main__':
     influxdb_token = config['INFLUXDB_TOKEN']
     influxdb_org = config['INFLUXDB_ORG']
     influxdb_bucket = config['INFLUXDB_BUCKET']
+    rpc_req_timeout = config['RPC_REQUEST_TIMEOUT']
 
     # Test connection to influx
     if not test_influxdb_connection(influxdb_url,influxdb_token, influxdb_org, influxdb_bucket):
@@ -113,4 +114,4 @@ if __name__ == '__main__':
         for rpc in endpoint_tuple[0]:
             all_url_api_tuples.append((rpc,endpoint_tuple[1]))
     
-    main(logger, influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, all_url_api_tuples, collect_info_from_endpoint, write_to_influxdb)
+    main(logger,rpc_req_timeout,influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, all_url_api_tuples, collect_info_from_endpoint, write_to_influxdb)
