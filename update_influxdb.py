@@ -42,7 +42,7 @@ def write_to_influxdb(url, token, org, bucket, records):
         logger.critical(f"Failed writing to influx. This shouldn't happen. {str(e)}")
         sys.exit(1)
 
-def load_endpoints(rpc_flask_api, cache_refresh_interval=3600):
+def load_endpoints(rpc_flask_api, cache_refresh_interval=30):
     """Load endpoints from cache or refresh if cache is stale."""
 
     # Load cached value from file
