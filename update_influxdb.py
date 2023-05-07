@@ -53,6 +53,7 @@ def load_endpoints(rpc_flask_api, force_refresh_cache=False):
     if all_url_api_tuples is None:
         try:
             all_url_api_tuples = get_all_endpoints_from_api(rpc_flask_api)
+
         except Exception as e:
             # Log the error
             logger.error(f"An error occurred while getting endpoints: {str(e)}, using old cache.json.")
@@ -60,13 +61,12 @@ def load_endpoints(rpc_flask_api, force_refresh_cache=False):
             # Load the previous cache value
             with open('cache.json', 'r') as f:
                 all_url_api_tuples = json.load(f)
-
     else:
         logger.info("Using cached endpoints")
 
-        # Save the updated endpoints to file
-        with open('cache.json', 'w') as f:
-            json.dump(all_url_api_tuples, f)
+    # Save the updated endpoints to file
+    with open('cache.json', 'w') as f:
+        json.dump(all_url_api_tuples, f)
 
     return all_url_api_tuples
 
