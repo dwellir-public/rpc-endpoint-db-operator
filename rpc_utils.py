@@ -51,7 +51,7 @@ async def get_ethereum(api_url, chain_id=1):
                 end_time = time.monotonic()
                 response = await resp.json()
             
-            print(response)
+            print(f"get_eth", response)
             highest_block = int(response['result'], 16)
             latency = (end_time - start_time)
             http_code = resp.status
