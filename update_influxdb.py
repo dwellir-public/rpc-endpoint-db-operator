@@ -23,6 +23,7 @@ async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
         info = None
     except Exception as e:
         logger.error(f"Error fetching blockheight and latency from {url}: {str(e)}")
+        print(info)
         info = None
 
     logger.debug(f"We got {info} from {url}")
@@ -30,7 +31,6 @@ async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
     # Assuming that `info` is a tuple with 2 elements
     if info is not None:
         print(info)
-        # do something with `latest_block_height` and `latency`
         return info
 
 
