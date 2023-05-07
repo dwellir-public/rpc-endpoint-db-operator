@@ -56,6 +56,9 @@ def load_endpoints(rpc_flask_api, cache_refresh_interval=3600):
     if time.time() - last_cache_refresh > cache_refresh_interval:
         force_refresh_cache = True
     else:
+        diff = time.time() - last_cache_refresh
+        remains = cache_refresh_interval - diff
+        logger.info(f"Cache will be updated in: {remains}")
         force_refresh_cache = False
 
     # Refresh cache if needed
