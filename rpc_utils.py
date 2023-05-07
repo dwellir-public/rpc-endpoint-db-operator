@@ -101,4 +101,5 @@ async def query_for_latency_and_blockheight(url, api_type):
         'latest_block_height': latest_block_height
     }
 
+    print("Assembled:", info)
     return info
