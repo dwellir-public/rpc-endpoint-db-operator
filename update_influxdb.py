@@ -140,7 +140,8 @@ if __name__ == '__main__':
                 try:
                     logger.debug(f"Writing to database {endpoint}: Block: {info_dict['latest_block_height']} Total Latency: {info_dict['time_total']}")
                     logger.debug(info_dict)
-                    if int(info_dict['exitcode']) > 0:
+                    exitcode = int(info_dict.get('exitcode', -1)) if info_dict.get('exitcode') is not None else None
+                    if exitcode != 0:
                         logger.warning(f"Non zero exit_code found for {endpoint}. I will store the information in influx, but this is an indication that the endpoint isnt healthy.")
     
                     write_to_influxdb(influxdb_url,influxdb_token,influxdb_org,influxdb_bucket, records)
