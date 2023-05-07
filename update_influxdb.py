@@ -7,7 +7,7 @@ import requests
 from influxdb_client import InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 import time
-from rpc_utils import fetch_all_info, get_aptos, get_ethereum, get_substrate, is_valid_url
+from rpc_utils import fetch_all_info
 from influxdb_utils import new_latency_point, new_latest_block_height_point, test_influxdb_connection
 from color_logger import ColoredFormatter
 
@@ -137,7 +137,7 @@ if __name__ == '__main__':
                 records.append(latency_point)
                 try:
                     logger.debug(f"Writing to database {endpoint}: Block: {info_dict['latest_block_height']} Total Latency: {info_dict['time_total']}")
-    
+                    dir(latency_point)
                     if int(latency_point.get_field('exitcode')) > 0:
                         logger.warning(f"Non zero exit_code found for {endpoint}. I will store the information in influx, but this is an indication that the endpoint isnt healthy.")
     
