@@ -74,13 +74,15 @@ def load_endpoints(rpc_flask_api, force_refresh_cache=False):
 
 def main(logger, request_timeout, influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, collect_info_from_endpoint, write_to_influxdb):
     loop = asyncio.get_event_loop()
+    # Load the cache at start.
+    all_url_api_tuples = load_endpoints(rpc_flask_api, force_refresh_cache=True)
     while True:
         # Get all RPC endpoints from all chains.
         # Place them in a list with their corresponding class.
         # This is all the endpoints we are to query and update the influxdb with.
         # all_url_api_tuples = get_all_endpoints_from_api(rpc_flask_api)
         all_url_api_tuples = load_endpoints(rpc_flask_api)
-        
+
         # Get block heights from all endpoints asynchronously
         tasks = [collect_info_from_endpoint(loop, request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
     
