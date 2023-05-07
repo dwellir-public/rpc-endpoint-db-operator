@@ -7,7 +7,7 @@ import requests
 from influxdb_client import InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 import time
-from rpc_utils import get_aptos, get_ethereum, get_substrate, is_valid_url
+from rpc_utils import fetch_all_info, get_aptos, get_ethereum, get_substrate, is_valid_url
 from influxdb_utils import new_latency_point, new_latest_block_height_point, test_influxdb_connection
 from color_logger import ColoredFormatter
 
