@@ -129,7 +129,7 @@ if __name__ == '__main__':
                     if exitcode != 0:
                         logger.warning(f"Non zero exit_code found for {endpoint}. I will store the information in influx, but this is an indication that the endpoint isnt healthy.")
                     elif exitcode is None:
-                        logger.warning(f"Non exit_code is None for {endpoint}. I will not add this datapoint.")
+                        logger.warning(f"exit_code is None for {endpoint}. I will not add this datapoint.")
                     else:
                         logger.debug(f"Writing to database {endpoint}: Data: {str(info_dict)}")
                         write_to_influxdb(influxdb_url,influxdb_token,influxdb_org,influxdb_bucket, records)
