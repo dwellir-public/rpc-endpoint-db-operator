@@ -11,40 +11,6 @@ from rpc_utils import fetch_all_info, get_aptos, get_ethereum, get_substrate, is
 from influxdb_utils import new_latency_point, new_latest_block_height_point, test_influxdb_connection
 from color_logger import ColoredFormatter
 
-async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
-    """
-    Collect info.  (latency + latest_block)
-    """
-    try:
-        print("Begin")
-        if not is_valid_url(url):
-            raise ValueError('Invalid URL')
-
-        if api_type == 'aptos':
-            info_coroutine = get_aptos(url)
-        elif api_type == "substrate":
-            info_coroutine = get_substrate(url)
-        elif api_type == "ethereum":
-            info_coroutine = get_ethereum(url)
-        else:
-            print(f"Unrecognized api: {api_type}")
-            raise ValueError(f"Unrecognized api: {api_type}")
-
-        print("query completed")
-        info = await asyncio.wait_for(loop.run_in_executor(None, await info_coroutine), 
-                                      timeout=request_timeout)
-
-        return info
-
-    except asyncio.exceptions.TimeoutError as timeouterror:
-        logger.error(f"A timeout occured while trying to get into from {url} {timeouterror}")
-        return {'latest_block_height': None, 'time_total': None, 'http_code': None, 'exitcode': None}
-
-    except Exception as e:
-        logger.error(f"Error fetching data from {url}: {str(e)}")
-        return {'latest_block_height': None, 'time_total': None, 'http_code': None, 'exitcode': None}
-
-
 
 # Define function to write data to InfluxDB
 def write_to_influxdb(url, token, org, bucket, records):
@@ -110,7 +76,7 @@ def get_all_endpoints_from_api(rpc_flask_api):
     return all_url_api_tuples
 
 # Main loop
-async def main(logger, collect_info_from_endpoint, write_to_influxdb):
+async def main(logger, write_to_influxdb):
     # LOAD CONFIG
     with open('config.json') as f:
         config = json.load(f)
@@ -142,13 +108,6 @@ async def main(logger, collect_info_from_endpoint, write_to_influxdb):
         info = loop.run_until_complete(await fetch_all_info(all_url_api_tuples))
 
         print(info)
-
-        # Get block heights from all endpoints asynchronously
-        
-        #tasks = [await collect_info_from_endpoint(loop, rpc_request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
-        #info = loop.run_until_complete(asyncio.gather(*tasks))
-        # coroutines = [collect_info_from_endpoint(loop, rpc_request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
-        # info = await asyncio.gather(*coroutines)
 
         for endpoint, info_dict in zip(all_url_api_tuples, info):
             if info_dict:
@@ -185,5 +144,5 @@ if __name__ == '__main__':
     logger.addHandler(console_handler)
     
     # Main
-    asyncio.run(main(logger, collect_info_from_endpoint, write_to_influxdb))
+    asyncio.run(main(logger, write_to_influxdb))
     # main(logger, collect_info_from_endpoint, write_to_influxdb)
