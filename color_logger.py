@@ -25,6 +25,4 @@ class ColoredFormatter(logging.Formatter):
         if levelname in self.COLORS:
             levelname_color = self.COLOR_SEQ % (30 + self.COLORS[levelname]) + levelname + self.RESET_SEQ
             record.levelname = levelname_color
-        record.msg = f"{record.msg} - {record.args[0]}"
         return super(ColoredFormatter, self).format(record)
-

@@ -22,7 +22,7 @@ async def collect_info_from_endpoint(loop, url, api_type):
             timeout=5
         )
     except asyncio.exceptions.TimeoutError as timeouterror:
-        logger.error(f"A timeout occured while trying to get into from {url}", str(timeouterror))
+        logger.error(f"A timeout occured while trying to get into from {url} {timeouterror}")
         info = None
     except Exception as e:
         logger.error(f"Error fetching blockheight and latency from {url}:", str(e))
