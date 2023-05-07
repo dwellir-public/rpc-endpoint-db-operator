@@ -84,8 +84,8 @@ async def query_for_latency_and_blockheight(url, api_type):
             print(f"Unrecognized api: {api_type}")
             raise ValueError(f"Unrecognized api: {api_type}")
         
-    except (requests.RequestException, requests.Timeout, ConnectionError, requests.HTTPError, NameResolutionError) as e:
-        print(f"Something went wrong query_for_latency_and_blockheight: ", e)
+    except Exception as e:
+        print(f"Something went very wrong query_for_latency_and_blockheight: ", e)
         time_total = 0
         http_code = 0
         exit_code = 1
