@@ -136,12 +136,10 @@ def main(logger, collect_info_from_endpoint, write_to_influxdb):
                 records.append(latency_point)
                 try:
                     logger.debug(f"Writing to database {endpoint}: Block: {info_dict['latest_block_height']} Total Latency: {info_dict['time_total']}")
-                    
-                    # Look at the data and tell us any strange.
+    
                     if int(info_dict['exitcode']) > 0:
                         logger.warning(f"Non zero exit_code found for {endpoint}. I will store the information in influx, but this is an indication that the endpoint isnt healthy.")
-                    
-                    # Insert all datapoints
+    
                     write_to_influxdb(influxdb_url,influxdb_token,influxdb_org,influxdb_bucket, records)
                 
                 except Exception as e:
@@ -149,23 +147,19 @@ def main(logger, collect_info_from_endpoint, write_to_influxdb):
             else:
                 logger.warning(f"Couldn't get information from {endpoint}. Skipping.")
     
-    # Wait for 5 seconds
+        # Wait for 5 seconds before running again. Allows us to see what goes on.
+        # Possibly we can remove this later.
         time.sleep(5)
 
 
 if __name__ == '__main__':
-    
-    # create logger
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
-    # create console handler and set level to debug
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setLevel(logging.DEBUG)
-    # create formatter
     formatter = ColoredFormatter('%(asctime)s - %(levelname)s - %(message)s')
-    # add formatter to console handler
     console_handler.setFormatter(formatter)
-    # add console handler to logger
     logger.addHandler(console_handler)
     
+    # Main
     main(logger,collect_info_from_endpoint, write_to_influxdb)
