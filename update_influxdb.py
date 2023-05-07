@@ -122,7 +122,7 @@ if __name__ == '__main__':
 
         # info = loop.run_until_complete(fetch_all_info(all_url_api_tuples))
         
-        info = loop.run_until_complete(await fetch_all_info(all_url_api_tuples))
+        info = loop.run_until_complete(fetch_all_info(all_url_api_tuples))
 
         print("============================================")
 
