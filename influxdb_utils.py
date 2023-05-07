@@ -1,5 +1,5 @@
 from datetime import datetime
-from influxdb_client import Point
+from influxdb_client import Point, InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 
 def new_latest_block_height_point(url: str, api: str, latest_block_height: int):
@@ -43,3 +43,17 @@ def new_latency_point(url: str, api: str, data: dict):
         .time(datetime.utcnow())
 
     return latency_point
+
+def test_influxdb_connection(url, token, org, bucket):
+    """
+    Test the connection to the database.
+    """
+    client = InfluxDBClient(url=url, token=token, org=org)
+    try:
+        if client.ping():
+            return True
+        else:
+            return False
+    except Exception as e:
+        print(e)
+        return False
