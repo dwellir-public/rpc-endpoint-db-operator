@@ -29,7 +29,7 @@ async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
 
     # Assuming that `info` is a tuple with 2 elements
     if info is not None:
-        latest_block_height, latency = info
+        print(info)
         # do something with `latest_block_height` and `latency`
         return info
 
