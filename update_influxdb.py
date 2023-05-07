@@ -27,6 +27,7 @@ async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
     except Exception as e:
         logger.error(f"Error fetching blockheight and latency from {url}:", str(e))
         info = None
+    logger.info(f"Fetched {info}) from {url}")
     return info
 
 # Define function to write data to InfluxDB
