@@ -125,7 +125,7 @@ if __name__ == '__main__':
                 records = []
                 records.append(bcp)
                 try:
-                    logger.debug(f"Writing to database {endpoint}: Block: {info_dict['latest_block_height']} Total Latency: {info_dict['time_total']}")
+                    logger.debug(f"Writing to database {endpoint}: Data: {str(info_dict)}")
                     logger.debug(info_dict)
                     exitcode = int(info_dict.get('exitcode', -1)) if info_dict.get('exitcode') is not None else None
                     if exitcode != 0:
