@@ -96,18 +96,34 @@ def get_all_endpoints_from_api(rpc_flask_api):
     return all_url_api_tuples
 
 # Main loop
-def main(logger, request_timeout, influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, collect_info_from_endpoint, write_to_influxdb):
+def main(logger, collect_info_from_endpoint, write_to_influxdb):
+    # LOAD CONFIG
+    with open('config.json') as f:
+        config = json.load(f)
+
     loop = asyncio.get_event_loop()
+    rpc_flask_api = config['RPC_FLASK_API']
+    influxdb_url = config['INFLUXDB_URL']
+    influxdb_token = config['INFLUXDB_TOKEN']
+    influxdb_org = config['INFLUXDB_ORG']
+    influxdb_bucket = config['INFLUXDB_BUCKET']
+    rpc_request_timeout = config['RPC_REQUEST_TIMEOUT']
+    cache_max_age=config['CACHE_MAX_AGE']
+
+    # Test connection to influx before attemting start.
+    if not test_influxdb_connection(influxdb_url,influxdb_token, influxdb_org, influxdb_bucket):
+        logger.error("Couldn't connect to influxdb. Exit.")
+        sys.exit(1)
 
     while True:
         # Get all RPC endpoints from all chains.
         # Place them in a list with their corresponding class.
         # This is all the endpoints we are to query and update the influxdb with.
         # all_url_api_tuples = get_all_endpoints_from_api(rpc_flask_api)
-        all_url_api_tuples = load_endpoints(rpc_flask_api)
+        all_url_api_tuples = load_endpoints(rpc_flask_api,cache_refresh_interval=cache_max_age)
 
         # Get block heights from all endpoints asynchronously
-        tasks = [collect_info_from_endpoint(loop, request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
+        tasks = [collect_info_from_endpoint(loop, rpc_request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
     
         info = loop.run_until_complete(asyncio.gather(*tasks))
 
@@ -151,24 +167,5 @@ if __name__ == '__main__':
     console_handler.setFormatter(formatter)
     # add console handler to logger
     logger.addHandler(console_handler)
-
-    # CONFIG
-    with open('config.json') as f:
-        config = json.load(f)
-
-    rpc_flask_api = config['RPC_FLASK_API']
-    influxdb_url = config['INFLUXDB_URL']
-    influxdb_token = config['INFLUXDB_TOKEN']
-    influxdb_org = config['INFLUXDB_ORG']
-    influxdb_bucket = config['INFLUXDB_BUCKET']
-    rpc_req_timeout = config['RPC_REQUEST_TIMEOUT']
-
-    # Test connection to influx
-    if not test_influxdb_connection(influxdb_url,influxdb_token, influxdb_org, influxdb_bucket):
-        logger.error("Couldn't connect to influxdb.")
-        sys.exit(1)
-
-    # Create InfluxDB client
-    client = InfluxDBClient(url=influxdb_url, token=influxdb_token)
     
-    main(logger,rpc_req_timeout,influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, collect_info_from_endpoint, write_to_influxdb)
+    main(logger,collect_info_from_endpoint, write_to_influxdb)
