@@ -15,6 +15,7 @@ async def get_aptos(api_url):
     async with aiohttp.ClientSession() as session:
         try:
             start_time = time.monotonic()
+            response = None
             async with session.get(api_url) as resp:
                 end_time = time.monotonic()
                 response = await resp.json()
@@ -38,6 +39,7 @@ async def get_substrate(api_url):
     async with aiohttp.ClientSession() as session:
         try:
             start_time = time.monotonic()
+            response = None
             async with session.post(api_url, json={"jsonrpc":"2.0","id":1,"method":"chain_getHeader","params":[]}) as resp:
                 end_time = time.monotonic()
                 response = await resp.json()
@@ -61,6 +63,7 @@ async def get_ethereum(api_url, chain_id=1):
     async with aiohttp.ClientSession() as session:
         try:
             start_time = time.monotonic()
+            response = None
             async with session.post(api_url, json={'jsonrpc': '2.0', 'method': 'eth_blockNumber', 'params': [], 'id': str({chain_id}) }) as resp:
                 end_time = time.monotonic()
                 response = await resp.json()
