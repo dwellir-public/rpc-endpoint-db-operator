@@ -185,4 +185,5 @@ if __name__ == '__main__':
     logger.addHandler(console_handler)
     
     # Main
-    asyncio.run(main(logger, collect_info_from_endpoint, write_to_influxdb))
+    # asyncio.run(main(logger, collect_info_from_endpoint, write_to_influxdb))
+    main(logger, collect_info_from_endpoint, write_to_influxdb)
