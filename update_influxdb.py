@@ -42,16 +42,48 @@ def write_to_influxdb(url, token, org, bucket, records):
         logger.critical(f"Failed writing to influx. This shouldn't happen. {str(e)}")
         sys.exit(1)
 
+def load_endpoints(rpc_flask_api, force_refresh_cache=False):
+    # Load cached value from file
+    try:
+        with open('cache.json', 'r') as f:
+            all_url_api_tuples = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        all_url_api_tuples = None
+
+    if all_url_api_tuples is None or force_refresh_cache:
+        try:
+            all_url_api_tuples = get_all_endpoints_from_api(rpc_flask_api)
+        except Exception as e:
+            # Log the error
+            logger.error(f"An error occurred while getting endpoints: {str(e)}, using old cache.json.")
+
+            # Load the previous cache value
+            with open('cache.json', 'r') as f:
+                all_url_api_tuples = json.load(f)
+
+    else:
+        logger.info("Using cached endpoints")
+
+        # Save the updated endpoints to file
+        with open('cache.json', 'w') as f:
+            json.dump(all_url_api_tuples, f)
+
+    return all_url_api_tuples
 
 # Main loop
 
-def main(logger, request_timeout, influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, all_url_api_tuples, collect_info_from_endpoint, write_to_influxdb):
+def main(logger, request_timeout, influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, collect_info_from_endpoint, write_to_influxdb):
     loop = asyncio.get_event_loop()
     while True:
-    # Get block heights from all endpoints asynchronously
+        # Get all RPC endpoints from all chains.
+        # Place them in a list with their corresponding class.
+        # This is all the endpoints we are to query and update the influxdb with.
+        # all_url_api_tuples = get_all_endpoints_from_api(rpc_flask_api)
+        all_url_api_tuples = load_endpoints(rpc_flask_api)
+        
+        # Get block heights from all endpoints asynchronously
         tasks = [collect_info_from_endpoint(loop, request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
     
-    #TODO: Make it time out!
         info = loop.run_until_complete(asyncio.gather(*tasks))
 
         for endpoint, info_dict in zip(all_url_api_tuples, info):
@@ -78,6 +110,16 @@ def main(logger, request_timeout, influxdb_url, influxdb_token, influxdb_org, in
     
     # Wait for 5 seconds
         time.sleep(5)
+
+def get_all_endpoints_from_api(rpc_flask_api):
+    response = requests.get(f'{rpc_flask_api}/all')
+    all_url_api_tuples = []
+    for item in response.json():
+        # Tuple of (url,api_class)
+        endpoint_tuple = (item['urls'], item['api_class'])
+        for rpc in endpoint_tuple[0]:
+            all_url_api_tuples.append((rpc,endpoint_tuple[1]))
+    return all_url_api_tuples
 
 if __name__ == '__main__':
     
@@ -112,16 +154,5 @@ if __name__ == '__main__':
 
     # Create InfluxDB client
     client = InfluxDBClient(url=influxdb_url, token=influxdb_token)
-
-    # Get all RPC endpoints from all chains and place them in a list with their corresponding class.
-    # This is all the endpoints we are to query and update the influxdb with.
-
-    response = requests.get(f'{rpc_flask_api}/all')
-    all_url_api_tuples = []
-    for item in response.json():
-        # Tuple of (url,api_class)
-        endpoint_tuple = (item['urls'], item['api_class'])
-        for rpc in endpoint_tuple[0]:
-            all_url_api_tuples.append((rpc,endpoint_tuple[1]))
     
-    main(logger,rpc_req_timeout,influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, all_url_api_tuples, collect_info_from_endpoint, write_to_influxdb)
+    main(logger,rpc_req_timeout,influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, collect_info_from_endpoint, write_to_influxdb)
