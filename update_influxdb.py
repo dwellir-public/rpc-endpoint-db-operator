@@ -7,8 +7,7 @@ import requests
 from influxdb_client import InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 import time
-from urllib.parse import urlparse
-from rpc_utils import get_eth_block_height_ethbased, get_block_height_aptos, query_for_latency_and_blockheight
+from rpc_utils import query_for_latency_and_blockheight
 from influxdb_utils import new_latency_point, new_latest_block_height_point, test_influxdb_connection
 from color_logger import ColoredFormatter
 
