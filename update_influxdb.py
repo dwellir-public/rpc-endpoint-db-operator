@@ -21,38 +21,29 @@ async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
             raise ValueError('Invalid URL')
 
         if api_type == 'aptos':
-            info_coroutine = await get_aptos(url, api_type)
+            info_coroutine = get_aptos(url)
         elif api_type == "substrate":
-            info_coroutine = await get_substrate(url)
+            info_coroutine = get_substrate(url)
         elif api_type == "ethereum":
-            info_coroutine = await get_ethereum(url)
+            info_coroutine = get_ethereum(url)
         else:
             print(f"Unrecognized api: {api_type}")
             raise ValueError(f"Unrecognized api: {api_type}")
 
-        print("query comleted")
-        latest_block_height, time_total, http_code, exit_code = await asyncio.wait_for(loop.run_in_executor(None, info_coroutine), 
-                                                           timeout=request_timeout)
-        info = {
-            'http_code': http_code,
-            'time_total': time_total,
-            'exitcode': exit_code,
-            'latest_block_height': latest_block_height
-        }
-        print("info completed")
+        print("query completed")
+        info = await asyncio.wait_for(loop.run_in_executor(None, info_coroutine), 
+                                      timeout=request_timeout)
+
+        return info
+
     except asyncio.exceptions.TimeoutError as timeouterror:
         logger.error(f"A timeout occured while trying to get into from {url} {timeouterror}")
-        info = None
+        return {'latest_block_height': None, 'time_total': None, 'http_code': None, 'exitcode': None}
+
     except Exception as e:
         logger.error(f"Error fetching data from {url}: {str(e)}")
-        info = None
+        return {'latest_block_height': None, 'time_total': None, 'http_code': None, 'exitcode': None}
 
-    logger.debug(f"We got {info} from {url}")
-
-    # Assuming that `info` is a tuple with 2 elements
-    if info is not None:
-        print(info)
-        return info
 
 
 # Define function to write data to InfluxDB
