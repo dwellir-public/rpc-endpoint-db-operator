@@ -11,26 +11,6 @@ from rpc_utils import query_for_latency_and_blockheight
 from influxdb_utils import new_latency_point, new_latest_block_height_point, test_influxdb_connection
 from color_logger import ColoredFormatter
 
-# async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
-#     """
-#     Collect info.  (latency + latest_block)
-#     """
-#     try:
-#         info = await asyncio.wait_for(
-#             loop.run_in_executor(None, query_for_latency_and_blockheight, url, api_type),
-#             timeout=request_timeout
-#         )
-#     except asyncio.exceptions.TimeoutError as timeouterror:
-#         logger.error(f"A timeout occured while trying to get into from {url} {timeouterror}")
-#         info = None
-#     except Exception as e:
-#         logger.error(f"Error fetching blockheight and latency from {url}:", str(e))
-#         info = None
-
-#     logger.debug(f"We got {info}) from {url}")
-
-#     return info
-
 async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
     """
     Collect info.  (latency + latest_block)
