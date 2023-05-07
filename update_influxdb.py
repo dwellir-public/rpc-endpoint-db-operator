@@ -22,7 +22,7 @@ async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
         logger.error(f"A timeout occured while trying to get into from {url} {timeouterror}")
         info = None
     except Exception as e:
-        logger.error(f"Error fetching blockheight and latency from {url}: {str(e)}")
+        logger.error(f"Error fetching data from {url}: {str(e)}")
         info = None
 
     logger.debug(f"We got {info} from {url}")

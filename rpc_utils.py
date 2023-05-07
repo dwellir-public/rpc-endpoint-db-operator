@@ -18,6 +18,7 @@ async def get_aptos(api_url):
             async with session.get(api_url) as resp:
                 end_time = time.monotonic()
                 response = await resp.json()
+            
             print(f"get_apt", response)
             highest_block = int(response['block_height'])
             latency = (end_time - start_time)
@@ -26,6 +27,10 @@ async def get_aptos(api_url):
         except aiohttp.ClientError as e:
             print(f"Error in get_aptos", response)
             return None,None,None,None
+        except Exception as ee:
+            print(f"Error in get_aptos", response, ee)
+            return None,None,None,None
+
         return highest_block, latency, http_code, exit_code
 
 
@@ -36,14 +41,19 @@ async def get_substrate(api_url):
             async with session.post(api_url, json={"jsonrpc":"2.0","id":1,"method":"chain_getHeader","params":[]}) as resp:
                 end_time = time.monotonic()
                 response = await resp.json()
+            
             print(f"get_sub", response)
             highest_block = int(response['result']['number'], 16)
             latency = (end_time - start_time)
             http_code = resp.status
             exit_code = 0
         except aiohttp.ClientError as e:
-            print(f"Error in get_substrate", response)
+            print(f"Error in get_substrate", response, e)
             return None,None,None,None
+        except Exception as ee:
+            print(f"Error in get_substrate", response, ee)
+            return None,None,None,None
+
         return highest_block, latency, http_code, exit_code
 
 
@@ -63,6 +73,10 @@ async def get_ethereum(api_url, chain_id=1):
         except aiohttp.ClientError as e:
             print(f"Error in get_ethereum", response)
             return None,None,None,None
+        except Exception as ee:
+            print(f"Error in get_aptos", response, ee)
+            return None,None,None,None
+        
         
         return highest_block, latency, http_code, exit_code
 
