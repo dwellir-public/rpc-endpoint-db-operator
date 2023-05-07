@@ -7,7 +7,7 @@ import requests
 from influxdb_client import InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 import time
-from rpc_utils import query_for_latency_and_blockheight
+from rpc_utils import get_aptos, get_ethereum, get_substrate
 from influxdb_utils import new_latency_point, new_latest_block_height_point, test_influxdb_connection
 from color_logger import ColoredFormatter
 
@@ -17,9 +17,28 @@ async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
     """
     try:
         print("Begin")
-        info_coroutine = await query_for_latency_and_blockheight(url, api_type)
+        if not is_valid_url(url):
+            raise ValueError('Invalid URL')
+
+        if api_type == 'aptos':
+            info_coroutine = await get_aptos(url, api_type)
+        elif api_type == "substrate":
+            info_coroutine = await get_substrate(url)
+        elif api_type == "ethereum":
+            info_coroutine = await get_ethereum(url)
+        else:
+            print(f"Unrecognized api: {api_type}")
+            raise ValueError(f"Unrecognized api: {api_type}")
+
         print("query comleted")
-        info = await asyncio.wait_for(loop.run_in_executor(None, info_coroutine), timeout=request_timeout)
+        latest_block_height, time_total, http_code, exit_code = await asyncio.wait_for(loop.run_in_executor(None, info_coroutine), 
+                                                           timeout=request_timeout)
+        info = {
+            'http_code': http_code,
+            'time_total': time_total,
+            'exitcode': exit_code,
+            'latest_block_height': latest_block_height
+        }
         print("info completed")
     except asyncio.exceptions.TimeoutError as timeouterror:
         logger.error(f"A timeout occured while trying to get into from {url} {timeouterror}")
