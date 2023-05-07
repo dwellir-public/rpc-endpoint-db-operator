@@ -139,16 +139,16 @@ async def main(logger, collect_info_from_endpoint, write_to_influxdb):
 
         print("==============", all_url_api_tuples)
         
-        results = loop.run_until_complete(await fetch_all_info(all_url_api_tuples))
+        info = loop.run_until_complete(await fetch_all_info(all_url_api_tuples))
 
-        print(results)
+        print(info)
 
         # Get block heights from all endpoints asynchronously
         
         #tasks = [await collect_info_from_endpoint(loop, rpc_request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
         #info = loop.run_until_complete(asyncio.gather(*tasks))
-        coroutines = [collect_info_from_endpoint(loop, rpc_request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
-        info = await asyncio.gather(*coroutines)
+        # coroutines = [collect_info_from_endpoint(loop, rpc_request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
+        # info = await asyncio.gather(*coroutines)
 
         for endpoint, info_dict in zip(all_url_api_tuples, info):
             if info_dict:
