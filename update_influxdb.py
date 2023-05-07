@@ -65,7 +65,7 @@ def main(logger, request_timeout, influxdb_url, influxdb_token, influxdb_org, in
                     logger.debug(f"Writing to database {endpoint}: Block: {info_dict['latest_block_height']} Total Latency: {info_dict['time_total']}")
                     
                     # Look at the data and tell us any strange.
-                    if int(info['exit_code']) > 0:
+                    if int(info_dict['exit_code']) > 0:
                         logger.warning(f"Non zero exit_code found for {endpoint}. I will store the information in influx, but this is an indication that the endpoint isnt healthy.")
                     
                     # Insert all datapoints
