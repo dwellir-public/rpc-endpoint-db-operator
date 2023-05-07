@@ -27,7 +27,9 @@ async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
     except Exception as e:
         logger.error(f"Error fetching blockheight and latency from {url}:", str(e))
         info = None
-    logger.info(f"Fetched {info}) from {url}")
+
+    logger.debug(f"We got {info}) from {url}")
+
     return info
 
 # Define function to write data to InfluxDB
@@ -37,7 +39,7 @@ def write_to_influxdb(url, token, org, bucket, records):
         write_api = client.write_api(write_options=SYNCHRONOUS)
         write_api.write(bucket=bucket, record=records)
     except Exception as e:
-        logger.critical(f"Failed writing to influx. This shouldn't happen.", e)
+        logger.critical(f"Failed writing to influx. This shouldn't happen. {str(e)}")
         sys.exit(1)
 
 
@@ -61,7 +63,14 @@ def main(logger, request_timeout, influxdb_url, influxdb_token, influxdb_org, in
                 records.append(latency_point)
                 try:
                     logger.debug(f"Writing to database {endpoint}: Block: {info_dict['latest_block_height']} Total Latency: {info_dict['time_total']}")
+                    
+                    # Look at the data and tell us any strange.
+                    if int(info['exit_code']) > 0:
+                        logger.warning(f"Non zero exit_code found for {endpoint}. I will store the information in influx, but this is an indication that the endpoint isnt healthy.")
+                    
+                    # Insert all datapoints
                     write_to_influxdb(influxdb_url,influxdb_token,influxdb_org,influxdb_bucket, records)
+                
                 except Exception as e:
                     logger.error(f"Something went horribly wrong while trying to insert into influxdb {endpoint}: {info_dict}", e)
             else:

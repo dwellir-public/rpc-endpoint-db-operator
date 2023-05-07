@@ -93,7 +93,6 @@ def query_for_latency_and_blockheight(url, api_type):
         error_msg = ''
     except (requests.RequestException, requests.Timeout, ConnectionError, requests.HTTPError, NameResolutionError) as e:
     #except (requests.exceptions.RequestException, requests.exceptions.NameResolutionError, ValueError) as e:
-        print(f"Failed getting into from {url}")
         time_total = 0
         http_code = 0
         ssl_verify_result = 0
