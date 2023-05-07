@@ -131,7 +131,7 @@ if __name__ == '__main__':
                     elif exitcode is None:
                         logger.warning(f"exit_code is None for {endpoint}. I will not add this datapoint.")
                     else:
-                        logger.debug(f"Writing to database {endpoint}: Data: {str(info_dict)}")
+                        logger.info(f"Writing to database {endpoint}: Data: {str(info_dict)}")
                         write_to_influxdb(influxdb_url,influxdb_token,influxdb_org,influxdb_bucket, records)
                 
                 except Exception as e:
