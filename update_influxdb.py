@@ -75,9 +75,16 @@ def get_all_endpoints_from_api(rpc_flask_api):
             all_url_api_tuples.append((rpc,endpoint_tuple[1]))
     return all_url_api_tuples
 
-# Main loop
-async def main(logger):
-    # LOAD CONFIG
+
+if __name__ == '__main__':
+    logger = logging.getLogger()
+    logger.setLevel(logging.DEBUG)
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setLevel(logging.DEBUG)
+    formatter = ColoredFormatter('%(asctime)s - %(levelname)s - %(message)s')
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+    
     with open('config.json') as f:
         config = json.load(f)
 
@@ -144,17 +151,3 @@ async def main(logger):
         # Wait for 5 seconds before running again. Allows us to see what goes on.
         # Possibly we can remove this later.
         time.sleep(5)
-
-
-if __name__ == '__main__':
-    logger = logging.getLogger()
-    logger.setLevel(logging.DEBUG)
-    console_handler = logging.StreamHandler(sys.stdout)
-    console_handler.setLevel(logging.DEBUG)
-    formatter = ColoredFormatter('%(asctime)s - %(levelname)s - %(message)s')
-    console_handler.setFormatter(formatter)
-    logger.addHandler(console_handler)
-    
-    # Main
-    asyncio.run(main(logger))
-    # main(logger, collect_info_from_endpoint, write_to_influxdb)
