@@ -12,7 +12,7 @@ from rpc_utils import get_eth_block_height_ethbased, get_block_height_aptos, que
 from influxdb_utils import new_latency_point, new_latest_block_height_point, test_influxdb_connection
 from color_logger import ColoredFormatter
 
-async def collect_info_from_endpoint(url, api_type):
+async def collect_info_from_endpoint(loop, url, api_type):
     """
     Collect info.  (latency + latest_block)
     """
@@ -43,7 +43,7 @@ def main(logger, influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, al
     loop = asyncio.get_event_loop()
     while True:
     # Get block heights from all endpoints asynchronously
-        tasks = [collect_info_from_endpoint(url, api_type) for url, api_type in all_url_api_tuples]
+        tasks = [collect_info_from_endpoint(loop, url, api_type) for url, api_type in all_url_api_tuples]
     
     #TODO: Make it time out!
         info = loop.run_until_complete(asyncio.gather(*tasks))
