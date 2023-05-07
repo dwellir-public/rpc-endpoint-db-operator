@@ -89,7 +89,7 @@ async def query_for_latency_and_blockheight(url, api_type):
     """
     if not is_valid_url(url):
         raise ValueError('Invalid URL')
-
+    
     try:
         if api_type == 'aptos':
             latest_block_height, time_total, http_code, exit_code = await get_aptos(url)
@@ -102,7 +102,7 @@ async def query_for_latency_and_blockheight(url, api_type):
             raise ValueError(f"Unrecognized api: {api_type}")
         
     except Exception as e:
-        print(f"Something went very wrong query_for_latency_and_blockheight: ", e)
+        print(f"Something went very wrong query_for_latency_and_blockheight: ", url, api_type, e)
         time_total = 0
         http_code = 0
         exit_code = 1
