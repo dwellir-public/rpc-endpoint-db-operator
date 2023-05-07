@@ -136,6 +136,8 @@ async def main(logger, collect_info_from_endpoint, write_to_influxdb):
         # all_url_api_tuples = get_all_endpoints_from_api(rpc_flask_api)
         all_url_api_tuples = load_endpoints(rpc_flask_api,cache_refresh_interval=cache_max_age)
 
+        print(all_url_api_tuples)
+
         # Get block heights from all endpoints asynchronously
         
         #tasks = [await collect_info_from_endpoint(loop, rpc_request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
