@@ -126,9 +126,10 @@ async def main(logger, collect_info_from_endpoint, write_to_influxdb):
 
         # Get block heights from all endpoints asynchronously
         
-        tasks = [await collect_info_from_endpoint(loop, rpc_request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
-                
-        info = loop.run_until_complete(asyncio.gather(*tasks))
+        #tasks = [await collect_info_from_endpoint(loop, rpc_request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
+        #info = loop.run_until_complete(asyncio.gather(*tasks))
+        coroutines = [collect_info_from_endpoint(loop, rpc_request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
+        info = await asyncio.gather(*coroutines)
 
         for endpoint, info_dict in zip(all_url_api_tuples, info):
             if info_dict:
@@ -143,7 +144,7 @@ async def main(logger, collect_info_from_endpoint, write_to_influxdb):
                     if int(info_dict['exitcode']) > 0:
                         logger.warning(f"Non zero exit_code found for {endpoint}. I will store the information in influx, but this is an indication that the endpoint isnt healthy.")
     
-                    write_to_influxdb(influxdb_url,influxdb_token,influxdb_org,influxdb_bucket, records)
+                    await write_to_influxdb(influxdb_url,influxdb_token,influxdb_org,influxdb_bucket, records)
                 
                 except Exception as e:
                     logger.error(f"Something went horribly wrong while trying to insert into influxdb {endpoint}: {info_dict}", e)
