@@ -117,6 +117,8 @@ async def main(logger):
         
         info = loop.run_until_complete(await fetch_all_info(all_url_api_tuples))
 
+        print("============================================")
+
         print(info)
 
         for endpoint, info_dict in zip(all_url_api_tuples, info):
