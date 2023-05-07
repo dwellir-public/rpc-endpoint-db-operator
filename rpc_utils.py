@@ -2,6 +2,8 @@ import requests
 from urllib.parse import urlparse
 from requests.exceptions import RequestException, Timeout, ConnectionError, HTTPError
 from urllib3.exceptions import NameResolutionError
+import asyncio
+import aiohttp
 
 def is_valid_url(url):
     valid_schemes = ['ws', 'wss', 'http', 'https']
@@ -25,6 +27,20 @@ def get_block_height_aptos(api_url):
         return None
 
     return block_height
+
+async def get_substrate_blockheight_wss(api_url):
+    parsed_url = urlparse(api_url)
+    if parsed_url.scheme in ["ws", "wss"]:
+        async with aiohttp.ClientSession() as session:
+            async with session.post(api_url, json={"jsonrpc":"2.0","id":1,"method":"chain_getHeader","params":[]}) as resp:
+                response = await resp.json()
+                print(response)
+                highest_block = int(response['result']['number'], 16)
+                print(f"Highest block: {highest_block}")
+    else:
+        print(f"Error: Invalid wss/ws scheme in {api_url}")
+        return None
+    return highest_block
 
 
 def get_eth_block_height_ethbased(api_url, chain_id=1):
@@ -92,7 +108,6 @@ def query_for_latency_and_blockheight(url, api_type):
         exit_code = 0
         error_msg = ''
     except (requests.RequestException, requests.Timeout, ConnectionError, requests.HTTPError, NameResolutionError) as e:
-    #except (requests.exceptions.RequestException, requests.exceptions.NameResolutionError, ValueError) as e:
         time_total = 0
         http_code = 0
         ssl_verify_result = 0
