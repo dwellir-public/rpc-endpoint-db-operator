@@ -8,7 +8,7 @@ from influxdb_client import InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 import time
 from rpc_utils import fetch_all_info
-from influxdb_utils import new_latency_point, new_latest_block_height_point, test_influxdb_connection
+from influxdb_utils import new_block_latency_point, new_latency_point, new_latest_block_height_point, test_influxdb_connection
 from color_logger import ColoredFormatter
 
 
@@ -130,11 +130,13 @@ if __name__ == '__main__':
 
         for endpoint, info_dict in zip(all_url_api_tuples, info):
             if info_dict:
-                blockheight_point = new_latest_block_height_point(endpoint[0], endpoint[1], info_dict['latest_block_height'])
-                latency_point = new_latency_point(endpoint[0], endpoint[1], info_dict)
+                # blockheight_point = new_latest_block_height_point(endpoint[0], endpoint[1], info_dict['latest_block_height'])
+                # latency_point = new_latency_point(endpoint[0], endpoint[1], info_dict)
+                bcp = new_block_latency_point(endpoint[0], endpoint[1], info_dict)
                 records = []
-                records.append(blockheight_point)
-                records.append(latency_point)
+                records.append(bcp)
+                # records.append(blockheight_point)
+                # records.append(latency_point)
                 try:
                     logger.debug(f"Writing to database {endpoint}: Block: {info_dict['latest_block_height']} Total Latency: {info_dict['time_total']}")
                     logger.debug(info_dict)

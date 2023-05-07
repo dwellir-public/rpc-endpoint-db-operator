@@ -28,6 +28,25 @@ def new_latency_point(url: str, api: str, data: dict):
 
     return latency_point
 
+def new_block_latency_point(url: str, api: str, int, data: dict):
+    http_code = int(data.get('http_code') or -1)
+    time_total = float(data.get('time_total') or 0)
+    exitcode = int(data.get('exitcode') or -1)
+    latest_block_height = int(data.get('latest_block_height') or -1)
+    
+    # create a Point object for the combined block latency data
+    block_latency_point = Point("block_latency") \
+        .tag("url", url) \
+        .tag("api", api) \
+        .field("block_height", latest_block_height) \
+        .field("http_code", http_code) \
+        .field("time_total", time_total) \
+        .field("exitcode", exitcode) \
+        .time(datetime.utcnow())
+
+    return block_latency_point
+
+
 def test_influxdb_connection(url, token, org, bucket):
     """
     Test the connection to the database.
