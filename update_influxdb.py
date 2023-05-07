@@ -139,7 +139,7 @@ async def main(logger, collect_info_from_endpoint, write_to_influxdb):
 
         print("==============", all_url_api_tuples)
         
-        results = loop.run_until_complete(fetch_all_info(all_url_api_tuples))
+        results = loop.run_until_complete(await fetch_all_info(all_url_api_tuples))
 
         print(results)
 
