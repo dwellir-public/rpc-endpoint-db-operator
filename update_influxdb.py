@@ -8,7 +8,7 @@ from influxdb_client import InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 import time
 from rpc_utils import fetch_all_info
-from influxdb_utils import new_block_latency_point, new_latency_point, new_latest_block_height_point, test_influxdb_connection
+from influxdb_utils import new_block_latency_point, test_influxdb_connection
 from color_logger import ColoredFormatter
 
 

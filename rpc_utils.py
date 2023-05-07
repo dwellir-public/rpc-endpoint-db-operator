@@ -1,8 +1,5 @@
 import time
-import requests
 from urllib.parse import urlparse
-from requests.exceptions import RequestException, Timeout, ConnectionError, HTTPError
-from urllib3.exceptions import NameResolutionError
 import asyncio
 import aiohttp
 
