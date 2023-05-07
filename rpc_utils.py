@@ -24,6 +24,7 @@ async def get_aptos(api_url):
             http_code = resp.status
             exit_code = 0
         except aiohttp.ClientError as e:
+            print(f"Error in get_aptos", response)
             return None,None,None,None
         return highest_block, latency, http_code, exit_code
 
@@ -41,6 +42,7 @@ async def get_substrate(api_url):
             http_code = resp.status
             exit_code = 0
         except aiohttp.ClientError as e:
+            print(f"Error in get_substrate", response)
             return None,None,None,None
         return highest_block, latency, http_code, exit_code
 
@@ -59,6 +61,7 @@ async def get_ethereum(api_url, chain_id=1):
             http_code = resp.status
             exit_code = 0
         except aiohttp.ClientError as e:
+            print(f"Error in get_ethereum", response)
             return None,None,None,None
         
         return highest_block, latency, http_code, exit_code
