@@ -31,7 +31,7 @@ async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
             raise ValueError(f"Unrecognized api: {api_type}")
 
         print("query completed")
-        info = await asyncio.wait_for(loop.run_in_executor(None, info_coroutine), 
+        info = await asyncio.wait_for(loop.run_in_executor(None, await info_coroutine), 
                                       timeout=request_timeout)
 
         return info
