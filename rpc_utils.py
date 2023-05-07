@@ -26,13 +26,20 @@ async def get_aptos(api_url):
             http_code = resp.status
             exit_code = 0
         except aiohttp.ClientError as e:
-            print(f"Error in get_aptos", response)
+            print(f"Error in get_substrate", response, e)
             return {'latest_block_height': None, 'time_total': None, 'http_code': None, 'exitcode': None}
         except Exception as ee:
-            print(f"Error in get_aptos", response, ee)
+            print(f"Error in get_substrate", response, ee)
             return {'latest_block_height': None, 'time_total': None, 'http_code': None, 'exitcode': None}
 
-        return highest_block, latency, http_code, exit_code
+        info = {
+            'http_code': http_code,
+            'time_total': latency,
+            'exitcode': exit_code,
+            'latest_block_height': highest_block
+        }
+
+        return info
 
 
 async def get_substrate(api_url):
@@ -81,14 +88,20 @@ async def get_ethereum(api_url, chain_id=1):
             http_code = resp.status
             exit_code = 0
         except aiohttp.ClientError as e:
-            print(f"Error in get_ethereum", response)
-            return None,None,None,None
+            print(f"Error in get_substrate", response, e)
+            return {'latest_block_height': None, 'time_total': None, 'http_code': None, 'exitcode': None}
         except Exception as ee:
-            print(f"Error in get_aptos", response, ee)
-            return None,None,None,None
-        
-        
-        return highest_block, latency, http_code, exit_code
+            print(f"Error in get_substrate", response, ee)
+            return {'latest_block_height': None, 'time_total': None, 'http_code': None, 'exitcode': None}
+
+        info = {
+            'http_code': http_code,
+            'time_total': latency,
+            'exitcode': exit_code,
+            'latest_block_height': highest_block
+        }
+
+        return info
 
 ##########################################
 
