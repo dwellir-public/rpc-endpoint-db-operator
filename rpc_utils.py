@@ -45,8 +45,9 @@ def get_eth_block_height_ethbased(api_url, chain_id=1):
 
 
 def query_for_latency_and_blockheight(url, api_type):
-    print(f"Querying API: {url} with API type: {api_type}")
-
+    """
+    Performs query of a remote API with requests.
+    """
     if not is_valid_url(url):
         raise ValueError('Invalid URL')
 
