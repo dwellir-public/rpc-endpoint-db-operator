@@ -16,8 +16,11 @@ async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
     Collect info.  (latency + latest_block)
     """
     try:
+        print("Begin")
         info_coroutine = await query_for_latency_and_blockheight(url, api_type)
+        print("query comleted")
         info = await asyncio.wait_for(loop.run_in_executor(None, info_coroutine), timeout=request_timeout)
+        print("info completed")
     except asyncio.exceptions.TimeoutError as timeouterror:
         logger.error(f"A timeout occured while trying to get into from {url} {timeouterror}")
         info = None
