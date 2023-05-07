@@ -64,7 +64,7 @@ async def get_ethereum(api_url, chain_id=1):
 ##########################################
 
 
-def query_for_latency_and_blockheight(url, api_type):
+async def query_for_latency_and_blockheight(url, api_type):
     """
     Performs query of a remote API with requests.
     """
@@ -73,11 +73,11 @@ def query_for_latency_and_blockheight(url, api_type):
 
     try:
         if api_type == 'aptos':
-            latest_block_height, time_total, http_code, exit_code = get_aptos(url)
+            latest_block_height, time_total, http_code, exit_code = await get_aptos(url)
         elif api_type == "substrate":
-            latest_block_height, time_total, http_code, exit_code = get_substrate(url)
+            latest_block_height, time_total, http_code, exit_code = await get_substrate(url)
         elif api_type == "ethereum":
-            latest_block_height, time_total, http_code, exit_code = get_ethereum(url)
+            latest_block_height, time_total, http_code, exit_code = await get_ethereum(url)
         else:
             print(f"Unrecognized api: {api_type}")
             raise ValueError(f"Unrecognized api: {api_type}")
