@@ -11,15 +11,33 @@ from rpc_utils import query_for_latency_and_blockheight
 from influxdb_utils import new_latency_point, new_latest_block_height_point, test_influxdb_connection
 from color_logger import ColoredFormatter
 
+# async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
+#     """
+#     Collect info.  (latency + latest_block)
+#     """
+#     try:
+#         info = await asyncio.wait_for(
+#             loop.run_in_executor(None, query_for_latency_and_blockheight, url, api_type),
+#             timeout=request_timeout
+#         )
+#     except asyncio.exceptions.TimeoutError as timeouterror:
+#         logger.error(f"A timeout occured while trying to get into from {url} {timeouterror}")
+#         info = None
+#     except Exception as e:
+#         logger.error(f"Error fetching blockheight and latency from {url}:", str(e))
+#         info = None
+
+#     logger.debug(f"We got {info}) from {url}")
+
+#     return info
+
 async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
     """
     Collect info.  (latency + latest_block)
     """
     try:
-        info = await asyncio.wait_for(
-            loop.run_in_executor(None, query_for_latency_and_blockheight, url, api_type),
-            timeout=request_timeout
-        )
+        info_coroutine = loop.run_in_executor(None, query_for_latency_and_blockheight, url, api_type)
+        info = await asyncio.wait_for(info_coroutine, timeout=request_timeout)
     except asyncio.exceptions.TimeoutError as timeouterror:
         logger.error(f"A timeout occured while trying to get into from {url} {timeouterror}")
         info = None
@@ -27,9 +45,14 @@ async def collect_info_from_endpoint(loop, request_timeout, url, api_type):
         logger.error(f"Error fetching blockheight and latency from {url}:", str(e))
         info = None
 
-    logger.debug(f"We got {info}) from {url}")
+    logger.debug(f"We got {info} from {url}")
 
-    return info
+    # Assuming that `info` is a tuple with 2 elements
+    if info is not None:
+        latest_block_height, latency = info
+        # do something with `latest_block_height` and `latency`
+        return info
+
 
 # Define function to write data to InfluxDB
 def write_to_influxdb(url, token, org, bucket, records):
