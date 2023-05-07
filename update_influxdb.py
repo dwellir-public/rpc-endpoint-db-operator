@@ -126,7 +126,7 @@ async def main(logger, collect_info_from_endpoint, write_to_influxdb):
 
         # Get block heights from all endpoints asynchronously
         
-        tasks = [collect_info_from_endpoint(loop, rpc_request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
+        tasks = [await collect_info_from_endpoint(loop, rpc_request_timeout, url, api_type) for url, api_type in all_url_api_tuples]
                 
         info = loop.run_until_complete(asyncio.gather(*tasks))
 
