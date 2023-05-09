@@ -247,4 +247,4 @@ def get_chain_info():
 
 if __name__ == '__main__':
     create_table_if_not_exist()
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
