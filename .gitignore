@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.py[cod]
+.vscode/
+
+# local cache might be created during testing
+cache.json
