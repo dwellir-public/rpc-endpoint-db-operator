@@ -24,6 +24,7 @@ def test_influxdb_connection(url, token, org, bucket):
 
 if __name__ == '__main__':
     # CONFIG
+    # TODO: make the config file an input argument?
     with open('config.json') as f:
         config = json.load(f)
 
