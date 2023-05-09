@@ -14,6 +14,8 @@ app = Flask(__name__)
 app.config['DATABASE'] = os.path.join(os.path.dirname(__file__), 'live_database.db')
 
 # Create the database table if it doesn't exist
+
+
 def create_table_if_not_exist():
     app.logger.info(f"CREATING database and tables {app.config['DATABASE']}")
     conn = sqlite3.connect(app.config['DATABASE'])
@@ -47,11 +49,10 @@ def is_valid_url(url):
         return False
 
 
-
 # Create a new record
 @app.route('/create', methods=['POST'])
 def create_record():
-    
+
     # Get the data from the request provided by flask
     data = request.get_json()
 
@@ -75,12 +76,12 @@ def create_record():
     urls_json = json.dumps(urls)
     if not all(is_valid_url(url) for url in urls):
         return jsonify({'error': {'error': "Invalid url(s)."}}), 500
-    
+
     # Insert the record into the app.config['DATABASE']
     try:
         conn = sqlite3.connect(app.config['DATABASE'])
         c = conn.cursor()
-        c.execute('INSERT INTO chains_public_rpcs (native_id, chain_name, urls, api_class) VALUES (?, ?, ?, ?)', 
+        c.execute('INSERT INTO chains_public_rpcs (native_id, chain_name, urls, api_class) VALUES (?, ?, ?, ?)',
                   (native_id, chain_name, urls_json, api_class))
         record_id = c.lastrowid
         conn.commit()
@@ -114,10 +115,12 @@ def get_all_records():
                         'native_id': record[1],
                         'chain_name': record[2],
                         'urls': json.loads(record[3]),
-                        'api_class': record[4],})
+                        'api_class': record[4], })
     return jsonify(results)
 
 # Get a specific record by ID
+
+
 @app.route('/get/<int:record_id>', methods=['GET'])
 def get_record(record_id):
     conn = sqlite3.connect(app.config['DATABASE'])
@@ -155,14 +158,14 @@ def update_record(record_id):
     urls_json = json.dumps(urls)
     if not all(is_valid_url(url) for url in urls):
         return jsonify({'error': "Invalid url(s)"}), 500
-    
+
     try:
         conn = sqlite3.connect(app.config['DATABASE'])
         cursor = conn.cursor()
         cursor.execute('''UPDATE chains_public_rpcs
                         SET native_id = ?, chain_name = ?, urls = ?, api_class = ?
                         WHERE id = ?''',
-                    (native_id, chain_name, urls_json, api_class, record_id))
+                       (native_id, chain_name, urls_json, api_class, record_id))
     except sqlite3.IntegrityError as e:
         conn.rollback()  # Roll back the transaction
         conn.close()
@@ -174,7 +177,7 @@ def update_record(record_id):
         return jsonify({'error': error_msg}), 400
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-    
+
     conn.commit()
     conn.close()
 
@@ -182,10 +185,10 @@ def update_record(record_id):
         return jsonify({'error': 'No such record.'})
     else:
         return jsonify({'id': record_id,
-                    'native_id': native_id,
-                    'chain_name': chain_name,
-                    'urls': urls,
-                    'api_class': api_class})
+                        'native_id': native_id,
+                        'chain_name': chain_name,
+                        'urls': urls,
+                        'api_class': api_class})
 
 
 # Delete a record by ID
@@ -198,6 +201,7 @@ def delete_record(record_id):
     conn.commit()
     conn.close()
     return jsonify({'message': 'Record deleted successfully'})
+
 
 @app.route('/chain_info', methods=['GET'])
 def get_chain_info():
@@ -240,7 +244,7 @@ def get_chain_info():
     # Return the chain info as JSON
     return jsonify(result_dicts), 200
 
+
 if __name__ == '__main__':
     create_table_if_not_exist()
     app.run(debug=True)
-

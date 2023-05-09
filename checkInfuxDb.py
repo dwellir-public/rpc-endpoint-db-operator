@@ -2,6 +2,7 @@
 import json
 from influxdb_client import InfluxDBClient
 
+
 def test_influxdb_connection(url, token, org, bucket):
     try:
         client = InfluxDBClient(url=url, token=token, org=org)
@@ -32,4 +33,4 @@ if __name__ == '__main__':
     influxdb_org = config['INFLUXDB_ORG']
     influxdb_bucket = config['INFLUXDB_BUCKET']
 
-    test_influxdb_connection(influxdb_url,influxdb_token, influxdb_org, influxdb_bucket)
+    test_influxdb_connection(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket)
