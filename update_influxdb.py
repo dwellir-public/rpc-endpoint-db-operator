@@ -22,6 +22,7 @@ def write_to_influxdb(url, token, org, bucket, records):
         logger.critical(f"Failed writing to influx. This shouldn't happen. {str(e)}")
         sys.exit(1)
 
+
 def load_endpoints(rpc_flask_api, cache_refresh_interval=30):
     """Load endpoints from cache or refresh if cache is stale."""
 
@@ -65,6 +66,7 @@ def load_endpoints(rpc_flask_api, cache_refresh_interval=30):
 
     return all_url_api_tuples
 
+
 def get_all_endpoints_from_api(rpc_flask_api):
     response = requests.get(f'{rpc_flask_api}/all')
     all_url_api_tuples = []
@@ -72,7 +74,7 @@ def get_all_endpoints_from_api(rpc_flask_api):
         # Tuple of (url,api_class)
         endpoint_tuple = (item['urls'], item['api_class'])
         for rpc in endpoint_tuple[0]:
-            all_url_api_tuples.append((rpc,endpoint_tuple[1]))
+            all_url_api_tuples.append((rpc, endpoint_tuple[1]))
     return all_url_api_tuples
 
 
@@ -84,7 +86,8 @@ if __name__ == '__main__':
     formatter = ColoredFormatter('%(asctime)s - %(levelname)s - %(message)s')
     console_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
-    
+
+    # TODO: make the config file an input argument?
     with open('config.json') as f:
         config = json.load(f)
 
@@ -93,10 +96,10 @@ if __name__ == '__main__':
     influxdb_token = config['INFLUXDB_TOKEN']
     influxdb_org = config['INFLUXDB_ORG']
     influxdb_bucket = config['INFLUXDB_BUCKET']
-    cache_max_age=config['CACHE_MAX_AGE']
+    cache_max_age = config['CACHE_MAX_AGE']
 
     # Test connection to influx before attemting start.
-    if not test_influxdb_connection(influxdb_url,influxdb_token, influxdb_org, influxdb_bucket):
+    if not test_influxdb_connection(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket):
         logger.error("Couldn't connect to influxdb. Exit.")
         sys.exit(1)
 
@@ -114,8 +117,8 @@ if __name__ == '__main__':
         # Place them in a list with their corresponding class.
         # This is all the endpoints we are to query and update the influxdb with.
         # all_url_api_tuples = get_all_endpoints_from_api(rpc_flask_api)
-        all_url_api_tuples = load_endpoints(rpc_flask_api,cache_refresh_interval=cache_max_age)
-        
+        all_url_api_tuples = load_endpoints(rpc_flask_api, cache_refresh_interval=cache_max_age)
+
         info = loop.run_until_complete(fetch_all_info(all_url_api_tuples))
 
         for endpoint, info_dict in zip(all_url_api_tuples, info):
@@ -126,18 +129,19 @@ if __name__ == '__main__':
                 try:
                     exitcode = int(info_dict.get('exitcode', -1)) if info_dict.get('exitcode') is not None else None
                     if exitcode != 0:
-                        logger.warning(f"Non zero exit_code found for {endpoint}. I will store the information in influx, but this is an indication that the endpoint isnt healthy.")
+                        logger.warning(
+                            f"Non zero exit_code found for {endpoint}. I will store the information in influx, but this is an indication that the endpoint isnt healthy.")
                     elif exitcode is None:
                         logger.warning(f"exit_code is None for {endpoint}. I will not add this datapoint.")
                     else:
                         logger.info(f"Writing to influx {endpoint}: Data: {str(info_dict)}")
-                        write_to_influxdb(influxdb_url,influxdb_token,influxdb_org,influxdb_bucket, records)
-                
+                        write_to_influxdb(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, records)
+
                 except Exception as e:
                     logger.error(f"Something went horribly wrong while trying to insert into influxdb {endpoint}: {info_dict}", e)
             else:
                 logger.warning(f"Couldn't get information from {endpoint}. Skipping.")
-    
+
         # Wait for 5 seconds before running again. Allows us to see what goes on.
         # Possibly we can remove this later.
         time.sleep(5)
