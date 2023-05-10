@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.INFO)
 
 app = Flask(__name__)
 app.config['DATABASE'] = os.path.join(os.path.dirname(__file__), 'live_database.db')
-# TODO
+# TODO: change this to a file-based secret?
 app.config['JWT_SECRET_KEY'] = 'super-secret'
 jwt = JWTManager(app)
 
@@ -59,6 +59,7 @@ def is_valid_url(url):
 def login():
     username = request.json.get("username", None)
     password = request.json.get("password", None)
+    # TODO: figure out what to do with users
     if username != "tmp" or password != "tmp":
         return jsonify({"msg": "Bad username or password"}), 401
 
@@ -66,6 +67,7 @@ def login():
     return jsonify(access_token=access_token)
 
 
+# TODO: temporary, for tests. Remove and decide which other routes should be protected (all?)
 # Protect a route with jwt_required, which will kick out requests
 # without a valid JWT present.
 @app.route("/protected", methods=["GET"])
