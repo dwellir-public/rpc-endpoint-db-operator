@@ -3,5 +3,6 @@ __pycache__/
 *.py[cod]
 .vscode/
 
-# local cache might be created during testing
+# created while running
 cache.json
+live_database.db
