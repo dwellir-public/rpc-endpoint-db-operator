@@ -86,7 +86,7 @@ The Flask API supportes all of CRUD: "Create, Read, Update, Delete". Here follow
     {
     "id": 1,
     "message": "Record created successfully"
-    }
+    }'
 
 Get the record
 
@@ -104,6 +104,13 @@ Get all records
 
     curl http://localhost:5000/all
 
+Get an access token
+
+    curl http://localhost:5000/token -d '{"username": "tmp", "password": "tmp"}' -H 'Content-Type: application/json'
+
+Use access token in query
+
+    curl http://localhost:5000/protected-route -H 'Authorization: Bearer <token>'
 
 ## Grafana
 
