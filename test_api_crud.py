@@ -10,6 +10,8 @@ from app import app, create_table_if_not_exist
 
 class CRUDTestCase(unittest.TestCase):
 
+    access_token = ""
+
     def setUp(self):
         app.config['TESTING'] = True
 
@@ -39,6 +41,8 @@ class CRUDTestCase(unittest.TestCase):
                 'wss://smoke/hammer:1234'
             ]
         }
+
+        self.access_token = self.app.post('/token', json={'username': 'tmp', 'password': 'tmp'}).json['access_token']
 
     def tearDown(self):
         # Close the database connection and remove the temporary test database
@@ -207,8 +211,7 @@ class CRUDTestCase(unittest.TestCase):
         self.assertEqual(response.json['error'], 'Chain not found')
 
     def test_jwt_protection(self):
-        access_token = self.app.post('/token', json={'username': 'tmp', 'password': 'tmp'})
-        response = self.app.get('/protected', headers={'Authorization': f'Bearer {access_token.json["access_token"]}'})
+        response = self.app.get('/protected', headers={'Authorization': f'Bearer {self.access_token}'})
         self.assertEqual(response.json['logged_in_as'], 'tmp')
 
 
