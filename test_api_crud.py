@@ -1,3 +1,5 @@
+#!/bin/env python3
+
 import os
 import sqlite3
 import tempfile
@@ -5,8 +7,8 @@ import unittest
 import json
 from app import app, create_table_if_not_exist
 
-class CRUDTestCase(unittest.TestCase):
 
+class CRUDTestCase(unittest.TestCase):
 
     def setUp(self):
         app.config['TESTING'] = True
@@ -19,7 +21,7 @@ class CRUDTestCase(unittest.TestCase):
             self.populate_db()
 
         self.app = app.test_client()
-        
+
         # Reference data.
         self.data_1 = {
             'native_id': 1,
@@ -38,13 +40,11 @@ class CRUDTestCase(unittest.TestCase):
             ]
         }
 
-        
     def tearDown(self):
         # Close the database connection and remove the temporary test database
         os.close(self.db_fd)
         os.unlink(app.config['DATABASE'])
         print(app.config['DATABASE'])
-
 
     def init_db(self):
         # Use the same create_table as for the live database.
@@ -54,12 +54,11 @@ class CRUDTestCase(unittest.TestCase):
         conn = sqlite3.connect(app.config['DATABASE'])
         c = conn.cursor()
         c.execute("INSERT INTO chains_public_rpcs (native_id, chain_name, urls, api_class) VALUES (?, ?, ?, ?)",
-                (1, "Ethereum", '["https://eth1-archive-1.dwellir.com", "wss://eth1-archive-2.dwellir.com"]', 'ethereum'))
+                  (1, "Ethereum", '["https://eth1-archive-1.dwellir.com", "wss://eth1-archive-2.dwellir.com"]', 'ethereum'))
         c.execute("INSERT INTO chains_public_rpcs (native_id, chain_name, urls, api_class) VALUES (?, ?, ?, ?)",
-                (2, "Binance Smart Chain", '["https://bsc-dataseed1.binance.org","https://bsc.publicnode.com","wss://bsc-ws-node.nariox.org"]', 'ethereum'))
+                  (2, "Binance Smart Chain", '["https://bsc-dataseed1.binance.org","https://bsc.publicnode.com","wss://bsc-ws-node.nariox.org"]', 'ethereum'))
         conn.commit()
         conn.close()
-
 
     def test_create_record_missing_entry(self):
         # Send a request without the urls entry
@@ -88,15 +87,15 @@ class CRUDTestCase(unittest.TestCase):
 
     def test_create_record_success(self):
         # Send a request with all three entries
-        data = {'native_id': 999, 
-                'chain_name': 'TESTNAME', 
+        data = {'native_id': 999,
+                'chain_name': 'TESTNAME',
                 'urls': ['https://foo.bar', 'https://foo.bar'],
                 'api_class': 'substrate'}
         response = self.app.post('/create', json=data)
         print("===============", response)
         self.assertEqual(response.status_code, 201)
         self.assertIn('message', response.json)
-        
+
         # Check that the record was inserted into the database
         conn = sqlite3.connect(app.config['DATABASE'])
         c = conn.cursor()
@@ -144,9 +143,9 @@ class CRUDTestCase(unittest.TestCase):
         record_id = create_response.json['id']
 
         # Update the record
-        new_data = {'native_id': 2, 
-                    'chain_name': 'test-update-chainName', 
-                    'urls': ['https://dwellir.com:455'], 
+        new_data = {'native_id': 2,
+                    'chain_name': 'test-update-chainName',
+                    'urls': ['https://dwellir.com:455'],
                     'api_class': 'ethereum'}
         update_response = self.app.put('/update/{}'.format(record_id), json=new_data)
         assert update_response.status_code == 200
@@ -206,6 +205,11 @@ class CRUDTestCase(unittest.TestCase):
         response = self.app.get('/chain_info?chain_name=Foo')
         self.assertEqual(response.status_code, 404)
         self.assertEqual(response.json['error'], 'Chain not found')
+
+    def test_jwt_protection(self):
+        access_token = self.app.post('/token', json={'username': 'tmp', 'password': 'tmp'})
+        response = self.app.get('/protected', headers={'Authorization': f'Bearer {access_token.json["access_token"]}'})
+        self.assertEqual(response.json['logged_in_as'], 'tmp')
 
 
 if __name__ == '__main__':
