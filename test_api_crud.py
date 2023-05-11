@@ -5,7 +5,7 @@ import sqlite3
 import tempfile
 import unittest
 import json
-from app import app, create_table_if_not_exist
+from app import app, create_tables_if_not_exist
 
 
 class CRUDTestCase(unittest.TestCase):
@@ -52,7 +52,7 @@ class CRUDTestCase(unittest.TestCase):
 
     def init_db(self):
         # Use the same create_table as for the live database.
-        create_table_if_not_exist()
+        create_tables_if_not_exist()
 
     def populate_db(self):
         conn = sqlite3.connect(app.config['DATABASE'])

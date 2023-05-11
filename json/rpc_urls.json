@@ -1,0 +1,30 @@
+[
+    {
+        "chain_name": "Arbitrum mainnet",
+        "url": "https://arbitrum-mainnet-archive-rpc-1.dwellir.com"
+    },
+    {
+        "chain_name": "Arbitrum mainnet",
+        "url": "https://arbitrum-mainnet-archive-rpc-2.dwellir.com"
+    },
+    {
+        "chain_name": "Arbitrum mainnet",
+        "url": "https://arb1.arbitrum.io/rpc"
+    },
+    {
+        "chain_name": "Ethereum mainnet",
+        "url": "https://cloudflare-eth.com"
+    },
+    {
+        "chain_name": "Ethereum mainnet",
+        "url": "https://ethereum.publicnode.com"
+    },
+    {
+        "chain_name": "Ethereum mainnet",
+        "url": "https://eth-mainnet-full-rpc-1.dwellir.com"
+    },
+    {
+        "chain_name": "Ethereum mainnet",
+        "url": "https://eth-mainnet-full-rpc-2.dwellir.com"
+    }
+]
