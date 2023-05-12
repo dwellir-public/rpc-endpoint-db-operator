@@ -283,7 +283,7 @@ def delete_chain_record() -> Response:
     conn.commit()
     conn.close()
     if cursor.rowcount == 0:
-        rval = jsonify({'error': f'Record with name {name} not found'})
+        rval = jsonify({'error': f'Record with name \'{name}\' not found'})
     else:
         rval = jsonify({'message': 'Chain record deleted successfully'})
     return rval
@@ -316,7 +316,7 @@ def delete_url_record() -> Response:
     conn.commit()
     conn.close()
     if cursor.rowcount == 0:
-        rval = jsonify({'error': f'Record with url {url} not found'})
+        rval = jsonify({'error': f'Record with url \'{url}\' not found'})
     else:
         rval = jsonify({'message': 'RPC url record deleted successfully'})
     return rval
@@ -344,35 +344,38 @@ def delete_url_records() -> Response:
     conn.commit()
     conn.close()
     if cursor.rowcount == 0:
-        rval = jsonify({'error': f'Records with chain_name {chain_name} not found'})
+        rval = jsonify({'error': f'Records with chain_name \'{chain_name}\' not found'})
     else:
         rval = jsonify({'message': 'RPC url records deleted successfully'})
     return rval
 
 
-# TODO: verify
-# Get all available info on a chain
+# Get all available info for a chain
 @app.route('/chain_info', methods=['GET'])
 def get_chain_info():
+    """
+    Gets info for the chain corresponding to the input name.
+
+    Requires that url parameter 'name' is present in the request, example:
+
+    curl "http://localhost:5000/chain_info?name=chain2"
+    """
     # Get parameters from the request URL
     name = request.args.get('name')
-    # Connect to the app.config['DATABASE']
+    if not name:
+        return jsonify({'error': 'Missing required parameter \'name\''}), 400
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
-    # Query the app.config['DATABASE'] based on whether chain name or chain ID was provided
-    if name:
-        cursor.execute("SELECT * FROM chains WHERE name=?", (name,))
-    else:
-        return jsonify({'error': 'Missing required parameter "name"'}), 400
-    # Fetch the chain record from the query
+    # Fetch chain
+    cursor.execute("SELECT * FROM chains WHERE name=?", (name,))
     chain_record = cursor.fetchone()  # TODO: fetchone() should be enough here, right? Only one should exist
-    # If no result was found, return an error
     if not chain_record:
-        return jsonify({'error': 'Chain not found'}), 404  # TODO: can this error happen, since we found it in the previous if?
-
+        return jsonify({'error': f'Chain \'{name}\' not found'}), 404  # TODO: can this error happen, since we found it in the previous if?
+    # Fetch urls
     cursor.execute('''SELECT url, chain_name FROM rpc_urls WHERE chain_name=?''', (name,))
     url_records = cursor.fetchall()
     conn.close()
+    # TODO: do we need a try/except block around here? Any out of bounds risks?
     urls = []
     for ur in url_records:
         urls.append(ur[0])
