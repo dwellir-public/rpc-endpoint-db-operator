@@ -79,9 +79,6 @@ def import_from_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path
     conn.execute('PRAGMA foreign_keys = ON')
     cursor = conn.cursor()
 
-    print(data_chains)
-    print(data_rpc_urls)
-
     for entry in data_chains:
         name = entry['name']
         api_class = entry['api_class']
