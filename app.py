@@ -262,17 +262,31 @@ def update_url_record() -> Response:
 
 # TODO: verify
 # Delete a chain record by name
-@app.route('/delete_chain/<string:name>', methods=['DELETE'])
-def delete_chain_record(name: str) -> Response:
+@app.route('/delete_chain', methods=['DELETE'])
+def delete_chain_record() -> Response:
+    """
+    Deletes the chain entry corresponding to the input name.
+
+    Requires that url parameter 'name' is present in the request, example:
+
+    curl -X DELETE 'http://localhost:5000/delete_chain?name=chain5'
+    """
+    name = request.args.get('name')
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     try:
         cursor.execute('DELETE FROM chains WHERE name=?', (name,))
     except sqlite3.IntegrityError as e:
+        conn.rollback()
+        conn.close()
         return jsonify({'error': str(e)}), 400
     conn.commit()
     conn.close()
-    return jsonify({'message': 'Record deleted successfully'})
+    if cursor.rowcount == 0:
+        rval = jsonify({'error': f'Record with name {name} not found'})
+    else:
+        rval = jsonify({'message': 'Chain record deleted successfully'})
+    return rval
 
 
 # Delete a url record by url
@@ -302,9 +316,9 @@ def delete_url_record() -> Response:
     conn.commit()
     conn.close()
     if cursor.rowcount == 0:
-        rval = jsonify({'error': 'Record not found'})
+        rval = jsonify({'error': f'Record with url {url} not found'})
     else:
-        rval = jsonify({'message': 'Record deleted successfully'})
+        rval = jsonify({'message': 'RPC url record deleted successfully'})
     return rval
 
 
