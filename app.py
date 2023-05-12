@@ -326,11 +326,11 @@ def delete_url_record() -> Response:
 @app.route('/delete_urls', methods=['DELETE'])
 def delete_url_records() -> Response:
     """
-    Deletes the chain entry corresponding to the input name.
+    Deletes the url entries corresponding to the input chain_name.
 
     Requires that url parameter 'chain_name' is present in the request, example:
 
-    curl -X DELETE 'http://localhost:5000/delete_chain?chain_name=chain1'
+    curl -X DELETE 'http://localhost:5000/delete_urls?chain_name=chain3'
     """
     chain_name = request.args.get('chain_name')
     conn = sqlite3.connect(app.config['DATABASE'])
