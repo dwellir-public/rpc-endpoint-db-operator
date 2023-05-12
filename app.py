@@ -187,22 +187,33 @@ def get_chain_by_name(name: str) -> Response:
     return jsonify({'error': 'Record not found'}), 404
 
 
-# TODO: not working due to slashes in the url strings, implement a way around this
-# TODO: after above, verify
 # Get a specific chain by url
-@app.route('/get_chain_by_url/<string:url>', methods=['GET'])
-def get_chain_by_url(url: str) -> Response:
+@app.route('/get_chain_by_url', methods=['GET'])
+def get_chain_by_url() -> Response:
+    """
+    Gets the chain entry corresponding the input url.
+
+    Requires that url parameters 'protocol' and 'address' are present in the request, example:
+
+    curl 'http://localhost:5000/get_chain_by_url?protocol=http&address=chain5.com'
+    """
+    protocol = request.args.get('protocol')
+    address = request.args.get('address')
+    try:
+        url = protocol + '://' + address
+    except TypeError as e:
+        app.logger.error('TypeError when trying to build RPC url from parameters: %s', str(e))
+        return jsonify({'error': "url parameters 'protocol' and 'address' required for get_chain_by_url request"}), 400
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     cursor.execute('SELECT url, chain_name FROM rpc_urls WHERE url=?', (url,))
     url_record = cursor.fetchone()
-    cursor.execute('''SELECT name, api_class
-                      FROM chains
-                      WHERE name = ?''', (url_record[1]))
-    chain_record = cursor.fetchone()
+    if url_record:
+        cursor.execute('SELECT name, api_class FROM chains WHERE name = ?', (url_record[1],))
+        chain_record = cursor.fetchone()
+        if chain_record:
+            return jsonify({'name': chain_record[0], 'api_class': chain_record[1]})
     conn.close()
-    if chain_record:
-        return jsonify({'name': chain_record[0], 'api_class': chain_record[1]})
     return jsonify({'error': 'Record not found'}), 404
 
 
