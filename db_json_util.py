@@ -40,6 +40,7 @@ def main() -> None:
         raise ValueError('Cannot specify both "add" and "export"')
     if not any([args.add, args.export]):
         raise ValueError('Specify either add or export')
+    # TODO: update script so that this doesn't need to be true, import/exporting just one table should be ok!
     if not all([args.json_chains, args.json_rpc_urls]):
         raise ValueError('Target JSON files required to run script')
 

@@ -21,12 +21,14 @@ jwt = JWTManager(app)
 
 # CONSTANTS
 # TODO: move to their own file in cleanup (perhaps?)
+
 TABLE_CHAINS = 'chains'
 TABLE_RPC_URLS = 'rpc_urls'
 
 
 # DATABASE SETUP
 # TODO: perhaps move table creation SQL to its own file? Lookup recommended setup
+
 # Create the database table if it doesn't exist
 def create_tables_if_not_exist():
     app.logger.info("CREATING database and tables %s", app.config['DATABASE'])
@@ -44,6 +46,7 @@ def create_tables_if_not_exist():
 
 
 # API ROUTES
+
 # Create a route to authenticate your users and return JWTs. The
 # create_access_token() function is used to actually generate the JWT.
 @app.route("/token", methods=["POST"])
@@ -93,6 +96,7 @@ def insert_into_database(table: str, request_data: dict) -> Response:
 # Create a new database record
 @app.route('/create/<string:table>', methods=['POST'])
 def create_record(table: str) -> Response:
+    # TODO: add docs
     if table not in [TABLE_CHAINS, TABLE_RPC_URLS]:
         return jsonify({'error': f'unknown table {table}'}), 400
     # Get the data from the request provided by flask
@@ -133,6 +137,7 @@ def create_record(table: str) -> Response:
 # Get all records
 @app.route('/all/<string:table>', methods=['GET'])
 def get_all_records(table: str) -> Response:
+    # TODO: add docs
     if table not in [TABLE_CHAINS, TABLE_RPC_URLS]:
         return jsonify({'error': f'unknown table {table}'}), 400
     conn = sqlite3.connect(app.config['DATABASE'])
@@ -159,6 +164,7 @@ def get_all_records(table: str) -> Response:
 # Get a specific chain by chain name
 @app.route('/get_chain_by_name/<string:name>', methods=['GET'])
 def get_chain_by_name(name: str) -> Response:
+    # TODO: add docs
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     cursor.execute('SELECT name, api_class FROM chains WHERE name=?', (name,))
@@ -201,6 +207,7 @@ def get_chain_by_url() -> Response:
 # Get urls for a specific chain
 @app.route('/get_urls/<string:chain_name>', methods=['GET'])
 def get_urls(chain_name: str) -> Response:
+    # TODO: add docs
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     cursor.execute('SELECT url, chain_name FROM rpc_urls WHERE chain_name=?', (chain_name,))
@@ -260,7 +267,6 @@ def update_url_record() -> Response:
     return rval
 
 
-# TODO: verify
 # Delete a chain record by name
 @app.route('/delete_chain', methods=['DELETE'])
 def delete_chain_record() -> Response:
@@ -421,5 +427,5 @@ def url_from_request_args() -> str:
 
 if __name__ == '__main__':
     create_tables_if_not_exist()
-    # TODO: add argument parser for things like host?
+    # TODO: add argument parser for settings like host and more?
     app.run(debug=True, host='0.0.0.0')
