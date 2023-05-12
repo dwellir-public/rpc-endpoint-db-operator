@@ -322,19 +322,32 @@ def delete_url_record() -> Response:
     return rval
 
 
-# TODO: verify
 # Delete url records by chain name
-@app.route('/delete_url/<string:chain_name>', methods=['DELETE'])
-def delete_url_records(chain_name: str) -> Response:
+@app.route('/delete_urls', methods=['DELETE'])
+def delete_url_records() -> Response:
+    """
+    Deletes the chain entry corresponding to the input name.
+
+    Requires that url parameter 'chain_name' is present in the request, example:
+
+    curl -X DELETE 'http://localhost:5000/delete_chain?chain_name=chain1'
+    """
+    chain_name = request.args.get('chain_name')
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     try:
         cursor.execute('DELETE FROM rpc_urls WHERE chain_name=?', (chain_name,))
     except sqlite3.IntegrityError as e:
+        conn.rollback()
+        conn.close()
         return jsonify({'error': str(e)}), 400
     conn.commit()
     conn.close()
-    return jsonify({'message': 'Records deleted successfully'})
+    if cursor.rowcount == 0:
+        rval = jsonify({'error': f'Records with chain_name {chain_name} not found'})
+    else:
+        rval = jsonify({'message': 'RPC url records deleted successfully'})
+    return rval
 
 
 # TODO: verify
