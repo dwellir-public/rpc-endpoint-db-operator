@@ -19,6 +19,14 @@ app.config['JWT_SECRET_KEY'] = 'super-secret'
 jwt = JWTManager(app)
 
 
+# CONSTANTS
+# TODO: move to their own file in cleanup (perhaps?)
+TABLE_CHAINS = 'chains'
+TABLE_RPC_URLS = 'rpc_urls'
+
+
+# DATABASE SETUP
+# TODO: perhaps move table creation SQL to its own file? Lookup recommended setup
 # Create the database table if it doesn't exist
 def create_tables_if_not_exist():
     app.logger.info("CREATING database and tables %s", app.config['DATABASE'])
@@ -35,25 +43,7 @@ def create_tables_if_not_exist():
     conn.close()
 
 
-def is_valid_api(api):
-    """
-    Test that api string is valid.
-    """
-    return api in ['substrate', 'ethereum', 'aptos']
-
-
-def is_valid_url(url):
-    """
-    Test that a url is valid, e.g. only http(s) and ws(s).
-    """
-    ALLOWED_SCHEMES = {'http', 'https', 'ws', 'wss'}
-    try:
-        result = urlparse(url)
-        return all([result.scheme in ALLOWED_SCHEMES, result.netloc])
-    except ValueError:
-        return False
-
-
+# API ROUTES
 # Create a route to authenticate your users and return JWTs. The
 # create_access_token() function is used to actually generate the JWT.
 @app.route("/token", methods=["POST"])
@@ -77,10 +67,6 @@ def protected():
     # Access the identity of the current user with get_jwt_identity
     current_user = get_jwt_identity()
     return jsonify(logged_in_as=current_user), 200
-
-
-TABLE_CHAINS = 'chains'
-TABLE_RPC_URLS = 'rpc_urls'
 
 
 def insert_into_database(table: str, request_data: dict) -> Response:
@@ -144,10 +130,6 @@ def create_record(table: str) -> Response:
         return insert_into_database(TABLE_RPC_URLS, values)
 
 
-SELECT_QUERY_CHAINS = 'SELECT name, api_class FROM chains'
-SELECT_QUERY_RPC_URLS = 'SELECT url, chain_name FROM rpc_urls'
-
-
 # Get all records
 @app.route('/all/<string:table>', methods=['GET'])
 def get_all_records(table: str) -> Response:
@@ -157,9 +139,9 @@ def get_all_records(table: str) -> Response:
     cursor = conn.cursor()
 
     if table == TABLE_CHAINS:
-        cursor.execute(SELECT_QUERY_CHAINS)
+        cursor.execute('SELECT name, api_class FROM chains')
     if table == TABLE_RPC_URLS:
-        cursor.execute(SELECT_QUERY_RPC_URLS)
+        cursor.execute('SELECT url, chain_name FROM rpc_urls')
 
     records = cursor.fetchall()
     conn.close()
@@ -230,12 +212,6 @@ def get_urls(chain_name: str) -> Response:
     if len(urls) > 0:
         return jsonify(urls)
     return jsonify({'error': f'No urls found for chain {chain_name}'}), 404
-
-
-def url_from_request_args() -> str:
-    protocol = request.args.get('protocol')
-    address = request.args.get('address')
-    return protocol + '://' + address
 
 
 # Update an existing url record
@@ -363,6 +339,37 @@ def get_chain_info():
     # Return the chain info as JSON
     return jsonify(result), 200
 
+
+# UTILITIES
+# TODO: move to their own file in cleanup
+
+def is_valid_api(api):
+    """ Test that api string is valid. """
+    return api in ['substrate', 'ethereum', 'aptos']
+
+
+def is_valid_url(url):
+    """ Test that a url is valid, e.g. only http(s) and ws(s). """
+    ALLOWED_SCHEMES = {'http', 'https', 'ws', 'wss'}
+    try:
+        result = urlparse(url)
+        return all([result.scheme in ALLOWED_SCHEMES, result.netloc])
+    except ValueError:
+        return False
+
+
+def url_from_request_args() -> str:
+    """
+    Return a full url from url parameters 'protocol' and 'address'.
+
+    Caller is responsible for excepting any errors.
+    """
+    protocol = request.args.get('protocol')
+    address = request.args.get('address')
+    return protocol + '://' + address
+
+
+# MAIN
 
 if __name__ == '__main__':
     create_tables_if_not_exist()
