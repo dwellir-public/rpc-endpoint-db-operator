@@ -254,7 +254,7 @@ def update_url_record() -> Response:
     conn.commit()
     conn.close()
     if cursor.rowcount == 0:
-        rval = jsonify({'error': 'No such record.'})
+        rval = jsonify({'error': 'No such record'})
     else:
         rval = jsonify({'url': url_new, 'chain_name': chain_name})
     return rval
@@ -275,19 +275,37 @@ def delete_chain_record(name: str) -> Response:
     return jsonify({'message': 'Record deleted successfully'})
 
 
-# TODO: verify
 # Delete a url record by url
-@app.route('/delete_url/<string:url>', methods=['DELETE'])
-def delete_url_record(url: str) -> Response:
+@app.route('/delete_url', methods=['DELETE'])
+def delete_url_record() -> Response:
+    """
+    Deletes the rpc_urls entry corresponding to the input url.
+
+    Requires that url parameters 'protocol' and 'address' are present in the request, example:
+
+    curl -X DELETE 'http://localhost:5000/delete_url?protocol=http&address=chain5.com'
+    """
+    try:
+        url = url_from_request_args()
+    except TypeError as e:
+        app.logger.error('TypeError when trying to build RPC url from parameters: %s', str(e))
+        return jsonify({'error': "url parameters 'protocol' and 'address' required for delete_url request"}), 400
+
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     try:
         cursor.execute('DELETE FROM rpc_urls WHERE url=?', (url,))
     except sqlite3.IntegrityError as e:
+        conn.rollback()
+        conn.close()
         return jsonify({'error': str(e)}), 400
     conn.commit()
     conn.close()
-    return jsonify({'message': 'Record deleted successfully'})
+    if cursor.rowcount == 0:
+        rval = jsonify({'error': 'Record not found'})
+    else:
+        rval = jsonify({'message': 'Record deleted successfully'})
+    return rval
 
 
 # TODO: verify
