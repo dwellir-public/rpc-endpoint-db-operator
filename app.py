@@ -191,19 +191,18 @@ def get_chain_by_name(name: str) -> Response:
 @app.route('/get_chain_by_url', methods=['GET'])
 def get_chain_by_url() -> Response:
     """
-    Gets the chain entry corresponding the input url.
+    Gets the chain entry corresponding to the input url.
 
     Requires that url parameters 'protocol' and 'address' are present in the request, example:
 
     curl 'http://localhost:5000/get_chain_by_url?protocol=http&address=chain5.com'
     """
-    protocol = request.args.get('protocol')
-    address = request.args.get('address')
     try:
-        url = protocol + '://' + address
+        url = url_from_request_args()
     except TypeError as e:
         app.logger.error('TypeError when trying to build RPC url from parameters: %s', str(e))
         return jsonify({'error': "url parameters 'protocol' and 'address' required for get_chain_by_url request"}), 400
+
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     cursor.execute('SELECT url, chain_name FROM rpc_urls WHERE url=?', (url,))
@@ -233,10 +232,29 @@ def get_urls(chain_name: str) -> Response:
     return jsonify({'error': f'No urls found for chain {chain_name}'}), 404
 
 
-# TODO: verify
+def url_from_request_args() -> str:
+    protocol = request.args.get('protocol')
+    address = request.args.get('address')
+    return protocol + '://' + address
+
+
 # Update an existing url record
-@app.route('/update/<string:url_old>', methods=['PUT'])
-def update_url_record(url_old: str) -> Response:
+@app.route('/update_url', methods=['PUT'])
+def update_url_record() -> Response:
+    """
+    Updates the rpc_urls entry corresponding to the input url.
+
+    Requires that url parameters 'protocol' and 'address' are present in the request, example:
+
+    curl -X PUT -H 'Content-Type: application/json' -d '{"url": "http://chain6.com", "chain_name": "chain6"}' \
+        'http://localhost:5000/update_url?protocol=http&address=chain4.com'
+    """
+    try:
+        url_old = url_from_request_args()
+    except TypeError as e:
+        app.logger.error('TypeError when trying to build RPC url from parameters: %s', str(e))
+        return jsonify({'error': "url parameters 'protocol' and 'address' required for update_url_record request"}), 400
+
     try:
         url_new = request.json['url']
         chain_name = request.json['chain_name']
@@ -248,10 +266,7 @@ def update_url_record(url_old: str) -> Response:
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     try:
-        cursor.execute('''UPDATE rpc_urls
-                        SET url = ?, chain_name = ?
-                        WHERE url = ?''',
-                       (url_new, chain_name, url_old))
+        cursor.execute('UPDATE rpc_urls SET url=?, chain_name=? WHERE url=?', (url_new, chain_name, url_old))
     except sqlite3.IntegrityError as e:
         conn.rollback()  # Roll back the transaction
         conn.close()
@@ -263,9 +278,10 @@ def update_url_record(url_old: str) -> Response:
     conn.commit()
     conn.close()
     if cursor.rowcount == 0:
-        return jsonify({'error': 'No such record.'})
+        rval = jsonify({'error': 'No such record.'})
     else:
-        return jsonify({'url': url_new, 'chain_name': chain_name})
+        rval = jsonify({'url': url_new, 'chain_name': chain_name})
+    return rval
 
 
 # TODO: verify
