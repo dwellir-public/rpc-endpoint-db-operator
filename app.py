@@ -80,10 +80,9 @@ def insert_into_database(table: str, request_data: dict) -> Response:
         placeholders = ':' + ', :'.join(request_data.keys())
         query = f'INSERT INTO {table} ({columns}) VALUES ({placeholders})'
         cursor.execute(query, request_data)
-        record_id = cursor.lastrowid  # TODO: remove?
         conn.commit()
         conn.close()
-        return jsonify({'message': 'Record created successfully', 'id': record_id}), 201
+        return jsonify({'message': 'Record created successfully'}), 201
     except sqlite3.IntegrityError as e:
         conn.rollback()  # Roll back the transaction
         conn.close()
@@ -93,45 +92,48 @@ def insert_into_database(table: str, request_data: dict) -> Response:
         return jsonify({'error': str(e)}), 500
 
 
-# Create a new database record
-@app.route('/create/<string:table>', methods=['POST'])
-def create_record(table: str) -> Response:
-    # TODO: add docs
-    if table not in [TABLE_CHAINS, TABLE_RPC_URLS]:
-        return jsonify({'error': f'unknown table {table}'}), 400
-    # Get the data from the request provided by flask
+# Create a new chains database record
+@app.route('/create_chain', methods=['POST'])
+def create_chain_record() -> Response:
+    """
+    Creates a record in the 'chains' table, corresponding to the input data.
+
+    Requires JSON data with parameters 'name' and 'api_class' in the request, example:
+
+    curl -X POST http://localhost:5000/create_chain -d '{"name": "chain1", "api_class": "substrate"}' \
+        -H 'Content-Type: application/json'
+    """
     data = request.get_json()
-    app.logger.info('create_record from data: %s', data)  # TODO: more logging in the other routes? use logger.debug?
+    app.logger.debug('creating chains record from data: %s', data)
+    if not all(key in data for key in ('name', 'api_class')):
+        return jsonify({'error': 'Both name and api_class entries are required'}), 400
+    values = {'name': data['name'], 'api_class': data['api_class']}
+    if not is_valid_api(values['api_class']):
+        return jsonify({'error': {'error': "Invalid api"}}), 500
+    return insert_into_database(TABLE_CHAINS, values)
 
-    if table == TABLE_CHAINS:
-        # Check that the correct entries are present
-        if not all(key in data for key in ('name', 'api_class')):
-            return jsonify({'error': 'Both name and api_class entries are required'}), 400
-        # Extract the data from the request
-        values = {
-            'name': data['name'],
-            'api_class': data['api_class']
-        }
-        # Validate the API class
-        if not is_valid_api(values['api_class']):
-            return jsonify({'error': {'error': "Invalid api"}}), 500
-        # Insert the record into the app.config['DATABASE']
-        return insert_into_database(TABLE_CHAINS, values)
 
-    if table == TABLE_RPC_URLS:
-        # Check that the correct entries are present
-        if not all(key in data for key in ('url', 'chain_name')):
-            return jsonify({'error': 'Both url and chain_name entries are required'}), 400
-        # Extract the data from the request
-        values = {
-            'url': data['url'],
-            'chain_name': data['chain_name']
-        }
-        # Validate the url
-        if not is_valid_url(values['url']):
-            return jsonify({'error': {'error': "Invalid url."}}), 500
-        # Insert the record into the app.config['DATABASE']
-        return insert_into_database(TABLE_RPC_URLS, values)
+# TODO: check that param chain_name actually exists in table chains?
+# Create a new rpc_urls database record
+@app.route('/create_rpc_url', methods=['POST'])
+def create_rpc_url_record() -> Response:
+    """
+    Creates a record in the 'rpc_urls' table, corresponding to the input data.
+
+    Requires JSON data with parameters 'url' and 'chain_name' in the request, example:
+
+    curl -X POST http://localhost:5000/create_rpc_url -d '{"url": "http://chain2.com", "chain_name": "chain2"}' \
+        -H 'Content-Type: application/json'
+    """
+    data = request.get_json()
+    app.logger.debug('creating rpc_urls record from data: %s', data)
+    if not all(key in data for key in ('url', 'chain_name')):
+        return jsonify({'error': 'Both url and chain_name entries are required'}), 400
+    values = {'url': data['url'], 'chain_name': data['chain_name']}
+    if not is_valid_url(values['url']):
+        return jsonify({'error': {'error': "Invalid url."}}), 500
+    return insert_into_database(TABLE_RPC_URLS, values)
+# TODO: add endpoint to create multiple URL entries with one request?
 
 
 # Get all records

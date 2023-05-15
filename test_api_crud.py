@@ -65,38 +65,38 @@ class CRUDTestCase(unittest.TestCase):
     def test_create_chain_record_missing_entry(self):
         # Send a request without the api_class entry
         data = {'name': 'Ethereum mainnet'}
-        response = self.app.post('/create/chains', json=data)
+        response = self.app.post('/create_chain', json=data)
         self.assertEqual(response.status_code, 400)
         self.assertIn('error', response.json)
 
         # Send a request without the name entry
         data = {'api_class': 'ethereum'}
-        response = self.app.post('/create/chains', json=data)
+        response = self.app.post('/create_chain', json=data)
         self.assertEqual(response.status_code, 400)
         self.assertIn('error', response.json)
 
     def test_create_rpc_url_record_missing_entry(self):
         # Send a request without the chain_name entry
         data = {'url': 'https://cloudflare-eth.com'}
-        response = self.app.post('/create/rpc_urls', json=data)
+        response = self.app.post('/create_rpc_url', json=data)
         self.assertEqual(response.status_code, 400)
         self.assertIn('error', response.json)
 
         # Send a request without the url entry
         data = {'chain_name': 'Ethereum mainnet'}
-        response = self.app.post('/create/rpc_urls', json=data)
+        response = self.app.post('/create_rpc_url', json=data)
         self.assertEqual(response.status_code, 400)
         self.assertIn('error', response.json)
 
     def test_create_record_no_duplicate_names(self):
         # Send a create chain request with all three entries
         data = {'name': 'Ethereum mainnet', 'api_class': 'ethereum'}
-        response = self.app.post('/create/chains', json=data)
+        response = self.app.post('/create_chain', json=data)
         self.assertEqual(response.status_code, 400)
 
         # Send a create rpc url request with all three entries
         data = {'url': 'https://cloudflare-eth.com', 'chain_name': 'Ethereum mainnet'}
-        response = self.app.post('/create/rpc_urls', json=data)
+        response = self.app.post('/create_rpc_url', json=data)
         self.assertEqual(response.status_code, 400)
         self.assertIn('error', response.json)
 
@@ -106,7 +106,7 @@ class CRUDTestCase(unittest.TestCase):
             'name': 'Polkadot',
             'api_class': 'substrate'
         }
-        response = self.app.post('/create/chains', json=chain_data)
+        response = self.app.post('/create_chain', json=chain_data)
         self.assertEqual(response.status_code, 201)
         self.assertIn('message', response.json)
 
@@ -125,7 +125,7 @@ class CRUDTestCase(unittest.TestCase):
             'url': 'wss://rpc.polkadot.io',
             'chain_name': 'Polkadot'
         }
-        response = self.app.post('/create/rpc_urls', json=url_data)
+        response = self.app.post('/create_rpc_url', json=url_data)
         self.assertEqual(response.status_code, 201)
         self.assertIn('message', response.json)
 
@@ -153,7 +153,7 @@ class CRUDTestCase(unittest.TestCase):
             'name': 'Polkadot',
             'api_class': 'substrate'
         }
-        response = self.app.post('/create/chains', json=chain_data)
+        response = self.app.post('/create_chain', json=chain_data)
         response = self.app.get(f'/get_chain_by_name/{chain_data["name"]}')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json['api_class'], chain_data['api_class'])
@@ -163,16 +163,18 @@ class CRUDTestCase(unittest.TestCase):
             'name': 'Polkadot',
             'api_class': 'substrate'
         }
-        _ = self.app.post('/create/chains', json=chain_data)
+        _ = self.app.post('/create_chain', json=chain_data)
         url_data = {
             'url': 'wss://rpc.polkadot.io',
             'chain_name': 'Polkadot'
         }
-        _ = self.app.post('/create/rpc_urls', json=url_data)
+        _ = self.app.post('/create_rpc_url', json=url_data)
         url_params = {'protocol': 'wss', 'address': 'rpc.polkadot.io'}
         response = self.app.get('/get_chain_by_url', query_string=url_params)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json['api_class'], chain_data['api_class'])
+
+    # TODO: add test for get_urls (by chain name)
 
     def test_update_url_record(self):
         # Create a new record
@@ -180,7 +182,7 @@ class CRUDTestCase(unittest.TestCase):
             'url': 'wss://rpc.polkadot.io',
             'chain_name': 'Polkadot'
         }
-        _ = self.app.post('/create/rpc_urls', json=url_data)
+        _ = self.app.post('/create_rpc_url', json=url_data)
 
         # Update the record
         new_url_data = {
@@ -203,7 +205,7 @@ class CRUDTestCase(unittest.TestCase):
             'name': 'Polkadot',
             'api_class': 'substrate'
         }
-        response = self.app.post('/create/chains', json=chain_data)
+        response = self.app.post('/create_chain', json=chain_data)
         response = self.app.delete('/delete_chain', query_string={'name': 'Polkadot'})
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json['message'], 'Chain record deleted successfully')
@@ -213,17 +215,19 @@ class CRUDTestCase(unittest.TestCase):
             'url': 'wss://rpc.polkadot.io',
             'chain_name': 'Polkadot'
         }
-        response = self.app.post('/create/rpc_urls', json=url_data)
+        response = self.app.post('/create_rpc_url', json=url_data)
         response = self.app.delete('/delete_url', query_string={'protocol': 'wss', 'address': 'rpc.polkadot.io'})
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json['message'], 'url record deleted successfully')
+
+    # TODO: add test for delete_urls
 
     def test_get_chain_info_by_chain_name(self):
         chain_data = {
             'name': 'Polkadot',
             'api_class': 'substrate'
         }
-        _ = self.app.post('/create/chains', json=chain_data)
+        _ = self.app.post('/create_chain', json=chain_data)
         url_data_1 = {
             'url': 'wss://rpc.polkadot.io',
             'chain_name': 'Polkadot'
@@ -232,8 +236,8 @@ class CRUDTestCase(unittest.TestCase):
             'url': 'https://rpc.polkadot.io',
             'chain_name': 'Polkadot'
         }
-        _ = self.app.post('/create/rpc_urls', json=url_data_1)
-        _ = self.app.post('/create/rpc_urls', json=url_data_2)
+        _ = self.app.post('/create_rpc_url', json=url_data_1)
+        _ = self.app.post('/create_rpc_url', json=url_data_2)
         response = self.app.get('/chain_info', query_string={'chain_name': chain_data['name']})
         self.assertEqual(response.status_code, 200)
         self.assertIsNotNone(response.json, msg='Response is not valid JSON')
