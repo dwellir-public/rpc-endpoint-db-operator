@@ -1,8 +1,0 @@
-{
-    "native_id": 58,
-    "chain_name": "Aptos Devnet",
-    "urls": [
-        "https://fullnode.devnet.aptoslabs.com/v1/"
-    ],
-    "api_class": "aptos"
-}

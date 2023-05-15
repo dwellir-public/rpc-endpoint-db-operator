@@ -11,6 +11,8 @@ def main():
     parser.add_argument('-f', '--files', nargs='+', type=str, help='List of JSON files')
     parser.add_argument('--out_chains', type=str, help='Output file with merged chains')
     parser.add_argument('--out_urls', type=str, help='Output file with merged ROC urls')
+    parser.add_argument('--include_everything', action='store_true', help='Includes all data, not just what is used in v2')
+    parser.add_argument('-v', '--verbose', action='store_true')
     args = parser.parse_args()
 
     if args.directory and args.files:
@@ -31,13 +33,18 @@ def main():
     chains = []
     rpc_urls = []
     for d in old_data:
-        print('input: ', d, '\n')
+        if args.verbose:
+            print('input: ', d, '\n')
 
         chains_entry = {
             'name': d['chain_name'],
             'api_class': d['api_class']
         }
-        print('chains entry: ', chains_entry, '\n')
+        if args.include_everything:
+            chains_entry['native_id'] = d['native_id']
+
+        if args.verbose:
+            print('chains entry: ', chains_entry, '\n')
         chains.append(chains_entry)
 
         for url in d['urls']:
@@ -45,7 +52,8 @@ def main():
                 'url': url,
                 'chain_name': d['chain_name']
             }
-            print('rpc_urls entry: ', urls_entry, '\n')
+            if args.verbose:
+                print('rpc_urls entry: ', urls_entry, '\n')
             rpc_urls.append(urls_entry)
 
     out_chains_path = Path.cwd() / args.out_chains
