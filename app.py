@@ -101,7 +101,7 @@ def create_record(table: str) -> Response:
         return jsonify({'error': f'unknown table {table}'}), 400
     # Get the data from the request provided by flask
     data = request.get_json()
-    app.logger.info('create_record from data: %s', data)
+    app.logger.info('create_record from data: %s', data)  # TODO: more logging in the other routes? use logger.debug?
 
     if table == TABLE_CHAINS:
         # Check that the correct entries are present
@@ -144,9 +144,9 @@ def get_all_records(table: str) -> Response:
     cursor = conn.cursor()
 
     if table == TABLE_CHAINS:
-        cursor.execute('SELECT name, api_class FROM chains')
+        cursor.execute(f'SELECT name, api_class FROM {TABLE_CHAINS}')
     if table == TABLE_RPC_URLS:
-        cursor.execute('SELECT url, chain_name FROM rpc_urls')
+        cursor.execute(f'SELECT url, chain_name FROM {TABLE_RPC_URLS}')
 
     records = cursor.fetchall()
     conn.close()
@@ -167,7 +167,7 @@ def get_chain_by_name(name: str) -> Response:
     # TODO: add docs
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
-    cursor.execute('SELECT name, api_class FROM chains WHERE name=?', (name,))
+    cursor.execute(f'SELECT name, api_class FROM {TABLE_CHAINS} WHERE name=?', (name,))
     record = cursor.fetchone()
     conn.close()
     if record:
@@ -193,14 +193,40 @@ def get_chain_by_url() -> Response:
 
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
-    cursor.execute('SELECT url, chain_name FROM rpc_urls WHERE url=?', (url,))
+    cursor.execute(f'SELECT url, chain_name FROM {TABLE_RPC_URLS} WHERE url=?', (url,))
     url_record = cursor.fetchone()
     if url_record:
-        cursor.execute('SELECT name, api_class FROM chains WHERE name = ?', (url_record[1],))
+        cursor.execute(f'SELECT name, api_class FROM {TABLE_CHAINS} WHERE name = ?', (url_record[1],))
         chain_record = cursor.fetchone()
         if chain_record:
             return jsonify({'name': chain_record[0], 'api_class': chain_record[1]})
     conn.close()
+    return jsonify({'error': 'Record not found'}), 404
+
+
+# Get a specific url record by url
+@app.route('/get_url', methods=['GET'])
+def get_url() -> Response:
+    """
+    Gets the RPC url entry corresponding to the input url.
+
+    Requires that url parameters 'protocol' and 'address' are present in the request, example:
+
+    curl -X GET -H 'http://localhost:5000/get_url?protocol=http&address=chain4.com'
+    """
+    try:
+        url = url_from_request_args()
+    except TypeError as e:
+        app.logger.error('TypeError when trying to build RPC url from parameters: %s', str(e))
+        return jsonify({'error': "url parameters 'protocol' and 'address' required for update_url_record request"}), 400
+
+    conn = sqlite3.connect(app.config['DATABASE'])
+    cursor = conn.cursor()
+    cursor.execute(f'SELECT url, chain_name FROM {TABLE_RPC_URLS} WHERE url=?', (url,))
+    record = cursor.fetchone()
+    conn.close()
+    if record:
+        return jsonify({'url': record[0], 'chain_name': record[1]})
     return jsonify({'error': 'Record not found'}), 404
 
 
@@ -210,7 +236,7 @@ def get_urls(chain_name: str) -> Response:
     # TODO: add docs
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
-    cursor.execute('SELECT url, chain_name FROM rpc_urls WHERE chain_name=?', (chain_name,))
+    cursor.execute(f'SELECT url, chain_name FROM {TABLE_RPC_URLS} WHERE chain_name=?', (chain_name,))
     records = cursor.fetchall()
     conn.close()
     urls = []
@@ -249,7 +275,7 @@ def update_url_record() -> Response:
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     try:
-        cursor.execute('UPDATE rpc_urls SET url=?, chain_name=? WHERE url=?', (url_new, chain_name, url_old))
+        cursor.execute(f'UPDATE {TABLE_RPC_URLS} SET url=?, chain_name=? WHERE url=?', (url_new, chain_name, url_old))
     except sqlite3.IntegrityError as e:
         conn.rollback()  # Roll back the transaction
         conn.close()
@@ -281,7 +307,7 @@ def delete_chain_record() -> Response:
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     try:
-        cursor.execute('DELETE FROM chains WHERE name=?', (name,))
+        cursor.execute(f'DELETE FROM {TABLE_CHAINS} WHERE name=?', (name,))
     except sqlite3.IntegrityError as e:
         conn.rollback()
         conn.close()
@@ -314,7 +340,7 @@ def delete_url_record() -> Response:
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     try:
-        cursor.execute('DELETE FROM rpc_urls WHERE url=?', (url,))
+        cursor.execute(f'DELETE FROM {TABLE_RPC_URLS} WHERE url=?', (url,))
     except sqlite3.IntegrityError as e:
         conn.rollback()
         conn.close()
@@ -324,7 +350,7 @@ def delete_url_record() -> Response:
     if cursor.rowcount == 0:
         rval = jsonify({'error': f'Record with url \'{url}\' not found'})
     else:
-        rval = jsonify({'message': 'RPC url record deleted successfully'})
+        rval = jsonify({'message': 'url record deleted successfully'})
     return rval
 
 
@@ -342,7 +368,7 @@ def delete_url_records() -> Response:
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     try:
-        cursor.execute('DELETE FROM rpc_urls WHERE chain_name=?', (chain_name,))
+        cursor.execute(f'DELETE FROM {TABLE_RPC_URLS} WHERE chain_name=?', (chain_name,))
     except sqlite3.IntegrityError as e:
         conn.rollback()
         conn.close()
@@ -367,18 +393,19 @@ def get_chain_info():
     curl "http://localhost:5000/chain_info?name=chain2"
     """
     # Get parameters from the request URL
-    name = request.args.get('name')
-    if not name:
-        return jsonify({'error': 'Missing required parameter \'name\''}), 400
+    chain_name = request.args.get('chain_name')
+    if not chain_name:
+        return jsonify({'error': 'Missing required parameter \'chain_name\''}), 400
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     # Fetch chain
-    cursor.execute("SELECT * FROM chains WHERE name=?", (name,))
+    cursor.execute(f'SELECT * FROM {TABLE_CHAINS} WHERE name=?', (chain_name,))
     chain_record = cursor.fetchone()  # TODO: fetchone() should be enough here, right? Only one should exist
     if not chain_record:
-        return jsonify({'error': f'Chain \'{name}\' not found'}), 404  # TODO: can this error happen, since we found it in the previous if?
+        # TODO: can this error happen, since we found it in the previous if?
+        return jsonify({'error': f'Chain \'{chain_name}\' not found'}), 404
     # Fetch urls
-    cursor.execute('''SELECT url, chain_name FROM rpc_urls WHERE chain_name=?''', (name,))
+    cursor.execute(f'SELECT url, chain_name FROM {TABLE_RPC_URLS} WHERE chain_name=?', (chain_name,))
     url_records = cursor.fetchall()
     conn.close()
     # TODO: do we need a try/except block around here? Any out of bounds risks?
@@ -399,6 +426,8 @@ def get_chain_info():
 
 def is_valid_api(api):
     """ Test that api string is valid. """
+    # TODO: move to constants?
+    # TODO: add .lower() for these?
     return api in ['substrate', 'ethereum', 'aptos']
 
 
