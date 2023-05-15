@@ -8,6 +8,13 @@ It also holds a tool to update an influx database with latency and blockheight i
 
 ### Prepare the environment
 
+Fetch the `endpointdb` repo to your target environment. If not already configured, you will need to create a new SSH key to add as a deploy key for the repo.
+
+    # If a new key is needed
+    ssh-keygen -t ed25519
+    # Add ~/.ssh/id_ed25519.pub to 'Deploy keys' in the endpointdb repo on GitHub
+    git clone git@github.com:dwellir-public/endpointdb.git
+
 Install `influxdb2` and Python tools by running the `install-dependencies.sh` script in your target environment. 
 
     ./install-dependencies.sh
@@ -27,13 +34,6 @@ Set up `influx`. You will be prompted to configure the primary user and can answ
     ? Please type your primary bucket name default
     ? Please type your retention period in hours, or 0 for infinite 0
 
-Fetch the `endpointdb` repo to your target environment. If not already configured, you will need to create a new SSH key to add as a deploy key for the repo.
-
-    # If a new key is needed
-    ssh-keygen -t ed25519
-    # Add ~/.ssh/id_ed25519.pub to 'Deploy keys' in the endpointdb repo on GitHub
-    git clone git@github.com:dwellir-public/endpointdb.git
-
 Create a new virtual environment in the repo and install the Python requirements.
 
     cd endpointdb
@@ -49,60 +49,73 @@ Create a bucket for the blockheight data.
 
     sudo influx bucket create -n blockheights -r 30d
 
+## Usage
 
-### Start and initialize the database
+### Start and initialize the blockchain RPC database
 
 The API endpoint database is an SQLite database which is interfaced and used via a Flask API.
 
 Start the database, preferrably using a `screen`. Exit the screen gracefully with Ctrl + A + D.
 
     screen -S endpointdb-app
+    # The screen opens a new shell, so we'll have to re-activate the virtual environment
+    > source venv/bin/activate
     > python3 app.py
 
-Populate the database with initial information. The `json` directory in the repo conatins a number of `.json` files with blockchain RPC urls to use.
+Populate the database with initial information. The `json` directory in the repo contains `.json` files with backed up blockchain RPC urls that you can initialize from, if you haven't got access to a better source, though the list might not be 100 % up to date.
 
-    python3 add-from-directory-json.py -d json
+    python3 db_json_util.py --add --local --json_chains json/chains.json --json_rpc_urls json/rpc_urls.json --db_file live_database.db
 
 ### Start the influx updater
 
-To start pushing data to the influx database, we run the `update_influxdb.py` script. It can be run form the same machine as the database was initialized on but could also be run from an entirely different machine. The script uses the `config.json` file to set up Flask and InfluxDB parameters, make sure to edit it to use the correct database host IP and InfluxDB settings.
+To start pushing data to the blockheight database, we run the `update_influxdb.py` script. It can be run from the same machine as the database was initialized on but could also be run from an entirely different machine. The script uses the information from a config file, `config.json` by default, to find the Flask API and the Influx database, as well as accessing them.
 
     screen -S update-influxdb  # optional
     python3 ./update_influxdb.py
 
-## Usage
-
-### Query the database via the API 
+### Query the blockchain RPC database via the Flask API
 
 The Flask API supportes all of CRUD: "Create, Read, Update, Delete". Here follows some `curl` examples:
 
+Create a chain record
+
     curl -X POST -H "Content-Type: application/json" -d \
     '{
-    "native_id": 999,
-    "chain_name": "TESTCHAIN",
-    "urls": ["https://foo.bar", "https://foo.bar"],
-    "api_class": "polkadot"} ' http://localhost:5000/create
+        "name": "TESTCHAIN",
+        "api_class": "substrate"
+    }' \
+    http://localhost:5000/create_chain
 
-    {
-    "id": 1,
-    "message": "Record created successfully"
-    }'
+Create a URL record
 
-Get the record
+    curl -X POST -H 'Content-Type: application/json' -d \
+    '{
+        "url": "https://foo.bar",
+        "chain_name": "TESTCHAIN"
+    }' \
+    http://localhost:5000/create_rpc_url
 
-    curl http://127.0.0.1:5000/get/1
+Get the URL record
 
-Update the record
+    curl -X GET -H 'http://localhost:5000/get_url?protocol=https&address=foo.bar'
 
-    curl -X PUT -H "Content-Type: application/json" -d '{"native_id": 888, "chain_name": "My test chain", "urls": ["https://polkadot-rpc.dwellir.com"], "api_class": "substrate"}' http://localhost:5000/update/1
+Update the URL record
 
-Delete the record
+    curl -X PUT -H 'Content-Type: application/json' -d \
+    '{
+        "url": "https://foofoo.bar",
+        "chain_name": "chain6"
+    }' \
+    http://localhost:5000/update_url?protocol=https&address=foo.bar
 
-    curl -X DELETE http://localhost:5000/delete/1
+Delete a URL record
+
+    curl -X DELETE http://localhost:5000/delete_url/?protocol=https&address=foofoo.bar
 
 Get all records
 
-    curl http://localhost:5000/all
+    curl http://localhost:5000/all/chains
+    curl http://localhost:5000/all/rpc_urls
 
 Get an access token
 
@@ -112,14 +125,22 @@ Use access token in query
 
     curl http://localhost:5000/protected-route -H 'Authorization: Bearer <token>'
 
+### Query the InfluxDB via the command line
+
+TODO!
+
 ## Grafana
+
+An intention of this application is to gain a good monitoring overview through Grafana.
 
 ### Adding the datasource
 
+- Enter the Grafana web GUI.
+- Go to the 'Add datasource' section.
 - Select InfluxDB as the datasource type.
-- Use Flux as the query language.
+- Set Flux as the query language.
 - Set the host IP and port (default port is 8086).
-- Add the InflluxDB details, including the token generated when setting up the database.
+- Add the InfluxDB details, including the token generated when setting up the database.
 
 ![Example image](grafana-datasource-setup.png?raw=true "Example image")
 
