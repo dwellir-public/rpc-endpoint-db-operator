@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
+
 import json
 from influxdb_client import InfluxDBClient
+import argparse
+from pathlib import Path
 
 
 def test_influxdb_connection(url, token, org, bucket):
@@ -23,9 +26,13 @@ def test_influxdb_connection(url, token, org, bucket):
 
 
 if __name__ == '__main__':
-    # CONFIG
-    # TODO: make the config file an input argument?
-    with open('config.json') as f:
+    parser = argparse.ArgumentParser(description='Check InfluxDB status')
+    parser.add_argument('config_file', type=str, help="The file with the target database's config")
+    args = parser.parse_args()
+
+    if not (Path.cwd() / args.config_file).exists():
+        raise FileNotFoundError
+    with open(args.config_file, encoding='utf-8') as f:
         config = json.load(f)
 
     rpc_flask_api = config['RPC_FLASK_API']
