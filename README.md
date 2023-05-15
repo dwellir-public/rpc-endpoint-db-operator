@@ -140,13 +140,13 @@ An intention of this application is to gain a good monitoring overview through G
 - Select InfluxDB as the datasource type.
 - Set Flux as the query language.
 - Set the host IP and port (default port is 8086).
-- Add the InfluxDB details, including the token generated when setting up the database.
+- Add the InfluxDB details; organizaiton, token (the one generated when setting up the database) and data bucket.
 
 ![Example image](grafana-datasource-setup.png?raw=true "Example image")
 
 ### Running an influx query in grafana
 
-You can use this example query in grafana, under the Explore section. Simply paste the code below and press "Run query". If both the `app.py` and `update_influxdb.py` scripts were started correctly, you should be getting a response from the database!
+You can use this example query in grafana, under the 'Explore section'. Simply paste the code below and press "Run query". If both the `app.py` and `update_influxdb.py` scripts were started correctly, you should be getting a response from the database!
 
 Example:
 
