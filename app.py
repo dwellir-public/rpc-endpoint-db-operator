@@ -38,11 +38,11 @@ def create_tables_if_not_exist():
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     cursor.execute('''CREATE TABLE IF NOT EXISTS chains
-                      (name TEXT PRIMARY KEY UNIQUE NOT NULL,
-                       api_class TEXT NOT NULL)''')
+                      (name TEXT PRIMARY KEY UNIQUE COLLATE NOCASE NOT NULL,
+                       api_class TEXT COLLATE NOCASE NOT NULL)''')
     cursor.execute('''CREATE TABLE IF NOT EXISTS rpc_urls
-                      (url TEXT PRIMARY KEY UNIQUE NOT NULL,
-                       chain_name TEXT NOT NULL,
+                      (url TEXT PRIMARY KEY UNIQUE COLLATE NOCASE NOT NULL,
+                       chain_name TEXT COLLATE NOCASE NOT NULL,
                        FOREIGN KEY(chain_name) REFERENCES chains(name))''')
     conn.commit()
     conn.close()
