@@ -48,6 +48,8 @@ def main() -> None:
     path_chains = Path.cwd() / args.json_chains if args.json_chains else None
     path_urls = Path.cwd() / args.json_rpc_urls if args.json_rpc_urls else None
 
+    # TODO: add user-check in cased of file overwrite
+
     if args.local and not path_db_file.exists():
         raise FileNotFoundError(f'Database file {args.file} not found')
 
@@ -85,7 +87,11 @@ def import_from_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path
             api_class = entry['api_class']
             query = f'INSERT INTO {TABLE_CHAINS} (name, api_class) VALUES (?, ?)'
             values = (name, api_class)
-            cursor.execute(query, values)
+            try:
+                cursor.execute(query, values)
+            except sqlite3.IntegrityError as e:
+                conn.rollback()
+                print(f'Database error for {{{name}, {api_class}}}:', e)
 
     if json_rpc_urls:
         with open(json_rpc_urls, 'r', encoding='utf-8') as f:
