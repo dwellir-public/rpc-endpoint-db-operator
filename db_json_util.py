@@ -24,9 +24,9 @@ def main() -> None:
     parser.add_argument('--local', action='store_true',  help='If the script should operate with a local database file')
     parser.add_argument('--db_file', type=str, help='The local database file', default=DEFAULT_FILE)
 
-    parser.add_argument('--add', action='store_true',
+    parser.add_argument('-i', '--import_data', action='store_true',
                         help='Import data to the database from the target JSON file. Overwrites existing entries for matching identifiers.')
-    parser.add_argument('--export', action='store_true',
+    parser.add_argument('-e', '--export_data', action='store_true',
                         help='Export data from the database to the target JSON file. Note: will overwrite the target JSON files!')
     parser.add_argument('--json_chains', type=str, help='The JSON file target for "chains"')
     parser.add_argument('--json_rpc_urls', type=str, help='The JSON file target for "rpc_urls"')
@@ -36,10 +36,10 @@ def main() -> None:
         raise ValueError('Cannot specify both "api" and "local"')
     if not any([args.api, args.local]):
         raise ValueError('Specify either api or local')
-    if args.add and args.export:
-        raise ValueError('Cannot specify both "add" and "export"')
-    if not any([args.add, args.export]):
-        raise ValueError('Specify either add or export')
+    if args.add and args.export_data:
+        raise ValueError('Cannot specify both "import_data" and "export_data"')
+    if not any([args.import_data, args.export_data]):
+        raise ValueError('Specify either import or export')
     # TODO: update script so that this doesn't need to be true, import/exporting just one table should be ok!
     if not all([args.json_chains, args.json_rpc_urls]):
         raise ValueError('Target JSON files required to run script')
@@ -56,11 +56,11 @@ def main() -> None:
         # TODO: implement
 
     if args.local:
-        if args.add:
+        if args.import_data:
             print(f'> importing data from {path_json_chains.name} and {path_json_rpc_urls.name}')
             import_from_json_files(path_json_chains, path_json_rpc_urls, path_db_file)
-            print(f'> data added to {path_db_file.name}')
-        if args.export:
+            print(f'> data written to database file {path_db_file.name}')
+        if args.export_data:
             print(f'> exporting data from {path_db_file.name}')
             export_to_json_files(path_json_chains, path_json_rpc_urls, path_db_file)
             print(f'> data written to {path_json_chains.name} and {path_json_rpc_urls.name}')
