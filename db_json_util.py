@@ -35,18 +35,18 @@ def main() -> None:
     if args.api and args.local:
         raise ValueError('Cannot specify both "api" and "local"')
     if not any([args.api, args.local]):
-        raise ValueError('Specify either api or local')
-    if args.add and args.export_data:
+        raise ValueError('Specify either "api" or "local"')
+    if args.import_data and args.export_data:
         raise ValueError('Cannot specify both "import_data" and "export_data"')
     if not any([args.import_data, args.export_data]):
-        raise ValueError('Specify either import or export')
-    # TODO: update script so that this doesn't need to be true, import/exporting just one table should be ok!
-    if not all([args.json_chains, args.json_rpc_urls]):
-        raise ValueError('Target JSON files required to run script')
+        raise ValueError('Specify either "import_data" or "export_data"')
+    if not any([args.json_chains, args.json_rpc_urls]):
+        print('No JSON files supplied, exiting.')
+        return
 
     path_db_file = Path.cwd() / args.db_file
-    path_json_chains = Path.cwd() / args.json_chains
-    path_json_rpc_urls = Path.cwd() / args.json_rpc_urls
+    path_chains = Path.cwd() / args.json_chains if args.json_chains else None
+    path_urls = Path.cwd() / args.json_rpc_urls if args.json_rpc_urls else None
 
     if args.local and not path_db_file.exists():
         raise FileNotFoundError(f'Database file {args.file} not found')
@@ -57,13 +57,15 @@ def main() -> None:
 
     if args.local:
         if args.import_data:
-            print(f'> importing data from {path_json_chains.name} and {path_json_rpc_urls.name}')
-            import_from_json_files(path_json_chains, path_json_rpc_urls, path_db_file)
+            # TODO: fix
+            print(
+                f'> importing data from {path_chains.name if path_chains else "_"} and {path_urls.name if path_urls else "_"}')
+            import_from_json_files(path_chains, path_urls, path_db_file)
             print(f'> data written to database file {path_db_file.name}')
         if args.export_data:
             print(f'> exporting data from {path_db_file.name}')
-            export_to_json_files(path_json_chains, path_json_rpc_urls, path_db_file)
-            print(f'> data written to {path_json_chains.name} and {path_json_rpc_urls.name}')
+            export_to_json_files(path_chains, path_urls, path_db_file)
+            print(f'> data written to {path_chains.name if path_chains else "_"} and {path_urls.name if path_urls else "_"}')
 
 
 def import_from_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path):
@@ -71,32 +73,33 @@ def import_from_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path
     Imports data from two JSON file into an SQLite database.
     Assumes the JSON files has a specific format as defined by XYZ. # TODO: mention the schema when implemented
     """
-    with open(json_chains, 'r', encoding='utf-8') as f:
-        data_chains = json.load(f)
-    with open(json_rpc_urls, 'r', encoding='utf-8') as f:
-        data_rpc_urls = json.load(f)
-
     conn = sqlite3.connect(db_file)
     conn.execute('PRAGMA foreign_keys = ON')
     cursor = conn.cursor()
 
-    for entry in data_chains:
-        name = entry['name']
-        api_class = entry['api_class']
-        query = f'INSERT INTO {TABLE_CHAINS} (name, api_class) VALUES (?, ?)'
-        values = (name, api_class)
-        cursor.execute(query, values)
-
-    for entry in data_rpc_urls:
-        url = entry['url']
-        chain_name = entry['chain_name']
-        query = f'INSERT INTO {TABLE_RPC_URLS} (url, chain_name) VALUES (?, ?)'
-        values = (url, chain_name)
-        try:
+    if json_chains:
+        with open(json_chains, 'r', encoding='utf-8') as f:
+            data_chains = json.load(f)
+        for entry in data_chains:
+            name = entry['name']
+            api_class = entry['api_class']
+            query = f'INSERT INTO {TABLE_CHAINS} (name, api_class) VALUES (?, ?)'
+            values = (name, api_class)
             cursor.execute(query, values)
-        except sqlite3.IntegrityError as e:
-            conn.rollback()  # Roll back the transaction
-            print('Foreign key constraint failed: %s', e)
+
+    if json_rpc_urls:
+        with open(json_rpc_urls, 'r', encoding='utf-8') as f:
+            data_rpc_urls = json.load(f)
+        for entry in data_rpc_urls:
+            url = entry['url']
+            chain_name = entry['chain_name']
+            query = f'INSERT INTO {TABLE_RPC_URLS} (url, chain_name) VALUES (?, ?)'
+            values = (url, chain_name)
+            try:
+                cursor.execute(query, values)
+            except sqlite3.IntegrityError as e:
+                conn.rollback()
+                print(f'Database error for {{{url}, {chain_name}}}:', e)
 
     conn.commit()
     conn.close()
@@ -111,25 +114,27 @@ def export_to_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path):
     conn.execute('PRAGMA foreign_keys = ON')
     cursor = conn.cursor()
 
-    query_chains = f'SELECT name, api_class FROM {TABLE_CHAINS}'
-    entries_chains = cursor.execute(query_chains).fetchall()
-    data_chains = []
-    for entry in entries_chains:
-        name = entry[0]
-        api_class = entry[1]
-        data_chains.append({'name': name, 'api_class': api_class})
-    with open(json_chains, 'w', encoding='utf-8') as f:
-        json.dump(data_chains, f, ensure_ascii=False, indent=4)
+    if json_chains:
+        query_chains = f'SELECT name, api_class FROM {TABLE_CHAINS}'
+        entries_chains = cursor.execute(query_chains).fetchall()
+        data_chains = []
+        for entry in entries_chains:
+            name = entry[0]
+            api_class = entry[1]
+            data_chains.append({'name': name, 'api_class': api_class})
+        with open(json_chains, 'w', encoding='utf-8') as f:
+            json.dump(data_chains, f, ensure_ascii=False, indent=4)
 
-    query_rpc_urls = f'SELECT url, chain_name FROM {TABLE_RPC_URLS}'
-    entries_rpc_urls = cursor.execute(query_rpc_urls).fetchall()
-    data_rpc_urls = []
-    for entry in entries_rpc_urls:
-        url = entry[0]
-        chain_name = entry[1]
-        data_rpc_urls.append({'url': url, 'chain_name': chain_name})
-    with open(json_rpc_urls, 'w', encoding='utf-8') as f:
-        json.dump(data_rpc_urls, f, ensure_ascii=False, indent=4)
+    if json_rpc_urls:
+        query_rpc_urls = f'SELECT url, chain_name FROM {TABLE_RPC_URLS}'
+        entries_rpc_urls = cursor.execute(query_rpc_urls).fetchall()
+        data_rpc_urls = []
+        for entry in entries_rpc_urls:
+            url = entry[0]
+            chain_name = entry[1]
+            data_rpc_urls.append({'url': url, 'chain_name': chain_name})
+        with open(json_rpc_urls, 'w', encoding='utf-8') as f:
+            json.dump(data_rpc_urls, f, ensure_ascii=False, indent=4)
 
 
 if __name__ == '__main__':
