@@ -1,8 +1,6 @@
 #!/bin/env python3
 
-import os
-from collections import OrderedDict
-import json
+from pathlib import Path
 from flask import Flask, jsonify, request, Response
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt_identity
 import sqlite3
@@ -12,18 +10,23 @@ from urllib.parse import urlparse
 logging.basicConfig(level=logging.INFO)
 # logging.basicConfig(filename='app.log', level=logging.INFO)
 
-app = Flask(__name__)
-app.config['DATABASE'] = os.path.join(os.path.dirname(__file__), 'live_database.db')
-# TODO: change this to a file-based secret?
-app.config['JWT_SECRET_KEY'] = 'super-secret'
-jwt = JWTManager(app)
-
 
 # CONSTANTS
 # TODO: move to their own file in cleanup (perhaps?)
 
 TABLE_CHAINS = 'chains'
 TABLE_RPC_URLS = 'rpc_urls'
+PATH_DIR = Path(__file__).resolve().parent
+PATH_DB = PATH_DIR / 'live_database.db'
+PATH_JWT_SECRET_KEY = PATH_DIR / 'auth_jwt_secret_key'
+PATH_PASSWORD = PATH_DIR / 'auth_password'
+
+app = Flask(__name__)
+app.config['DATABASE'] = str(PATH_DB)
+with PATH_JWT_SECRET_KEY.open() as jwt_file:
+    JWT_SECRET_KEY = jwt_file.read().strip()
+app.config['JWT_SECRET_KEY'] = JWT_SECRET_KEY
+jwt = JWTManager(app)
 
 
 # DATABASE SETUP
@@ -47,14 +50,23 @@ def create_tables_if_not_exist():
 
 # API ROUTES
 
-# Create a route to authenticate your users and return JWTs. The
-# create_access_token() function is used to actually generate the JWT.
 @app.route("/token", methods=["POST"])
-def login():
+def generate_token():
+    """
+    Generates an access token which is needed to make requests to any protected (@jwt_required decorator)
+    functions in this API. The password is stored securely on the machine of the app.
+
+    Requires JSON data with parameters 'username' and 'password' in the request, example:
+
+    curl -X POST http://localhost:5000/token -H 'Content-Type: application/json' \
+        -d '{"username": "dwellir_endpointdb", "password": <password>}'
+    """
     username = request.json.get("username", None)
     password = request.json.get("password", None)
-    # TODO: figure out what to do with users
-    if username != "tmp" or password != "tmp":
+
+    with PATH_PASSWORD.open() as pw_file:
+        AUTH_PASSWORD = pw_file.read().strip()
+    if username != "dwellir_endpointdb" or password != AUTH_PASSWORD:
         return jsonify({"msg": "Bad username or password"}), 401
 
     access_token = create_access_token(identity=username)
@@ -93,7 +105,6 @@ def insert_into_database(table: str, request_data: dict) -> Response:
         return jsonify({'error': str(e)}), 500
 
 
-# Create a new chains database record
 @app.route('/create_chain', methods=['POST'])
 def create_chain_record() -> Response:
     """
@@ -114,7 +125,6 @@ def create_chain_record() -> Response:
     return insert_into_database(TABLE_CHAINS, values)
 
 
-# Create a new rpc_urls database record
 @app.route('/create_rpc_url', methods=['POST'])
 def create_rpc_url_record() -> Response:
     """
@@ -136,7 +146,6 @@ def create_rpc_url_record() -> Response:
 
 
 # TODO: add endpoint to create multiple URL entries with one request?
-# Get all records
 @app.route('/all/<string:table>', methods=['GET'])
 def get_all_records(table: str) -> Response:
     # TODO: add docs
@@ -163,7 +172,6 @@ def get_all_records(table: str) -> Response:
     return jsonify(results)
 
 
-# Get a specific chain by chain name
 @app.route('/get_chain_by_name/<string:name>', methods=['GET'])
 def get_chain_by_name(name: str) -> Response:
     # TODO: add docs
@@ -177,7 +185,6 @@ def get_chain_by_name(name: str) -> Response:
     return jsonify({'error': 'Record not found'}), 404
 
 
-# Get a specific chain by url
 @app.route('/get_chain_by_url', methods=['GET'])
 def get_chain_by_url() -> Response:
     """
@@ -206,7 +213,6 @@ def get_chain_by_url() -> Response:
     return jsonify({'error': 'Record not found'}), 404
 
 
-# Get a specific url record by url
 @app.route('/get_url', methods=['GET'])
 def get_url() -> Response:
     """
@@ -249,7 +255,6 @@ def get_urls(chain_name: str) -> Response:
     return jsonify({'error': f'No urls found for chain {chain_name}'}), 404
 
 
-# Update an existing url record
 @app.route('/update_url', methods=['PUT'])
 def update_url_record() -> Response:
     """
@@ -296,7 +301,6 @@ def update_url_record() -> Response:
     return rval
 
 
-# Delete a chain record by name
 @app.route('/delete_chain', methods=['DELETE'])
 def delete_chain_record() -> Response:
     """
@@ -325,7 +329,6 @@ def delete_chain_record() -> Response:
     return rval
 
 
-# Delete a url record by url
 @app.route('/delete_url', methods=['DELETE'])
 def delete_url_record() -> Response:
     """
@@ -358,7 +361,6 @@ def delete_url_record() -> Response:
     return rval
 
 
-# Delete url records by chain name
 @app.route('/delete_urls', methods=['DELETE'])
 def delete_url_records() -> Response:
     """
@@ -386,7 +388,6 @@ def delete_url_records() -> Response:
     return rval
 
 
-# Get all available info for a chain
 @app.route('/chain_info', methods=['GET'])
 def get_chain_info():
     """

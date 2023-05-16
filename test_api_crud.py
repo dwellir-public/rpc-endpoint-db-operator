@@ -3,14 +3,17 @@
 import os
 import sqlite3
 import tempfile
+from pathlib import Path
 import unittest
-import json
 from app import app, create_tables_if_not_exist
 
 
 class CRUDTestCase(unittest.TestCase):
 
     access_token = ""
+    username = 'dwellir_endpointdb'
+    with (Path(__file__).resolve().parent / 'auth_password').open() as pw_file:
+        password = pw_file.read().strip()
 
     def setUp(self):
         app.config['TESTING'] = True
@@ -42,7 +45,7 @@ class CRUDTestCase(unittest.TestCase):
             'chain_name': 'Polkadot'
         }
 
-        self.access_token = self.app.post('/token', json={'username': 'tmp', 'password': 'tmp'}).json['access_token']
+        self.access_token = self.app.post('/token', json={'username': self.username, 'password': self.password}).json['access_token']
 
     def tearDown(self):
         # Close the database connection and remove the temporary test database
@@ -58,6 +61,7 @@ class CRUDTestCase(unittest.TestCase):
         conn = sqlite3.connect(app.config['DATABASE'])
         c = conn.cursor()
         c.execute('INSERT INTO chains (name, api_class) VALUES (?, ?)', ('Ethereum mainnet', 'ethereum'))
+        c.execute('INSERT INTO chains (name, api_class) VALUES (?, ?)', ('Polkadot', 'substrate'))
         c.execute('INSERT INTO rpc_urls (url, chain_name) VALUES (?, ?)', ('https://cloudflare-eth.com', 'Ethereum mainnet'))
         conn.commit()
         conn.close()
@@ -103,7 +107,7 @@ class CRUDTestCase(unittest.TestCase):
     def test_create_chain_record_success(self):
         # Send a request with valid JSON data
         chain_data = {
-            'name': 'Polkadot',
+            'name': 'Kusama',
             'api_class': 'substrate'
         }
         response = self.app.post('/create_chain', json=chain_data)
@@ -113,7 +117,7 @@ class CRUDTestCase(unittest.TestCase):
         # Check that the record was inserted into the database
         conn = sqlite3.connect(app.config['DATABASE'])
         c = conn.cursor()
-        c.execute('SELECT * FROM chains WHERE name = ?', ('Polkadot',))
+        c.execute('SELECT * FROM chains WHERE name = ?', ('Kusama',))
         record = c.fetchone()
         conn.close()
         self.assertIsNotNone(record)
@@ -182,7 +186,8 @@ class CRUDTestCase(unittest.TestCase):
             'url': 'wss://rpc.polkadot.io',
             'chain_name': 'Polkadot'
         }
-        _ = self.app.post('/create_rpc_url', json=url_data)
+        create_response = self.app.post('/create_rpc_url', json=url_data)
+        self.assertEqual(create_response.status_code, 201)
 
         # Update the record
         new_url_data = {
@@ -257,7 +262,7 @@ class CRUDTestCase(unittest.TestCase):
 
     def test_jwt_protection(self):
         response = self.app.get('/protected', headers={'Authorization': f'Bearer {self.access_token}'})
-        self.assertEqual(response.json['logged_in_as'], 'tmp')
+        self.assertEqual(response.json['logged_in_as'], self.username)
 
 
 if __name__ == '__main__':
