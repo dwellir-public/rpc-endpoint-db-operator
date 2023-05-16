@@ -52,32 +52,27 @@ def main() -> None:
         raise FileNotFoundError(f'Database file {args.file} not found')
 
     if args.api:
-        # print('using api database')
         if args.import_data:
-            if args.json_chains and args.json_rpc_urls:
-                # open the json file for chains table and send the data to the api
+            if args.json_chains:
                 with open(path_chains, 'r', encoding='utf-8') as f:
                     data_chains = json.load(f)
-                    for chain in data_chains:
-                        url_formatted = args.url + '/create_chain'
-                        response = requests.post(url_formatted, json=chain)
-                # print(response.status_code, response.text)
-                        if response.status_code == 201:
-                            print(f'added chain {chain["name"]}')
-                        else:
-                            print(response.text)
-                # open the json file for rpc_url table and send the data to the api
+                    url_format = args.url + '/create_chain'
+                for chain in data_chains:
+                    response = requests.post(url_format, json=chain)
+                    if response.status_code == 201:
+                        print(f'added chain {chain["name"]}')
+                    else:
+                        print(response.text)
+            if args.json_rpc_urls:
                 with open(path_urls, 'r', encoding='utf-8') as f:
                     data_urls = json.load(f)
-                    for url in data_urls:
-                        url_formatted = args.url + '/create_rpc_url'
-                        response = requests.post(url_formatted, json=url)
-                        if response.status_code == 201:
-                            print(f'added rpc url {url["url"]}')
-                        else:
-                            print(response.text)  
-        else:
-            raise ValueError('Specify both tables data to add')             
+                    url_format = args.url + '/create_rpc_url'
+                for url in data_urls:
+                    response = requests.post(url_format, json=url)
+                    if response.status_code == 201:
+                        print(f'added rpc url {url["url"]}')
+                    else:
+                        print(response.text)
 
     if args.local:
         if args.import_data:
