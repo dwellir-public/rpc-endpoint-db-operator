@@ -5,7 +5,7 @@ import sqlite3
 import tempfile
 import unittest
 import json
-from app import app, create_table_if_not_exist
+from app import app, create_tables_if_not_exist
 
 
 class CRUDTestCase(unittest.TestCase):
@@ -25,21 +25,21 @@ class CRUDTestCase(unittest.TestCase):
         self.app = app.test_client()
 
         # Reference data.
-        self.data_1 = {
-            'native_id': 1,
-            'chain_name': 'Ethereum',
-            'urls': [
-                'https://foo/bar',
-                'wss://fish/dog:9000'
-            ]
+        self.chain_data_1 = {
+            'name': 'Ethereum mainnet',
+            'api_class': 'ethereum'
         }
-        self.data_2 = {
-            'native_id': 2,
-            'chain_name': 'Bitcoin',
-            'urls': [
-                'https://bit/bar',
-                'wss://smoke/hammer:1234'
-            ]
+        self.chain_data_2 = {
+            'name': 'Polkadot',
+            'api_class': 'substrate'
+        }
+        self.url_data_1 = {
+            'url': 'https://cloudflare-eth.com',
+            'chain_name': 'Ethereum mainnet'
+        }
+        self.url_data_2 = {
+            'url': 'wss://rpc.polkadot.io',
+            'chain_name': 'Polkadot'
         }
 
         self.access_token = self.app.post('/token', json={'username': 'tmp', 'password': 'tmp'}).json['access_token']
@@ -52,163 +52,208 @@ class CRUDTestCase(unittest.TestCase):
 
     def init_db(self):
         # Use the same create_table as for the live database.
-        create_table_if_not_exist()
+        create_tables_if_not_exist()
 
     def populate_db(self):
         conn = sqlite3.connect(app.config['DATABASE'])
         c = conn.cursor()
-        c.execute("INSERT INTO chains_public_rpcs (native_id, chain_name, urls, api_class) VALUES (?, ?, ?, ?)",
-                  (1, "Ethereum", '["https://eth1-archive-1.dwellir.com", "wss://eth1-archive-2.dwellir.com"]', 'ethereum'))
-        c.execute("INSERT INTO chains_public_rpcs (native_id, chain_name, urls, api_class) VALUES (?, ?, ?, ?)",
-                  (2, "Binance Smart Chain", '["https://bsc-dataseed1.binance.org","https://bsc.publicnode.com","wss://bsc-ws-node.nariox.org"]', 'ethereum'))
+        c.execute('INSERT INTO chains (name, api_class) VALUES (?, ?)', ('Ethereum mainnet', 'ethereum'))
+        c.execute('INSERT INTO rpc_urls (url, chain_name) VALUES (?, ?)', ('https://cloudflare-eth.com', 'Ethereum mainnet'))
         conn.commit()
         conn.close()
 
-    def test_create_record_missing_entry(self):
-        # Send a request without the urls entry
-        data = {'native_id': 1, 'chain_name': 'Ethereum'}
-        response = self.app.post('/create', json=data)
+    def test_create_chain_record_missing_entry(self):
+        # Send a request without the api_class entry
+        data = {'name': 'Ethereum mainnet'}
+        response = self.app.post('/create_chain', json=data)
         self.assertEqual(response.status_code, 400)
         self.assertIn('error', response.json)
 
+        # Send a request without the name entry
+        data = {'api_class': 'ethereum'}
+        response = self.app.post('/create_chain', json=data)
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('error', response.json)
+
+    def test_create_rpc_url_record_missing_entry(self):
         # Send a request without the chain_name entry
-        data = {'native_id': 1, 'urls': ['https://mainnet.infura.io/v3/...', 'https://ropsten.infura.io/v3/...']}
-        response = self.app.post('/create', json=data)
+        data = {'url': 'https://cloudflare-eth.com'}
+        response = self.app.post('/create_rpc_url', json=data)
         self.assertEqual(response.status_code, 400)
         self.assertIn('error', response.json)
 
-        # Send a request without the native_id entry
-        data = {'chain_name': 'Ethereum', 'urls': ['https://mainnet.infura.io/v3/...', 'https://ropsten.infura.io/v3/...']}
-        response = self.app.post('/create', json=data)
+        # Send a request without the url entry
+        data = {'chain_name': 'Ethereum mainnet'}
+        response = self.app.post('/create_rpc_url', json=data)
         self.assertEqual(response.status_code, 400)
         self.assertIn('error', response.json)
 
     def test_create_record_no_duplicate_names(self):
-        # Send a request with all three entries
-        data = {'native_id': 1, 'chain_name': 'Ethereum', 'urls': ['https://mainnet.infura.io/v3/...', 'https://ropsten.infura.io/v3/...']}
-        response = self.app.post('/create', json=data)
+        # Send a create chain request with all three entries
+        data = {'name': 'Ethereum mainnet', 'api_class': 'ethereum'}
+        response = self.app.post('/create_chain', json=data)
         self.assertEqual(response.status_code, 400)
 
-    def test_create_record_success(self):
-        # Send a request with all three entries
-        data = {'native_id': 999,
-                'chain_name': 'TESTNAME',
-                'urls': ['https://foo.bar', 'https://foo.bar'],
-                'api_class': 'substrate'}
-        response = self.app.post('/create', json=data)
-        print("===============", response)
+        # Send a create rpc url request with all three entries
+        data = {'url': 'https://cloudflare-eth.com', 'chain_name': 'Ethereum mainnet'}
+        response = self.app.post('/create_rpc_url', json=data)
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('error', response.json)
+
+    def test_create_chain_record_success(self):
+        # Send a request with valid JSON data
+        chain_data = {
+            'name': 'Polkadot',
+            'api_class': 'substrate'
+        }
+        response = self.app.post('/create_chain', json=chain_data)
         self.assertEqual(response.status_code, 201)
         self.assertIn('message', response.json)
 
         # Check that the record was inserted into the database
         conn = sqlite3.connect(app.config['DATABASE'])
         c = conn.cursor()
-        c.execute('SELECT * FROM chains_public_rpcs WHERE id = ?', (response.json['id'],))
+        c.execute('SELECT * FROM chains WHERE name = ?', ('Polkadot',))
         record = c.fetchone()
         conn.close()
         self.assertIsNotNone(record)
-        self.assertEqual(record[1], data['native_id'])
-        self.assertEqual(record[2], data['chain_name'])
-        self.assertEqual(json.loads(record[3]), data['urls'])
+        self.assertEqual(record[1], chain_data['api_class'])
 
-    def test_get_all_records(self):
-        response = self.app.get('/all')
+    def test_create_url_record_success(self):
+        # Send a request with valid JSON data
+        url_data = {
+            'url': 'wss://rpc.polkadot.io',
+            'chain_name': 'Polkadot'
+        }
+        response = self.app.post('/create_rpc_url', json=url_data)
+        self.assertEqual(response.status_code, 201)
+        self.assertIn('message', response.json)
+
+        # Check that the record was inserted into the database
+        conn = sqlite3.connect(app.config['DATABASE'])
+        c = conn.cursor()
+        c.execute('SELECT * FROM rpc_urls WHERE url = ?', ('wss://rpc.polkadot.io',))
+        record = c.fetchone()
+        conn.close()
+        self.assertIsNotNone(record)
+        self.assertEqual(record[1], url_data['chain_name'])
+
+    def test_get_all_chain_records(self):
+        response = self.app.get('/all/chains')
         self.assertEqual(response.status_code, 200)
         self.assertIsInstance(response.json, list)
 
-    def test_get_record_by_id(self):
-        chaindata = {
-            'native_id': 2,
-            'chain_name': 'Bitcoin',
-            'urls': [
-                'https://bit/bar',
-                'wss://smoke/hammer:1234'
-            ],
-            'api_class': 'aptos'
-        }
-        response = self.app.post('/create', json=chaindata)
-        record_id = response.json['id']
-        response = self.app.get(f'/get/{record_id}')
+    def test_get_all_rpc_url_records(self):
+        response = self.app.get('/all/rpc_urls')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json['chain_name'], chaindata['chain_name'])
+        self.assertIsInstance(response.json, list)
 
-    def test_update_record(self):
-        # Create a new record
-        chaindata = {
-            'native_id': 2,
-            'chain_name': 'Bitcoin 2',
-            'urls': [
-                'https://bit/bar',
-                'wss://smoke/hammer:1234'
-            ],
+    def test_get_chain_record_by_name(self):
+        chain_data = {
+            'name': 'Polkadot',
             'api_class': 'substrate'
         }
-        create_response = self.app.post('/create', json=chaindata)
-        record_id = create_response.json['id']
+        response = self.app.post('/create_chain', json=chain_data)
+        response = self.app.get(f'/get_chain_by_name/{chain_data["name"]}')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json['api_class'], chain_data['api_class'])
+
+    def test_get_chain_record_by_url(self):
+        chain_data = {
+            'name': 'Polkadot',
+            'api_class': 'substrate'
+        }
+        _ = self.app.post('/create_chain', json=chain_data)
+        url_data = {
+            'url': 'wss://rpc.polkadot.io',
+            'chain_name': 'Polkadot'
+        }
+        _ = self.app.post('/create_rpc_url', json=url_data)
+        url_params = {'protocol': 'wss', 'address': 'rpc.polkadot.io'}
+        response = self.app.get('/get_chain_by_url', query_string=url_params)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json['api_class'], chain_data['api_class'])
+
+    # TODO: add test for get_urls (by chain name)
+
+    def test_update_url_record(self):
+        # Create a new record
+        url_data = {
+            'url': 'wss://rpc.polkadot.io',
+            'chain_name': 'Polkadot'
+        }
+        _ = self.app.post('/create_rpc_url', json=url_data)
 
         # Update the record
-        new_data = {'native_id': 2,
-                    'chain_name': 'test-update-chainName',
-                    'urls': ['https://dwellir.com:455'],
-                    'api_class': 'ethereum'}
-        update_response = self.app.put('/update/{}'.format(record_id), json=new_data)
-        assert update_response.status_code == 200
+        new_url_data = {
+            'url': 'https://rpc.polkadot.io',
+            'chain_name': 'Polkadot'
+        }
+        old_url_params = {'protocol': 'wss', 'address': 'rpc.polkadot.io'}
+        update_response = self.app.put('/update_url', query_string=old_url_params, json=new_url_data)
+        self.assertEqual(update_response.status_code, 200)
 
         # Get the updated record and check its values
-        get_response = self.app.get('/get/{}'.format(record_id))
+        new_url_params = {'protocol': 'https', 'address': 'rpc.polkadot.io'}
+        get_response = self.app.get('/get_url', query_string=new_url_params)
         updated_record = get_response.json
-        assert updated_record['native_id'] == new_data['native_id']
-        assert updated_record['chain_name'] == new_data['chain_name']
-        print("##############", new_data['api_class'], updated_record['api_class'])
-        assert updated_record['api_class'] == new_data['api_class']
-        actual_urls = updated_record['urls']
-        self.assertListEqual(new_data['urls'], actual_urls)
+        self.assertEqual(updated_record['url'], new_url_data['url'])
+        self.assertEqual(updated_record['chain_name'], new_url_data['chain_name'])
 
-    def test_delete_record(self):
-        chaindata = {
-            'native_id': 2,
-            'chain_name': 'Bitcoin 2',
-            'urls': [
-                'https://bit/bar',
-                'wss://smoke/hammer:1234'
-            ],
+    def test_delete_chain_record(self):
+        chain_data = {
+            'name': 'Polkadot',
             'api_class': 'substrate'
         }
-        response = self.app.post('/create', json=chaindata)
-        record_id = response.json['id']
-        response = self.app.delete(f'/delete/{record_id}')
+        response = self.app.post('/create_chain', json=chain_data)
+        response = self.app.delete('/delete_chain', query_string={'name': 'Polkadot'})
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json['message'], 'Record deleted successfully')
+        self.assertEqual(response.json['message'], 'Chain record deleted successfully')
+
+    def test_delete_url_record(self):
+        url_data = {
+            'url': 'wss://rpc.polkadot.io',
+            'chain_name': 'Polkadot'
+        }
+        response = self.app.post('/create_rpc_url', json=url_data)
+        response = self.app.delete('/delete_url', query_string={'protocol': 'wss', 'address': 'rpc.polkadot.io'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json['message'], 'url record deleted successfully')
+
+    # TODO: add test for delete_urls
 
     def test_get_chain_info_by_chain_name(self):
-        response = self.app.get('/chain_info?chain_name=Ethereum')
+        chain_data = {
+            'name': 'Polkadot',
+            'api_class': 'substrate'
+        }
+        _ = self.app.post('/create_chain', json=chain_data)
+        url_data_1 = {
+            'url': 'wss://rpc.polkadot.io',
+            'chain_name': 'Polkadot'
+        }
+        url_data_2 = {
+            'url': 'https://rpc.polkadot.io',
+            'chain_name': 'Polkadot'
+        }
+        _ = self.app.post('/create_rpc_url', json=url_data_1)
+        _ = self.app.post('/create_rpc_url', json=url_data_2)
+        response = self.app.get('/chain_info', query_string={'chain_name': chain_data['name']})
         self.assertEqual(response.status_code, 200)
         self.assertIsNotNone(response.json, msg='Response is not valid JSON')
-        self.assertGreaterEqual(len(response.json), 1)
-        self.assertEqual(response.json[0]['id'], 1)
-        self.assertEqual(response.json[0]['native_id'], 1)
-        self.assertEqual(response.json[0]['chain_name'], 'Ethereum')
-        self.assertIsInstance(response.json[0]['urls'], list)
-
-    def test_get_chain_info_by_native_id(self):
-        response = self.app.get('/chain_info?native_id=1')
-        self.assertEqual(response.status_code, 200)
-        self.assertGreaterEqual(len(response.json), 1)
-        self.assertIsNotNone(response.json, msg='Response is not valid JSON')
-        self.assertEqual(response.json[0]['id'], 1)
-        self.assertEqual(response.json[0]['native_id'], 1)
-        self.assertEqual(response.json[0]['chain_name'], 'Ethereum')
-        self.assertIsInstance(response.json[0]['urls'], list)
+        self.assertEqual(response.json['api_class'], 'substrate')
+        self.assertEqual(response.json['chain_name'], 'Polkadot')
+        self.assertEqual(len(response.json['urls']), 2)
 
     def test_get_chain_info_missing_params(self):
         response = self.app.get('/chain_info')
         self.assertEqual(response.status_code, 400)
-        self.assertEqual(response.json['error'], 'Missing required parameters')
+        self.assertIn('Missing required parameter', response.json['error'])
 
     def test_get_chain_info_not_found(self):
-        response = self.app.get('/chain_info?chain_name=Foo')
+        response = self.app.get('/chain_info', query_string={'chain_name': 'Foo'})
         self.assertEqual(response.status_code, 404)
-        self.assertEqual(response.json['error'], 'Chain not found')
+        self.assertIn('not found', response.json['error'])
 
     def test_jwt_protection(self):
         response = self.app.get('/protected', headers={'Authorization': f'Bearer {self.access_token}'})

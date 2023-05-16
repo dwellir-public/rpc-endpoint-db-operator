@@ -1,0 +1,92 @@
+[
+    {
+        "name": "Binance Smart Chain",
+        "api_class": "ethereum",
+        "native_id": 56
+    },
+    {
+        "name": "Fantom Opera",
+        "api_class": "ethereum",
+        "native_id": 250
+    },
+    {
+        "name": "Palm",
+        "api_class": "ethereum",
+        "native_id": 11297108109
+    },
+    {
+        "name": "Cronos Testnet",
+        "api_class": "ethereum",
+        "native_id": 338
+    },
+    {
+        "name": "Ethereum Mainnet",
+        "api_class": "ethereum",
+        "native_id": 1
+    },
+    {
+        "name": "Binance Smart Chain Testnet",
+        "api_class": "ethereum",
+        "native_id": 97
+    },
+    {
+        "name": "Palm Testnet",
+        "api_class": "ethereum",
+        "native_id": 11297108099
+    },
+    {
+        "name": "Fantom Testnet",
+        "api_class": "ethereum",
+        "native_id": 4002
+    },
+    {
+        "name": "Aptos Devnet",
+        "api_class": "aptos",
+        "native_id": 58
+    },
+    {
+        "name": "Polygon Mumbai",
+        "api_class": "ethereum",
+        "native_id": 80001
+    },
+    {
+        "name": "Sepolia Testnet Ethereum",
+        "api_class": "ethereum",
+        "native_id": 696969
+    },
+    {
+        "name": "Avalanche Fuji Testnet",
+        "api_class": "ethereum",
+        "native_id": 43113
+    },
+    {
+        "name": "Avalanche C-Chain",
+        "api_class": "ethereum",
+        "native_id": 43114
+    },
+    {
+        "name": "Cronos Mainnet Beta",
+        "api_class": "ethereum",
+        "native_id": 25
+    },
+    {
+        "name": "Aptos Mainnet",
+        "api_class": "aptos",
+        "native_id": 1
+    },
+    {
+        "name": "Polygon Mainnet",
+        "api_class": "ethereum",
+        "native_id": 137
+    },
+    {
+        "name": "Arbitrum mainnet",
+        "api_class": "ethereum",
+        "native_id": 42161
+    },
+    {
+        "name": "Polkadot Relaychain",
+        "api_class": "substrate",
+        "native_id": 1
+    }
+]
