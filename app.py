@@ -75,6 +75,7 @@ def protected():
 def insert_into_database(table: str, request_data: dict) -> Response:
     try:
         conn = sqlite3.connect(app.config['DATABASE'])
+        conn.execute('PRAGMA foreign_keys = ON')  # TODO: keep this on to enforce that urls have an existing chain?
         cursor = conn.cursor()
         columns = ', '.join(request_data.keys())
         placeholders = ':' + ', :'.join(request_data.keys())
@@ -113,7 +114,6 @@ def create_chain_record() -> Response:
     return insert_into_database(TABLE_CHAINS, values)
 
 
-# TODO: check that param chain_name actually exists in table chains?
 # Create a new rpc_urls database record
 @app.route('/create_rpc_url', methods=['POST'])
 def create_rpc_url_record() -> Response:
@@ -133,9 +133,9 @@ def create_rpc_url_record() -> Response:
     if not is_valid_url(values['url']):
         return jsonify({'error': {'error': "Invalid url."}}), 500
     return insert_into_database(TABLE_RPC_URLS, values)
+
+
 # TODO: add endpoint to create multiple URL entries with one request?
-
-
 # Get all records
 @app.route('/all/<string:table>', methods=['GET'])
 def get_all_records(table: str) -> Response:
@@ -275,6 +275,7 @@ def update_url_record() -> Response:
         return jsonify({'error': "Invalid url"}), 500
 
     conn = sqlite3.connect(app.config['DATABASE'])
+    conn.execute('PRAGMA foreign_keys = ON')  # TODO: keep this on?
     cursor = conn.cursor()
     try:
         cursor.execute(f'UPDATE {TABLE_RPC_URLS} SET url=?, chain_name=? WHERE url=?', (url_new, chain_name, url_old))
@@ -310,6 +311,7 @@ def delete_chain_record() -> Response:
     cursor = conn.cursor()
     try:
         cursor.execute(f'DELETE FROM {TABLE_CHAINS} WHERE name=?', (name,))
+        # TODO: should urls referencing this chains entry also be deleted at this point?
     except sqlite3.IntegrityError as e:
         conn.rollback()
         conn.close()
