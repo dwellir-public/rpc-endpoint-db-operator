@@ -128,8 +128,9 @@ def export_to_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path):
             name = entry[0]
             api_class = entry[1]
             data_chains.append({'name': name, 'api_class': api_class})
+        sorted_chains = sorted(data_chains, key=lambda x: x['name'])
         with open(json_chains, 'w', encoding='utf-8') as f:
-            json.dump(data_chains, f, ensure_ascii=False, indent=4)
+            json.dump(sorted_chains, f, ensure_ascii=False, indent=4)
 
     if json_rpc_urls:
         query_rpc_urls = f'SELECT url, chain_name FROM {TABLE_RPC_URLS}'
@@ -139,8 +140,9 @@ def export_to_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path):
             url = entry[0]
             chain_name = entry[1]
             data_rpc_urls.append({'url': url, 'chain_name': chain_name})
+        sorted_urls = sorted(data_rpc_urls, key=lambda x: x['chain_name'])
         with open(json_rpc_urls, 'w', encoding='utf-8') as f:
-            json.dump(data_rpc_urls, f, ensure_ascii=False, indent=4)
+            json.dump(sorted_urls, f, ensure_ascii=False, indent=4)
 
 
 if __name__ == '__main__':
