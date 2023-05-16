@@ -24,19 +24,27 @@
         "url": "https://arb1.arbitrum.io/rpc"
     },
     {
-        "chain_name": "Avalanche C-Chain",
+        "chain_name": "Arbitrum testnet",
+        "url": "https://arbitrum-testnet-archive-rpc-1.dwellir.com"
+    },
+    {
+        "chain_name": "Arbitrum testnet",
+        "url": "https://arbitrum-testnet-archive-rpc-2.dwellir.com"
+    },
+    {
+        "chain_name": "Avalanche mainnet",
         "url": "https://api.avax.network/ext/bc/C/rpc"
     },
     {
-        "chain_name": "Avalanche C-Chain",
+        "chain_name": "Avalanche mainnet",
         "url": "https://avalanche-c-chain.publicnode.com"
     },
     {
-        "chain_name": "Avalanche C-Chain",
+        "chain_name": "Avalanche mainnet",
         "url": "https://avalanche-mainnet-archive-rpc-1.dwellir.com"
     },
     {
-        "chain_name": "Avalanche C-Chain",
+        "chain_name": "Avalanche mainnet",
         "url": "https://avalanche-mainnet-archive-rpc-2.dwellir.com"
     },
     {
@@ -92,19 +100,19 @@
         "url": "https://bsc-testnet-archive-rpc-2.dwellir.com"
     },
     {
-        "chain_name": "Cronos mainnet Beta",
+        "chain_name": "Cronos mainnet",
         "url": "https://evm.cronos.org"
     },
     {
-        "chain_name": "Cronos mainnet Beta",
+        "chain_name": "Cronos mainnet",
         "url": "https://cronos-evm.publicnode.com"
     },
     {
-        "chain_name": "Cronos mainnet Beta",
+        "chain_name": "Cronos mainnet",
         "url": "https://cronos-mainnet-archive-rpc-1.dwellir.com"
     },
     {
-        "chain_name": "Cronos mainnet Beta",
+        "chain_name": "Cronos mainnet",
         "url": "https://cronos-mainnet-archive-rpc-2.dwellir.com"
     },
     {
@@ -134,6 +142,34 @@
     {
         "chain_name": "Ethereum mainnet",
         "url": "https://eth-mainnet-full-rpc-2.dwellir.com"
+    },
+    {
+        "chain_name": "Ethereum Goerli testnet",
+        "url": "https://eth-goerli-archive-rpc-1.dwellir.com"
+    },
+    {
+        "chain_name": "Ethereum Goerli testnet",
+        "url": "https://eth-goerli-archive-rpc-2.dwellir.com"
+    },
+    {
+        "chain_name": "Ethereum Sepolia testnet",
+        "url": "https://rpc.sepolia.org"
+    },
+    {
+        "chain_name": "Ethereum Sepolia testnet",
+        "url": "https://api.sepolia.kroma.network"
+    },
+    {
+        "chain_name": "Ethereum Sepolia testnet",
+        "url": "https://rpc-sepolia.rockx.com"
+    },
+    {
+        "chain_name": "Ethereum Sepolia testnet",
+        "url": "https://eth-sepolia-archive-rpc-1.dwellir.com"
+    },
+    {
+        "chain_name": "Ethereum Sepolia testnet",
+        "url": "https://eth-sepolia-archive-rpc-2.dwellir.com"
     },
     {
         "chain_name": "Fantom mainnet",
@@ -258,25 +294,5 @@
     {
         "chain_name": "Polygon mainnet",
         "url": "https://polygon-mainnet-full-rpc-2.dwellir.com"
-    },
-    {
-        "chain_name": "Sepolia testnet",
-        "url": "https://rpc.sepolia.org"
-    },
-    {
-        "chain_name": "Sepolia testnet",
-        "url": "https://api.sepolia.kroma.network"
-    },
-    {
-        "chain_name": "Sepolia testnet",
-        "url": "https://rpc-sepolia.rockx.com"
-    },
-    {
-        "chain_name": "Sepolia testnet",
-        "url": "https://eth-sepolia-archive-rpc-1.dwellir.com"
-    },
-    {
-        "chain_name": "Sepolia testnet",
-        "url": "https://eth-sepolia-archive-rpc-2.dwellir.com"
     }
 ]

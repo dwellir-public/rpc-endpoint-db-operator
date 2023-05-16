@@ -12,6 +12,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Arbitrum testnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Avalanche C-Chain",
         "api_class": "ethereum"
     },
@@ -28,7 +32,7 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Cronos mainnet Beta",
+        "name": "Cronos mainnet",
         "api_class": "ethereum"
     },
     {
@@ -37,6 +41,14 @@
     },
     {
         "name": "Ethereum mainnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Ethereum Goerli testnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Ethereum Sepolia testnet",
         "api_class": "ethereum"
     },
     {
@@ -65,10 +77,6 @@
     },
     {
         "name": "Polygon mainnet",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "Sepolia testnet",
         "api_class": "ethereum"
     }
 ]
