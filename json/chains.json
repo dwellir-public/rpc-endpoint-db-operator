@@ -16,7 +16,7 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Avalanche C-Chain",
+        "name": "Avalanche mainnet",
         "api_class": "ethereum"
     },
     {
