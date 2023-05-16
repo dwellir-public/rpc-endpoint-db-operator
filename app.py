@@ -106,6 +106,7 @@ def insert_into_database(table: str, request_data: dict) -> Response:
 
 
 @app.route('/create_chain', methods=['POST'])
+@jwt_required()
 def create_chain_record() -> Response:
     """
     Creates a record in the 'chains' table, corresponding to the input data.
@@ -126,6 +127,7 @@ def create_chain_record() -> Response:
 
 
 @app.route('/create_rpc_url', methods=['POST'])
+@jwt_required()
 def create_rpc_url_record() -> Response:
     """
     Creates a record in the 'rpc_urls' table, corresponding to the input data.
@@ -256,6 +258,7 @@ def get_urls(chain_name: str) -> Response:
 
 
 @app.route('/update_url', methods=['PUT'])
+@jwt_required()
 def update_url_record() -> Response:
     """
     Updates the rpc_urls entry corresponding to the input url.
@@ -302,6 +305,7 @@ def update_url_record() -> Response:
 
 
 @app.route('/delete_chain', methods=['DELETE'])
+@jwt_required()
 def delete_chain_record() -> Response:
     """
     Deletes the chain entry corresponding to the input name.
@@ -330,6 +334,7 @@ def delete_chain_record() -> Response:
 
 
 @app.route('/delete_url', methods=['DELETE'])
+@jwt_required()
 def delete_url_record() -> Response:
     """
     Deletes the rpc_urls entry corresponding to the input url.
@@ -362,6 +367,7 @@ def delete_url_record() -> Response:
 
 
 @app.route('/delete_urls', methods=['DELETE'])
+@jwt_required()
 def delete_url_records() -> Response:
     """
     Deletes the url entries corresponding to the input chain_name.
