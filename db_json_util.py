@@ -54,8 +54,27 @@ def main() -> None:
         raise FileNotFoundError(f'Database file {args.file} not found')
 
     if args.api:
-        print('using api database')
-        # TODO: implement
+        if args.import_data:
+            if args.json_chains:
+                with open(path_chains, 'r', encoding='utf-8') as f:
+                    data_chains = json.load(f)
+                    url_format = args.url + '/create_chain'
+                for chain in data_chains:
+                    response = requests.post(url_format, json=chain)
+                    if response.status_code == 201:
+                        print(f'added chain {chain["name"]}')
+                    else:
+                        print(response.text)
+            if args.json_rpc_urls:
+                with open(path_urls, 'r', encoding='utf-8') as f:
+                    data_urls = json.load(f)
+                    url_format = args.url + '/create_rpc_url'
+                for url in data_urls:
+                    response = requests.post(url_format, json=url)
+                    if response.status_code == 201:
+                        print(f'added rpc url {url["url"]}')
+                    else:
+                        print(response.text)
 
     if args.local:
         if args.import_data:
