@@ -145,14 +145,13 @@ def load_endpoints(rpc_flask_api, cache_refresh_interval=30):
 
 
 def get_all_endpoints_from_api(rpc_flask_api):
-    response = requests.get(f'{rpc_flask_api}/all')
-    all_url_api_tuples = []
-    for item in response.json():
-        # Tuple of (url,api_class)
-        endpoint_tuple = (item['urls'], item['api_class'])
-        for rpc in endpoint_tuple[0]:
-            all_url_api_tuples.append((rpc, endpoint_tuple[1]))
-    return all_url_api_tuples
+    url_api_tuples = []
+    all_chains = requests.get(f'{rpc_flask_api}/all/chains')
+    for chain in all_chains.json():
+        chain_info = requests.get(f'{rpc_flask_api}/chain_info?chain_name={chain["name"]}')
+        for url in chain_info.json()['urls']:
+            url_api_tuples.append((url, chain_info.json()['api_class']))
+    return url_api_tuples
 
 
 if __name__ == '__main__':
