@@ -46,6 +46,7 @@ class CRUDTestCase(unittest.TestCase):
         }
 
         self.access_token = self.app.post('/token', json={'username': self.username, 'password': self.password}).json['access_token']
+        self.auth_header = {'Authorization': f'Bearer {self.access_token}'}
 
     def tearDown(self):
         # Close the database connection and remove the temporary test database
@@ -69,38 +70,38 @@ class CRUDTestCase(unittest.TestCase):
     def test_create_chain_record_missing_entry(self):
         # Send a request without the api_class entry
         data = {'name': 'Ethereum mainnet'}
-        response = self.app.post('/create_chain', json=data)
+        response = self.app.post('/create_chain', json=data, headers=self.auth_header)
         self.assertEqual(response.status_code, 400)
         self.assertIn('error', response.json)
 
         # Send a request without the name entry
         data = {'api_class': 'ethereum'}
-        response = self.app.post('/create_chain', json=data)
+        response = self.app.post('/create_chain', json=data, headers=self.auth_header)
         self.assertEqual(response.status_code, 400)
         self.assertIn('error', response.json)
 
     def test_create_rpc_url_record_missing_entry(self):
         # Send a request without the chain_name entry
         data = {'url': 'https://cloudflare-eth.com'}
-        response = self.app.post('/create_rpc_url', json=data)
+        response = self.app.post('/create_rpc_url', json=data, headers=self.auth_header)
         self.assertEqual(response.status_code, 400)
         self.assertIn('error', response.json)
 
         # Send a request without the url entry
         data = {'chain_name': 'Ethereum mainnet'}
-        response = self.app.post('/create_rpc_url', json=data)
+        response = self.app.post('/create_rpc_url', json=data, headers=self.auth_header)
         self.assertEqual(response.status_code, 400)
         self.assertIn('error', response.json)
 
     def test_create_record_no_duplicate_names(self):
         # Send a create chain request with all three entries
         data = {'name': 'Ethereum mainnet', 'api_class': 'ethereum'}
-        response = self.app.post('/create_chain', json=data)
+        response = self.app.post('/create_chain', json=data, headers=self.auth_header)
         self.assertEqual(response.status_code, 400)
 
         # Send a create rpc url request with all three entries
         data = {'url': 'https://cloudflare-eth.com', 'chain_name': 'Ethereum mainnet'}
-        response = self.app.post('/create_rpc_url', json=data)
+        response = self.app.post('/create_rpc_url', json=data, headers=self.auth_header)
         self.assertEqual(response.status_code, 400)
         self.assertIn('error', response.json)
 
@@ -110,7 +111,7 @@ class CRUDTestCase(unittest.TestCase):
             'name': 'Kusama',
             'api_class': 'substrate'
         }
-        response = self.app.post('/create_chain', json=chain_data)
+        response = self.app.post('/create_chain', json=chain_data, headers=self.auth_header)
         self.assertEqual(response.status_code, 201)
         self.assertIn('message', response.json)
 
@@ -129,7 +130,7 @@ class CRUDTestCase(unittest.TestCase):
             'url': 'wss://rpc.polkadot.io',
             'chain_name': 'Polkadot'
         }
-        response = self.app.post('/create_rpc_url', json=url_data)
+        response = self.app.post('/create_rpc_url', json=url_data, headers=self.auth_header)
         self.assertEqual(response.status_code, 201)
         self.assertIn('message', response.json)
 
@@ -157,7 +158,7 @@ class CRUDTestCase(unittest.TestCase):
             'name': 'Polkadot',
             'api_class': 'substrate'
         }
-        response = self.app.post('/create_chain', json=chain_data)
+        response = self.app.post('/create_chain', json=chain_data, headers=self.auth_header)
         response = self.app.get(f'/get_chain_by_name/{chain_data["name"]}')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json['api_class'], chain_data['api_class'])
@@ -172,7 +173,7 @@ class CRUDTestCase(unittest.TestCase):
             'url': 'wss://rpc.polkadot.io',
             'chain_name': 'Polkadot'
         }
-        _ = self.app.post('/create_rpc_url', json=url_data)
+        _ = self.app.post('/create_rpc_url', json=url_data, headers=self.auth_header)
         url_params = {'protocol': 'wss', 'address': 'rpc.polkadot.io'}
         response = self.app.get('/get_chain_by_url', query_string=url_params)
         self.assertEqual(response.status_code, 200)
@@ -186,7 +187,7 @@ class CRUDTestCase(unittest.TestCase):
             'url': 'wss://rpc.polkadot.io',
             'chain_name': 'Polkadot'
         }
-        create_response = self.app.post('/create_rpc_url', json=url_data)
+        create_response = self.app.post('/create_rpc_url', json=url_data, headers=self.auth_header)
         self.assertEqual(create_response.status_code, 201)
 
         # Update the record
@@ -195,7 +196,7 @@ class CRUDTestCase(unittest.TestCase):
             'chain_name': 'Polkadot'
         }
         old_url_params = {'protocol': 'wss', 'address': 'rpc.polkadot.io'}
-        update_response = self.app.put('/update_url', query_string=old_url_params, json=new_url_data)
+        update_response = self.app.put('/update_url', query_string=old_url_params, json=new_url_data, headers=self.auth_header)
         self.assertEqual(update_response.status_code, 200)
 
         # Get the updated record and check its values
@@ -210,8 +211,8 @@ class CRUDTestCase(unittest.TestCase):
             'name': 'Polkadot',
             'api_class': 'substrate'
         }
-        response = self.app.post('/create_chain', json=chain_data)
-        response = self.app.delete('/delete_chain', query_string={'name': 'Polkadot'})
+        response = self.app.post('/create_chain', json=chain_data, headers=self.auth_header)
+        response = self.app.delete('/delete_chain', query_string={'name': 'Polkadot'}, headers=self.auth_header)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json['message'], 'Chain record deleted successfully')
 
@@ -220,8 +221,8 @@ class CRUDTestCase(unittest.TestCase):
             'url': 'wss://rpc.polkadot.io',
             'chain_name': 'Polkadot'
         }
-        response = self.app.post('/create_rpc_url', json=url_data)
-        response = self.app.delete('/delete_url', query_string={'protocol': 'wss', 'address': 'rpc.polkadot.io'})
+        response = self.app.post('/create_rpc_url', json=url_data, headers=self.auth_header)
+        response = self.app.delete('/delete_url', query_string={'protocol': 'wss', 'address': 'rpc.polkadot.io'}, headers=self.auth_header)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json['message'], 'url record deleted successfully')
 
@@ -241,8 +242,8 @@ class CRUDTestCase(unittest.TestCase):
             'url': 'https://rpc.polkadot.io',
             'chain_name': 'Polkadot'
         }
-        _ = self.app.post('/create_rpc_url', json=url_data_1)
-        _ = self.app.post('/create_rpc_url', json=url_data_2)
+        _ = self.app.post('/create_rpc_url', json=url_data_1, headers=self.auth_header)
+        _ = self.app.post('/create_rpc_url', json=url_data_2, headers=self.auth_header)
         response = self.app.get('/chain_info', query_string={'chain_name': chain_data['name']})
         self.assertEqual(response.status_code, 200)
         self.assertIsNotNone(response.json, msg='Response is not valid JSON')
@@ -261,8 +262,11 @@ class CRUDTestCase(unittest.TestCase):
         self.assertIn('not found', response.json['error'])
 
     def test_jwt_protection(self):
-        response = self.app.get('/protected', headers={'Authorization': f'Bearer {self.access_token}'})
-        self.assertEqual(response.json['logged_in_as'], self.username)
+        response_success = self.app.get('/protected', headers=self.auth_header)
+        self.assertEqual(response_success.json['logged_in_as'], self.username)
+
+        response_failure = self.app.get('/protected')
+        self.assertEqual(response_failure.status_code, 401)
 
 
 if __name__ == '__main__':
