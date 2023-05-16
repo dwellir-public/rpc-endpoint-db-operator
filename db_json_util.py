@@ -75,7 +75,9 @@ def main() -> None:
                         if response.status_code == 201:
                             print(f'added rpc url {url["url"]}')
                         else:
-                            print(response.text)                
+                            print(response.text)  
+        else:
+            raise ValueError('Specify both tables data to add')             
 
     if args.local:
         if args.import_data:
