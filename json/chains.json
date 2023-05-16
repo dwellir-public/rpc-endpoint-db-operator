@@ -1,10 +1,30 @@
 [
     {
-        "name": "Palm mainnet",
+        "name": "Aptos Devnet",
+        "api_class": "aptos"
+    },
+    {
+        "name": "Aptos mainnet",
+        "api_class": "aptos"
+    },
+    {
+        "name": "Arbitrum mainnet",
         "api_class": "ethereum"
     },
     {
-        "name": "Palm testnet",
+        "name": "Avalanche C-Chain",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Avalanche Fuji testnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Binance Smart Chain mainnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Binance Smart Chain testnet",
         "api_class": "ethereum"
     },
     {
@@ -20,14 +40,6 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Binance Smart Chain mainnet",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "Binance Smart Chain testnet",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Fantom mainnet",
         "api_class": "ethereum"
     },
@@ -36,39 +48,27 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Aptos mainnet",
-        "api_class": "aptos"
-    },
-    {
-        "name": "Aptos Devnet",
-        "api_class": "aptos"
-    },
-    {
-        "name": "Polygon mainnet",
+        "name": "Palm mainnet",
         "api_class": "ethereum"
+    },
+    {
+        "name": "Palm testnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Polkadot Relaychain",
+        "api_class": "substrate"
     },
     {
         "name": "Polygon Mumbai",
         "api_class": "ethereum"
     },
     {
+        "name": "Polygon mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Sepolia testnet",
         "api_class": "ethereum"
-    },
-    {
-        "name": "Avalanche Fuji testnet",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "Avalanche C-Chain",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "Arbitrum mainnet",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "Polkadot Relaychain",
-        "api_class": "substrate"
     }
 ]
