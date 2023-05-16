@@ -3,14 +3,14 @@ from influxdb_client import Point, InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 
 
-def new_block_info_point(chain: str, url: str, api: str,  data: dict):
+def new_block_height_request_point(chain: str, url: str, api: str, data: dict):
     http_code = int(data.get('http_code') or -1)
     time_total = float(data.get('time_total') or 0)
     exitcode = int(data.get('exitcode') or -1)
     latest_block_height = int(data.get('latest_block_height') or -1)
 
-    # create a Point object for the combined block latency data
-    block_info_point = Point("block_info") \
+    # Create a Point object for the combined block data
+    block_point = Point("block_height_request") \
         .tag("url", url) \
         .tag("api", api) \
         .tag("chain", chain) \
@@ -20,7 +20,7 @@ def new_block_info_point(chain: str, url: str, api: str,  data: dict):
         .field("exitcode", exitcode) \
         .time(datetime.utcnow())
 
-    return block_info_point
+    return block_point
 
 
 def test_influxdb_connection(url, token, org, bucket):

@@ -10,7 +10,7 @@ from influxdb_client import InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 import time
 from rpc_utils import fetch_all_info
-from influxdb_utils import new_block_info_point, test_influxdb_connection
+from influxdb_utils import new_block_height_request_point, test_influxdb_connection
 from color_logger import ColoredFormatter
 
 logger = logging.getLogger()
@@ -65,7 +65,7 @@ def main():
 
         for endpoint, info_dict in zip(all_url_api_tuples, info):
             if info_dict:
-                bcp = new_block_info_point(chain=endpoint[0], url=endpoint[1], api=endpoint[2], data=info_dict)
+                bcp = new_block_height_request_point(chain=endpoint[0], url=endpoint[1], api=endpoint[2], data=info_dict)
                 records = []
                 records.append(bcp)
                 try:

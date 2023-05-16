@@ -171,7 +171,7 @@ Example:
 ```
 from(bucket: "blockheights")
   |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
-  |> filter(fn: (r) => r["_measurement"] == "block_latency")
+  |> filter(fn: (r) => r["_measurement"] == "block_height_request")
   |> filter(fn: (r) => r["url"] == "https://bsc-dataseed1.binance.org" or r["url"] == "https://bsc-dataseed1.defibit.io" or r["url"] == "https://bsc-dataseed1.ninicoin.io")
   |> filter(fn: (r) => r["_field"] == "block_height" or r["_field"] == "time_total")
 ```
