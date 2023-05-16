@@ -53,7 +53,27 @@ def main() -> None:
 
     if args.api:
         print('using api database')
-        # TODO: implement
+        if args.json_chains and args.json_rpc_urls:
+            raise ValueError('Cannot specify both "json_chains" and "json_rpc_urls"')
+        if args.json_chains:
+            with open(path_chains, 'r', encoding='utf-8') as f:
+                data_chains = json.load(f)
+                for chain in data_chains:
+                    response = requests.post(args.url, json=chain)
+                # print(response.status_code, response.text)
+                    if response.status_code == 201:
+                        print(f'added chain {chain["name"]}')
+                    else:
+                        print(response.text)
+        if args.json_rpc_urls:
+            with open(path_urls, 'r', encoding='utf-8') as f:
+                data_urls = json.load(f)
+                for url in data_urls:
+                    response = requests.post(args.url, json=url)
+                    if response.status_code == 201:
+                        print(f'added rpc url {url["url"]}')
+                    else:
+                        print(response.text)
 
     if args.local:
         if args.import_data:
