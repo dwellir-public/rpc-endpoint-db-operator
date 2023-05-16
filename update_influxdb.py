@@ -10,7 +10,7 @@ from influxdb_client import InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 import time
 from rpc_utils import fetch_all_info
-from influxdb_utils import new_block_latency_point, test_influxdb_connection
+from influxdb_utils import new_block_info_point, test_influxdb_connection
 from color_logger import ColoredFormatter
 
 logger = logging.getLogger()
@@ -65,7 +65,7 @@ def main():
 
         for endpoint, info_dict in zip(all_url_api_tuples, info):
             if info_dict:
-                bcp = new_block_latency_point(endpoint[0], endpoint[1], info_dict)
+                bcp = new_block_info_point(chain=endpoint[0], url=endpoint[1], api=endpoint[2], data=info_dict)
                 records = []
                 records.append(bcp)
                 try:
@@ -150,7 +150,7 @@ def get_all_endpoints_from_api(rpc_flask_api):
     for chain in all_chains.json():
         chain_info = requests.get(f'{rpc_flask_api}/chain_info?chain_name={chain["name"]}')
         for url in chain_info.json()['urls']:
-            url_api_tuples.append((url, chain_info.json()['api_class']))
+            url_api_tuples.append((chain_info.json()['chain_name'], url, chain_info.json()['api_class']))
     return url_api_tuples
 
 
