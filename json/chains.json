@@ -16,11 +16,11 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Avalanche mainnet",
+        "name": "Avalanche Fuji testnet",
         "api_class": "ethereum"
     },
     {
-        "name": "Avalanche Fuji testnet",
+        "name": "Avalanche mainnet",
         "api_class": "ethereum"
     },
     {
@@ -40,15 +40,15 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Ethereum mainnet",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Ethereum Goerli testnet",
         "api_class": "ethereum"
     },
     {
         "name": "Ethereum Sepolia testnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Ethereum mainnet",
         "api_class": "ethereum"
     },
     {
