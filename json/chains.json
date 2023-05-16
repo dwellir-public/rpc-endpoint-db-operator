@@ -1,66 +1,66 @@
 [
     {
-        "name": "Binance Smart Chain",
+        "name": "Palm mainnet",
         "api_class": "ethereum"
     },
     {
-        "name": "Fantom Opera",
+        "name": "Palm testnet",
         "api_class": "ethereum"
     },
     {
-        "name": "Palm",
+        "name": "Cronos mainnet Beta",
         "api_class": "ethereum"
     },
     {
-        "name": "Cronos Testnet",
+        "name": "Cronos testnet",
         "api_class": "ethereum"
     },
     {
-        "name": "Ethereum Mainnet",
+        "name": "Ethereum mainnet",
         "api_class": "ethereum"
     },
     {
-        "name": "Binance Smart Chain Testnet",
+        "name": "Binance Smart Chain mainnet",
         "api_class": "ethereum"
     },
     {
-        "name": "Palm Testnet",
+        "name": "Binance Smart Chain testnet",
         "api_class": "ethereum"
     },
     {
-        "name": "Fantom Testnet",
+        "name": "Fantom mainnet",
         "api_class": "ethereum"
+    },
+    {
+        "name": "Fantom testnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Aptos mainnet",
+        "api_class": "aptos"
     },
     {
         "name": "Aptos Devnet",
         "api_class": "aptos"
     },
     {
+        "name": "Polygon mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Polygon Mumbai",
         "api_class": "ethereum"
     },
     {
-        "name": "Sepolia Testnet Ethereum",
+        "name": "Sepolia testnet",
         "api_class": "ethereum"
     },
     {
-        "name": "Avalanche Fuji Testnet",
+        "name": "Avalanche Fuji testnet",
         "api_class": "ethereum"
     },
     {
         "name": "Avalanche C-Chain",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "Cronos Mainnet Beta",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "Aptos Mainnet",
-        "api_class": "aptos"
-    },
-    {
-        "name": "Polygon Mainnet",
         "api_class": "ethereum"
     },
     {
