@@ -77,7 +77,7 @@ def main() -> None:
                         print(response.text)
 
 # export data using the API
-        if args.export_data:
+        if args.export_data:            
             if args.json_chains:
                 response = requests.get(args.url + '/all/chains')
                 if response.status_code == 200:
@@ -86,16 +86,14 @@ def main() -> None:
                     print(response.text)
                     return
                 # check if path exists
-                if not os.path.exists(path_chains):
+                if not path_chains.exists():
                     os.makedirs(os.path.dirname(path_chains), exist_ok=True)
                     with open(path_chains, 'w', encoding='utf-8') as f:
                         json.dump(data_chains, f, indent=4)
-                    print(f'exported chains to {path_chains}')
-                    
-                elif os.path.exists(path_chains):
+                    print(f'exported chains to {path_chains}')                    
+                elif path_chains.exists():
                     user_input = input("File already exists for json chain, overwrite? (y/n): ")
                     if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
-                        # make request to get all chains
                         with open(path_chains, 'w', encoding='utf-8') as f:
                             json.dump(data_chains, f, indent=4)
                         print(f'exported chains to {path_chains}')
@@ -113,12 +111,12 @@ def main() -> None:
                     print(response.text)
                     return
                 # check if path exists
-                if not os.path.exists(path_urls):
+                if not path_urls.exists():
                     os.makedirs(os.path.dirname(path_urls), exist_ok=True)  
                     with open(path_urls, 'w', encoding='utf-8') as f:
                         json.dump(data_urls, f, indent=4)
                     print(f'exported chains to {path_urls}')
-                elif os.path.exists(path_urls):
+                elif path_urls.exists():
                     user_input = input("File already exists for json rpc url, overwrite? (y/n): ")
                     if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
                         with open(path_urls, 'w', encoding='utf-8') as f:
