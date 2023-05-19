@@ -78,18 +78,14 @@ def main() -> None:
 
 # export data using the API
         if args.export_data:
-            if not os.path.exists('json_exports'):
-                os.makedirs('json_exports')
             if args.json_chains:
                 url_format = args.url + '/all/chains'
                 response = requests.get(url_format)
                 if response.status_code == 200:
                     data_chains = response.json()
-                    export_name = "json_exports/chains_exported.json"
-                    with open(export_name, 'w', encoding='utf-8') as f:
+                    with open(path_chains, 'w', encoding='utf-8') as f:
                         json.dump(data_chains, f, indent=4)
-                        export_name = "chains_exported.json"
-                    print(f'exported chains to {export_name}')
+                    print(f'exported chains to {path_chains}')
                 else:
                     print(response.text)
             if args.json_rpc_urls:
@@ -97,10 +93,9 @@ def main() -> None:
                 response = requests.get(url_format)
                 if response.status_code == 200:
                     data_urls = response.json()
-                    export_name = "json_exports/rpc_urls_exported.json"
-                    with open(export_name, 'w', encoding='utf-8') as f:
+                    with open(path_urls, 'w', encoding='utf-8') as f:
                         json.dump(data_urls, f, indent=4)
-                    print(f'exported rpc urls to {export_name}')
+                    print(f'exported rpc urls to {path_urls}')
                 else:
                     print(response.text)
 
