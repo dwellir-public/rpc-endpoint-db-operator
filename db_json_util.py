@@ -109,7 +109,8 @@ def import_from_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path
             try:
                 cursor.execute(query, values)
             except sqlite3.IntegrityError as e:
-                conn.rollback()
+                # TODO: implement graceful way of "insert only if not exists" and then re-enable this
+                # conn.rollback()
                 print(f'Database error for {{{name}, {api_class}}}:', e)
 
     if json_rpc_urls:
@@ -123,7 +124,7 @@ def import_from_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path
             try:
                 cursor.execute(query, values)
             except sqlite3.IntegrityError as e:
-                conn.rollback()
+                # conn.rollback()
                 print(f'Database error for {{{url}, {chain_name}}}:', e)
 
     conn.commit()
