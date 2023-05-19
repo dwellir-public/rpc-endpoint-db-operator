@@ -80,7 +80,7 @@ def main() -> None:
         if args.export_data:
             # check if path exists
             if args.json_chains:
-                if Path.cwd() / args.json_chains:
+                if os.path.exists(path_chains):
                     user_input = input("File already exists for json chain, overwrite? (y/n): ")
                     if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
                         # make request to get all chains
@@ -94,10 +94,20 @@ def main() -> None:
                             print(response.text)
                     else:
                         print('exiting, no data exported')
-                            
+                else:
+                    # create file path
+                    os.makedirs(os.path.dirname(path_chains), exist_ok=True)  
+                    response = requests.get(args.url + '/all/chains')
+                    if response.status_code == 200:
+                        data_chains = response.json()
+                        with open(path_chains, 'w', encoding='utf-8') as f:
+                            json.dump(data_chains, f, indent=4)
+                        print(f'exported chains to {path_chains}')
+                    else:
+                        print(response.text)      
             if args.json_rpc_urls:
                 # check if path exists
-                if Path.cwd() / args.json_rpc_urls:
+                if os.path.exists(path_urls):
                     user_input = input("File already exists for json rpc url, overwrite? (y/n): ")
                     if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
                         # make request to get all rpc urls
@@ -112,7 +122,17 @@ def main() -> None:
                     else:
                         print('exiting, no data exported')
                         return
-
+                else:
+                    # create file path
+                    os.makedirs(os.path.dirname(path_chains), exist_ok=True)  
+                    response = requests.get(args.url + '/all/rpc_urls')
+                    if response.status_code == 200:
+                        data_chains = response.json()
+                        with open(path_urls, 'w', encoding='utf-8') as f:
+                            json.dump(data_chains, f, indent=4)
+                        print(f'exported chains to {path_chains}')
+                    else:
+                        print(response.text)  
 # import data using a local database file
     if args.local:
         if args.import_data:
