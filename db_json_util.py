@@ -83,6 +83,7 @@ def main() -> None:
                 if Path.cwd() / args.json_chains:
                     user_input = input("File already exists for json chain, overwrite? (y/n): ")
                     if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
+                        # make request to get all chains
                         response = requests.get(args.url + '/all/chains')
                         if response.status_code == 200:
                             data_chains = response.json()
@@ -96,9 +97,11 @@ def main() -> None:
                         return
                             
             if args.json_rpc_urls:
+                # check if path exists
                 if Path.cwd() / args.json_rpc_urls:
                     user_input = input("File already exists for json rpc url, overwrite? (y/n): ")
                     if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
+                        # make request to get all rpc urls
                         response = requests.get(args.url + '/all/rpc_urls')
                         if response.status_code == 200:
                             data_urls = response.json()
