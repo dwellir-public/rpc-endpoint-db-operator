@@ -94,7 +94,6 @@ def main() -> None:
                             print(response.text)
                     else:
                         print('exiting, no data exported')
-                        return
                             
             if args.json_rpc_urls:
                 # check if path exists
