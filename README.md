@@ -1,8 +1,8 @@
 # endpointdb
 
-This repo holds tools to maintain a database of public API:s for blockchains.
+This repo holds tools to maintain a database of public RPC endpoints for blockchains. A good source to find new endpoints is [chainlist.org](https://chainlist.org/).
 
-It also holds a tool to update an influx database with latency and blockheight information.
+It also holds a tool to update an InfluxDB database with latency and blockheight information.
 
 ## Setup
 
