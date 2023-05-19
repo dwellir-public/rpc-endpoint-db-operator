@@ -24,6 +24,18 @@
         "chain_name": "Arbitrum mainnet"
     },
     {
+        "url": "https://1rpc.io/arb",
+        "chain_name": "Arbitrum mainnet"
+    },
+    {
+        "url": "https://arb-mainnet-public.unifra.io",
+        "chain_name": "Arbitrum mainnet"
+    },
+    {
+        "url": "https://endpoints.omniatech.io/v1/arbitrum/one/public",
+        "chain_name": "Arbitrum mainnet"
+    },
+    {
         "url": "https://arbitrum-testnet-archive-rpc-1.dwellir.com",
         "chain_name": "Arbitrum testnet"
     },
@@ -32,7 +44,27 @@
         "chain_name": "Arbitrum testnet"
     },
     {
+        "url": "https://arbitrum-goerli.public.blastapi.io",
+        "chain_name": "Arbitrum testnet"
+    },
+    {
+        "url": "https://endpoints.omniatech.io/v1/arbitrum/goerli/public",
+        "chain_name": "Arbitrum testnet"
+    },
+    {
+        "url": "https://goerli-rollup.arbitrum.io/rpc",
+        "chain_name": "Arbitrum testnet"
+    },
+    {
         "url": "https://api.avax-test.network/ext/bc/C/rpc",
+        "chain_name": "Avalanche Fuji testnet"
+    },
+    {
+        "url": "https://endpoints.omniatech.io/v1/avax/fuji/public",
+        "chain_name": "Avalanche Fuji testnet"
+    },
+    {
+        "url": "https://ava-testnet.public.blastapi.io/ext/bc/C/rpc",
         "chain_name": "Avalanche Fuji testnet"
     },
     {
@@ -49,6 +81,10 @@
     },
     {
         "url": "https://avalanche-c-chain.publicnode.com",
+        "chain_name": "Avalanche mainnet"
+    },
+    {
+        "url": "https://rpc.ankr.com/avalanche",
         "chain_name": "Avalanche mainnet"
     },
     {
@@ -128,6 +164,14 @@
         "chain_name": "Cronos testnet"
     },
     {
+        "url": "https://ethereum-goerli.publicnode.com",
+        "chain_name": "Ethereum Goerli testnet"
+    },
+    {
+        "url": "https://goerli.blockpi.network/v1/rpc/public",
+        "chain_name": "Ethereum Goerli testnet"
+    },
+    {
         "url": "https://eth-goerli-archive-rpc-1.dwellir.com",
         "chain_name": "Ethereum Goerli testnet"
     },
@@ -192,6 +236,10 @@
         "chain_name": "Fantom testnet"
     },
     {
+        "url": "https://fantom-testnet.publicnode.com",
+        "chain_name": "Fantom testnet"
+    },
+    {
         "url": "https://fantom-testnet-archive-rpc-1.dwellir.com",
         "chain_name": "Fantom testnet"
     },
@@ -201,6 +249,10 @@
     },
     {
         "url": "https://palm-mainnet.public.blastapi.io",
+        "chain_name": "Palm mainnet"
+    },
+    {
+        "url": "https://palm-mainnet.infura.io/v3/3a961d6501e54add9a41aa53f15de99b",
         "chain_name": "Palm mainnet"
     },
     {
