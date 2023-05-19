@@ -1,282 +1,74 @@
 [
     {
-        "url": "https://bsc-dataseed1.binance.org",
-        "chain_name": "Binance Smart Chain"
+        "api_class": "ethereum",
+        "name": "Binance Smart Chain"
     },
     {
-        "url": "https://bsc-dataseed1.defibit.io",
-        "chain_name": "Binance Smart Chain"
+        "api_class": "ethereum",
+        "name": "Fantom Opera"
     },
     {
-        "url": "https://bsc-dataseed1.ninicoin.io",
-        "chain_name": "Binance Smart Chain"
+        "api_class": "ethereum",
+        "name": "Palm"
     },
     {
-        "url": "https://bsc-mainnet-full-rpc-1.dwellir.com",
-        "chain_name": "Binance Smart Chain"
+        "api_class": "ethereum",
+        "name": "Cronos Testnet"
     },
     {
-        "url": "https://bsc-mainnet-full-rpc-2.dwellir.com",
-        "chain_name": "Binance Smart Chain"
+        "api_class": "ethereum",
+        "name": "Ethereum Mainnet"
     },
     {
-        "url": "https://rpc.ftm.tools",
-        "chain_name": "Fantom Opera"
+        "api_class": "ethereum",
+        "name": "Binance Smart Chain Testnet"
     },
     {
-        "url": "https://fantom.publicnode.com",
-        "chain_name": "Fantom Opera"
+        "api_class": "ethereum",
+        "name": "Palm Testnet"
     },
     {
-        "url": "https://fantom-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Fantom Opera"
+        "api_class": "ethereum",
+        "name": "Fantom Testnet"
     },
     {
-        "url": "https://fantom-mainnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Fantom Opera"
+        "api_class": "aptos",
+        "name": "Aptos Devnet"
     },
     {
-        "url": "https://palm-mainnet.public.blastapi.io",
-        "chain_name": "Palm"
+        "api_class": "ethereum",
+        "name": "Polygon Mumbai"
     },
     {
-        "url": "https://palm-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Palm"
+        "api_class": "ethereum",
+        "name": "Sepolia Testnet Ethereum"
     },
     {
-        "url": "https://palm-mainnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Palm"
+        "api_class": "ethereum",
+        "name": "Avalanche Fuji Testnet"
     },
     {
-        "url": "https://evm-t3.cronos.org",
-        "chain_name": "Cronos Testnet"
+        "api_class": "ethereum",
+        "name": "Avalanche C-Chain"
     },
     {
-        "url": "https://cronos-testnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Cronos Testnet"
+        "api_class": "ethereum",
+        "name": "Cronos Mainnet Beta"
     },
     {
-        "url": "https://cronos-testnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Cronos Testnet"
+        "api_class": "aptos",
+        "name": "Aptos Mainnet"
     },
     {
-        "url": "https://cloudflare-eth.com",
-        "chain_name": "Ethereum Mainnet"
+        "api_class": "ethereum",
+        "name": "Polygon Mainnet"
     },
     {
-        "url": "https://ethereum.publicnode.com",
-        "chain_name": "Ethereum Mainnet"
+        "api_class": "ethereum",
+        "name": "Arbitrum mainnet"
     },
     {
-        "url": "https://eth-mainnet-full-rpc-1.dwellir.com",
-        "chain_name": "Ethereum Mainnet"
-    },
-    {
-        "url": "https://eth-mainnet-full-rpc-2.dwellir.com",
-        "chain_name": "Ethereum Mainnet"
-    },
-    {
-        "url": "https://data-seed-prebsc-1-s1.binance.org:8545",
-        "chain_name": "Binance Smart Chain Testnet"
-    },
-    {
-        "url": "https://data-seed-prebsc-2-s1.binance.org:8545",
-        "chain_name": "Binance Smart Chain Testnet"
-    },
-    {
-        "url": "https://data-seed-prebsc-1-s2.binance.org:8545",
-        "chain_name": "Binance Smart Chain Testnet"
-    },
-    {
-        "url": "https://bsc-testnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Binance Smart Chain Testnet"
-    },
-    {
-        "url": "https://bsc-testnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Binance Smart Chain Testnet"
-    },
-    {
-        "url": "https://palm-testnet.public.blastapi.io",
-        "chain_name": "Palm Testnet"
-    },
-    {
-        "url": "https://palm-testnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Palm Testnet"
-    },
-    {
-        "url": "https://palm-testnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Palm Testnet"
-    },
-    {
-        "url": "https://rpc.testnet.fantom.network",
-        "chain_name": "Fantom Testnet"
-    },
-    {
-        "url": "https://fantom-testnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Fantom Testnet"
-    },
-    {
-        "url": "https://fantom-testnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Fantom Testnet"
-    },
-    {
-        "url": "https://fullnode.devnet.aptoslabs.com/v1/",
-        "chain_name": "Aptos Devnet"
-    },
-    {
-        "url": "https://matic-mumbai.chainstacklabs.com",
-        "chain_name": "Polygon Mumbai"
-    },
-    {
-        "url": "https://rpc-mumbai.maticvigil.com",
-        "chain_name": "Polygon Mumbai"
-    },
-    {
-        "url": "https://matic-testnet-archive-rpc.bwarelabs.com",
-        "chain_name": "Polygon Mumbai"
-    },
-    {
-        "url": "https://polygon-mumbai-archive-rpc-1.dwellir.com",
-        "chain_name": "Polygon Mumbai"
-    },
-    {
-        "url": "https://polygon-mumbai-archive-rpc-2.dwellir.com",
-        "chain_name": "Polygon Mumbai"
-    },
-    {
-        "url": "https://rpc.sepolia.org",
-        "chain_name": "Sepolia Testnet Ethereum"
-    },
-    {
-        "url": "https://api.sepolia.kroma.network",
-        "chain_name": "Sepolia Testnet Ethereum"
-    },
-    {
-        "url": "https://rpc-sepolia.rockx.com",
-        "chain_name": "Sepolia Testnet Ethereum"
-    },
-    {
-        "url": "https://eth-sepolia-archive-rpc-1.dwellir.com",
-        "chain_name": "Sepolia Testnet Ethereum"
-    },
-    {
-        "url": "https://eth-sepolia-archive-rpc-2.dwellir.com",
-        "chain_name": "Sepolia Testnet Ethereum"
-    },
-    {
-        "url": "https://api.avax-test.network/ext/bc/C/rpc",
-        "chain_name": "Avalanche Fuji Testnet"
-    },
-    {
-        "url": "https://avalanche-fuji-archive-rpc-1.dwellir.com",
-        "chain_name": "Avalanche Fuji Testnet"
-    },
-    {
-        "url": "https://avalanche-fuji-archive-rpc-2.dwellir.com",
-        "chain_name": "Avalanche Fuji Testnet"
-    },
-    {
-        "url": "https://api.avax.network/ext/bc/C/rpc",
-        "chain_name": "Avalanche C-Chain"
-    },
-    {
-        "url": "https://avalanche-c-chain.publicnode.com",
-        "chain_name": "Avalanche C-Chain"
-    },
-    {
-        "url": "https://avalanche-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Avalanche C-Chain"
-    },
-    {
-        "url": "https://avalanche-mainnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Avalanche C-Chain"
-    },
-    {
-        "url": "https://evm.cronos.org",
-        "chain_name": "Cronos Mainnet Beta"
-    },
-    {
-        "url": "https://cronos-evm.publicnode.com",
-        "chain_name": "Cronos Mainnet Beta"
-    },
-    {
-        "url": "https://cronos-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Cronos Mainnet Beta"
-    },
-    {
-        "url": "https://cronos-mainnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Cronos Mainnet Beta"
-    },
-    {
-        "url": "https://aptos-mainnet-rpc.allthatnode.com/v1",
-        "chain_name": "Aptos Mainnet"
-    },
-    {
-        "url": "https://aptos-mainnet-rpc-germany.allthatnode.com/v1",
-        "chain_name": "Aptos Mainnet"
-    },
-    {
-        "url": "https://polygon-rpc.com/",
-        "chain_name": "Polygon Mainnet"
-    },
-    {
-        "url": "https://matic-mainnet.chainstacklabs.com",
-        "chain_name": "Polygon Mainnet"
-    },
-    {
-        "url": "https://rpc-mainnet.maticvigil.com",
-        "chain_name": "Polygon Mainnet"
-    },
-    {
-        "url": "https://rpc-mainnet.matic.quiknode.pro",
-        "chain_name": "Polygon Mainnet"
-    },
-    {
-        "url": "https://polygon-bor.publicnode.com",
-        "chain_name": "Polygon Mainnet"
-    },
-    {
-        "url": "https://polygon-mainnet-full-rpc-1.dwellir.com",
-        "chain_name": "Polygon Mainnet"
-    },
-    {
-        "url": "https://polygon-mainnet-full-rpc-2.dwellir.com",
-        "chain_name": "Polygon Mainnet"
-    },
-    {
-        "url": "https://arbitrum-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Arbitrum mainnet"
-    },
-    {
-        "url": "https://arbitrum-mainnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Arbitrum mainnet"
-    },
-    {
-        "url": "https://arb1.arbitrum.io/rpc",
-        "chain_name": "Arbitrum mainnet"
-    },
-    {
-        "url": "https://polkadot-rpc.dwellir.com",
-        "chain_name": "Polkadot Relaychain"
-    },
-    {
-        "url": "https://polkadot-rpc-tn.dwellir.com",
-        "chain_name": "Polkadot Relaychain"
-    },
-    {
-        "url": "https://polkadot-rpc-ng-1.dwellir.com",
-        "chain_name": "Polkadot Relaychain"
-    },
-    {
-        "url": "wss://rpc.polkadot.io",
-        "chain_name": "Polkadot Relaychain"
-    },
-    {
-        "url": "wss://rpc.darwinia.network",
-        "chain_name": "Polkadot Relaychain"
-    },
-    {
-        "url": "wss://polkadot.elara.patract.io",
-        "chain_name": "Polkadot Relaychain"
+        "api_class": "substrate",
+        "name": "Polkadot Relaychain"
     }
 ]

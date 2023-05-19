@@ -1,74 +1,74 @@
 [
     {
-        "name": "Binance Smart Chain",
-        "api_class": "ethereum"
+        "api_class": "ethereum",
+        "name": "Binance Smart Chain"
     },
     {
-        "name": "Fantom Opera",
-        "api_class": "ethereum"
+        "api_class": "ethereum",
+        "name": "Fantom Opera"
     },
     {
-        "name": "Palm",
-        "api_class": "ethereum"
+        "api_class": "ethereum",
+        "name": "Palm"
     },
     {
-        "name": "Cronos Testnet",
-        "api_class": "ethereum"
+        "api_class": "ethereum",
+        "name": "Cronos Testnet"
     },
     {
-        "name": "Ethereum Mainnet",
-        "api_class": "ethereum"
+        "api_class": "ethereum",
+        "name": "Ethereum Mainnet"
     },
     {
-        "name": "Binance Smart Chain Testnet",
-        "api_class": "ethereum"
+        "api_class": "ethereum",
+        "name": "Binance Smart Chain Testnet"
     },
     {
-        "name": "Palm Testnet",
-        "api_class": "ethereum"
+        "api_class": "ethereum",
+        "name": "Palm Testnet"
     },
     {
-        "name": "Fantom Testnet",
-        "api_class": "ethereum"
+        "api_class": "ethereum",
+        "name": "Fantom Testnet"
     },
     {
-        "name": "Aptos Devnet",
-        "api_class": "aptos"
+        "api_class": "aptos",
+        "name": "Aptos Devnet"
     },
     {
-        "name": "Polygon Mumbai",
-        "api_class": "ethereum"
+        "api_class": "ethereum",
+        "name": "Polygon Mumbai"
     },
     {
-        "name": "Sepolia Testnet Ethereum",
-        "api_class": "ethereum"
+        "api_class": "ethereum",
+        "name": "Sepolia Testnet Ethereum"
     },
     {
-        "name": "Avalanche Fuji Testnet",
-        "api_class": "ethereum"
+        "api_class": "ethereum",
+        "name": "Avalanche Fuji Testnet"
     },
     {
-        "name": "Avalanche C-Chain",
-        "api_class": "ethereum"
+        "api_class": "ethereum",
+        "name": "Avalanche C-Chain"
     },
     {
-        "name": "Cronos Mainnet Beta",
-        "api_class": "ethereum"
+        "api_class": "ethereum",
+        "name": "Cronos Mainnet Beta"
     },
     {
-        "name": "Aptos Mainnet",
-        "api_class": "aptos"
+        "api_class": "aptos",
+        "name": "Aptos Mainnet"
     },
     {
-        "name": "Polygon Mainnet",
-        "api_class": "ethereum"
+        "api_class": "ethereum",
+        "name": "Polygon Mainnet"
     },
     {
-        "name": "Arbitrum mainnet",
-        "api_class": "ethereum"
+        "api_class": "ethereum",
+        "name": "Arbitrum mainnet"
     },
     {
-        "name": "Polkadot Relaychain",
-        "api_class": "substrate"
+        "api_class": "substrate",
+        "name": "Polkadot Relaychain"
     }
 ]
