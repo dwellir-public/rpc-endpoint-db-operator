@@ -179,6 +179,23 @@ class CRUDTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json['api_class'], chain_data['api_class'])
 
+    def test_get_url(self):
+        chain_data = {
+            'name': 'Polkadot',
+            'api_class': 'substrate'
+        }
+        _ = self.app.post('/create_chain', json=chain_data, headers=self.auth_header)
+        url_data = {
+            'url': 'wss://rpc.polkadot.io',
+            'chain_name': 'Polkadot'
+        }
+        _ = self.app.post('/create_rpc_url', json=url_data, headers=self.auth_header)
+        url_params = {'protocol': 'wss', 'address': 'rpc.polkadot.io'}
+        response = self.app.get('/get_url', query_string=url_params)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json['url'], url_data['url'])
+        self.assertEqual(response.json['chain_name'], url_data['chain_name'])
+
     # TODO: add test for get_urls (by chain name)
 
     def test_update_url_record(self):
