@@ -22,6 +22,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description='Import or export JSON data to or from the chain database')
     parser.add_argument('--api',  action='store_true', help='If the script should operate with the database API endpoint')
     parser.add_argument('--url', type=str, help='The url for the API of the database', default=DEFAULT_URL)
+    parser.add_argument('--auth_password', type=str, help='The password needed to get an access token from the Flask app', default="")
     parser.add_argument('--local', action='store_true',  help='If the script should operate with a local database file')
     parser.add_argument('--db_file', type=str, help='The local database file', default=DEFAULT_FILE)
 
@@ -54,31 +55,9 @@ def main() -> None:
     if args.local and not path_db_file.exists():
         raise FileNotFoundError(f'Database file {args.file} not found')
 
-# import data using the API
     if args.api:
         if args.import_data:
-            if args.json_chains:
-                with open(path_chains, 'r', encoding='utf-8') as f:
-                    data_chains = json.load(f)
-                    url_format = args.url + '/create_chain'
-                for chain in data_chains:
-                    response = requests.post(url_format, json=chain)
-                    if response.status_code == 201:
-                        print(f'added chain {chain["name"]}')
-                    else:
-                        print(response.text)
-            if args.json_rpc_urls:
-                with open(path_urls, 'r', encoding='utf-8') as f:
-                    data_urls = json.load(f)
-                    url_format = args.url + '/create_rpc_url'
-                for url in data_urls:
-                    response = requests.post(url_format, json=url)
-                    if response.status_code == 201:
-                        print(f'added rpc url {url["url"]}')
-                    else:
-                        print(response.text)
-
-# export data using the API
+            api_import_from_json_files(path_chains, path_urls, args.url, args.auth_password)
         if args.export_data:
             if args.json_chains:
                 response = requests.get(args.url + '/all/chains')
@@ -137,9 +116,47 @@ def main() -> None:
             local_export_to_json_files(path_chains, path_urls, path_db_file)
 
 
+def api_import_from_json_files(json_chains: Path, json_rpc_urls: Path, api_url: str, auth_pw: str = ""):
+    """
+    Imports data from JSON files into an SQLite database.
+    Assumes the JSON files has a specific format as defined by XYZ. # TODO: mention the schema when implemented
+    """
+    token_response = requests.post(api_url + '/token', json={'username': 'dwellir_endpointdb', 'password': f'{auth_pw}'}, timeout=5)
+    if token_response.status_code != 200:
+        raise requests.exceptions.HTTPError(f'Couldn\'t get access token, {token_response.text}')
+    authorization_header = {'Authorization': f'Bearer {token_response.json()["access_token"]}'}
+
+    if json_chains:
+        print(f'> importing chain data from {json_chains.name}')
+        with open(json_chains, 'r', encoding='utf-8') as f:
+            data_chains = json.load(f)
+            url_format = api_url + '/create_chain'
+        for chain in data_chains:
+            print(chain)
+            response = requests.post(url_format, json=chain, headers=authorization_header, timeout=5)
+            if response.status_code == 201:
+                print(f'added chain {chain["name"]}')
+            else:
+                print(response.text)
+
+    if json_rpc_urls:
+        print(f'> importing url data from {json_rpc_urls.name}')
+        with open(json_rpc_urls, 'r', encoding='utf-8') as f:
+            data_rpc_urls = json.load(f)
+            url_format = api_url + '/create_rpc_url'
+        for rpc_url in data_rpc_urls:
+            response = requests.post(url_format, json=rpc_url, headers=authorization_header, timeout=5)
+            if response.status_code == 201:
+                print(f'added rpc url {rpc_url["url"]}')
+            else:
+                print(response.text)
+
+    print(f'> data written to database on url: {api_url}')
+
+
 def local_import_from_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path):
     """
-    Imports data from two JSON file into an SQLite database.
+    Imports data from JSON files into an SQLite database.
     Assumes the JSON files has a specific format as defined by XYZ. # TODO: mention the schema when implemented
     """
     conn = sqlite3.connect(db_file)
@@ -184,7 +201,7 @@ def local_import_from_json_files(json_chains: Path, json_rpc_urls: Path, db_file
 
 def local_export_to_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path):
     """
-    Exports data from an SQLite database into two JSON files.
+    Exports data from an SQLite database into JSON files.
     The output JSON files has a specific format as defined by XYZ. # TODO: mention the schema when implemented
     """
     print(f'> exporting data from {db_file.name}')
