@@ -73,17 +73,6 @@ def generate_token():
     return jsonify(access_token=access_token)
 
 
-# TODO: temporary, for tests. Remove and decide which other routes should be protected (all?)
-# Protect a route with jwt_required, which will kick out requests
-# without a valid JWT present.
-@app.route("/protected", methods=["GET"])
-@jwt_required()
-def protected():
-    # Access the identity of the current user with get_jwt_identity
-    current_user = get_jwt_identity()
-    return jsonify(logged_in_as=current_user), 200
-
-
 def insert_into_database(table: str, request_data: dict) -> Response:
     try:
         conn = sqlite3.connect(app.config['DATABASE'])

@@ -245,10 +245,8 @@ class CRUDTestCase(unittest.TestCase):
         self.assertIn('not found', response.json['error'])
 
     def test_jwt_protection(self):
-        response_success = self.app.get('/protected', headers=self.auth_header)
-        self.assertEqual(response_success.json['logged_in_as'], self.username)
-
-        response_failure = self.app.get('/protected')
+        url_data = {'url': 'http://some.chain.rpc', 'chain_name': 'SomeChain'}
+        response_failure = self.app.post('/create_rpc_url', json=url_data)  # No auth header leads to failure
         self.assertEqual(response_failure.status_code, 401)
 
 
