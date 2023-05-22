@@ -17,7 +17,6 @@ class CRUDTestCase(unittest.TestCase):
 
     def setUp(self):
         app.config['TESTING'] = True
-
         self.db_fd, app.config['DATABASE'] = tempfile.mkstemp(prefix='unittest_database_', suffix='.db')
 
         # Initialize the test database with schema and test data
@@ -26,25 +25,6 @@ class CRUDTestCase(unittest.TestCase):
             self.populate_db()
 
         self.app = app.test_client()
-
-        # Reference data.
-        self.chain_data_1 = {
-            'name': 'Ethereum mainnet',
-            'api_class': 'ethereum'
-        }
-        self.chain_data_2 = {
-            'name': 'Polkadot',
-            'api_class': 'substrate'
-        }
-        self.url_data_1 = {
-            'url': 'https://cloudflare-eth.com',
-            'chain_name': 'Ethereum mainnet'
-        }
-        self.url_data_2 = {
-            'url': 'wss://rpc.polkadot.io',
-            'chain_name': 'Polkadot'
-        }
-
         self.access_token = self.app.post('/token', json={'username': self.username, 'password': self.password}).json['access_token']
         self.auth_header = {'Authorization': f'Bearer {self.access_token}'}
 
@@ -52,7 +32,6 @@ class CRUDTestCase(unittest.TestCase):
         # Close the database connection and remove the temporary test database
         os.close(self.db_fd)
         os.unlink(app.config['DATABASE'])
-        print(app.config['DATABASE'])
 
     def init_db(self):
         # Use the same create_table as for the live database.
@@ -64,6 +43,8 @@ class CRUDTestCase(unittest.TestCase):
         c.execute('INSERT INTO chains (name, api_class) VALUES (?, ?)', ('Ethereum mainnet', 'ethereum'))
         c.execute('INSERT INTO chains (name, api_class) VALUES (?, ?)', ('Polkadot', 'substrate'))
         c.execute('INSERT INTO rpc_urls (url, chain_name) VALUES (?, ?)', ('https://cloudflare-eth.com', 'Ethereum mainnet'))
+        c.execute('INSERT INTO rpc_urls (url, chain_name) VALUES (?, ?)', ('wss://rpc.polkadot.io', 'Polkadot'))
+        c.execute('INSERT INTO rpc_urls (url, chain_name) VALUES (?, ?)', ('https://rpc.polkadot.io', 'Polkadot'))
         conn.commit()
         conn.close()
 
@@ -127,7 +108,7 @@ class CRUDTestCase(unittest.TestCase):
     def test_create_url_record_success(self):
         # Send a request with valid JSON data
         url_data = {
-            'url': 'wss://rpc.polkadot.io',
+            'url': 'http://rpc.polkadot.io',
             'chain_name': 'Polkadot'
         }
         response = self.app.post('/create_rpc_url', json=url_data, headers=self.auth_header)
@@ -154,74 +135,36 @@ class CRUDTestCase(unittest.TestCase):
         self.assertIsInstance(response.json, list)
 
     def test_get_chain_record_by_name(self):
-        chain_data = {
-            'name': 'Polkadot',
-            'api_class': 'substrate'
-        }
-        response = self.app.post('/create_chain', json=chain_data, headers=self.auth_header)
+        chain_data = {'name': 'Polkadot', 'api_class': 'substrate'}
         response = self.app.get(f'/get_chain_by_name/{chain_data["name"]}')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json['api_class'], chain_data['api_class'])
 
     def test_get_chain_record_by_url(self):
-        chain_data = {
-            'name': 'Polkadot',
-            'api_class': 'substrate'
-        }
-        _ = self.app.post('/create_chain', json=chain_data)
-        url_data = {
-            'url': 'wss://rpc.polkadot.io',
-            'chain_name': 'Polkadot'
-        }
-        _ = self.app.post('/create_rpc_url', json=url_data, headers=self.auth_header)
-        url_params = {'protocol': 'wss', 'address': 'rpc.polkadot.io'}
+        url_params = {'protocol': 'wss', 'address': 'rpc.polkadot.io'}  # Defined in setUp()
         response = self.app.get('/get_chain_by_url', query_string=url_params)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json['api_class'], chain_data['api_class'])
+        self.assertEqual(response.json['api_class'], 'substrate')
 
     def test_get_url(self):
-        chain_data = {
-            'name': 'Polkadot',
-            'api_class': 'substrate'
-        }
-        _ = self.app.post('/create_chain', json=chain_data, headers=self.auth_header)
-        url_data = {
-            'url': 'wss://rpc.polkadot.io',
-            'chain_name': 'Polkadot'
-        }
-        _ = self.app.post('/create_rpc_url', json=url_data, headers=self.auth_header)
-        url_params = {'protocol': 'wss', 'address': 'rpc.polkadot.io'}
+        url_params = {'protocol': 'wss', 'address': 'rpc.polkadot.io'}  # Defined in setUp()
         response = self.app.get('/get_url', query_string=url_params)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json['url'], url_data['url'])
-        self.assertEqual(response.json['chain_name'], url_data['chain_name'])
+        self.assertEqual(response.json['url'], 'wss://rpc.polkadot.io')
+        self.assertEqual(response.json['chain_name'], 'Polkadot')
 
     def test_get_urls(self):
-        chain_data = {
-            'name': 'Polkadot',
-            'api_class': 'substrate'
-        }
-        _ = self.app.post('/create_chain', json=chain_data, headers=self.auth_header)
-        url_data_1 = {
-            'url': 'wss://rpc.polkadot.io',
-            'chain_name': 'Polkadot'
-        }
-        url_data_2 = {
-            'url': 'https://rpc.polkadot.io',
-            'chain_name': 'Polkadot'
-        }
-        _ = self.app.post('/create_rpc_url', json=url_data_1, headers=self.auth_header)
-        _ = self.app.post('/create_rpc_url', json=url_data_2, headers=self.auth_header)
-        response = self.app.get(f'/get_urls/{chain_data["name"]}')
+        chain = 'Polkadot'
+        response = self.app.get(f'/get_urls/{chain}')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.json), 2)
-        self.assertIn(url_data_1['url'], response.json)
-        self.assertIn(url_data_2['url'], response.json)
+        self.assertIn('wss://rpc.polkadot.io', response.json)  # Defined in setUp()
+        self.assertIn('https://rpc.polkadot.io', response.json)  # Defined in setUp()
 
     def test_update_url_record(self):
         # Create a new record
         url_data = {
-            'url': 'wss://rpc.polkadot.io',
+            'url': 'wss://rpc-2.polkadot.io',
             'chain_name': 'Polkadot'
         }
         create_response = self.app.post('/create_rpc_url', json=url_data, headers=self.auth_header)
@@ -229,54 +172,44 @@ class CRUDTestCase(unittest.TestCase):
 
         # Update the record
         new_url_data = {
-            'url': 'https://rpc.polkadot.io',
+            'url': 'https://rpc-2.polkadot.io',
             'chain_name': 'Polkadot'
         }
-        old_url_params = {'protocol': 'wss', 'address': 'rpc.polkadot.io'}
+        old_url_params = {'protocol': 'wss', 'address': 'rpc-2.polkadot.io'}
         update_response = self.app.put('/update_url', query_string=old_url_params, json=new_url_data, headers=self.auth_header)
         self.assertEqual(update_response.status_code, 200)
 
         # Get the updated record and check its values
-        new_url_params = {'protocol': 'https', 'address': 'rpc.polkadot.io'}
+        new_url_params = {'protocol': 'https', 'address': 'rpc-2.polkadot.io'}
         get_response = self.app.get('/get_url', query_string=new_url_params)
         updated_record = get_response.json
         self.assertEqual(updated_record['url'], new_url_data['url'])
         self.assertEqual(updated_record['chain_name'], new_url_data['chain_name'])
 
     def test_delete_chain_record(self):
-        chain_data = {
-            'name': 'Polkadot',
-            'api_class': 'substrate'
-        }
-        response = self.app.post('/create_chain', json=chain_data, headers=self.auth_header)
-        response = self.app.delete('/delete_chain', query_string={'name': 'Polkadot'}, headers=self.auth_header)
+        query_string = {'name': 'Polkadot'}  # Added in setUp()
+        response = self.app.delete('/delete_chain', query_string=query_string, headers=self.auth_header)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json['message'], 'Chain record deleted successfully')
+        all_chains_response = self.app.get('/all/chains')
+        self.assertNotIn(query_string['name'], all_chains_response.json)
 
     def test_delete_url_record(self):
-        url_data = {
-            'url': 'wss://rpc.polkadot.io',
-            'chain_name': 'Polkadot'
-        }
-        response = self.app.post('/create_rpc_url', json=url_data, headers=self.auth_header)
-        response = self.app.delete('/delete_url', query_string={'protocol': 'wss', 'address': 'rpc.polkadot.io'}, headers=self.auth_header)
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json['message'], 'RPC url record deleted successfully')
+        query_string = {'protocol': 'wss', 'address': 'rpc.polkadot.io'}  # Added in setUp()
+        delete_response = self.app.delete('/delete_url', query_string=query_string, headers=self.auth_header)
+        self.assertEqual(delete_response.status_code, 200)
+        self.assertEqual(delete_response.json['message'], 'RPC url record deleted successfully')
+        urls_response = self.app.get('/get_urls/Polkadot')
+        self.assertNotIn(query_string['protocol'] + '://' + query_string['address'], urls_response.json)
 
     def test_delete_url_records(self):
-        url_data_1 = {
-            'url': 'wss://rpc.polkadot.io',
-            'chain_name': 'Polkadot'
-        }
-        url_data_2 = {
-            'url': 'https://rpc.polkadot.io',
-            'chain_name': 'Polkadot'
-        }
-        response = self.app.post('/create_rpc_url', json=url_data_1, headers=self.auth_header)
-        response = self.app.post('/create_rpc_url', json=url_data_2, headers=self.auth_header)
-        response = self.app.delete('/delete_urls', query_string={'chain_name': 'Polkadot'}, headers=self.auth_header)
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json['message'], 'RPC url records deleted successfully')
+        query_string = {'chain_name': 'Polkadot'}  # Added in setUp(), with two URL:s
+        delete_response = self.app.delete('/delete_urls', query_string=query_string, headers=self.auth_header)
+        self.assertEqual(delete_response.status_code, 200)
+        self.assertEqual(delete_response.json['message'], 'RPC url records deleted successfully')
+        urls_response = self.app.get(f'/get_urls/{query_string["chain_name"]}')
+        self.assertIn('error', urls_response.json)
+        self.assertIn('No urls found for chain Polkadot', urls_response.json['error'])
 
     def test_get_chain_info_by_chain_name(self):
         chain_data = {
