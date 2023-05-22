@@ -224,9 +224,22 @@ class CRUDTestCase(unittest.TestCase):
         response = self.app.post('/create_rpc_url', json=url_data, headers=self.auth_header)
         response = self.app.delete('/delete_url', query_string={'protocol': 'wss', 'address': 'rpc.polkadot.io'}, headers=self.auth_header)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json['message'], 'url record deleted successfully')
+        self.assertEqual(response.json['message'], 'RPC url record deleted successfully')
 
-    # TODO: add test for delete_urls
+    def test_delete_url_records(self):
+        url_data_1 = {
+            'url': 'wss://rpc.polkadot.io',
+            'chain_name': 'Polkadot'
+        }
+        url_data_2 = {
+            'url': 'wss://rpc.polkadot.io',
+            'chain_name': 'Polkadot'
+        }
+        response = self.app.post('/create_rpc_url', json=url_data_1, headers=self.auth_header)
+        response = self.app.post('/create_rpc_url', json=url_data_2, headers=self.auth_header)
+        response = self.app.delete('/delete_urls', query_string={'chain_name': 'Polkadot'}, headers=self.auth_header)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json['message'], 'RPC url records deleted successfully')
 
     def test_get_chain_info_by_chain_name(self):
         chain_data = {

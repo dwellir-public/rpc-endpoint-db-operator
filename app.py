@@ -362,7 +362,7 @@ def delete_url_record() -> Response:
     if cursor.rowcount == 0:
         rval = jsonify({'error': f'Record with url \'{url}\' not found'})
     else:
-        rval = jsonify({'message': 'url record deleted successfully'})
+        rval = jsonify({'message': 'RPC url record deleted successfully'})
     return rval
 
 
