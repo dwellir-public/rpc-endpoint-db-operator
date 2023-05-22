@@ -196,7 +196,27 @@ class CRUDTestCase(unittest.TestCase):
         self.assertEqual(response.json['url'], url_data['url'])
         self.assertEqual(response.json['chain_name'], url_data['chain_name'])
 
-    # TODO: add test for get_urls (by chain name)
+    def test_get_urls(self):
+        chain_data = {
+            'name': 'Polkadot',
+            'api_class': 'substrate'
+        }
+        _ = self.app.post('/create_chain', json=chain_data, headers=self.auth_header)
+        url_data_1 = {
+            'url': 'wss://rpc.polkadot.io',
+            'chain_name': 'Polkadot'
+        }
+        url_data_2 = {
+            'url': 'https://rpc.polkadot.io',
+            'chain_name': 'Polkadot'
+        }
+        _ = self.app.post('/create_rpc_url', json=url_data_1, headers=self.auth_header)
+        _ = self.app.post('/create_rpc_url', json=url_data_2, headers=self.auth_header)
+        response = self.app.get(f'/get_urls/{chain_data["name"]}')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.json), 2)
+        self.assertIn(url_data_1['url'], response.json)
+        self.assertIn(url_data_2['url'], response.json)
 
     def test_update_url_record(self):
         # Create a new record
@@ -249,7 +269,7 @@ class CRUDTestCase(unittest.TestCase):
             'chain_name': 'Polkadot'
         }
         url_data_2 = {
-            'url': 'wss://rpc.polkadot.io',
+            'url': 'https://rpc.polkadot.io',
             'chain_name': 'Polkadot'
         }
         response = self.app.post('/create_rpc_url', json=url_data_1, headers=self.auth_header)
