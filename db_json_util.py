@@ -132,12 +132,12 @@ def main() -> None:
 
     if args.local:
         if args.import_data:
-            import_from_json_files(path_chains, path_urls, path_db_file)
+            local_import_from_json_files(path_chains, path_urls, path_db_file)
         if args.export_data:
-            export_to_json_files(path_chains, path_urls, path_db_file)
+            local_export_to_json_files(path_chains, path_urls, path_db_file)
 
 
-def import_from_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path):
+def local_import_from_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path):
     """
     Imports data from two JSON file into an SQLite database.
     Assumes the JSON files has a specific format as defined by XYZ. # TODO: mention the schema when implemented
@@ -182,7 +182,7 @@ def import_from_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path
     print(f'> data written to database file {db_file.name}')
 
 
-def export_to_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path):
+def local_export_to_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path):
     """
     Exports data from an SQLite database into two JSON files.
     The output JSON files has a specific format as defined by XYZ. # TODO: mention the schema when implemented
