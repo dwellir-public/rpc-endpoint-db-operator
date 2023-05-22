@@ -79,11 +79,11 @@ def main() -> None:
                         print(response.text)
 
 # export data using the API
-        if args.export_data:            
+        if args.export_data:
             if args.json_chains:
                 response = requests.get(args.url + '/all/chains')
                 if response.status_code == 200:
-                    data_chains = response.json()     
+                    data_chains = response.json()
                 else:
                     print(response.text)
                     return
@@ -92,7 +92,7 @@ def main() -> None:
                     os.makedirs(os.path.dirname(path_chains), exist_ok=True)
                     with open(path_chains, 'w', encoding='utf-8') as f:
                         json.dump(data_chains, f, indent=4)
-                    print(f'exported chains to {path_chains}')                    
+                    print(f'exported chains to {path_chains}')
                 elif path_chains.exists():
                     user_input = input("File already exists for json chain, overwrite? (y/n): ")
                     if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
@@ -103,18 +103,18 @@ def main() -> None:
                         print('exiting, no data exported')
                 else:
                     print('error occured, exiting')
-                       
+
             if args.json_rpc_urls:
                 # get data and store it
                 response = requests.get(args.url + '/all/chains')
                 if response.status_code == 200:
-                    data_urls = response.json()                        
+                    data_urls = response.json()
                 else:
                     print(response.text)
                     return
                 # check if path exists
                 if not path_urls.exists():
-                    os.makedirs(os.path.dirname(path_urls), exist_ok=True)  
+                    os.makedirs(os.path.dirname(path_urls), exist_ok=True)
                     with open(path_urls, 'w', encoding='utf-8') as f:
                         json.dump(data_urls, f, indent=4)
                     print(f'exported chains to {path_urls}')
@@ -130,18 +130,11 @@ def main() -> None:
                 else:
                     print('error occured, exiting')
 
-# import data using a local database file
     if args.local:
         if args.import_data:
-            # TODO: fix
-            print(
-                f'> importing data from {path_chains.name if path_chains else "_"} and {path_urls.name if path_urls else "_"}')
             import_from_json_files(path_chains, path_urls, path_db_file)
-            print(f'> data written to database file {path_db_file.name}')
         if args.export_data:
-            print(f'> exporting data from {path_db_file.name}')
             export_to_json_files(path_chains, path_urls, path_db_file)
-            print(f'> data written to {path_chains.name if path_chains else "_"} and {path_urls.name if path_urls else "_"}')
 
 
 def import_from_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path):
@@ -154,6 +147,7 @@ def import_from_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path
     cursor = conn.cursor()
 
     if json_chains:
+        print(f'> importing chain data from {json_chains.name}')
         with open(json_chains, 'r', encoding='utf-8') as f:
             data_chains = json.load(f)
         for entry in data_chains:
@@ -169,6 +163,7 @@ def import_from_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path
                 print(f'Database error for {{{name}, {api_class}}}:', e)
 
     if json_rpc_urls:
+        print(f'> importing url data from {json_rpc_urls.name}')
         with open(json_rpc_urls, 'r', encoding='utf-8') as f:
             data_rpc_urls = json.load(f)
         for entry in data_rpc_urls:
@@ -184,6 +179,7 @@ def import_from_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path
 
     conn.commit()
     conn.close()
+    print(f'> data written to database file {db_file.name}')
 
 
 def export_to_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path):
@@ -191,6 +187,7 @@ def export_to_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path):
     Exports data from an SQLite database into two JSON files.
     The output JSON files has a specific format as defined by XYZ. # TODO: mention the schema when implemented
     """
+    print(f'> exporting data from {db_file.name}')
     conn = sqlite3.connect(db_file)
     conn.execute('PRAGMA foreign_keys = ON')
     cursor = conn.cursor()
@@ -206,6 +203,7 @@ def export_to_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path):
         sorted_chains = sorted(data_chains, key=lambda x: x['name'])
         with open(json_chains, 'w', encoding='utf-8') as f:
             json.dump(sorted_chains, f, ensure_ascii=False, indent=4)
+        print(f'> data written to {json_chains.name}')
 
     if json_rpc_urls:
         query_rpc_urls = f'SELECT url, chain_name FROM {TABLE_RPC_URLS}'
@@ -218,6 +216,7 @@ def export_to_json_files(json_chains: Path, json_rpc_urls: Path, db_file: Path):
         sorted_urls = sorted(data_rpc_urls, key=lambda x: x['chain_name'])
         with open(json_rpc_urls, 'w', encoding='utf-8') as f:
             json.dump(sorted_urls, f, ensure_ascii=False, indent=4)
+        print(f'> data written to {json_rpc_urls.name}')
 
 
 if __name__ == '__main__':
