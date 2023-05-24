@@ -28,10 +28,6 @@
         "chain_name": "Arbitrum mainnet"
     },
     {
-        "url": "https://arb-mainnet-public.unifra.io",
-        "chain_name": "Arbitrum mainnet"
-    },
-    {
         "url": "https://endpoints.omniatech.io/v1/arbitrum/one/public",
         "chain_name": "Arbitrum mainnet"
     },
