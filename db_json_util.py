@@ -79,7 +79,6 @@ def api_export_to_json_files(json_chains: Path, json_rpc_urls: Path, api_url: st
             data_chains = response.json()
         else:
             print(response.text)
-            return
         # check if path exists
         if not json_chains.exists():
             os.makedirs(os.path.dirname(json_chains), exist_ok=True)
@@ -93,9 +92,7 @@ def api_export_to_json_files(json_chains: Path, json_rpc_urls: Path, api_url: st
                     json.dump(data_chains, f, indent=4)
                     print(f'exported chains to {json_chains}')
             else:
-                    print('exiting, no data exported')
-        else:
-                    print('error occured, exiting')
+                print('exiting, no data exported')
 
     if json_rpc_urls:
         # get data and store it
@@ -118,10 +115,7 @@ def api_export_to_json_files(json_chains: Path, json_rpc_urls: Path, api_url: st
                     json.dump(data_urls, f, indent=4)
                     print(f'exported rpc urls to {json_rpc_urls}')
             else:
-                    print('exiting, no data exported')
-                    return
-        else:
-            print('error occured, exiting')
+                print('exiting, no data exported')
 
 def api_import_from_json_files(json_chains: Path, json_rpc_urls: Path, api_url: str, auth_pw: str = ""):
     """
