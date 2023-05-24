@@ -67,7 +67,7 @@ def main() -> None:
         if args.export_data:
             local_export_to_json_files(path_chains, path_urls, path_db_file)
 
-def api_export_to_json_files(json_chains: Path, json_rpc_urls: Path, api_url: str, auth_pw: str = ""):
+def api_export_to_json_files(json_chains: Path, json_rpc_urls: Path, api_url: str):
     """
     Exports data from the SQLite database to JSON files.
     Assumes the JSON files has a specific format as defined by XYZ.
@@ -96,7 +96,7 @@ def api_export_to_json_files(json_chains: Path, json_rpc_urls: Path, api_url: st
 
     if json_rpc_urls:
         # get data and store it
-        response = requests.get(api_url+ '/all/chains')
+        response = requests.get(api_url + '/all/rpc_urls')
         if response.status_code == 200:
             data_urls = response.json()
         else:
