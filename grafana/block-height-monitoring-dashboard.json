@@ -31,6 +31,12 @@
     },
     {
       "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
       "id": "timeseries",
       "name": "Time series",
       "version": ""
@@ -67,7 +73,8 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "mode": "thresholds",
+            "seriesBy": "max"
           },
           "custom": {
             "axisCenteredZero": false,
@@ -75,7 +82,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "axisSoftMax": 5,
-            "barAlignment": 0,
+            "barAlignment": -1,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -93,7 +100,7 @@
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "always",
+            "showPoints": "auto",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -110,6 +117,26 @@
               {
                 "color": "green",
                 "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 3
+              },
+              {
+                "color": "orange",
+                "value": 6
+              },
+              {
+                "color": "dark-orange",
+                "value": 10
+              },
+              {
+                "color": "red",
+                "value": 20
+              },
+              {
+                "color": "dark-red",
+                "value": 50
               }
             ]
           }
@@ -279,7 +306,7 @@
             "type": "influxdb",
             "uid": "${DS_INFLUXDB-BLOCKHEIGHTS}"
           },
-          "query": "from(bucket: \"blockheights\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"block_height_request\")\n  |> filter(fn: (r) => r.chain == \"${chain_name}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"block_height\")\n  |> drop(columns: [\"_field\", \"_measurement\", \"api\", \"chain\"])",
+          "query": "import \"strings\"\n\nfrom(bucket: \"blockheights\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"block_height_request\")\n  |> filter(fn: (r) => r.chain == \"${chain_name}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"block_height\")\n  |> drop(columns: [\"_field\", \"_measurement\", \"api\", \"chain\"])\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"http://\")}))\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"https://\")}))\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"wss://\")}))",
           "refId": "A"
         }
       ],
@@ -397,6 +424,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "fixedColor": "semi-dark-purple",
             "mode": "thresholds"
           },
           "mappings": [],
@@ -409,15 +437,23 @@
                 "value": null
               },
               {
-                "color": "yellow",
-                "value": 5
+                "color": "semi-dark-yellow",
+                "value": 3
               },
               {
                 "color": "orange",
-                "value": 20
+                "value": 6
+              },
+              {
+                "color": "dark-orange",
+                "value": 10
               },
               {
                 "color": "red",
+                "value": 20
+              },
+              {
+                "color": "dark-red",
                 "value": 50
               }
             ]
@@ -431,18 +467,21 @@
         "x": 0,
         "y": 9
       },
-      "id": 4,
+      "id": 6,
       "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "",
+          "fields": "/.*/",
           "values": false
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
+        "text": {},
+        "textMode": "auto"
       },
       "pluginVersion": "9.5.2",
       "targets": [
@@ -469,7 +508,7 @@
         {
           "id": "calculateField",
           "options": {
-            "alias": "Block Diff",
+            "alias": "Max diff",
             "mode": "reduceRow",
             "reduce": {
               "include": [],
@@ -479,18 +518,31 @@
           }
         },
         {
-          "id": "reduce",
+          "id": "sortBy",
           "options": {
-            "includeTimeField": true,
-            "mode": "reduceFields",
-            "reducers": [
-              "last",
-              "max"
+            "fields": {},
+            "sort": [
+              {
+                "field": "Max diff"
+              }
             ]
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "HH:MM:SS",
+                "destinationType": "string",
+                "targetField": "Time"
+              }
+            ],
+            "fields": {}
           }
         }
       ],
-      "type": "gauge"
+      "type": "stat"
     },
     {
       "datasource": {
@@ -574,7 +626,7 @@
             "type": "influxdb",
             "uid": "${DS_INFLUXDB-BLOCKHEIGHTS}"
           },
-          "query": "from(bucket: \"blockheights\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"block_height_request\")\n  |> filter(fn: (r) => r.chain == \"${chain_name}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"time_total\")\n  |> drop(columns: [\"_field\", \"_measurement\", \"api\", \"chain\"])",
+          "query": "import \"strings\"\n\nfrom(bucket: \"blockheights\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"block_height_request\")\n  |> filter(fn: (r) => r.chain == \"${chain_name}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"time_total\")\n  |> drop(columns: [\"_field\", \"_measurement\", \"api\", \"chain\"])\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"http://\")}))\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"https://\")}))\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"wss://\")}))",
           "refId": "A"
         }
       ],
@@ -619,6 +671,6 @@
   "timezone": "",
   "title": "Block height monitoring",
   "uid": "a2549b8b-d628-47f1-be83-4efc987dd0b8",
-  "version": 34,
+  "version": 39,
   "weekStart": ""
 }
