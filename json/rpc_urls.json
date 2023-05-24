@@ -24,10 +24,6 @@
         "chain_name": "Arbitrum mainnet"
     },
     {
-        "url": "https://1rpc.io/arb",
-        "chain_name": "Arbitrum mainnet"
-    },
-    {
         "url": "https://endpoints.omniatech.io/v1/arbitrum/one/public",
         "chain_name": "Arbitrum mainnet"
     },
