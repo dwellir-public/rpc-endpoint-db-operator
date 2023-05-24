@@ -59,55 +59,7 @@ def main() -> None:
         if args.import_data:
             api_import_from_json_files(path_chains, path_urls, args.url, args.auth_password)
         if args.export_data:
-            if args.json_chains:
-                response = requests.get(args.url + '/all/chains')
-                if response.status_code == 200:
-                    data_chains = response.json()
-                else:
-                    print(response.text)
-                    return
-                # check if path exists
-                if not path_chains.exists():
-                    os.makedirs(os.path.dirname(path_chains), exist_ok=True)
-                    with open(path_chains, 'w', encoding='utf-8') as f:
-                        json.dump(data_chains, f, indent=4)
-                    print(f'exported chains to {path_chains}')
-                elif path_chains.exists():
-                    user_input = input("File already exists for json chain, overwrite? (y/n): ")
-                    if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
-                        with open(path_chains, 'w', encoding='utf-8') as f:
-                            json.dump(data_chains, f, indent=4)
-                        print(f'exported chains to {path_chains}')
-                    else:
-                        print('exiting, no data exported')
-                else:
-                    print('error occured, exiting')
-
-            if args.json_rpc_urls:
-                # get data and store it
-                response = requests.get(args.url + '/all/chains')
-                if response.status_code == 200:
-                    data_urls = response.json()
-                else:
-                    print(response.text)
-                    return
-                # check if path exists
-                if not path_urls.exists():
-                    os.makedirs(os.path.dirname(path_urls), exist_ok=True)
-                    with open(path_urls, 'w', encoding='utf-8') as f:
-                        json.dump(data_urls, f, indent=4)
-                    print(f'exported chains to {path_urls}')
-                elif path_urls.exists():
-                    user_input = input("File already exists for json rpc url, overwrite? (y/n): ")
-                    if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
-                        with open(path_urls, 'w', encoding='utf-8') as f:
-                            json.dump(data_urls, f, indent=4)
-                        print(f'exported rpc urls to {path_urls}')
-                    else:
-                        print('exiting, no data exported')
-                    return
-                else:
-                    print('error occured, exiting')
+            api_export_to_json_files(path_chains, path_urls, args.url, args.auth_password)
 
     if args.local:
         if args.import_data:
@@ -115,6 +67,67 @@ def main() -> None:
         if args.export_data:
             local_export_to_json_files(path_chains, path_urls, path_db_file)
 
+def api_export_to_json_files(json_chains: Path, json_rpc_urls: Path, api_url: str, auth_pw: str = ""):
+    """
+    Exports data from the SQLite database to JSON files.
+    Assumes the JSON files has a specific format as defined by XYZ.
+    """
+
+    token_reponse = requests.post(api_url + '/token', json={'username': 'dwellir_endpointdb', 'password': f'{auth_pw}'}, timeout=5)
+
+    if token_reponse.status_code != 200:
+        raise requests.exceptions.HTTPError(f'Couldn\'t get access token, {token_reponse.text}')
+    authorization_header = {'Authorization': f'Bearer {token_reponse.json()["access_token"]}'}
+
+    if json_chains:
+                response = requests.get(api_url + '/all/chains', headers=authorization_header, timeout=5)
+                if response.status_code == 200:
+                    data_chains = response.json()
+                else:
+                    print(response.text)
+                    return
+                # check if path exists
+                if not json_chains.exists():
+                    os.makedirs(os.path.dirname(json_chains), exist_ok=True)
+                    with open(json_chains, 'w', encoding='utf-8') as f:
+                        json.dump(data_chains, f, indent=4)
+                    print(f'exported chains to {json_chains}')
+                elif json_chains.exists():
+                    user_input = input("File already exists for json chain, overwrite? (y/n): ")
+                    if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
+                        with open(json_chains, 'w', encoding='utf-8') as f:
+                            json.dump(data_chains, f, indent=4)
+                        print(f'exported chains to {json_chains}')
+                    else:
+                        print('exiting, no data exported')
+                else:
+                    print('error occured, exiting')
+
+    if json_rpc_urls:
+                # get data and store it
+                response = requests.get(api_url+ '/all/chains',  headers=authorization_header, timeout=5)
+                if response.status_code == 200:
+                    data_urls = response.json()
+                else:
+                    print(response.text)
+                    return
+                # check if path exists
+                if not json_rpc_urls.exists():
+                    os.makedirs(os.path.dirname(json_rpc_urls), exist_ok=True)
+                    with open(json_rpc_urls, 'w', encoding='utf-8') as f:
+                        json.dump(data_urls, f, indent=4)
+                    print(f'exported chains to {json_rpc_urls}')
+                elif json_rpc_urls.exists():
+                    user_input = input("File already exists for json rpc url, overwrite? (y/n): ")
+                    if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
+                        with open(json_rpc_urls, 'w', encoding='utf-8') as f:
+                            json.dump(data_urls, f, indent=4)
+                        print(f'exported rpc urls to {json_rpc_urls}')
+                    else:
+                        print('exiting, no data exported')
+                    return
+                else:
+                    print('error occured, exiting')
 
 def api_import_from_json_files(json_chains: Path, json_rpc_urls: Path, api_url: str, auth_pw: str = ""):
     """
