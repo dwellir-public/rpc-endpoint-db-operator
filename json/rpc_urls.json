@@ -292,23 +292,11 @@
         "chain_name": "Polkadot Relaychain"
     },
     {
-        "url": "wss://rpc.darwinia.network",
-        "chain_name": "Polkadot Relaychain"
-    },
-    {
-        "url": "wss://polkadot.elara.patract.io",
-        "chain_name": "Polkadot Relaychain"
-    },
-    {
         "url": "https://matic-mumbai.chainstacklabs.com",
         "chain_name": "Polygon Mumbai"
     },
     {
         "url": "https://rpc-mumbai.maticvigil.com",
-        "chain_name": "Polygon Mumbai"
-    },
-    {
-        "url": "https://matic-testnet-archive-rpc.bwarelabs.com",
         "chain_name": "Polygon Mumbai"
     },
     {
