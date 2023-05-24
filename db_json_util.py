@@ -59,13 +59,21 @@ def main() -> None:
         if args.import_data:
             api_import_from_json_files(path_chains, path_urls, args.url, args.auth_password)
         if args.export_data:
-            api_export_to_json_files(path_chains, path_urls, args.url, args.auth_password)
+            api_export_to_json_files(path_chains, path_urls, args.url)
 
     if args.local:
         if args.import_data:
             local_import_from_json_files(path_chains, path_urls, path_db_file)
         if args.export_data:
             local_export_to_json_files(path_chains, path_urls, path_db_file)
+
+def export_to_file(file_name: Path, data: dict):
+    """
+    Writes data to a file.
+    """
+    with open(file_name, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=4)
+        print(f'exported data to {file_name}')
 
 def api_export_to_json_files(json_chains: Path, json_rpc_urls: Path, api_url: str):
     """
@@ -82,15 +90,11 @@ def api_export_to_json_files(json_chains: Path, json_rpc_urls: Path, api_url: st
         # check if path exists
         if not json_chains.exists():
             os.makedirs(os.path.dirname(json_chains), exist_ok=True)
-            with open(json_chains, 'w', encoding='utf-8') as f:
-                json.dump(data_chains, f, indent=4)
-                print(f'exported chains to {json_chains}')
+            export_to_file(json_chains, data_chains)
         elif json_chains.exists():
             user_input = input("File already exists for json chain, overwrite? (y/n): ")
             if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
-                with open(json_chains, 'w', encoding='utf-8') as f:
-                    json.dump(data_chains, f, indent=4)
-                    print(f'exported chains to {json_chains}')
+                export_to_file(json_chains, data_chains)
             else:
                 print('exiting, no data exported')
 
@@ -105,15 +109,11 @@ def api_export_to_json_files(json_chains: Path, json_rpc_urls: Path, api_url: st
         # check if path exists
         if not json_rpc_urls.exists():
             os.makedirs(os.path.dirname(json_rpc_urls), exist_ok=True)
-            with open(json_rpc_urls, 'w', encoding='utf-8') as f:
-                json.dump(data_urls, f, indent=4)
-                print(f'exported chains to {json_rpc_urls}')
+            export_to_file(json_rpc_urls, data_urls)
         elif json_rpc_urls.exists():
             user_input = input("File already exists for json rpc url, overwrite? (y/n): ")
             if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
-                with open(json_rpc_urls, 'w', encoding='utf-8') as f:
-                    json.dump(data_urls, f, indent=4)
-                    print(f'exported rpc urls to {json_rpc_urls}')
+                export_to_file(json_rpc_urls, data_urls)
             else:
                 print('exiting, no data exported')
 
