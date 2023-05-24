@@ -68,11 +68,11 @@
         "chain_name": "Avalanche Fuji testnet"
     },
     {
-        "url": "https://avalanche-fuji-archive-rpc-1.dwellir.com",
+        "url": "https://avalanche-fuji-archive-rpc-1.dwellir.com/ext/bc/C/rpc",
         "chain_name": "Avalanche Fuji testnet"
     },
     {
-        "url": "https://avalanche-fuji-archive-rpc-2.dwellir.com",
+        "url": "https://avalanche-fuji-archive-rpc-2.dwellir.com/ext/bc/C/rpc",
         "chain_name": "Avalanche Fuji testnet"
     },
     {
@@ -88,11 +88,11 @@
         "chain_name": "Avalanche mainnet"
     },
     {
-        "url": "https://avalanche-mainnet-archive-rpc-1.dwellir.com",
+        "url": "https://avalanche-mainnet-archive-rpc-1.dwellir.com/ext/bc/C/rpc",
         "chain_name": "Avalanche mainnet"
     },
     {
-        "url": "https://avalanche-mainnet-archive-rpc-2.dwellir.com",
+        "url": "https://avalanche-mainnet-archive-rpc-2.dwellir.com/ext/bc/C/rpc",
         "chain_name": "Avalanche mainnet"
     },
     {
