@@ -533,7 +533,7 @@
           "options": {
             "conversions": [
               {
-                "dateFormat": "HH:MM:SS",
+                "dateFormat": "hh:mm:ss",
                 "destinationType": "string",
                 "targetField": "Time"
               }
@@ -671,6 +671,6 @@
   "timezone": "",
   "title": "Block height monitoring",
   "uid": "a2549b8b-d628-47f1-be83-4efc987dd0b8",
-  "version": 39,
+  "version": 40,
   "weekStart": ""
 }
