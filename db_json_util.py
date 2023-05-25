@@ -75,47 +75,34 @@ def export_to_file(file_name: Path, data: dict):
         json.dump(data, f, indent=4)
         print(f'exported data to {file_name}')
 
+def api_export_json(path: Path, url: str):
+    if path.match(TABLE_CHAINS + '.json'):
+        response = requests.get(url + '/all/chains')
+    elif path.match(TABLE_RPC_URLS + '.json'):
+        response = requests.get(url + '/all/rpc_urls')
+    if response.status_code == 200:
+        data_chains = response.json()
+    else:
+        print(response.text)
+    # check if path exists
+    if not path.exists():
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        export_to_file(path, data_chains)
+    elif path.exists():
+        user_input = input("File already exists for json chain, overwrite? (y/n): ")
+        if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
+            export_to_file(path, data_chains)
+        else:
+            print('exiting, no data exported')
+
+
 def api_export_to_json_files(json_chains: Path, json_rpc_urls: Path, api_url: str):
     """
     Exports data from the SQLite database to JSON files.
     Assumes the JSON files has a specific format as defined by XYZ.
     """
-
-    if json_chains:
-        response = requests.get(api_url + '/all/chains')
-        if response.status_code == 200:
-            data_chains = response.json()
-        else:
-            print(response.text)
-        # check if path exists
-        if not json_chains.exists():
-            os.makedirs(os.path.dirname(json_chains), exist_ok=True)
-            export_to_file(json_chains, data_chains)
-        elif json_chains.exists():
-            user_input = input("File already exists for json chain, overwrite? (y/n): ")
-            if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
-                export_to_file(json_chains, data_chains)
-            else:
-                print('exiting, no data exported')
-
-    if json_rpc_urls:
-        # get data and store it
-        response = requests.get(api_url + '/all/rpc_urls')
-        if response.status_code == 200:
-            data_urls = response.json()
-        else:
-            print(response.text)
-            return
-        # check if path exists
-        if not json_rpc_urls.exists():
-            os.makedirs(os.path.dirname(json_rpc_urls), exist_ok=True)
-            export_to_file(json_rpc_urls, data_urls)
-        elif json_rpc_urls.exists():
-            user_input = input("File already exists for json rpc url, overwrite? (y/n): ")
-            if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
-                export_to_file(json_rpc_urls, data_urls)
-            else:
-                print('exiting, no data exported')
+    api_export_json(json_chains, api_url)
+    api_export_json(json_rpc_urls, api_url)
 
 def api_import_from_json_files(json_chains: Path, json_rpc_urls: Path, api_url: str, auth_pw: str = ""):
     """
