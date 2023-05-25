@@ -82,7 +82,7 @@ Start the database, preferrably using a `screen`. Exit the screen gracefully wit
 
 Populate the database with initial information. The `json` directory in the repo contains `.json` files with backed up blockchain RPC urls that you can initialize from, if you haven't got access to a better source, though the list might not be 100 % up to date.
 
-    python3 db_json_util.py --add --local --json_chains json/chains.json --json_rpc_urls json/rpc_urls.json --db_file live_database.db
+    python3 db_json_util.py -i --local --json_chains json/chains.json --json_rpc_urls json/rpc_urls.json --db_file live_database.db
 
 ### Start the influx updater
 

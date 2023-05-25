@@ -67,35 +67,6 @@ def main() -> None:
         if args.export_data:
             local_export_to_json_files(path_chains, path_urls, path_db_file)
 
-def export_to_file(file_name: Path, data: dict):
-    """
-    Writes data to a file.
-    """
-    with open(file_name, 'w', encoding='utf-8') as f:
-        json.dump(data, f, indent=4)
-        print(f'exported data to {file_name}')
-
-def api_export_json(path: Path, url: str):
-    if path.match(TABLE_CHAINS + '.json'):
-        response = requests.get(url + '/all/chains')
-    elif path.match(TABLE_RPC_URLS + '.json'):
-        response = requests.get(url + '/all/rpc_urls')
-    if response.status_code == 200:
-        data_chains = response.json()
-    else:
-        print(response.text)
-    # check if path exists
-    if not path.exists():
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        export_to_file(path, data_chains)
-    elif path.exists():
-        user_input = input("File already exists for json chain, overwrite? (y/n): ")
-        if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
-            export_to_file(path, data_chains)
-        else:
-            print('exiting, no data exported')
-
-
 def api_export_to_json_files(json_chains: Path, json_rpc_urls: Path, api_url: str):
     """
     Exports data from the SQLite database to JSON files.
@@ -114,30 +85,8 @@ def api_import_from_json_files(json_chains: Path, json_rpc_urls: Path, api_url: 
         raise requests.exceptions.HTTPError(f'Couldn\'t get access token, {token_response.text}')
     authorization_header = {'Authorization': f'Bearer {token_response.json()["access_token"]}'}
 
-    if json_chains:
-        print(f'> importing chain data from {json_chains.name}')
-        with open(json_chains, 'r', encoding='utf-8') as f:
-            data_chains = json.load(f)
-            url_format = api_url + '/create_chain'
-        for chain in data_chains:
-            print(chain)
-            response = requests.post(url_format, json=chain, headers=authorization_header, timeout=5)
-            if response.status_code == 201:
-                print(f'added chain {chain["name"]}')
-            else:
-                print(response.text)
-
-    if json_rpc_urls:
-        print(f'> importing url data from {json_rpc_urls.name}')
-        with open(json_rpc_urls, 'r', encoding='utf-8') as f:
-            data_rpc_urls = json.load(f)
-            url_format = api_url + '/create_rpc_url'
-        for rpc_url in data_rpc_urls:
-            response = requests.post(url_format, json=rpc_url, headers=authorization_header, timeout=5)
-            if response.status_code == 201:
-                print(f'added rpc url {rpc_url["url"]}')
-            else:
-                print(response.text)
+    api_import_json(json_chains, api_url, authorization_header)
+    api_import_json(json_rpc_urls, api_url, authorization_header)
 
     print(f'> data written to database on url: {api_url}')
 
@@ -222,6 +171,61 @@ def local_export_to_json_files(json_chains: Path, json_rpc_urls: Path, db_file: 
         with open(json_rpc_urls, 'w', encoding='utf-8') as f:
             json.dump(sorted_urls, f, ensure_ascii=False, indent=4)
         print(f'> data written to {json_rpc_urls.name}')
+
+
+def export_to_file(file_name: Path, data: dict):
+    """
+    Writes data to a file.
+    """
+    with open(file_name, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=4)
+        print(f'exported data to {file_name}')
+
+def api_export_json(path: Path, url: str):
+    if path.match(TABLE_CHAINS + '.json'):
+        response = requests.get(url + '/all/chains')
+    elif path.match(TABLE_RPC_URLS + '.json'):
+        response = requests.get(url + '/all/rpc_urls')
+    if response.status_code == 200:
+        data_chains = response.json()
+    else:
+        print(response.text)
+    # check if path exists
+    if not path.exists():
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        export_to_file(path, data_chains)
+    elif path.exists():
+        user_input = input("File already exists for json chain, overwrite? (y/n): ")
+        if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
+            export_to_file(path, data_chains)
+        else:
+            print('exiting, no data exported')
+
+def api_import_json(path: Path, url: str, authorization_header: dict):
+    if path.match(TABLE_CHAINS + '.json'):
+        print(f'> importing chain data from {path.name}')
+        url_format = url + '/create_chain'
+        with open(path, 'r', encoding='utf-8') as f:
+            data_chains = json.load(f)
+        for chain in data_chains:
+            response = requests.post(url_format, json=chain, headers=authorization_header, timeout=5)
+            if response.status_code == 201:
+                print(f'added chain {chain["name"]}')
+            else:
+                print(response.text)
+
+    elif path.match(TABLE_RPC_URLS + '.json'):
+        print(f'> importing rpc url data from {path.name}') 
+        url_format = url + '/create_rpc_url'
+        with open(path, 'r', encoding='utf-8') as f:
+            data_rpc_urls = json.load(f)
+            url_format = url + '/create_rpc_url'
+        for rpc_url in data_rpc_urls:
+            response = requests.post(url_format, json=rpc_url, headers=authorization_header, timeout=5)
+            if response.status_code == 201:
+                print(f'added rpc url {rpc_url["url"]}')
+            else:
+                print(response.text)
 
 
 if __name__ == '__main__':
