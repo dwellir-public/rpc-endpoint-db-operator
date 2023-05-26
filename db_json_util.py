@@ -4,7 +4,6 @@ import requests
 import json
 import argparse
 import sqlite3
-import os
 from pathlib import Path
 
 
@@ -59,55 +58,7 @@ def main() -> None:
         if args.import_data:
             api_import_from_json_files(path_chains, path_urls, args.url, args.auth_password)
         if args.export_data:
-            if args.json_chains:
-                response = requests.get(args.url + '/all/chains')
-                if response.status_code == 200:
-                    data_chains = response.json()
-                else:
-                    print(response.text)
-                    return
-                # check if path exists
-                if not path_chains.exists():
-                    os.makedirs(os.path.dirname(path_chains), exist_ok=True)
-                    with open(path_chains, 'w', encoding='utf-8') as f:
-                        json.dump(data_chains, f, indent=4)
-                    print(f'exported chains to {path_chains}')
-                elif path_chains.exists():
-                    user_input = input("File already exists for json chain, overwrite? (y/n): ")
-                    if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
-                        with open(path_chains, 'w', encoding='utf-8') as f:
-                            json.dump(data_chains, f, indent=4)
-                        print(f'exported chains to {path_chains}')
-                    else:
-                        print('exiting, no data exported')
-                else:
-                    print('error occured, exiting')
-
-            if args.json_rpc_urls:
-                # get data and store it
-                response = requests.get(args.url + '/all/chains')
-                if response.status_code == 200:
-                    data_urls = response.json()
-                else:
-                    print(response.text)
-                    return
-                # check if path exists
-                if not path_urls.exists():
-                    os.makedirs(os.path.dirname(path_urls), exist_ok=True)
-                    with open(path_urls, 'w', encoding='utf-8') as f:
-                        json.dump(data_urls, f, indent=4)
-                    print(f'exported chains to {path_urls}')
-                elif path_urls.exists():
-                    user_input = input("File already exists for json rpc url, overwrite? (y/n): ")
-                    if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
-                        with open(path_urls, 'w', encoding='utf-8') as f:
-                            json.dump(data_urls, f, indent=4)
-                        print(f'exported rpc urls to {path_urls}')
-                    else:
-                        print('exiting, no data exported')
-                    return
-                else:
-                    print('error occured, exiting')
+            api_export_to_json_files(path_chains, path_urls, args.url)
 
     if args.local:
         if args.import_data:
@@ -115,6 +66,39 @@ def main() -> None:
         if args.export_data:
             local_export_to_json_files(path_chains, path_urls, path_db_file)
 
+def export_to_file(file_name: Path, data: dict):
+    """
+    Writes data to a file.
+    """
+    with open(file_name, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=4)
+        print(f'exported data to {file_name}')
+
+def api_export_json(path: Path, url: str):
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+    else:
+        print(response.text)
+    # check if path exists
+    if not path.exists():
+        path.mkdir(parents=True, exist_ok=True)
+        export_to_file(path, data)
+    elif path.exists():
+        user_input = input("File already exists for json chain, overwrite? (y/n): ")
+        if user_input in ['y', 'Y', 'yes', 'Yes', 'YES']:
+            export_to_file(path, data)
+        else:
+            print('exiting, no data exported')
+
+
+def api_export_to_json_files(json_chains: Path, json_rpc_urls: Path, api_url: str):
+    """
+    Exports data from the SQLite database to JSON files.
+    Assumes the JSON files has a specific format as defined by XYZ.
+    """
+    api_export_json(json_chains, api_url + '/all/chains')
+    api_export_json(json_rpc_urls, api_url + '/all/rpc_urls')
 
 def api_import_from_json_files(json_chains: Path, json_rpc_urls: Path, api_url: str, auth_pw: str = ""):
     """
