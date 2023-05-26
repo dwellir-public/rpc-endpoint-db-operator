@@ -21,7 +21,7 @@ PATH_DB = PATH_DIR / 'live_database.db'
 PATH_JWT_SECRET_KEY = PATH_DIR / 'auth_jwt_secret_key'
 PATH_PASSWORD = PATH_DIR / 'auth_password'
 
-# check if the password file exists
+# check if the files exists
 if not PATH_PASSWORD.exists():
     raise FileNotFoundError(f'Password file not found, Please readme on how to set up the password file')
 if not PATH_JWT_SECRET_KEY.exists():
