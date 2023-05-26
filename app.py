@@ -21,6 +21,12 @@ PATH_DB = PATH_DIR / 'live_database.db'
 PATH_JWT_SECRET_KEY = PATH_DIR / 'auth_jwt_secret_key'
 PATH_PASSWORD = PATH_DIR / 'auth_password'
 
+# check if the password file exists
+if not PATH_PASSWORD.exists():
+    raise FileNotFoundError(f'Password file not found, Please readme on how to set up the password file')
+if not PATH_JWT_SECRET_KEY.exists():
+    raise FileNotFoundError(f'JWT secret key file not found, Please readme on how to set up the JWT secret key file')
+
 app = Flask(__name__)
 app.config['DATABASE'] = str(PATH_DB)
 with PATH_JWT_SECRET_KEY.open() as jwt_file:
