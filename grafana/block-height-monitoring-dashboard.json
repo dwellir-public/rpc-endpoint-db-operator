@@ -170,7 +170,7 @@
             "uid": "${DS_INFLUXDB-BLOCKHEIGHTS}"
           },
           "hide": false,
-          "query": "Chains = from(bucket: \"blockheights\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"block_height_request\")\n  |> filter(fn: (r) => r.chain == \"${chain_name}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"block_height\")\n  |> group(columns: [\"url\"])\n  |> truncateTimeColumn(unit: 1s)\n  |> drop(columns: [\"_field\", \"_measurement\", \"api\", \"chain\"])\n  |> yield(name: \"Chains\")",
+          "query": "import \"strings\"\n\nChains = from(bucket: \"blockheights\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"block_height_request\")\n  |> filter(fn: (r) => r.chain == \"${chain_name}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"block_height\")\n  |> group(columns: [\"url\"])\n  |> truncateTimeColumn(unit: 1s)\n  |> keep(columns: [\"_time\", \"_value\", \"url\"])\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"http://\")}))\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"https://\")}))\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"wss://\")}))\n  |> yield(name: \"Chains\")",
           "refId": "B"
         },
         {
@@ -226,8 +226,8 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "${DS_INFLUXDB-BLOCKHEIGHTS}"
+        "type": "datasource",
+        "uid": "-- Dashboard --"
       },
       "fieldConfig": {
         "defaults": {
@@ -303,10 +303,10 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "${DS_INFLUXDB-BLOCKHEIGHTS}"
+            "type": "datasource",
+            "uid": "-- Dashboard --"
           },
-          "query": "import \"strings\"\n\nfrom(bucket: \"blockheights\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"block_height_request\")\n  |> filter(fn: (r) => r.chain == \"${chain_name}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"block_height\")\n  |> drop(columns: [\"_field\", \"_measurement\", \"api\", \"chain\"])\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"http://\")}))\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"https://\")}))\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"wss://\")}))",
+          "panelId": 3,
           "refId": "A"
         }
       ],
@@ -315,8 +315,8 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "${DS_INFLUXDB-BLOCKHEIGHTS}"
+        "type": "datasource",
+        "uid": "-- Dashboard --"
       },
       "fieldConfig": {
         "defaults": {
@@ -372,13 +372,11 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "${DS_INFLUXDB-BLOCKHEIGHTS}"
+            "type": "datasource",
+            "uid": "-- Dashboard --"
           },
-          "query": "import \"strings\"\n\nChains = from(bucket: \"blockheights\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"block_height_request\")\n  |> filter(fn: (r) => r.chain == \"${chain_name}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"time_total\")\n  |> group(columns: [\"url\"])\n  |> truncateTimeColumn(unit: 1s)\n  |> drop(columns: [\"_field\", \"_measurement\", \"api\", \"chain\"])\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"http://\")}))\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"https://\")}))\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"wss://\")}))\n  |> yield(name: \"Chains\")",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series"
+          "panelId": 2,
+          "refId": "A"
         }
       ],
       "title": "Maximum latency",
@@ -418,8 +416,8 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "${DS_INFLUXDB-BLOCKHEIGHTS}"
+        "type": "datasource",
+        "uid": "-- Dashboard --"
       },
       "fieldConfig": {
         "defaults": {
@@ -487,13 +485,11 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "${DS_INFLUXDB-BLOCKHEIGHTS}"
+            "type": "datasource",
+            "uid": "-- Dashboard --"
           },
-          "query": "Chains = from(bucket: \"blockheights\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"block_height_request\")\n  |> filter(fn: (r) => r.chain == \"${chain_name}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"block_height\")\n  |> group(columns: [\"url\"])\n  |> truncateTimeColumn(unit: 1s)\n  |> drop(columns: [\"_field\", \"_measurement\", \"api\", \"chain\"])\n  |> yield(name: \"Chains\")",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series"
+          "panelId": 3,
+          "refId": "A"
         }
       ],
       "title": "Max block difference in time period",
@@ -626,7 +622,7 @@
             "type": "influxdb",
             "uid": "${DS_INFLUXDB-BLOCKHEIGHTS}"
           },
-          "query": "import \"strings\"\n\nfrom(bucket: \"blockheights\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"block_height_request\")\n  |> filter(fn: (r) => r.chain == \"${chain_name}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"time_total\")\n  |> drop(columns: [\"_field\", \"_measurement\", \"api\", \"chain\"])\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"http://\")}))\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"https://\")}))\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"wss://\")}))",
+          "query": "import \"strings\"\n\nfrom(bucket: \"blockheights\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"block_height_request\")\n  |> filter(fn: (r) => r.chain == \"${chain_name}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"time_total\")\n  |> keep(columns: [\"_time\", \"_value\", \"url\"])\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"http://\")}))\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"https://\")}))\n  |> map(fn: (r) => ({r with url: strings.trimPrefix(v: r.url, prefix: \"wss://\")}))",
           "refId": "A"
         }
       ],
@@ -671,6 +667,6 @@
   "timezone": "",
   "title": "Block height monitoring",
   "uid": "a2549b8b-d628-47f1-be83-4efc987dd0b8",
-  "version": 40,
+  "version": 41,
   "weekStart": ""
 }
