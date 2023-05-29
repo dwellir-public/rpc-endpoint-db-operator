@@ -23,9 +23,9 @@ PATH_PASSWORD = PATH_DIR / 'auth_password'
 
 
 if not PATH_PASSWORD.exists():
-    raise FileNotFoundError(f'Password file not found, Please check the readme on how to set up the password file')
+    raise FileNotFoundError(f'Password file not found on {str(PATH_PASSWORD)}, check the README.md for a setup guide')
 if not PATH_JWT_SECRET_KEY.exists():
-    raise FileNotFoundError(f'JWT secret key file not found, Please check the readme on how to set up the JWT secret key file')
+    raise FileNotFoundError(f'JWT secret key file not found on {str(PATH_JWT_SECRET_KEY)}, check the README.md for a setup guide')
 
 app = Flask(__name__)
 app.config['DATABASE'] = str(PATH_DB)
