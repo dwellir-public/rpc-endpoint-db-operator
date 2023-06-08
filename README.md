@@ -2,7 +2,7 @@
 
 This repo holds tools to maintain a database of public RPC endpoints for blockchains. A good source to find new endpoints is [chainlist.org](https://chainlist.org/).
 
-It also holds a tool to update an InfluxDB database with latency and blockheight information.
+It also holds a tool to update an InfluxDB database with latency and block height information.
 
 ## Setup
 
@@ -43,15 +43,15 @@ Set up `influx`. You will be prompted to configure the primary user and can answ
     ? Please type your password again ********
     ? Please type your primary organization name dwellir
     ? Please type your primary bucket name default
-    ? Please type your retention period in hours, or 0 for infinite 0
+    ? Please type your retention period in hours, or 0 for infinite (0) 720
 
 Create an InfluxDB token that can read and write to all buckets (this level of access might be overkill, evaluate what's needed in production deployment). Be sure to store the token value in keepass for production deployments.
 
     sudo influx auth create --write-buckets --read-buckets
 
-Create a bucket for the blockheight data.
+Create a bucket for the block height data.
 
-    sudo influx bucket create -n blockheights -r 30d
+    sudo influx bucket create -n block_heights -r 30d
 
 ### Set up authentication
 
@@ -82,11 +82,11 @@ Start the database, preferrably using a `screen`. Exit the screen gracefully wit
 
 Populate the database with initial information. The `json` directory in the repo contains `.json` files with backed up blockchain RPC urls that you can initialize from, if you haven't got access to a better source, though the list might not be 100 % up to date.
 
-    python3 db_json_util.py --add --local --json_chains json/chains.json --json_rpc_urls json/rpc_urls.json --db_file live_database.db
+    python3 db_util.py --import_data --local --db_file live_database.db --json_chains db_json/chains.json --json_rpc_urls db_json/rpc_urls.json
 
 ### Start the influx updater
 
-To start pushing data to the blockheight database, we run the `update_influxdb.py` script. It can be run from the same machine as the database was initialized on but could also be run from an entirely different machine. The script uses the information from a config file, `config.json` by default, to find the Flask API and the Influx database, as well as accessing them.
+To start pushing data to the block height database, we run the `update_influxdb.py` script. It can be run from the same machine as the database was initialized on but could also be run from an entirely different machine. The script uses the information from a config file, `config.json` by default, to find the Flask API and the Influx database, as well as accessing them.
 
     screen -S update-influxdb  # optional
     python3 ./update_influxdb.py
@@ -169,7 +169,7 @@ You can use this example query in grafana, under the 'Explore section'. Simply p
 Example:
 
 ```
-from(bucket: "blockheights")
+from(bucket: "block_heights")
   |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
   |> filter(fn: (r) => r["_measurement"] == "block_height_request")
   |> filter(fn: (r) => r["url"] == "https://bsc-dataseed1.binance.org" or r["url"] == "https://bsc-dataseed1.defibit.io" or r["url"] == "https://bsc-dataseed1.ninicoin.io")

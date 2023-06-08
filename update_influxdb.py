@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 
 import asyncio
+from datetime import datetime
 import json
 import logging
 from color_logger import ColoredFormatter
 import sys
 from pathlib import Path
+from typing import Callable
 import requests
 import warnings
 import argparse
 import time
-from influxdb_client import InfluxDBClient
+from influxdb_client import InfluxDBClient, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
-from influxdb_utils import new_block_height_request_point, test_influxdb_connection, fetch_all_info
+import influxdb_utils as iu
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -24,6 +26,8 @@ logger.addHandler(console_handler)
 
 # TODO: add block height diff calculation to DB update procedure
 # TODO: add more settings to config; update interval
+# TODO: clear up imports
+# TODO: confirm requirements.txt
 
 
 def main():
@@ -44,9 +48,11 @@ def main():
         'org': config['INFLUXDB_ORG'],
         'bucket': config['INFLUXDB_BUCKET']
     }
+    cache_max_age = config.get('CACHE_MAX_AGE', 60)
+    poll_interval = config.get('POLL_INTERVAL', 10)
 
     # Test connection to influx before attempting to start.
-    if not test_influxdb_connection(influxdb['url'], influxdb['token'], influxdb['org']):
+    if not iu.test_influxdb_connection(influxdb['url'], influxdb['token'], influxdb['org']):
         logger.error("Couldn't connect to influxdb at url %s\nExiting.", influxdb['url'])
         sys.exit(1)
 
@@ -65,56 +71,90 @@ def main():
         # Place them in a list with their corresponding class.
         # This is all the endpoints we are to query and update the influxdb with.
         # all_url_api_tuples = get_all_endpoints_from_api(rpc_flask_api)
-        all_url_api_tuples = load_endpoints(config['RPC_FLASK_API'], config['CACHE_MAX_AGE'])
+        all_endpoints = load_endpoints(config['RPC_FLASK_API'], cache_max_age)
+        # all_chains = load_chains(config['RPC_FLASK_API'], cache_max_age)
+        # TODO: update how to return a none result?
+        all_results = loop.run_until_complete(iu.fetch_results(all_endpoints))
 
-        info = loop.run_until_complete(fetch_all_info(all_url_api_tuples))
+        # Create block_heights dict
+        block_heights = {}
+        for endpoint, results in zip(all_endpoints, all_results):
+            if results and results.get('latest_block_height'):
+                chain = endpoint[0]
+                if chain not in block_heights.keys():
+                    block_heights[chain] = []
+                block_heights[chain].append((endpoint[1], int(results.get('latest_block_height', -1))))
+            else:
+                logger.warning("Results of endpoint %s not accessible.", endpoint[1])
 
-        for endpoint, info_dict in zip(all_url_api_tuples, info):
-            if info_dict:
-                bcp = new_block_height_request_point(chain=endpoint[0], url=endpoint[1], api=endpoint[2], data=info_dict)
-                records = []
-                records.append(bcp)
+        # Calculate block_height diffs and append points
+        block_height_diffs = {}
+        for chain in block_heights:
+            print(chain)
+            rpc_list = block_heights[chain]
+            print(rpc_list)
+            block_height_diffs[chain] = {}
+            max_height = max(rpc_list, key=lambda x: x[1])[1]
+            print("max_height: ", max_height)
+            for rpc in rpc_list:
+                print("rpc: ", rpc)
+                block_height_diffs[chain][rpc[0]] = max_height - rpc[1]
+            # for rpc in block_height_diffs:
+            #     records.append(iu.block_height_diff_point(chain=chain, url=rpc[0], block_height_diff=rpc[1], timestamp=rpc[2]))
+
+        timestamp = datetime.utcnow()
+        records = []
+        # Create block_height_request points
+        for endpoint, results in zip(all_endpoints, all_results):
+            if results:
                 try:
-                    exitcode = int(info_dict.get('exitcode', -1)) if info_dict.get('exitcode') is not None else None
-                    if exitcode != 0:
-                        logger.warning("Non-zero exit_code found for %s. This is an indication that the endpoint isn't healthy.", endpoint)
-                    elif exitcode is None:
-                        logger.warning("Exit code is None for %s. I will not add this datapoint.", endpoint)
+                    exit_code = int(results.get('exit_code', -1)) if results.get('exit_code') is not None else None
+                    if exit_code is None:
+                        logger.warning("None result for %s. Datapoint will not be added.", endpoint)
+                    elif exit_code != 0:
+                        logger.warning("Non-zero exit code found for %s. This is an indication that the endpoint isn't healthy.", endpoint)
                     else:
-                        logger.info("Writing to influx %s: Data: %s", endpoint, info_dict)
-                        write_to_influxdb(influxdb['url'], influxdb['token'], influxdb['org'], influxdb['bucket'], records)
-
+                        brp = iu.block_height_request_point(
+                            chain=endpoint[0],
+                            url=endpoint[1],
+                            data=results,
+                            block_height_diff=block_height_diffs[endpoint[0]][endpoint[1]],
+                            timestamp=timestamp)
+                        logger.info("Writing to influx %s", brp)
+                        records.append(brp)
                 except Exception as e:
-                    logger.error("Something went wrong while trying to write to influxdb %s: %s %s", endpoint, info_dict, str(e))
+                    logger.error("Error while accessing results for %s: %s %s", endpoint, results, str(e))
             else:
                 logger.warning("Couldn't get information from %s. Skipping.", endpoint)
 
-        # Wait for 5 seconds before running again. Allows us to see what goes on.
-        # Possibly we can remove this later.
-        time.sleep(5)
+        write_to_influxdb(influxdb['url'], influxdb['token'], influxdb['org'], influxdb['bucket'], records)
+        # Sleep between making requests to avoid triggering rate limits.
+        time.sleep(poll_interval)
 
 
-# Define function to write data to InfluxDB
 def write_to_influxdb(url: str, token: str, org: str, bucket: str, records: list) -> None:
     try:
         client = InfluxDBClient(url=url, token=token, org=org)
         write_api = client.write_api(write_options=SYNCHRONOUS)
         write_api.write(bucket=bucket, record=records)
     except Exception as e:
-        logger.critical("Failed writing to influx. This shouldn't happen. %s",  str(e))
+        logger.critical("Failed writing to influx. %s",  str(e))
         sys.exit(1)
 
 
-def load_endpoints(rpc_flask_api: str, cache_refresh_interval: int = 60) -> list:
-    """Load endpoints from cache or refresh if cache is stale."""
+def load_endpoints(rpc_flask_api: str, cache_refresh_interval: int) -> list:
+    return load_from_flask_api(rpc_flask_api, get_all_endpoints, 'cache.json', cache_refresh_interval)
 
+
+def load_from_flask_api(rpc_flask_api: str, rpc_flask_get_function: Callable, cache_filename: str, cache_refresh_interval: int) -> list:
+    """Load endpoints from cache or refresh if cache is stale."""
     # Load cached values from file
     try:
-        with open('cache.json', 'r', encoding='utf-8') as f:
-            all_url_api_tuples, last_cache_refresh = json.load(f)
+        with open(cache_filename, 'r', encoding='utf-8') as f:
+            results, last_cache_refresh = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
-        logger.warning('Could not load values from cache.json')
-        all_url_api_tuples, last_cache_refresh = None, 0
+        logger.warning('Could not load values from %s', cache_filename)
+        results, last_cache_refresh = None, 0
 
     # Check if cache is stale
     if time.time() - last_cache_refresh > cache_refresh_interval:
@@ -122,34 +162,32 @@ def load_endpoints(rpc_flask_api: str, cache_refresh_interval: int = 60) -> list
     else:
         diff = time.time() - last_cache_refresh
         remains = cache_refresh_interval - diff
-        logger.info("Cache will be updated in: %s", remains)
+        logger.info("%s will be updated in: %s", cache_filename, remains)
         refresh_cache = False
 
     if refresh_cache:
         try:
-            logger.info("Updating cache from endpoints API")
-            all_url_api_tuples = get_all_endpoints_from_api(rpc_flask_api)
+            logger.info("Updating cache from Flask API")
+            results = rpc_flask_get_function(rpc_flask_api)
             last_cache_refresh = time.time()
 
             # Save updated cache to file
-            with open('cache.json', 'w', encoding='utf-8') as f:
-                json.dump((all_url_api_tuples, last_cache_refresh), f)
+            with open(cache_filename, 'w', encoding='utf-8') as f:
+                json.dump((results, last_cache_refresh), f)
 
         except Exception as e:
             # Log the error
-            logger.error("An error occurred while getting endpoints: %s", str(e))
+            logger.error("An error occurred while updating cache: %s", str(e))
 
             # Load the previous cache value
-            with open('cache.json', 'r', encoding='utf-8') as f:
-                all_url_api_tuples, last_cache_refresh = json.load(f)
-
+            with open(cache_filename, 'r', encoding='utf-8') as f:
+                results, last_cache_refresh = json.load(f)
     else:
-        logger.info("Using cached endpoints")
+        logger.info("Using cached values")
+    return results
 
-    return all_url_api_tuples
 
-
-def get_all_endpoints_from_api(rpc_flask_api: str) -> list:
+def get_all_endpoints(rpc_flask_api: str) -> list:
     url_api_tuples = []
     all_chains = requests.get(f'{rpc_flask_api}/all/chains', timeout=3)
     for chain in all_chains.json():
@@ -157,6 +195,21 @@ def get_all_endpoints_from_api(rpc_flask_api: str) -> list:
         for url in chain_info.json()['urls']:
             url_api_tuples.append((chain_info.json()['chain_name'], url, chain_info.json()['api_class']))
     return url_api_tuples
+
+
+# TODO: probably unused, remove?
+def get_all_endpoints_by_chain(rpc_flask_api: str) -> list:
+    chains = []
+    all_chains = requests.get(f'{rpc_flask_api}/all/chains', timeout=3)
+    for chain in all_chains.json():
+        chain_urls = []
+        chain_info = requests.get(f'{rpc_flask_api}/chain_info?chain_name={chain["name"]}', timeout=1)
+        for url in chain_info.json()['urls']:
+            chain_urls.append((chain_info.json()['chain_name'], url, chain_info.json()['api_class']))
+        chains.append({
+            chain["name"]: chain_urls
+        })
+    return chains
 
 
 if __name__ == '__main__':

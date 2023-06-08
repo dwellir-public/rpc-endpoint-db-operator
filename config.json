@@ -3,6 +3,7 @@
   "INFLUXDB_URL": "http://localhost:8086",
   "INFLUXDB_TOKEN": "hJaW1Me5OkQF3cwgCEVBPOT7RfUKFiL3YMEWVRShy5OL3EFOxmexqJM5aVtBmb30YKSZpD1ZyXBUSNC5hU8Usw==",
   "INFLUXDB_ORG": "dwellir",
-  "INFLUXDB_BUCKET": "blockheights",
-  "CACHE_MAX_AGE": 30
+  "INFLUXDB_BUCKET": "block_heights",
+  "CACHE_MAX_AGE": 60,
+  "POLL_INTERVAL": 10
 }
