@@ -25,6 +25,8 @@ def main() -> None:
     parser.add_argument('--local', action='store_true',  help='If the script should operate with a local database file')
     parser.add_argument('--db_file', type=str, help='The local database file', default=DEFAULT_FILE)
 
+    # TODO: make --local and --api implicit based on existance of db_file/url
+
     parser.add_argument('-i', '--import_data', action='store_true',
                         help='Import data to the database from the target JSON file. Overwrites existing entries for matching identifiers.')
     parser.add_argument('-e', '--export_data', action='store_true',
