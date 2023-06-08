@@ -95,24 +95,3 @@ async def get_ethereum(api_url, chain_id=1):
         }
 
         return info
-
-
-async def fetch_info(api_url, api_class):
-    if api_class == 'aptos':
-        info = await get_aptos(api_url)
-    elif api_class == 'substrate':
-        info = await get_substrate(api_url)
-    elif api_class == 'ethereum':
-        info = await get_ethereum(api_url)
-    else:
-        raise ValueError('Invalid api_class:', api_class)
-    return info
-
-
-async def fetch_all_info(all_url_api_tuples):
-    loop = asyncio.get_event_loop()  # Reuse the current event loop
-    tasks = []
-    for _, url, api_class in all_url_api_tuples:
-        tasks.append(loop.create_task(fetch_info(url, api_class)))
-    results = await asyncio.gather(*tasks, return_exceptions=True)
-    return results

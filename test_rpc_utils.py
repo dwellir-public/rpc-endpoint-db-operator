@@ -1,8 +1,6 @@
 #!/bin/env python3
 
 import asyncio
-import time
-import aiohttp
 from rpc_utils import get_aptos, get_ethereum, get_substrate
 
 
