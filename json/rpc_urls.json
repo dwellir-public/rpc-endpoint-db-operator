@@ -240,6 +240,26 @@
         "chain_name": "Fantom testnet"
     },
     {
+        "url": "https://optimism-mainnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Optimism mainnet"
+    },
+    {
+        "url": "https://optimism-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Optimism mainnet"
+    },
+    {
+        "url": "https://optimism.publicnode.com",
+        "chain_name": "Optimism mainnet"
+    },
+    {
+        "url": "https://1rpc.io/op",
+        "chain_name": "Optimism mainnet"
+    },
+    {
+        "url": "https://mainnet.optimism.io",
+        "chain_name": "Optimism mainnet"
+    },
+    {
         "url": "https://palm-mainnet.public.blastapi.io",
         "chain_name": "Palm mainnet"
     },

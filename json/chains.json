@@ -60,6 +60,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Optimism mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Palm mainnet",
         "api_class": "ethereum"
     },
