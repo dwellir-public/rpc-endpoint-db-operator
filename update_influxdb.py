@@ -7,6 +7,7 @@ from color_logger import ColoredFormatter
 import sys
 from pathlib import Path
 import requests
+import warnings
 import argparse
 import time
 from influxdb_client import InfluxDBClient
@@ -49,9 +50,8 @@ def main():
         logger.error("Couldn't connect to influxdb at url %s\nExiting.", influxdb['url'])
         sys.exit(1)
 
-    try:
+    with warnings.catch_warnings() as w:
         loop = asyncio.get_event_loop()
-    except DeprecationWarning as w:
         if "no current event loop" in str(w):
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
