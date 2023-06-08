@@ -6,6 +6,7 @@ import logging
 from color_logger import ColoredFormatter
 import sys
 from pathlib import Path
+from warnings import DeprecationWarning
 import requests
 import argparse
 import time
@@ -51,12 +52,10 @@ def main():
 
     try:
         loop = asyncio.get_event_loop()
-    except RuntimeError as ex:
-        if "no current event loop" in str(ex):
+    except DeprecationWarning as w:
+        if "no current event loop" in str(w):
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
-        else:
-            raise
 
     while True:
         # Get all RPC endpoints from all chains.
