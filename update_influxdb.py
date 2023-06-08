@@ -6,7 +6,6 @@ import logging
 from color_logger import ColoredFormatter
 import sys
 from pathlib import Path
-from warnings import DeprecationWarning
 import requests
 import argparse
 import time
