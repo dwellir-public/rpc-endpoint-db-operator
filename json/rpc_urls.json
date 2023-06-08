@@ -56,7 +56,7 @@
         "chain_name": "Avalanche Fuji testnet"
     },
     {
-        "url": "https://endpoints.omniatech.io/v1/avax/fuji/public",
+        "url": "https://avalanche-fuji-c-chain.publicnode.com",
         "chain_name": "Avalanche Fuji testnet"
     },
     {
