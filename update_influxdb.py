@@ -50,12 +50,15 @@ def main():
         logger.error("Couldn't connect to influxdb at url %s\nExiting.", influxdb['url'])
         sys.exit(1)
 
-    with warnings.catch_warnings() as w:
+    with warnings.catch_warnings() as warn:
         loop = asyncio.get_event_loop()
-        if "no current event loop" in str(w):
-            logger.info("First startup, starting new event loop.")
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
+        for w in warn:
+            if "no current event loop" in w.message:
+                logger.info("First startup, starting new event loop.")
+                loop = asyncio.new_event_loop()
+                asyncio.set_event_loop(loop)
+                break
+        warnings.simplefilter("ignore")
 
     while True:
         # Get all RPC endpoints from all chains.
