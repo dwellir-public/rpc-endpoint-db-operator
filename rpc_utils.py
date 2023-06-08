@@ -1,6 +1,5 @@
 import time
 from urllib.parse import urlparse
-import asyncio
 import aiohttp
 
 
