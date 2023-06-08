@@ -21,6 +21,10 @@ formatter = ColoredFormatter('%(asctime)s - %(levelname)s - %(message)s')
 console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
+# TODO: general cleanup
+# TODO: add block height diff calculation to DB update procedure
+# TODO: add more settings to config; update interval
+
 
 def main():
 

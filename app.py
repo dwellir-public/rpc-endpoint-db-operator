@@ -27,6 +27,7 @@ if not PATH_PASSWORD.exists():
 if not PATH_JWT_SECRET_KEY.exists():
     raise FileNotFoundError(f'JWT secret key file not found on {str(PATH_JWT_SECRET_KEY)}, check the README.md for a setup guide')
 
+# TODO: investigate startup message `WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.`
 app = Flask(__name__)
 app.config['DATABASE'] = str(PATH_DB)
 with PATH_JWT_SECRET_KEY.open() as jwt_file:
