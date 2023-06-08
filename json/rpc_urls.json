@@ -24,7 +24,11 @@
         "chain_name": "Arbitrum mainnet"
     },
     {
-        "url": "https://endpoints.omniatech.io/v1/arbitrum/one/public",
+        "url": "https://arb-mainnet-public.unifra.io",
+        "chain_name": "Arbitrum mainnet"
+    },
+    {
+        "url": "https://arbitrum-one.publicnode.com",
         "chain_name": "Arbitrum mainnet"
     },
     {
@@ -40,7 +44,7 @@
         "chain_name": "Arbitrum testnet"
     },
     {
-        "url": "https://endpoints.omniatech.io/v1/arbitrum/goerli/public",
+        "url": "https://arbitrum-goerli.publicnode.com",
         "chain_name": "Arbitrum testnet"
     },
     {
