@@ -50,7 +50,7 @@ def main():
         logger.error("Couldn't connect to influxdb at url %s\nExiting.", influxdb['url'])
         sys.exit(1)
 
-    with warnings.catch_warnings() as warn:
+    with warnings.catch_warnings(record=True) as warn:
         loop = asyncio.get_event_loop()
         for w in warn:
             if "no current event loop" in w.message:
