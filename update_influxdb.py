@@ -53,7 +53,7 @@ def main():
     with warnings.catch_warnings(record=True) as warn:
         loop = asyncio.get_event_loop()
         for w in warn:
-            if "no current event loop" in w.message:
+            if "no current event loop" in str(w.message):
                 logger.info("First startup, starting new event loop.")
                 loop = asyncio.new_event_loop()
                 asyncio.set_event_loop(loop)
