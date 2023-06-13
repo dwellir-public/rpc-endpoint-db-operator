@@ -90,14 +90,14 @@ def main():
         # Calculate block_height diffs and append points
         block_height_diffs = {}
         for chain in block_heights:
-            print(chain)
+            # print(chain)
             rpc_list = block_heights[chain]
-            print(rpc_list)
+            # print(rpc_list)
             block_height_diffs[chain] = {}
             max_height = max(rpc_list, key=lambda x: x[1])[1]
-            print("max_height: ", max_height)
+            # print("max_height: ", max_height)
             for rpc in rpc_list:
-                print("rpc: ", rpc)
+                # print("rpc: ", rpc)
                 block_height_diffs[chain][rpc[0]] = max_height - rpc[1]
             # for rpc in block_height_diffs:
             #     records.append(iu.block_height_diff_point(chain=chain, url=rpc[0], block_height_diff=rpc[1], timestamp=rpc[2]))
