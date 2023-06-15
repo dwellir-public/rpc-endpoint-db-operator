@@ -12,7 +12,7 @@ import requests
 import warnings
 import argparse
 import time
-from influxdb_client import InfluxDBClient, Point
+from influxdb_client import InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 import influxdb_utils as iu
 
@@ -23,11 +23,6 @@ console_handler.setLevel(logging.DEBUG)
 formatter = ColoredFormatter('%(asctime)s - %(levelname)s - %(message)s')
 console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
-
-# TODO: add block height diff calculation to DB update procedure
-# TODO: add more settings to config; update interval
-# TODO: clear up imports
-# TODO: confirm requirements.txt
 
 
 def main():
@@ -195,21 +190,6 @@ def get_all_endpoints(rpc_flask_api: str) -> list:
         for url in chain_info.json()['urls']:
             url_api_tuples.append((chain_info.json()['chain_name'], url, chain_info.json()['api_class']))
     return url_api_tuples
-
-
-# TODO: probably unused, remove?
-def get_all_endpoints_by_chain(rpc_flask_api: str) -> list:
-    chains = []
-    all_chains = requests.get(f'{rpc_flask_api}/all/chains', timeout=3)
-    for chain in all_chains.json():
-        chain_urls = []
-        chain_info = requests.get(f'{rpc_flask_api}/chain_info?chain_name={chain["name"]}', timeout=1)
-        for url in chain_info.json()['urls']:
-            chain_urls.append((chain_info.json()['chain_name'], url, chain_info.json()['api_class']))
-        chains.append({
-            chain["name"]: chain_urls
-        })
-    return chains
 
 
 if __name__ == '__main__':

@@ -1,7 +1,6 @@
 from datetime import datetime
 import asyncio
 from influxdb_client import InfluxDBClient, Point
-from influxdb_client.client.write_api import SYNCHRONOUS
 
 from rpc_utils import get_aptos, get_ethereum, get_substrate
 
@@ -16,15 +15,6 @@ def block_height_request_point(chain: str, url: str, data: dict, block_height_di
         .field("block_height", latest_block_height) \
         .field("block_height_diff", block_height_diff) \
         .field("request_time_total", time_total) \
-        .time(timestamp)
-
-
-# TODO: probably unused, remove?
-def block_height_diff_point(chain: str, url: str, block_height_diff: int, timestamp: datetime) -> Point:
-    return Point("block_height_diff") \
-        .tag("chain", chain) \
-        .tag("url", url) \
-        .field("block_height_diff", block_height_diff) \
         .time(timestamp)
 
 

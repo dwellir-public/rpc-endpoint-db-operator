@@ -2,14 +2,15 @@
 
 from pathlib import Path
 from flask import Flask, jsonify, request, Response
-from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt_identity
+from flask_jwt_extended import JWTManager, jwt_required, create_access_token
 import sqlite3
 import logging
 from urllib.parse import urlparse
 
 logging.basicConfig(level=logging.INFO)
-# logging.basicConfig(filename='app.log', level=logging.INFO)
 
+
+# TODO: define a main() function?
 
 # CONSTANTS
 # TODO: move to their own file in cleanup (perhaps?)
@@ -37,7 +38,6 @@ jwt = JWTManager(app)
 
 
 # DATABASE SETUP
-# TODO: perhaps move table creation SQL to its own file? Lookup recommended setup
 
 # Create the database table if it doesn't exist
 def create_tables_if_not_exist():
@@ -83,7 +83,7 @@ def generate_token():
 def insert_into_database(table: str, request_data: dict) -> Response:
     try:
         conn = sqlite3.connect(app.config['DATABASE'])
-        conn.execute('PRAGMA foreign_keys = ON')  # TODO: keep this on to enforce that urls have an existing chain?
+        conn.execute('PRAGMA foreign_keys = ON')  # enforce that any URL has an existing chain
         cursor = conn.cursor()
         columns = ', '.join(request_data.keys())
         placeholders = ':' + ', :'.join(request_data.keys())
@@ -96,7 +96,6 @@ def insert_into_database(table: str, request_data: dict) -> Response:
         conn.rollback()  # Roll back the transaction
         conn.close()
         return jsonify({'error': str(e)}), 400
-    # TODO: refine this exception
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
@@ -284,10 +283,9 @@ def update_url_record() -> Response:
     try:
         cursor.execute(f'UPDATE {TABLE_RPC_URLS} SET url=?, chain_name=? WHERE url=?', (url_new, chain_name, url_old))
     except sqlite3.IntegrityError as e:
-        conn.rollback()  # Roll back the transaction
+        conn.rollback()
         conn.close()
         return jsonify({'error': str(e)}), 400
-    # TODO: refine this exception
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
@@ -315,7 +313,7 @@ def delete_chain_record() -> Response:
     cursor = conn.cursor()
     try:
         cursor.execute(f'DELETE FROM {TABLE_CHAINS} WHERE name=?', (name,))
-        # TODO: should urls referencing this chains entry also be deleted at this point?
+        # TODO: should urls referencing this chains entry also be deleted at this point? since their foreign key now is missing
     except sqlite3.IntegrityError as e:
         conn.rollback()
         conn.close()
