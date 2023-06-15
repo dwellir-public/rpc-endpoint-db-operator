@@ -600,7 +600,7 @@
           "type": "influxdb",
           "uid": "${DS_INFLUXDB-BLOCKHEIGHTS}"
         },
-        "definition": "import \"influxdata/influxdb/v1\"\nv1.tagValues(\n    bucket: v.bucket,\n    tag: \"chain\",\n    predicate: (r) => true,\n    start: -1d\n)",
+        "definition": "import \"influxdata/influxdb/schema\"\n\nschema.tagValues(\n  bucket: \"block_heights\",\n  tag: \"chain\"\n)",
         "description": "The chains which we monitor block height for.",
         "hide": 0,
         "includeAll": false,
@@ -608,11 +608,11 @@
         "multi": false,
         "name": "chain_name",
         "options": [],
-        "query": "import \"influxdata/influxdb/v1\"\nv1.tagValues(\n    bucket: v.bucket,\n    tag: \"chain\",\n    predicate: (r) => true,\n    start: -1d\n)",
+        "query": "import \"influxdata/influxdb/schema\"\n\nschema.tagValues(\n  bucket: \"block_heights\",\n  tag: \"chain\"\n)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "type": "query"
       }
     ]
@@ -625,6 +625,6 @@
   "timezone": "",
   "title": "Block height monitoring",
   "uid": "a2549b8b-d628-47f1-be83-4efc987dd0b8-2",
-  "version": 3,
+  "version": 4,
   "weekStart": ""
 }
