@@ -358,5 +358,17 @@
     {
         "url": "https://polygon-mainnet-full-rpc-2.dwellir.com",
         "chain_name": "Polygon mainnet"
+    },
+    {
+        "url": "https://pulsechain-mainnet-archive-rpc-1.dwellir.com",
+        "chain_name": "PulseChain mainnet"
+    },
+    {
+        "url": "https://pulsechain-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "PulseChain mainnet"
+    },
+    {
+        "url": "https://scan.pulsechain.com/api/eth-rpc",
+        "chain_name": "PulseChain mainnet"
     }
 ]
