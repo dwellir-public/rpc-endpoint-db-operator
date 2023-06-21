@@ -370,5 +370,9 @@
     {
         "url": "https://scan.pulsechain.com/api/eth-rpc",
         "chain_name": "PulseChain mainnet"
+    },
+    {
+        "url": "https://rpc.pulsechain.com",
+        "chain_name": "PulseChain mainnet"
     }
 ]
