@@ -4,6 +4,7 @@ import requests
 import json
 import argparse
 import sqlite3
+import websocket
 from pathlib import Path
 
 
@@ -43,6 +44,7 @@ def main() -> None:
     export_target_group.add_argument('-db', '--source_db', type=str, help='The path to the local database file')
     export_target_group.add_argument('-url', '--source_url', type=str, help='The URL for the API of the database')
     parser_export.set_defaults(func=export_data)
+
     # Make an RPC request
     parser_request = subparsers.add_parser('request', help='Send a request to the Flask API serving the database')
     parser_request.add_argument('--url', type=str, help='The url for the API of the database', default=DEFAULT_URL)
@@ -67,6 +69,12 @@ def main() -> None:
     request_delete_rpc = request_sp.add_parser('delete_rpc', help='Delete a URL from the database')
     request_delete_rpc.add_argument('rpc', type=str, help='The RPC URL that should be deleted from the DB')
     request_delete_rpc.set_defaults(func=delete_rpc)
+
+    # Validate JSON files
+    parser_json = subparsers.add_parser('json', help='Check and validate JSON files with chains and RPC:s')
+    parser_json.add_argument('directory', type=str,
+                             help=f'Directory containing the JSON files, default={PATH_DEFAULT_OUT_DIR}', default=PATH_DEFAULT_OUT_DIR)
+    parser_json.set_defaults(func=validate_json)
 
     args = parser.parse_args()
     args.func(args)
@@ -290,6 +298,59 @@ def delete_chain(args) -> None:
     print(response.text)
 
 
+# # # JSON # # #
+
+def validate_json(args) -> None:
+    path_chains = Path(args.directory) / 'chains.json'
+    path_rpcs = Path(args.directory) / 'rpc_urls.json'
+    if not path_chains.exists() or not path_rpcs.exists():
+        raise FileNotFoundError(f"Cannot find required files {path_chains} and {path_rpcs}")
+
+    chains = load_json_file(path_chains)
+    chain_names = [c['name'] for c in chains]
+    rpcs = load_json_file(path_rpcs)
+    error_log = []
+
+    for rpc in rpcs:
+        print(f'Validating {rpc["url"]}')
+        # Confirm chain exists for URLs
+        if not rpc['chain_name'] in chain_names:
+            error_log.append(f'Chain {rpc["chain_name"]} missing for URL {rpc["url"]}')
+            continue
+
+        # Confirm endpoints respond
+        chain = [c for c in chains if c.get('name') == rpc['chain_name']][0]
+        api_class = chain['api_class']
+        headers = {'Content-Type': 'application/json'}
+        payload = {
+            "jsonrpc": "2.0",
+            "method": get_jsonrpc_method(api_class),
+            "params": [],
+            "id": 1
+        }
+        if 'http' in rpc['url']:
+            if api_class == 'aptos':
+                response = requests.get(rpc['url'], timeout=5)
+            else:
+                response = requests.post(rpc['url'], json=payload, headers=headers, timeout=5)
+            if not response.status_code == 200:
+                error_log.append(f'URL {rpc["url"]} produced response.text={response.text} with status_code={response.status_code}')
+        elif 'ws' in rpc['url']:
+            try:
+                ws = websocket.create_connection(rpc['url'])
+                ws.send(json.dumps(payload))
+                response = json.loads(ws.recv())
+                ws.close()
+                if not 'jsonrpc' in response.keys():
+                    error_log.append(f'URL {rpc["url"]} produced WS response={response}')
+            except Exception as e:
+                error_log.append(f'URL {rpc["url"]} failed WS connection: {e}')
+
+    print('#> Error report <#')
+    for e in error_log:
+        print(e)
+
+
 # # # UTILS # # #
 
 def get_auth_header(url: str) -> str:
@@ -299,6 +360,19 @@ def get_auth_header(url: str) -> str:
     if token_response.status_code != 200:
         raise requests.exceptions.HTTPError(f'Couldn\'t get access token, {token_response.text}')
     return {'Authorization': f'Bearer {token_response.json()["access_token"]}'}
+
+
+def get_jsonrpc_method(api_class: str) -> str:
+    method = ""
+    if api_class == 'aptos':
+        method = ""
+    elif api_class == 'substrate':
+        method = "chain_getHeader"
+    elif api_class == 'ethereum':
+        method = "eth_blockNumber"
+    else:
+        raise ValueError('Invalid api_class:', api_class)
+    return method
 
 
 # TODO: set return type, dict or None

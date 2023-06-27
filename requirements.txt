@@ -5,3 +5,4 @@ influxdb-client >= 1.36.1
 requests >= 2.30.0
 urllib3 >= 2.0.2
 aiohttp
+websocket-client
