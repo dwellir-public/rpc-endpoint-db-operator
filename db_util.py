@@ -356,9 +356,10 @@ def validate_json(args) -> None:
             except Exception as e:
                 error_log.append(f'URL {rpc["url"]} failed WS connection: {e}')
 
-    print('#> Error report <#')
-    for e in error_log:
-        print(e)
+    if len(error_log) > 0:
+        print('#> Error report <#')
+        for e in error_log:
+            print(e)
 
 
 # # # UTILS # # #
