@@ -176,22 +176,23 @@ def export_data(args) -> None:
         Path(args.target).mkdir(parents=True, exist_ok=True)
     if args.source_url:
         print(f'Export source: API at URL {args.source_url}')
-        api_export_json(Path(args.target) / 'chains.json', args.source_url + '/all/chains')
-        api_export_json(Path(args.target) / 'rpc_urls.json', args.source_url + '/all/rpc_urls')
+        api_export_json(Path(args.target) / 'chains.json', args.source_url + '/all/chains', sort_by='name')
+        api_export_json(Path(args.target) / 'rpc_urls.json', args.source_url + '/all/rpc_urls', sort_by='chain_name')
         # TODO: add sorting?
     if args.source_db:
         print(f'Export source: database on path {args.source_db}')
         local_export_to_json_files(Path(args.target) / 'chains.json', Path(args.target) / 'rpc_urls.json', args.source_db)
 
 
-def api_export_json(path: Path, url: str) -> None:
+def api_export_json(path: Path, url: str, sort_by: str) -> None:
     response = requests.get(url, timeout=5)
     if response.status_code == 200:
         data = response.json()
     else:
         print(response.text)
+    sorted_data = sorted(data, key=lambda x: x[sort_by])
     if allow_overwrite(path):
-        export_to_file(path, data)
+        export_to_file(path, sorted_data)
 
 
 def local_export_to_json_files(target_chains: Path, target_rpc_urls: Path, db_file: str) -> None:
