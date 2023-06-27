@@ -60,6 +60,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Kusama Relaychain",
+        "api_class": "substrate"
+    },
+    {
         "name": "Optimism mainnet",
         "api_class": "ethereum"
     },
@@ -90,5 +94,9 @@
     {
         "name": "PulseChain testnet",
         "api_class": "ethereum"
+    },
+    {
+        "name": "Westend Relaychain",
+        "api_class": "substrate"
     }
 ]

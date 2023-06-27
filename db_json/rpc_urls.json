@@ -252,6 +252,34 @@
         "chain_name": "Fantom testnet"
     },
     {
+        "url": "https://kusama-rpc.dwellir.com",
+        "chain_name": "Kusama Relaychain"
+    },
+    {
+        "url": "https://kusama-rpc-tn.dwellir.com",
+        "chain_name": "Kusama Relaychain"
+    },
+    {
+        "url": "https://kusama-rpc-ng-1.dwellir.com",
+        "chain_name": "Kusama Relaychain"
+    },
+    {
+        "url": "https://kusama.api.onfinality.io/public-http",
+        "chain_name": "Kusama Relaychain"
+    },
+    {
+        "url": "https://kusama-rpc.polkadot.io",
+        "chain_name": "Kusama Relaychain"
+    },
+    {
+        "url": "https://kusama.public.curie.radiumblock.co/http",
+        "chain_name": "Kusama Relaychain"
+    },
+    {
+        "url": "https://rpc-kusama.luckyfriday.io",
+        "chain_name": "Kusama Relaychain"
+    },
+    {
         "url": "https://optimism-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Optimism mainnet"
     },
@@ -313,6 +341,14 @@
     },
     {
         "url": "wss://rpc.polkadot.io",
+        "chain_name": "Polkadot Relaychain"
+    },
+    {
+        "url": "https://polkadot.api.onfinality.io/public-http",
+        "chain_name": "Polkadot Relaychain"
+    },
+    {
+        "url": "https://rpc-polkadot.luckyfriday.io",
         "chain_name": "Polkadot Relaychain"
     },
     {
@@ -382,5 +418,29 @@
     {
         "url": "https://rpc.v4.testnet.pulsechain.com",
         "chain_name": "PulseChain testnet"
+    },
+    {
+        "url": "https://westend-rpc.dwellir.com",
+        "chain_name": "Westend Relaychain"
+    },
+    {
+        "url": "https://westend-rpc-tn.dwellir.com",
+        "chain_name": "Westend Relaychain"
+    },
+    {
+        "url": "https://westend-rpc-ng-1.dwellir.com",
+        "chain_name": "Westend Relaychain"
+    },
+    {
+        "url": "wss://westend.api.onfinality.io/public-ws",
+        "chain_name": "Westend Relaychain"
+    },
+    {
+        "url": "https://westend-rpc.polkadot.io",
+        "chain_name": "Westend Relaychain"
+    },
+    {
+        "url": "https://rpc-westend.luckyfriday.io",
+        "chain_name": "Westend Relaychain"
     }
 ]
