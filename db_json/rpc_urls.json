@@ -516,6 +516,18 @@
         "chain_name": "Polkadot-pc Eden"
     },
     {
+        "url": "https://frequency-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Frequency"
+    },
+    {
+        "url": "wss://0.rpc.frequency.xyz",
+        "chain_name": "Polkadot-pc Frequency"
+    },
+    {
+        "url": "wss://1.rpc.frequency.xyz",
+        "chain_name": "Polkadot-pc Frequency"
+    },
+    {
         "url": "https://hydradx-rpc.dwellir.com",
         "chain_name": "Polkadot-pc HydraDX"
     },
