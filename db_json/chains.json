@@ -84,7 +84,7 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Polkadot Collectives",
+        "name": "Polkadot-pc Collectives",
         "api_class": "substrate"
     },
     {

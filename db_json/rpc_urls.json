@@ -361,19 +361,19 @@
     },
     {
         "url": "https://polkadot-collectives-rpc-ng.dwellir.com",
-        "chain_name": "Polkadot Collectives"
+        "chain_name": "Polkadot-pc Collectives"
     },
     {
         "url": "https://polkadot-collectives-rpc.polkadot.io",
-        "chain_name": "Polkadot Collectives"
+        "chain_name": "Polkadot-pc Collectives"
     },
     {
         "url": "https://collectives.api.onfinality.io/public-http",
-        "chain_name": "Polkadot Collectives"
+        "chain_name": "Polkadot-pc Collectives"
     },
     {
         "url": "https://collectives.public.curie.radiumblock.co/http",
-        "chain_name": "Polkadot Collectives"
+        "chain_name": "Polkadot-pc Collectives"
     },
     {
         "url": "https://polkadot-rpc.dwellir.com",
