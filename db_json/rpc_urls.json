@@ -612,6 +612,14 @@
         "chain_name": "Polkadot-pc HydraDX"
     },
     {
+        "url": "https://integritee-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Integritee Shell"
+    },
+    {
+        "url": "wss://polkadot.api.integritee.network",
+        "chain_name": "Polkadot-pc Integritee Shell"
+    },
+    {
         "url": "https://kilt-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Kilt Spiritnet"
     },

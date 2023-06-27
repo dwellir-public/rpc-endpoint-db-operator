@@ -152,6 +152,14 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc HydraDX",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Integritee Shell",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Kilt Spiritnet",
         "api_class": "substrate"
     },
@@ -161,10 +169,6 @@
     },
     {
         "name": "Polkadot-pc Zeitgeist",
-        "api_class": "substrate"
-    },
-    {
-        "name": "Polkadot-pc HydraDX",
         "api_class": "substrate"
     },
     {
