@@ -308,6 +308,22 @@
         "chain_name": "Kusama-pc Basilisk"
     },
     {
+        "url": "https://bifrost-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Bifrost"
+    },
+    {
+        "url": "wss://bifrost-rpc.liebi.com/ws",
+        "chain_name": "Kusama-pc Bifrost"
+    },
+    {
+        "url": "https://bifrost-rpc.liebi.com/http",
+        "chain_name": "Kusama-pc Bifrost"
+    },
+    {
+        "url": "wss://bifrost-parachain.api.onfinality.io/public-ws",
+        "chain_name": "Kusama-pc Bifrost"
+    },
+    {
         "url": "https://darwiniacrab-rpc.dwellir.com",
         "chain_name": "Kusama-pc Darwinia Crab"
     },
