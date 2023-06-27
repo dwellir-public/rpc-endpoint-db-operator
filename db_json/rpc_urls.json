@@ -160,6 +160,22 @@
         "chain_name": "Cronos testnet"
     },
     {
+        "url": "https://darwiniacrab-rpc.dwellir.com",
+        "chain_name": "Darwinia Crab"
+    },
+    {
+        "url": "https://crab-rpc.darwiniacommunitydao.xyz",
+        "chain_name": "Darwinia Crab"
+    },
+    {
+        "url": "https://crab-rpc.darwinia.network",
+        "chain_name": "Darwinia Crab"
+    },
+    {
+        "url": "https://crab.api.onfinality.io/public-http",
+        "chain_name": "Darwinia Crab"
+    },
+    {
         "url": "https://ethereum-goerli.publicnode.com",
         "chain_name": "Ethereum Goerli testnet"
     },

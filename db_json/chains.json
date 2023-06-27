@@ -40,6 +40,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Darwinia Crab",
+        "api_class": "substrate"
+    },
+    {
         "name": "Ethereum Goerli testnet",
         "api_class": "ethereum"
     },
