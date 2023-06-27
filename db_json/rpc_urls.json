@@ -504,6 +504,18 @@
         "chain_name": "Polkadot-pc Darwinia"
     },
     {
+        "url": "https://eden-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Eden"
+    },
+    {
+        "url": "wss://eden-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Eden"
+    },
+    {
+        "url": "wss://nodle-parachain.api.onfinality.io/public-ws",
+        "chain_name": "Polkadot-pc Eden"
+    },
+    {
         "url": "https://matic-mumbai.chainstacklabs.com",
         "chain_name": "Polygon Mumbai"
     },
