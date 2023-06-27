@@ -140,6 +140,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Equilibrium",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Frequency",
         "api_class": "substrate"
     },

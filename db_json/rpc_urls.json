@@ -568,6 +568,18 @@
         "chain_name": "Polkadot-pc Eden"
     },
     {
+        "url": "https://equilibrium-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Equilibrium"
+    },
+    {
+        "url": "wss://equilibrium-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Equilibrium"
+    },
+    {
+        "url": "wss://node.pol.equilibrium.io",
+        "chain_name": "Polkadot-pc Equilibrium"
+    },
+    {
         "url": "https://frequency-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Frequency"
     },
