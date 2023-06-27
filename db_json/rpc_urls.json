@@ -516,6 +516,18 @@
         "chain_name": "Polkadot-pc Eden"
     },
     {
+        "url": "https://hydradx-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc HydraDX"
+    },
+    {
+        "url": "wss://hydradx.api.onfinality.io/public-ws",
+        "chain_name": "Polkadot-pc HydraDX"
+    },
+    {
+        "url": "wss://rpc.hydradx.cloud",
+        "chain_name": "Polkadot-pc HydraDX"
+    },
+    {
         "url": "https://matic-mumbai.chainstacklabs.com",
         "chain_name": "Polygon Mumbai"
     },
