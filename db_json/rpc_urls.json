@@ -416,6 +416,26 @@
         "chain_name": "Polkadot-pc Acala"
     },
     {
+        "url": "https://statemint-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc AssetHub (Statemint)"
+    },
+    {
+        "url": "https://statemint-rpc-tn.dwellir.com",
+        "chain_name": "Polkadot-pc AssetHub (Statemint)"
+    },
+    {
+        "url": "https://polkadot-asset-hub-rpc.polkadot.io",
+        "chain_name": "Polkadot-pc AssetHub (Statemint)"
+    },
+    {
+        "url": "https://statemint.api.onfinality.io/public-http",
+        "chain_name": "Polkadot-pc AssetHub (Statemint)"
+    },
+    {
+        "url": "wss://statemint.public.curie.radiumblock.co/ws",
+        "chain_name": "Polkadot-pc AssetHub (Statemint)"
+    },
+    {
         "url": "https://astar-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Astar"
     },
