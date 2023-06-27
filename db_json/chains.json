@@ -160,6 +160,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Interlay",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Kapex",
         "api_class": "substrate"
     },

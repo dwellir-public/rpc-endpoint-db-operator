@@ -620,6 +620,18 @@
         "chain_name": "Polkadot-pc Integritee Shell"
     },
     {
+        "url": "https://interlay-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Interlay"
+    },
+    {
+        "url": "wss://api.interlay.io/parachain",
+        "chain_name": "Polkadot-pc Interlay"
+    },
+    {
+        "url": "wss://interlay.api.onfinality.io/public-ws",
+        "chain_name": "Polkadot-pc Interlay"
+    },
+    {
         "url": "https://kapex-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Kapex"
     },
