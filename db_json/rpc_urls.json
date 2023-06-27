@@ -370,5 +370,17 @@
     {
         "url": "https://rpc.pulsechain.com",
         "chain_name": "PulseChain mainnet"
+    },
+    {
+        "url": "https://pulsechain-testnet-archive-rpc-1.dwellir.com",
+        "chain_name": "PulseChain testnet"
+    },
+    {
+        "url": "https://pulsechain-testnet-archive-rpc-2.dwellir.com",
+        "chain_name": "PulseChain testnet"
+    },
+    {
+        "url": "https://rpc.v4.testnet.pulsechain.com",
+        "chain_name": "PulseChain testnet"
     }
 ]
