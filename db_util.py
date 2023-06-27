@@ -318,6 +318,7 @@ def validate_json(args) -> None:
         print(f'Validating {rpc["url"]}')
         # Confirm chain exists for URLs
         if not rpc['chain_name'] in chain_names:
+            print(f'#> Chain name error for {rpc["url"]}')
             error_log.append(f'Chain {rpc["chain_name"]} missing for URL {rpc["url"]}')
             continue
 
@@ -337,7 +338,7 @@ def validate_json(args) -> None:
             else:
                 response = requests.post(rpc['url'], json=payload, headers=headers, timeout=5)
             if not response.status_code == 200:
-                print(f'#> error for {rpc["url"]}')
+                print(f'#> URL error for {rpc["url"]}')
                 error_log.append(f'URL {rpc["url"]} produced response.text={response.text} with status_code={response.status_code}')
         elif 'ws' in rpc['url']:
             try:
