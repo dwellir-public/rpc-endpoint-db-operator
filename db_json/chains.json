@@ -130,5 +130,9 @@
     {
         "name": "Westend Relaychain",
         "api_class": "substrate"
+    },
+    {
+        "name": "Westend-pc AssetHub (Westmint)",
+        "api_class": "substrate"
     }
 ]

@@ -574,5 +574,21 @@
     {
         "url": "https://rpc-westend.luckyfriday.io",
         "chain_name": "Westend Relaychain"
+    },
+    {
+        "url": "https://westmint-rpc.dwellir.com",
+        "chain_name": "Westend-pc AssetHub (Westmint)"
+    },
+    {
+        "url": "https://westmint-rpc-tn.dwellir.com",
+        "chain_name": "Westend-pc AssetHub (Westmint)"
+    },
+    {
+        "url": "wss://westend-asset-hub-rpc.polkadot.io",
+        "chain_name": "Westend-pc AssetHub (Westmint)"
+    },
+    {
+        "url": "wss://wnd-rpc.stakeworld.io/westmint",
+        "chain_name": "Westend-pc AssetHub (Westmint)"
     }
 ]
