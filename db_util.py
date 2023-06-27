@@ -31,16 +31,17 @@ def main() -> None:
     parser_import.add_argument('--rpc_urls', type=str,
                                help=f'JSON file with RPC URL:s to import, default={PATH_DEFAULT_RPC_URLS}', default=PATH_DEFAULT_RPC_URLS)
     import_target_group = parser_import.add_mutually_exclusive_group(required=True)
-    import_target_group.add_argument('--target_db', type=str, help='The path to the local database file')
-    import_target_group.add_argument('--target_url', type=str, help='The url for the API of the database')
+    import_target_group.add_argument('-db', '--target_db', type=str, help='The path to the local database file')
+    import_target_group.add_argument('-url', '--target_url', type=str, help='The url for the API of the database')
     parser_import.set_defaults(func=import_data)
     # Export
     parser_export = subparsers.add_parser('export', help='Export data from a database to JSON files')
     parser_export.add_argument('--target', type=str,
                                help=f'Directory the JSON:s will exported to, default={PATH_DEFAULT_OUT_DIR}', default=PATH_DEFAULT_OUT_DIR)
+    parser_export.add_argument('--force', action='store_true', help='Force export to overwrite files without asking')
     export_target_group = parser_export.add_mutually_exclusive_group(required=True)
-    export_target_group.add_argument('--source_db', type=str, help='The path to the local database file')
-    export_target_group.add_argument('--source_url', type=str, help='The URL for the API of the database')
+    export_target_group.add_argument('-db', '--source_db', type=str, help='The path to the local database file')
+    export_target_group.add_argument('-url', '--source_url', type=str, help='The URL for the API of the database')
     parser_export.set_defaults(func=export_data)
     # Make an RPC request
     parser_request = subparsers.add_parser('request', help='Send a request to the Flask API serving the database')
@@ -176,26 +177,26 @@ def export_data(args) -> None:
         Path(args.target).mkdir(parents=True, exist_ok=True)
     if args.source_url:
         print(f'Export source: API at URL {args.source_url}')
-        api_export_json(Path(args.target) / 'chains.json', args.source_url + '/all/chains', sort_by='name')
-        api_export_json(Path(args.target) / 'rpc_urls.json', args.source_url + '/all/rpc_urls', sort_by='chain_name')
+        api_export_json(Path(args.target) / 'chains.json', args.source_url + '/all/chains', sort_by='name', force=args.force)
+        api_export_json(Path(args.target) / 'rpc_urls.json', args.source_url + '/all/rpc_urls', sort_by='chain_name', force=args.force)
         # TODO: add sorting?
     if args.source_db:
         print(f'Export source: database on path {args.source_db}')
-        local_export_to_json_files(Path(args.target) / 'chains.json', Path(args.target) / 'rpc_urls.json', args.source_db)
+        local_export_to_json_files(Path(args.target) / 'chains.json', Path(args.target) / 'rpc_urls.json', args.source_db, force=args.force)
 
 
-def api_export_json(path: Path, url: str, sort_by: str) -> None:
+def api_export_json(path: Path, url: str, sort_by: str, force: bool) -> None:
     response = requests.get(url, timeout=5)
     if response.status_code == 200:
         data = response.json()
     else:
         print(response.text)
     sorted_data = sorted(data, key=lambda x: x[sort_by])
-    if allow_overwrite(path):
+    if allow_overwrite(path) or force:
         export_to_file(path, sorted_data)
 
 
-def local_export_to_json_files(target_chains: Path, target_rpc_urls: Path, db_file: str) -> None:
+def local_export_to_json_files(target_chains: Path, target_rpc_urls: Path, db_file: str, force: bool) -> None:
     """
     Exports data from an SQLite database into JSON files.
     The output JSON files has a specific format as defined by XYZ. # TODO: mention the schema when implemented
@@ -207,36 +208,36 @@ def local_export_to_json_files(target_chains: Path, target_rpc_urls: Path, db_fi
     if target_chains:
         query_chains = f'SELECT name, api_class FROM {TABLE_CHAINS}'
         entries_chains = cursor.execute(query_chains).fetchall()
-        local_export_chains(target_chains, entries_chains)
+        local_export_chains(target_chains, entries_chains, force=force)
 
     if target_rpc_urls:
         query_rpc_urls = f'SELECT url, chain_name FROM {TABLE_RPC_URLS}'
         entries_rpc_urls = cursor.execute(query_rpc_urls).fetchall()
-        local_export_rpc_urls(target_rpc_urls, entries_rpc_urls)
+        local_export_rpc_urls(target_rpc_urls, entries_rpc_urls, force=force)
 
     conn.commit()
     conn.close()
 
 
-def local_export_chains(target_chains: Path, entries: list) -> None:
+def local_export_chains(target_chains: Path, entries: list, force: bool) -> None:
     data_chains = []
     for entry in entries:
         name = entry[0]
         api_class = entry[1]
         data_chains.append({'name': name, 'api_class': api_class})
     sorted_chains = sorted(data_chains, key=lambda x: x['name'])
-    if allow_overwrite(target_chains):
+    if allow_overwrite(target_chains) or force:
         export_to_file(target_chains, sorted_chains)
 
 
-def local_export_rpc_urls(target_rpc_urls: Path, entries: list) -> None:
+def local_export_rpc_urls(target_rpc_urls: Path, entries: list, force: bool) -> None:
     data_rpc_urls = []
     for entry in entries:
         url = entry[0]
         chain_name = entry[1]
         data_rpc_urls.append({'url': url, 'chain_name': chain_name})
     sorted_urls = sorted(data_rpc_urls, key=lambda x: x['chain_name'])
-    if allow_overwrite(target_rpc_urls):
+    if allow_overwrite(target_rpc_urls) or force:
         export_to_file(target_rpc_urls, sorted_urls)
 
 
