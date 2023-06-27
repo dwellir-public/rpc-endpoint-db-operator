@@ -540,6 +540,18 @@
         "chain_name": "Polkadot-pc Kilt Spiritnet"
     },
     {
+        "url": "https://litentry-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Litentry"
+    },
+    {
+        "url": "wss://litentry-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Litentry"
+    },
+    {
+        "url": "https://rpc.litentry-parachain.litentry.io",
+        "chain_name": "Polkadot-pc Litentry"
+    },
+    {
         "url": "https://zeitgeist-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Zeitgeist"
     },

@@ -124,6 +124,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Litentry",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Zeitgeist",
         "api_class": "substrate"
     },
