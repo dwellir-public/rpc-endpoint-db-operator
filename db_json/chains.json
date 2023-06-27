@@ -68,6 +68,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Kusama-pc Amplitude",
+        "api_class": "substrate"
+    },
+    {
         "name": "Kusama-pc AssetHub (Statemine)",
         "api_class": "substrate"
     },

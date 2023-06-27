@@ -288,6 +288,14 @@
         "chain_name": "Kusama Relaychain"
     },
     {
+        "url": "https://amplitude-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Amplitude"
+    },
+    {
+        "url": "wss://rpc-amplitude.pendulumchain.tech",
+        "chain_name": "Kusama-pc Amplitude"
+    },
+    {
         "url": "https://statemine-rpc.dwellir.com",
         "chain_name": "Kusama-pc AssetHub (Statemine)"
     },
