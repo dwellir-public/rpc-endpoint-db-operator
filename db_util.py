@@ -49,7 +49,7 @@ def main() -> None:
     # Chains
     request_chains = request_sp.add_parser('chains', help='Get all chains')
     request_chains.set_defaults(func=get_all_chains)
-    request_add_chain = request_sp.add_parser('add_chain', help='Delete a URL from the database')
+    request_add_chain = request_sp.add_parser('add_chain', help='Add a URL to the database')
     request_add_chain.add_argument('chain', type=str, help='The name of the chain')
     request_add_chain.add_argument('api_class', type=str, help='The API class used by the chain')
     request_add_chain.set_defaults(func=add_chain)
@@ -59,9 +59,9 @@ def main() -> None:
     # RPC URL:s
     request_rpc_urls = request_sp.add_parser('rpc_urls', help='Get all RPC URL:s')
     request_rpc_urls.set_defaults(func=get_all_rpc_urls)
-    request_add_rpc = request_sp.add_parser('add_rpc', help='Delete a URL from the database')
-    request_add_rpc.add_argument('rpc', type=str, help='The RPC URL that should be added to the DB')
+    request_add_rpc = request_sp.add_parser('add_rpc', help='Add a URL to the database')
     request_add_rpc.add_argument('chain', type=str, help='The name of the chain the RPC URL belongs to')
+    request_add_rpc.add_argument('rpc', type=str, help='The RPC URL that should be added to the DB')
     request_add_rpc.set_defaults(func=add_rpc)
     request_delete_rpc = request_sp.add_parser('delete_rpc', help='Delete a URL from the database')
     request_delete_rpc.add_argument('rpc', type=str, help='The RPC URL that should be deleted from the DB')
