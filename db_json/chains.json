@@ -88,6 +88,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Acala",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Darwinia",
         "api_class": "substrate"
     },

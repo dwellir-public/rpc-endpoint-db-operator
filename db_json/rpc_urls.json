@@ -384,6 +384,22 @@
         "chain_name": "Polkadot Relaychain"
     },
     {
+        "url": "https://acala-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Acala"
+    },
+    {
+        "url": "wss://acala-polkadot.api.onfinality.io/public-ws",
+        "chain_name": "Polkadot-pc Acala"
+    },
+    {
+        "url": "wss://acala-rpc-0.aca-api.network",
+        "chain_name": "Polkadot-pc Acala"
+    },
+    {
+        "url": "wss://acala-rpc-1.aca-api.network",
+        "chain_name": "Polkadot-pc Acala"
+    },
+    {
         "url": "https://darwinia-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Darwinia"
     },
