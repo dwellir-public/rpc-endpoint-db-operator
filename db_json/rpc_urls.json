@@ -300,6 +300,14 @@
         "chain_name": "Kusama-pc AssetHub (Statemine)"
     },
     {
+        "url": "https://basilisk-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Basilisk"
+    },
+    {
+        "url": "wss://rpc.basilisk.cloud",
+        "chain_name": "Kusama-pc Basilisk"
+    },
+    {
         "url": "https://darwiniacrab-rpc.dwellir.com",
         "chain_name": "Kusama-pc Darwinia Crab"
     },

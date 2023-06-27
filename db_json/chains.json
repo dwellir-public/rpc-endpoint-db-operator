@@ -68,6 +68,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Kusama-pc Basilisk",
+        "api_class": "substrate"
+    },
+    {
         "name": "Kusama-pc Darwinia Crab",
         "api_class": "substrate"
     },
