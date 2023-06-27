@@ -74,6 +74,7 @@ def main() -> None:
     parser_json = subparsers.add_parser('json', help='Check and validate JSON files with chains and RPC:s')
     parser_json.add_argument('directory', type=str,
                              help=f'Directory containing the JSON files, default={PATH_DEFAULT_OUT_DIR}', default=PATH_DEFAULT_OUT_DIR)
+    parser_json.add_argument('-r', '--reverse', action='store_true', help='Reverse the order the list of RPC:s is parsed')
     parser_json.set_defaults(func=validate_json)
 
     args = parser.parse_args()
@@ -309,6 +310,8 @@ def validate_json(args) -> None:
     chains = load_json_file(path_chains)
     chain_names = [c['name'] for c in chains]
     rpcs = load_json_file(path_rpcs)
+    if args.reverse:
+        rpcs.reverse()
     error_log = []
 
     for rpc in rpcs:
@@ -334,6 +337,7 @@ def validate_json(args) -> None:
             else:
                 response = requests.post(rpc['url'], json=payload, headers=headers, timeout=5)
             if not response.status_code == 200:
+                print(f'#> error for {rpc["url"]}')
                 error_log.append(f'URL {rpc["url"]} produced response.text={response.text} with status_code={response.status_code}')
         elif 'ws' in rpc['url']:
             try:
@@ -342,6 +346,7 @@ def validate_json(args) -> None:
                 response = json.loads(ws.recv())
                 ws.close()
                 if not 'jsonrpc' in response.keys():
+                    print(f'#> error for {rpc["url"]}')
                     error_log.append(f'URL {rpc["url"]} produced WS response={response}')
             except Exception as e:
                 error_log.append(f'URL {rpc["url"]} failed WS connection: {e}')
