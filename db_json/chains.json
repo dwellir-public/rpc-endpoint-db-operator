@@ -168,6 +168,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Phala Network",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Zeitgeist",
         "api_class": "substrate"
     },

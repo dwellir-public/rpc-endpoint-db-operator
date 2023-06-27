@@ -644,6 +644,18 @@
         "chain_name": "Polkadot-pc Litentry"
     },
     {
+        "url": "https://phala-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Phala Network"
+    },
+    {
+        "url": "wss://phala.api.onfinality.io/public-ws",
+        "chain_name": "Polkadot-pc Phala Network"
+    },
+    {
+        "url": "wss://api.phala.network/ws",
+        "chain_name": "Polkadot-pc Phala Network"
+    },
+    {
         "url": "https://zeitgeist-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Zeitgeist"
     },
