@@ -540,6 +540,18 @@
         "chain_name": "Polkadot-pc Kilt Spiritnet"
     },
     {
+        "url": "https://zeitgeist-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Zeitgeist"
+    },
+    {
+        "url": "wss://zeitgeist.api.onfinality.io/public-ws",
+        "chain_name": "Polkadot-pc Zeitgeist"
+    },
+    {
+        "url": "wss://main.rpc.zeitgeist.pm/ws",
+        "chain_name": "Polkadot-pc Zeitgeist"
+    },
+    {
         "url": "https://matic-mumbai.chainstacklabs.com",
         "chain_name": "Polygon Mumbai"
     },
