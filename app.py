@@ -171,7 +171,11 @@ def get_all_records(table: str) -> Response:
 
 @app.route('/get_chain_by_name/<string:name>', methods=['GET'])
 def get_chain_by_name(name: str) -> Response:
-    # TODO: add docs
+    """
+    Gets the chain entry corresponding to the input chain name.
+
+    curl 'http://localhost:5000/get_chain_by_name/PulseChain%20mainnet'
+    """
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     cursor.execute(f'SELECT name, api_class FROM {TABLE_CHAINS} WHERE name=?', (name,))
