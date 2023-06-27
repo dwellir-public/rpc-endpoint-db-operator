@@ -388,6 +388,14 @@
         "chain_name": "Kusama-pc Shiden"
     },
     {
+        "url": "wss://turing-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Turing Network"
+    },
+    {
+        "url": "wss://rpc.turing.oak.tech",
+        "chain_name": "Kusama-pc Turing Network"
+    },
+    {
         "url": "https://optimism-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Optimism mainnet"
     },
