@@ -568,6 +568,18 @@
         "chain_name": "Polkadot-pc Collectives"
     },
     {
+        "url": "https://composable-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Composable Finance"
+    },
+    {
+        "url": "https://rpc.composable.finance",
+        "chain_name": "Polkadot-pc Composable Finance"
+    },
+    {
+        "url": "https://composable.api.onfinality.io/public-http",
+        "chain_name": "Polkadot-pc Composable Finance"
+    },
+    {
         "url": "https://darwinia-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Darwinia"
     },

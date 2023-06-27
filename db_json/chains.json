@@ -140,6 +140,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Composable Finance",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Darwinia",
         "api_class": "substrate"
     },
