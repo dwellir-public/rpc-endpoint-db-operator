@@ -528,6 +528,18 @@
         "chain_name": "Polkadot-pc HydraDX"
     },
     {
+        "url": "https://kilt-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Kilt Spiritnet"
+    },
+    {
+        "url": "wss://spiritnet.kilt.io",
+        "chain_name": "Polkadot-pc Kilt Spiritnet"
+    },
+    {
+        "url": "https://spiritnet.api.onfinality.io/public-ws",
+        "chain_name": "Polkadot-pc Kilt Spiritnet"
+    },
+    {
         "url": "https://matic-mumbai.chainstacklabs.com",
         "chain_name": "Polygon Mumbai"
     },
