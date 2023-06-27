@@ -84,6 +84,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Kusama-pc Khala",
+        "api_class": "substrate"
+    },
+    {
         "name": "Kusama-pc Shiden",
         "api_class": "substrate"
     },
