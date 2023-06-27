@@ -572,6 +572,18 @@
         "chain_name": "PulseChain testnet"
     },
     {
+        "url": "https://shibuya-rpc.dwellir.com",
+        "chain_name": "Shibuya"
+    },
+    {
+        "url": "wss://shibuya-rpc.dwellir.com",
+        "chain_name": "Shibuya"
+    },
+    {
+        "url": "wss://rpc.shibuya.astar.network",
+        "chain_name": "Shibuya"
+    },
+    {
         "url": "https://westend-rpc.dwellir.com",
         "chain_name": "Westend Relaychain"
     },

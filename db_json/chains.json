@@ -132,6 +132,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Shibuya",
+        "api_class": "substrate"
+    },
+    {
         "name": "Westend Relaychain",
         "api_class": "substrate"
     },
