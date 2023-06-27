@@ -1,5 +1,13 @@
 [
     {
+        "url": "https://aleph-zero-testnet-rpc.dwellir.com",
+        "chain_name": "Aleph Zero Testnet"
+    },
+    {
+        "url": "wss://ws.test.azero.dev",
+        "chain_name": "Aleph Zero Testnet"
+    },
+    {
         "url": "https://fullnode.devnet.aptoslabs.com/v1/",
         "chain_name": "Aptos Devnet"
     },

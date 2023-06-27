@@ -1,5 +1,9 @@
 [
     {
+        "name": "Aleph Zero Testnet",
+        "api_class": "substrate"
+    },
+    {
         "name": "Aptos Devnet",
         "api_class": "aptos"
     },
