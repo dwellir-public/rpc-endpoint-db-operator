@@ -96,6 +96,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Astar",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Darwinia",
         "api_class": "substrate"
     },

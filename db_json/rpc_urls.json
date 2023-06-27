@@ -416,6 +416,22 @@
         "chain_name": "Polkadot-pc Acala"
     },
     {
+        "url": "https://astar-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Astar"
+    },
+    {
+        "url": "https://rpc.astar.network",
+        "chain_name": "Polkadot-pc Astar"
+    },
+    {
+        "url": "https://astar.public.blastapi.io",
+        "chain_name": "Polkadot-pc Astar"
+    },
+    {
+        "url": "wss://astar.api.onfinality.io/public-ws",
+        "chain_name": "Polkadot-pc Astar"
+    },
+    {
         "url": "https://darwinia-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Darwinia"
     },
