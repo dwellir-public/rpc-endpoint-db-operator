@@ -88,6 +88,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Darwinia",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polygon Mumbai",
         "api_class": "ethereum"
     },

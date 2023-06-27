@@ -384,6 +384,18 @@
         "chain_name": "Polkadot Relaychain"
     },
     {
+        "url": "https://darwinia-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Darwinia"
+    },
+    {
+        "url": "https://darwinia-rpc.darwiniacommunitydao.xyz",
+        "chain_name": "Polkadot-pc Darwinia"
+    },
+    {
+        "url": "https://rpc.darwinia.network",
+        "chain_name": "Polkadot-pc Darwinia"
+    },
+    {
         "url": "https://matic-mumbai.chainstacklabs.com",
         "chain_name": "Polygon Mumbai"
     },
