@@ -76,6 +76,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "PulseChain testnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Polkadot Relaychain",
         "api_class": "substrate"
     },
