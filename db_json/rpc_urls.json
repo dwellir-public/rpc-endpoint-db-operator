@@ -296,6 +296,22 @@
         "chain_name": "Kusama-pc Darwinia Crab"
     },
     {
+        "url": "https://karura-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Karura"
+    },
+    {
+        "url": "wss://karura.api.onfinality.io/public-ws",
+        "chain_name": "Kusama-pc Karura"
+    },
+    {
+        "url": "https://karura-rpc-0.aca-api.network",
+        "chain_name": "Kusama-pc Karura"
+    },
+    {
+        "url": "wss://karura-rpc-3.aca-api.network/ws",
+        "chain_name": "Kusama-pc Karura"
+    },
+    {
         "url": "https://optimism-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Optimism mainnet"
     },

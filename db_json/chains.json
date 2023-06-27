@@ -68,6 +68,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Kusama-pc Karura",
+        "api_class": "substrate"
+    },
+    {
         "name": "Optimism mainnet",
         "api_class": "ethereum"
     },
