@@ -75,6 +75,7 @@ def main() -> None:
     parser_json.add_argument('directory', type=str,
                              help=f'Directory containing the JSON files, default={PATH_DEFAULT_OUT_DIR}', default=PATH_DEFAULT_OUT_DIR)
     parser_json.add_argument('-r', '--reverse', action='store_true', help='Reverse the order the list of RPC:s is parsed')
+    parser_json.add_argument('-f', '--filter', type=str, help='Filter the list of chains to validate')
     parser_json.set_defaults(func=validate_json)
 
     args = parser.parse_args()
@@ -308,8 +309,11 @@ def validate_json(args) -> None:
         raise FileNotFoundError(f"Cannot find required files {path_chains} and {path_rpcs}")
 
     chains = load_json_file(path_chains)
-    chain_names = [c['name'] for c in chains]
     rpcs = load_json_file(path_rpcs)
+    if args.filter:
+        chains = list(filter(lambda x: args.filter.lower() in x['name'].lower(), chains))
+        rpcs = list(filter(lambda x: args.filter.lower() in x['chain_name'].lower(), rpcs))
+    chain_names = [c['name'] for c in chains]
     if args.reverse:
         rpcs.reverse()
     error_log = []
