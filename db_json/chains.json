@@ -76,6 +76,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Polkadot Collectives",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot Relaychain",
         "api_class": "substrate"
     },
