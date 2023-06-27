@@ -192,7 +192,7 @@ def api_export_json(path: Path, url: str, sort_by: str, force: bool) -> None:
     else:
         print(response.text)
     sorted_data = sorted(data, key=lambda x: x[sort_by])
-    if allow_overwrite(path) or force:
+    if allow_overwrite(path, force):
         export_to_file(path, sorted_data)
 
 
@@ -226,7 +226,7 @@ def local_export_chains(target_chains: Path, entries: list, force: bool) -> None
         api_class = entry[1]
         data_chains.append({'name': name, 'api_class': api_class})
     sorted_chains = sorted(data_chains, key=lambda x: x['name'])
-    if allow_overwrite(target_chains) or force:
+    if allow_overwrite(target_chains, force):
         export_to_file(target_chains, sorted_chains)
 
 
@@ -237,7 +237,7 @@ def local_export_rpc_urls(target_rpc_urls: Path, entries: list, force: bool) -> 
         chain_name = entry[1]
         data_rpc_urls.append({'url': url, 'chain_name': chain_name})
     sorted_urls = sorted(data_rpc_urls, key=lambda x: x['chain_name'])
-    if allow_overwrite(target_rpc_urls) or force:
+    if allow_overwrite(target_rpc_urls, force):
         export_to_file(target_rpc_urls, sorted_urls)
 
 
@@ -317,7 +317,9 @@ def export_to_file(file_name: Path, data: dict) -> None:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
 
-def allow_overwrite(filepath: Path) -> bool:
+def allow_overwrite(filepath: Path, force: bool) -> bool:
+    if force:
+        return True
     if filepath.exists():
         user_input = input(f"File {filepath} already exists, overwrite? (y/n): ")
         if user_input.lower() not in ['y', 'yes']:
