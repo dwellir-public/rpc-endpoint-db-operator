@@ -160,22 +160,6 @@
         "chain_name": "Cronos testnet"
     },
     {
-        "url": "https://darwiniacrab-rpc.dwellir.com",
-        "chain_name": "Kusama-pc Darwinia Crab"
-    },
-    {
-        "url": "https://crab-rpc.darwiniacommunitydao.xyz",
-        "chain_name": "Kusama-pc Darwinia Crab"
-    },
-    {
-        "url": "https://crab-rpc.darwinia.network",
-        "chain_name": "Kusama-pc Darwinia Crab"
-    },
-    {
-        "url": "https://crab.api.onfinality.io/public-http",
-        "chain_name": "Kusama-pc Darwinia Crab"
-    },
-    {
         "url": "https://ethereum-goerli.publicnode.com",
         "chain_name": "Ethereum Goerli testnet"
     },
@@ -294,6 +278,22 @@
     {
         "url": "https://rpc-kusama.luckyfriday.io",
         "chain_name": "Kusama Relaychain"
+    },
+    {
+        "url": "https://darwiniacrab-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Darwinia Crab"
+    },
+    {
+        "url": "https://crab-rpc.darwiniacommunitydao.xyz",
+        "chain_name": "Kusama-pc Darwinia Crab"
+    },
+    {
+        "url": "https://crab-rpc.darwinia.network",
+        "chain_name": "Kusama-pc Darwinia Crab"
+    },
+    {
+        "url": "https://crab.api.onfinality.io/public-http",
+        "chain_name": "Kusama-pc Darwinia Crab"
     },
     {
         "url": "https://optimism-mainnet-archive-rpc-1.dwellir.com",
