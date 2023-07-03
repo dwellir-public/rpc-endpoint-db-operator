@@ -460,6 +460,22 @@
         "chain_name": "Kusama-pc Turing Network"
     },
     {
+        "url": "https://moonbase-rpc.dwellir.com",
+        "chain_name": "Moonbase Alpha testnet"
+    },
+    {
+        "url": "wss://wss.api.moonbase.moonbeam.network",
+        "chain_name": "Moonbase Alpha testnet"
+    },
+    {
+        "url": "https://moonbeam-alpha.api.onfinality.io/public-http",
+        "chain_name": "Moonbase Alpha testnet"
+    },
+    {
+        "url": "wss://moonbase.unitedbloc.com",
+        "chain_name": "Moonbase Alpha testnet"
+    },
+    {
         "url": "https://optimism-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Optimism mainnet"
     },
