@@ -100,6 +100,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Kusama-pc Picasso",
+        "api_class": "substrate"
+    },
+    {
         "name": "Kusama-pc Shiden",
         "api_class": "substrate"
     },
