@@ -318,6 +318,7 @@ def validate_json(args) -> None:
         rpcs.reverse()
     error_log = []
 
+    # TODO: make this a session of async tasks
     for rpc in rpcs:
         print(f'Validating {rpc["url"]}')
         # Confirm chain exists for URLs
