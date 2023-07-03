@@ -304,6 +304,10 @@
         "chain_name": "Kusama-pc AssetHub (Statemine)"
     },
     {
+        "url": "https://statemine-rpc-ng.dwellir.com",
+        "chain_name": "Kusama-pc AssetHub (Statemine)"
+    },
+    {
         "url": "https://rpc-statemine.luckyfriday.io",
         "chain_name": "Kusama-pc AssetHub (Statemine)"
     },
@@ -340,6 +344,22 @@
         "chain_name": "Kusama-pc Bifrost"
     },
     {
+        "url": "https://kusama-bridge-hub-rpc-ng.dwellir.com",
+        "chain_name": "Kusama-pc BridgeHub"
+    },
+    {
+        "url": "wss://kusama-bridge-hub-rpc-ng.dwellir.com",
+        "chain_name": "Kusama-pc BridgeHub"
+    },
+    {
+        "url": "wss://kusama-bridge-hub-rpc.polkadot.io",
+        "chain_name": "Kusama-pc BridgeHub"
+    },
+    {
+        "url": "wss://ksm-rpc.stakeworld.io/bridgehub",
+        "chain_name": "Kusama-pc BridgeHub"
+    },
+    {
         "url": "https://darwiniacrab-rpc.dwellir.com",
         "chain_name": "Kusama-pc Darwinia Crab"
     },
@@ -354,6 +374,22 @@
     {
         "url": "https://crab.api.onfinality.io/public-http",
         "chain_name": "Kusama-pc Darwinia Crab"
+    },
+    {
+        "url": "https://kusama-encointer-rpc-ng.dwellir.com",
+        "chain_name": "Kusama-pc Encointer"
+    },
+    {
+        "url": "wss://kusama.api.encointer.org",
+        "chain_name": "Kusama-pc Encointer"
+    },
+    {
+        "url": "wss://ksm-rpc.stakeworld.io/encointer",
+        "chain_name": "Kusama-pc Encointer"
+    },
+    {
+        "url": "wss://encointer.api.onfinality.io/public-ws",
+        "chain_name": "Kusama-pc Encointer"
     },
     {
         "url": "https://karura-rpc.dwellir.com",
@@ -572,6 +608,10 @@
         "chain_name": "Polkadot-pc AssetHub (Statemint)"
     },
     {
+        "url": "https://statemint-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc AssetHub (Statemint)"
+    },
+    {
         "url": "https://polkadot-asset-hub-rpc.polkadot.io",
         "chain_name": "Polkadot-pc AssetHub (Statemint)"
     },
@@ -598,6 +638,18 @@
     {
         "url": "wss://astar.api.onfinality.io/public-ws",
         "chain_name": "Polkadot-pc Astar"
+    },
+    {
+        "url": "https://polkadot-bridge-hub-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc BridgeHub"
+    },
+    {
+        "url": "wss://polkadot-bridge-hub-rpc.polkadot.io",
+        "chain_name": "Polkadot-pc BridgeHub"
+    },
+    {
+        "url": "wss://dot-rpc.stakeworld.io/bridgehub",
+        "chain_name": "Polkadot-pc BridgeHub"
     },
     {
         "url": "https://polkadot-collectives-rpc-ng.dwellir.com",
@@ -888,11 +940,35 @@
         "chain_name": "Westend-pc AssetHub (Westmint)"
     },
     {
+        "url": "https://westmint-rpc-ng.dwellir.com",
+        "chain_name": "Westend-pc AssetHub (Westmint)"
+    },
+    {
         "url": "wss://westend-asset-hub-rpc.polkadot.io",
         "chain_name": "Westend-pc AssetHub (Westmint)"
     },
     {
         "url": "wss://wnd-rpc.stakeworld.io/westmint",
         "chain_name": "Westend-pc AssetHub (Westmint)"
+    },
+    {
+        "url": "https://westend-bridge-hub-rpc-ng.dwellir.com",
+        "chain_name": "Westend-pc BridgeHub"
+    },
+    {
+        "url": "https://westend-bridge-hub-rpc.polkadot.io",
+        "chain_name": "Westend-pc BridgeHub"
+    },
+    {
+        "url": "https://westend-collectives-rpc-ng.dwellir.com",
+        "chain_name": "Westend-pc Collectives"
+    },
+    {
+        "url": "wss://sys.ibp.network/collectives-westend",
+        "chain_name": "Westend-pc Collectives"
+    },
+    {
+        "url": "wss://sys.dotters.network/collectives-westend",
+        "chain_name": "Westend-pc Collectives"
     }
 ]

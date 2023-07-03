@@ -84,7 +84,15 @@
         "api_class": "substrate"
     },
     {
+        "name": "Kusama-pc BridgeHub",
+        "api_class": "substrate"
+    },
+    {
         "name": "Kusama-pc Darwinia Crab",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Encointer",
         "api_class": "substrate"
     },
     {
@@ -145,6 +153,10 @@
     },
     {
         "name": "Polkadot-pc Astar",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc BridgeHub",
         "api_class": "substrate"
     },
     {
@@ -233,6 +245,14 @@
     },
     {
         "name": "Westend-pc AssetHub (Westmint)",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Westend-pc BridgeHub",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Westend-pc Collectives",
         "api_class": "substrate"
     }
 ]
