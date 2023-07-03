@@ -400,6 +400,26 @@
         "chain_name": "Kusama-pc Kintsugi BTC"
     },
     {
+        "url": "https://moonriver-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Moonriver"
+    },
+    {
+        "url": "wss://moonriver.api.onfinality.io/public-ws",
+        "chain_name": "Kusama-pc Moonriver"
+    },
+    {
+        "url": "wss://wss.api.moonriver.moonbeam.network",
+        "chain_name": "Kusama-pc Moonriver"
+    },
+    {
+        "url": "wss://moonriver.public.blastapi.io",
+        "chain_name": "Kusama-pc Moonriver"
+    },
+    {
+        "url": "wss://moonriver.unitedbloc.com",
+        "chain_name": "Kusama-pc Moonriver"
+    },
+    {
         "url": "https://picasso-rpc.dwellir.com",
         "chain_name": "Kusama-pc Picasso"
     },
