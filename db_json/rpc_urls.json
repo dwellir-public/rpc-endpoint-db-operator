@@ -700,6 +700,22 @@
         "chain_name": "Polkadot-pc Litentry"
     },
     {
+        "url": "https://moonbeam-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Moonbeam"
+    },
+    {
+        "url": "wss://wss.api.moonbeam.network",
+        "chain_name": "Polkadot-pc Moonbeam"
+    },
+    {
+        "url": "https://moonbeam.api.onfinality.io/public-http",
+        "chain_name": "Polkadot-pc Moonbeam"
+    },
+    {
+        "url": "wss://moonbeam.public.blastapi.io",
+        "chain_name": "Polkadot-pc Moonbeam"
+    },
+    {
         "url": "https://phala-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Phala Network"
     },

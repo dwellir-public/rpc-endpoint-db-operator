@@ -188,6 +188,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Moonbeam",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Phala Network",
         "api_class": "substrate"
     },
