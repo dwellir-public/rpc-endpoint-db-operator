@@ -79,6 +79,9 @@ The `db_util.py` script holds a number of utility functions to interact with the
     # List chains in DB
     python3 db_util.py request chains
 
+    # Check connectivity to RPC endpoints with "polkadot" in their URL
+    python3 db_util.py json db_json -f polkadot
+
 ### Query the blockchain RPC database via the Flask API
 
 The Flask API supportes all of CRUD: "Create, Read, Update, Delete". Here follows some `curl` examples:
