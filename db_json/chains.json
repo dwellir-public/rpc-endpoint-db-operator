@@ -125,7 +125,7 @@
     },
     {
         "name": "Moonbase Alpha testnet",
-        "api_class": "ethereum"
+        "api_class": "substrate"
     },
     {
         "name": "Optimism mainnet",
