@@ -15,13 +15,14 @@ Fetch the `endpointdb` repo to your target environment. If not already configure
 
 Now install the needed Python tools.
 
-    cd endpointdb
     sudo apt-get update
-    sudo apt install python3.10-venv python3-pip -y
+    sudo apt install python3-pip -y
+    pip3 install -r requirements.txt
 
-Create a new virtual environment in the repo and install the Python requirements.
+Note: if there are issues with conflicting Python packages, though unlikely, you can install `python3.10-venv` and then use a virtual environment for the `requirements.txt` install.
 
-    cd endpointdb  # cwd should be the endpointdb repo root directory
+    sudo apt install python3.10-venv
+    cd endpointdb  # place the venv in the repo directory
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
@@ -46,11 +47,11 @@ With these two in place and accessible by the Flask app, we'll be able to genera
 
 The API endpoint database is an SQLite database which is interfaced and used via a Flask API.
 
-Start the database, preferrably using a `screen`. Exit the screen gracefully with Ctrl + A + D.
+Initialize the database app, preferrably using a `screen`. Exit the screen gracefully with Ctrl + A + D.
 
     screen -S app
     # The screen opens a new shell, so we'll have to re-activate the virtual environment
-    > source venv/bin/activate
+    > source venv/bin/activate  # if a venv was used during install
     > python3 app.py
     > Ctrl + A + D
 
@@ -134,7 +135,7 @@ Use access token in query
 
     curl -H 'Authorization: Bearer <token>' http://localhost:5000/protected-endpoint
 
-## Legacy remainders
+## Legacy
 
 From the beginning, this repo was for both the RPC endpoint database and the monitoring application. Since then, the monitoring has been moved to [its own repo](https://github.com/dwellir-public/blockchain-monitor), where it's hosted in a charm. The original pre-move monitoring code is however kept here for the time being, including some parts of the readme below, awaiting a future cleanup.
 
