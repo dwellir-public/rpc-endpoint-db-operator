@@ -176,11 +176,15 @@
         "chain_name": "Ethereum Sepolia testnet"
     },
     {
-        "url": "https://api.sepolia.kroma.network",
+        "url": "https://ethereum-sepolia.blockpi.network/v1/rpc/public",
         "chain_name": "Ethereum Sepolia testnet"
     },
     {
         "url": "https://rpc-sepolia.rockx.com",
+        "chain_name": "Ethereum Sepolia testnet"
+    },
+    {
+        "url": "https://gateway.tenderly.co/public/sepolia",
         "chain_name": "Ethereum Sepolia testnet"
     },
     {
