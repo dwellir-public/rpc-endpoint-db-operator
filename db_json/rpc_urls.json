@@ -48,26 +48,6 @@
         "chain_name": "Arbitrum testnet"
     },
     {
-        "url": "https://api.avax-test.network/ext/bc/C/rpc",
-        "chain_name": "Avalanche Fuji testnet"
-    },
-    {
-        "url": "https://avalanche-fuji-c-chain.publicnode.com",
-        "chain_name": "Avalanche Fuji testnet"
-    },
-    {
-        "url": "https://ava-testnet.public.blastapi.io/ext/bc/C/rpc",
-        "chain_name": "Avalanche Fuji testnet"
-    },
-    {
-        "url": "https://avalanche-fuji-archive-rpc-1.dwellir.com/ext/bc/C/rpc",
-        "chain_name": "Avalanche Fuji testnet"
-    },
-    {
-        "url": "https://avalanche-fuji-archive-rpc-2.dwellir.com/ext/bc/C/rpc",
-        "chain_name": "Avalanche Fuji testnet"
-    },
-    {
         "url": "https://api.avax.network/ext/bc/C/rpc",
         "chain_name": "Avalanche mainnet"
     },
@@ -142,18 +122,6 @@
     {
         "url": "https://cronos-mainnet-archive-rpc-2.dwellir.com",
         "chain_name": "Cronos mainnet"
-    },
-    {
-        "url": "https://evm-t3.cronos.org",
-        "chain_name": "Cronos testnet"
-    },
-    {
-        "url": "https://cronos-testnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Cronos testnet"
-    },
-    {
-        "url": "https://cronos-testnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Cronos testnet"
     },
     {
         "url": "https://ethereum-goerli.publicnode.com",

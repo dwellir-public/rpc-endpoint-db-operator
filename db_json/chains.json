@@ -12,10 +12,6 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Avalanche Fuji testnet",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Avalanche mainnet",
         "api_class": "ethereum"
     },
@@ -29,10 +25,6 @@
     },
     {
         "name": "Cronos mainnet",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "Cronos testnet",
         "api_class": "ethereum"
     },
     {
