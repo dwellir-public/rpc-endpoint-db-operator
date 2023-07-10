@@ -10,11 +10,6 @@ from urllib.parse import urlparse
 logging.basicConfig(level=logging.INFO)
 
 
-# TODO: define a main() function?
-
-# CONSTANTS
-# TODO: move to their own file in cleanup (perhaps?)
-
 TABLE_CHAINS = 'chains'
 TABLE_RPC_URLS = 'rpc_urls'
 PATH_DIR = Path(__file__).resolve().parent
@@ -22,6 +17,7 @@ PATH_DB = PATH_DIR / 'live_database.db'
 PATH_JWT_SECRET_KEY = PATH_DIR / 'auth_jwt_secret_key'
 PATH_PASSWORD = PATH_DIR / 'auth_password'
 
+# TODO: define a main() function?
 
 if not PATH_PASSWORD.exists():
     raise FileNotFoundError(f'Password file not found on {str(PATH_PASSWORD)}, check the README.md for a setup guide')
@@ -121,6 +117,7 @@ def create_chain_record() -> Response:
     return insert_into_database(TABLE_CHAINS, values)
 
 
+# TODO: add endpoint to create multiple URL entries with one request?
 @app.route('/create_rpc_url', methods=['POST'])
 @jwt_required()
 def create_rpc_url_record() -> Response:
@@ -142,10 +139,13 @@ def create_rpc_url_record() -> Response:
     return insert_into_database(TABLE_RPC_URLS, values)
 
 
-# TODO: add endpoint to create multiple URL entries with one request?
 @app.route('/all/<string:table>', methods=['GET'])
 def get_all_records(table: str) -> Response:
-    # TODO: add docs
+    """
+    Gets all the entries of the table in the path.
+
+    curl 'http://localhost:5000/all/chains'
+    """
     if table not in [TABLE_CHAINS, TABLE_RPC_URLS]:
         return jsonify({'error': f'unknown table {table}'}), 400
     conn = sqlite3.connect(app.config['DATABASE'])
@@ -221,7 +221,7 @@ def get_url() -> Response:
 
     Requires that url parameters 'protocol' and 'address' are present in the request, example:
 
-    curl -X GET -H 'http://localhost:5000/get_url?protocol=http&address=chain4.com'
+    curl -X GET 'http://localhost:5000/get_url?protocol=http&address=chain4.com'
     """
     try:
         url = url_from_request_args()
@@ -242,7 +242,11 @@ def get_url() -> Response:
 # Get urls for a specific chain
 @app.route('/get_urls/<string:chain_name>', methods=['GET'])
 def get_urls(chain_name: str) -> Response:
-    # TODO: add docs
+    """
+    Gets the RPC URL entries corresponding to the chain name in the path.
+
+    curl -X GET 'http://localhost:5000/get_urls/chain5'
+    """
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
     cursor.execute(f'SELECT url, chain_name FROM {TABLE_RPC_URLS} WHERE chain_name=?', (chain_name,))
@@ -282,7 +286,7 @@ def update_url_record() -> Response:
         return jsonify({'error': "Invalid url"}), 500
 
     conn = sqlite3.connect(app.config['DATABASE'])
-    conn.execute('PRAGMA foreign_keys = ON')  # TODO: keep this on?
+    conn.execute('PRAGMA foreign_keys = ON')
     cursor = conn.cursor()
     try:
         cursor.execute(f'UPDATE {TABLE_RPC_URLS} SET url=?, chain_name=? WHERE url=?', (url_new, chain_name, url_old))
@@ -409,7 +413,7 @@ def get_chain_info():
     cursor = conn.cursor()
     # Fetch chain
     cursor.execute(f'SELECT * FROM {TABLE_CHAINS} WHERE name=?', (chain_name,))
-    chain_record = cursor.fetchone()  # TODO: fetchone() should be enough here, right? Only one should exist
+    chain_record = cursor.fetchone()  # TODO: fetchone() should be enough here, right? Only one should exist.
     if not chain_record:
         # TODO: can this error happen, since we found it in the previous if?
         return jsonify({'error': f'Chain \'{chain_name}\' not found'}), 404
@@ -430,14 +434,11 @@ def get_chain_info():
     return jsonify(result), 200
 
 
-# UTILITIES
-# TODO: move to their own file in cleanup
+# UTILITY FUNCTIONS
 
 def is_valid_api(api):
     """ Test that api string is valid. """
-    # TODO: move to constants?
-    # TODO: add .lower() for these?
-    return api in ['substrate', 'ethereum', 'aptos']
+    return api.lower() in ['substrate', 'ethereum', 'aptos']
 
 
 def is_valid_url(url):
