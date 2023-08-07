@@ -784,6 +784,14 @@
         "chain_name": "Polkadot-pc Zeitgeist"
     },
     {
+        "url": "https://polygon-mumbai.blockpi.network/v1/rpc/public",
+        "chain_name": "Polygon Mumbai"
+    },
+    {
+        "url": "https://polygon-mumbai-bor.publicnode.com",
+        "chain_name": "Polygon Mumbai"
+    },
+    {
         "url": "https://rpc-mumbai.maticvigil.com",
         "chain_name": "Polygon Mumbai"
     },
@@ -797,6 +805,10 @@
     },
     {
         "url": "https://polygon-rpc.com/",
+        "chain_name": "Polygon mainnet"
+    },
+    {
+        "url": "https://polygon.llamarpc.com",
         "chain_name": "Polygon mainnet"
     },
     {
