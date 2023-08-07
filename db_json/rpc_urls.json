@@ -240,10 +240,6 @@
         "chain_name": "Kusama Relaychain"
     },
     {
-        "url": "https://kusama.public.curie.radiumblock.co/http",
-        "chain_name": "Kusama Relaychain"
-    },
-    {
         "url": "https://rpc-kusama.luckyfriday.io",
         "chain_name": "Kusama Relaychain"
     },
