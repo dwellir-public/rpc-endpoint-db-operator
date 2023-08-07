@@ -784,10 +784,6 @@
         "chain_name": "Polkadot-pc Zeitgeist"
     },
     {
-        "url": "https://matic-mumbai.chainstacklabs.com",
-        "chain_name": "Polygon Mumbai"
-    },
-    {
         "url": "https://rpc-mumbai.maticvigil.com",
         "chain_name": "Polygon Mumbai"
     },
@@ -801,10 +797,6 @@
     },
     {
         "url": "https://polygon-rpc.com/",
-        "chain_name": "Polygon mainnet"
-    },
-    {
-        "url": "https://matic-mainnet.chainstacklabs.com",
         "chain_name": "Polygon mainnet"
     },
     {
