@@ -1,11 +1,11 @@
 [Unit]
 Description=Endpoint DB API
 After=network.target
-Documentation=https://github.com/dwellir-public/endpointdb
+Documentation=https://github.com/dwellir-public/rpc-endpoint-db
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 -u /home/ubuntu/app.py
+ExecStart=/usr/bin/gunicorn --workers=2 --access-logfile=- --bind 0.0.0.0 app:app
 WorkingDirectory=/home/ubuntu
 Restart=always
 RestartSec=120
