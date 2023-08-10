@@ -48,6 +48,7 @@ def main() -> None:
     # Make an RPC request
     parser_request = subparsers.add_parser('request', help='Send a request to the Flask API serving the database')
     parser_request.add_argument('--url', type=str, help='The url for the API of the database', default=DEFAULT_URL)
+    parser_request.add_argument('--auth-pw', type=str, help='The authentication password to get the access token for the API', default="")
     request_sp = parser_request.add_subparsers()
     # Chains
     request_chains = request_sp.add_parser('chains', help='Get all chains')
@@ -272,14 +273,14 @@ def get_all_rpc_urls(args) -> None:
 
 
 def add_rpc(args) -> None:
-    auth_header = get_auth_header(args.url)
+    auth_header = get_auth_header(args.url, args.auth_pw)
     rpc = {'chain_name': args.chain, 'url': args.rpc}
     response = requests.post(args.url + '/create_rpc_url', json=rpc, headers=auth_header, timeout=5)
     print(response.text)
 
 
 def delete_rpc(args) -> None:
-    auth_header = get_auth_header(args.url)
+    auth_header = get_auth_header(args.url, args.auth_pw)
     protocol = args.rpc.split('://')[0]
     address = args.rpc.split('://')[1]
     response = requests.delete(args.url + f'/delete_url?protocol={protocol}&address={address}', headers=auth_header, timeout=5)
@@ -287,14 +288,14 @@ def delete_rpc(args) -> None:
 
 
 def add_chain(args) -> None:
-    auth_header = get_auth_header(args.url)
+    auth_header = get_auth_header(args.url, args.auth_pw)
     chain = {'name': args.chain, 'api_class': args.api_class}
     response = requests.post(args.url + '/create_chain', json=chain, headers=auth_header, timeout=5)
     print(response.text)
 
 
 def delete_chain(args) -> None:
-    auth_header = get_auth_header(args.url)
+    auth_header = get_auth_header(args.url, args.auth_pw)
     chain = args.chain
     response = requests.delete(args.url + f'/delete_chain?name={chain}', headers=auth_header, timeout=5)
     print(response.text)
@@ -365,9 +366,14 @@ def validate_json(args) -> None:
 
 # # # UTILS # # #
 
-def get_auth_header(url: str) -> str:
-    with open(PATH_DEFAULT_AUTH_PW, 'r', encoding='utf-8') as f:
-        auth_pw = f.readline().strip()
+def get_auth_header(url: str, password: str = "") -> str:
+    if not password:
+        with open(PATH_DEFAULT_AUTH_PW, 'r', encoding='utf-8') as f:
+            auth_pw = f.readline().strip()
+    elif password:
+        auth_pw = password
+    else:
+        raise ValueError("Missing authentication password for access token request!")
     token_response = requests.post(url + '/token', json={'username': 'dwellir_endpointdb', 'password': f'{auth_pw}'}, timeout=5)
     if token_response.status_code != 200:
         raise requests.exceptions.HTTPError(f'Couldn\'t get access token, {token_response.text}')

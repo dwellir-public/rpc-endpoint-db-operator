@@ -1,6 +1,1 @@
-Flask
-flask_jwt_extended
-requests
-urllib3
-aiohttp
-websocket-client
+ops >= 2.4.0

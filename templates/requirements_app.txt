@@ -1,0 +1,6 @@
+Flask
+flask_jwt_extended
+requests
+urllib3
+aiohttp
+websocket-client

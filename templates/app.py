@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
 from pathlib import Path
+import argparse
 from flask import Flask, jsonify, request, Response
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token
 import sqlite3
 import logging
 from urllib.parse import urlparse
-
-logging.basicConfig(level=logging.INFO)
 
 
 TABLE_CHAINS = 'chains'
@@ -17,14 +16,13 @@ PATH_DB = PATH_DIR / 'live_database.db'
 PATH_JWT_SECRET_KEY = PATH_DIR / 'auth_jwt_secret_key'
 PATH_PASSWORD = PATH_DIR / 'auth_password'
 
-# TODO: define a main() function?
-
+# Confirm authorization file availability
 if not PATH_PASSWORD.exists():
     raise FileNotFoundError(f'Password file not found on {str(PATH_PASSWORD)}, check the README.md for a setup guide')
 if not PATH_JWT_SECRET_KEY.exists():
     raise FileNotFoundError(f'JWT secret key file not found on {str(PATH_JWT_SECRET_KEY)}, check the README.md for a setup guide')
 
-# TODO: investigate startup message `WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.`
+# TODO: place the Flask app behind a WSGI server, e.g. Gunicorn.
 app = Flask(__name__)
 app.config['DATABASE'] = str(PATH_DB)
 with PATH_JWT_SECRET_KEY.open() as jwt_file:
@@ -465,6 +463,15 @@ def url_from_request_args() -> str:
 # MAIN
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Flask app settings")
+    parser.add_argument('--debug', action='store_true', help="Whether the app should run in debug mode")
+    parser.add_argument('--host', type=str, help="The hostname to listen on", default='0.0.0.0')
+    parser.add_argument('--log-level', type=str, help="The log level", default='INFO')
+    parser.add_argument('--port', type=str, help="The port of the webserver", default='5000')
+    args = parser.parse_args()
+
     create_tables_if_not_exist()
-    # TODO: add argument parser for settings like host and more?
-    app.run(debug=True, host='0.0.0.0')
+
+    logging.basicConfig(level=args.log_level.upper())
+
+    app.run(debug=args.debug, host=args.host, port=args.port)
