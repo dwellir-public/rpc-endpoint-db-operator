@@ -35,6 +35,8 @@ class EndpointDBCharm(ops.CharmBase):
 
     def _on_install(self, event: ops.InstallEvent) -> None:
         """Handle charm installation."""
+        self.unit.status = MaintenanceStatus('Installing apt dependencies')
+        util.install_apt_dependencies()
         self.unit.status = MaintenanceStatus('Installing Python dependencies')
         util.install_python_dependencies(self.charm_dir / 'templates/requirements_app.txt')
         self.unit.status = MaintenanceStatus('Installing script and service')
@@ -43,6 +45,7 @@ class EndpointDBCharm(ops.CharmBase):
 
     def install_files(self):
         shutil.copy(self.charm_dir / 'templates/app.py', c.APP_SCRIPT_PATH)
+        shutil.copy(self.charm_dir / 'templates/db_util.py', c.DB_UTIL_SCRIPT_PATH)
         util.install_service_file(f'templates/etc/systemd/system/{c.SERVICE_NAME}.service', c.SERVICE_NAME)
 
     def _on_start(self, event: ops.StartEvent):
@@ -66,6 +69,7 @@ class EndpointDBCharm(ops.CharmBase):
         self.install_files()
         util.start_service(c.SERVICE_NAME)
 
+# TODO: add action to set up API access info; token/auth etc.
 # TODO: add action to get API access info; token/auth etc.
 
 

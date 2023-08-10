@@ -5,6 +5,11 @@ import subprocess as sp
 import shutil
 
 
+def install_apt_dependencies() -> None:
+    sp.run(['apt-get', 'update'], check=True)
+    sp.run(['apt', 'install', 'python3-pip', '-y'], check=True)
+
+
 def install_python_dependencies(requirements_file: Path) -> None:
     # Specifically point at the system's Python, to install modules on the system level
     sp.run(['sudo', 'pip3', 'install', '-r', requirements_file], check=True)
