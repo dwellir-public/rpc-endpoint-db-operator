@@ -36,13 +36,13 @@ class EndpointDBCharm(ops.CharmBase):
     def _on_install(self, event: ops.InstallEvent) -> None:
         """Handle charm installation."""
         self.unit.status = MaintenanceStatus('Installing Python dependencies')
-        util.install_python_dependencies(self.charm_dir / 'templates/requirements_monitor.txt')
+        util.install_python_dependencies(self.charm_dir / 'templates/requirements_app.txt')
         self.unit.status = MaintenanceStatus('Installing script and service')
         self.install_files()
         self.unit.status = ActiveStatus('Installation complete')
 
     def install_files(self):
-        shutil.copy(self.charm_dir / 'templates/monitor-blockchains.py', c.APP_SCRIPT_PATH)
+        shutil.copy(self.charm_dir / 'templates/app.py', c.APP_SCRIPT_PATH)
         util.install_service_file(f'templates/etc/systemd/system/{c.SERVICE_NAME}.service', c.SERVICE_NAME)
 
     def _on_start(self, event: ops.StartEvent):
