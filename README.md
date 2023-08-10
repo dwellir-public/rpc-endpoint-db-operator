@@ -8,10 +8,10 @@ Avoid using this README file for information that is maintained or published els
 Use links instead.
 -->
 
-# endpointdb
+# rpc-endpoint-db-operator
 
-Charmhub package name: operator-template
-More information: https://charmhub.io/endpointdb
+Charmhub package name: rpc-endpoint-db
+More information: https://charmhub.io/rpc-endpoint-db
 
 Describe your charm in one or two sentences.
 
