@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from pathlib import Path
-import argparse
 from flask import Flask, jsonify, request, Response
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token
 import sqlite3
@@ -463,15 +462,8 @@ def url_from_request_args() -> str:
 # MAIN
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Flask app settings")
-    parser.add_argument('--debug', action='store_true', help="Whether the app should run in debug mode")
-    parser.add_argument('--host', type=str, help="The hostname to listen on", default='0.0.0.0')
-    parser.add_argument('--log-level', type=str, help="The log level", default='INFO')
-    parser.add_argument('--port', type=str, help="The port of the webserver", default='5000')
-    args = parser.parse_args()
-
     create_tables_if_not_exist()
 
-    logging.basicConfig(level=args.log_level.upper())
+    logging.basicConfig(level=logging.INFO)
 
-    app.run(debug=args.debug, host=args.host, port=args.port)
+    app.run(debug=False, host='0.0.0.0')
