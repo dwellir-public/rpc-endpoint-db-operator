@@ -15,13 +15,17 @@ PATH_DB = PATH_DIR / 'live_database.db'
 PATH_JWT_SECRET_KEY = PATH_DIR / 'auth_jwt_secret_key'
 PATH_PASSWORD = PATH_DIR / 'auth_password'
 
+logging.basicConfig(level=logging.INFO)
+
 # Confirm authorization file availability
 if not PATH_PASSWORD.exists():
     raise FileNotFoundError(f'Password file not found on {str(PATH_PASSWORD)}, check the README.md for a setup guide')
 if not PATH_JWT_SECRET_KEY.exists():
     raise FileNotFoundError(f'JWT secret key file not found on {str(PATH_JWT_SECRET_KEY)}, check the README.md for a setup guide')
 
-# TODO: place the Flask app behind a WSGI server, e.g. Gunicorn.
+
+# FLASK APP SETUP
+
 app = Flask(__name__)
 app.config['DATABASE'] = str(PATH_DB)
 with PATH_JWT_SECRET_KEY.open() as jwt_file:
@@ -32,20 +36,18 @@ jwt = JWTManager(app)
 
 # DATABASE SETUP
 
-# Create the database table if it doesn't exist
-def create_tables_if_not_exist():
-    app.logger.info("CREATING database and tables %s", app.config['DATABASE'])
-    conn = sqlite3.connect(app.config['DATABASE'])
-    cursor = conn.cursor()
-    cursor.execute('''CREATE TABLE IF NOT EXISTS chains
-                      (name TEXT PRIMARY KEY UNIQUE COLLATE NOCASE NOT NULL,
-                       api_class TEXT COLLATE NOCASE NOT NULL)''')
-    cursor.execute('''CREATE TABLE IF NOT EXISTS rpc_urls
-                      (url TEXT PRIMARY KEY UNIQUE COLLATE NOCASE NOT NULL,
-                       chain_name TEXT COLLATE NOCASE NOT NULL,
-                       FOREIGN KEY(chain_name) REFERENCES chains(name))''')
-    conn.commit()
-    conn.close()
+app.logger.info("CREATING database and tables %s", app.config['DATABASE'])
+conn = sqlite3.connect(app.config['DATABASE'])
+cursor = conn.cursor()
+cursor.execute('''CREATE TABLE IF NOT EXISTS chains
+                    (name TEXT PRIMARY KEY UNIQUE COLLATE NOCASE NOT NULL,
+                    api_class TEXT COLLATE NOCASE NOT NULL)''')
+cursor.execute('''CREATE TABLE IF NOT EXISTS rpc_urls
+                    (url TEXT PRIMARY KEY UNIQUE COLLATE NOCASE NOT NULL,
+                    chain_name TEXT COLLATE NOCASE NOT NULL,
+                    FOREIGN KEY(chain_name) REFERENCES chains(name))''')
+conn.commit()
+conn.close()
 
 
 # API ROUTES
@@ -462,8 +464,4 @@ def url_from_request_args() -> str:
 # MAIN
 
 if __name__ == '__main__':
-    create_tables_if_not_exist()
-
-    logging.basicConfig(level=logging.INFO)
-
     app.run(debug=False, host='0.0.0.0')

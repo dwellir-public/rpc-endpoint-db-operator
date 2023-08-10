@@ -41,6 +41,7 @@ class EndpointDBCharm(ops.CharmBase):
         util.install_python_dependencies(self.charm_dir / 'templates/requirements_app.txt')
         self.unit.status = MaintenanceStatus('Installing script and service')
         self.install_files()
+        # TODO: generate secret key and auth password automatically, to be replaced if needed?
         self.unit.status = ActiveStatus('Installation complete')
 
     def install_files(self):

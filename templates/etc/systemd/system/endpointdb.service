@@ -5,7 +5,7 @@ Documentation=https://github.com/dwellir-public/rpc-endpoint-db
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/gunicorn --workers=2 --access-logfile=- --bind 0.0.0.0 app:app
+ExecStart=/usr/local/bin/gunicorn --workers=2 --access-logfile=- --bind=0.0.0.0 app:app
 WorkingDirectory=/home/ubuntu
 Restart=always
 RestartSec=120
