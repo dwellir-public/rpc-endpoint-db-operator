@@ -5,6 +5,7 @@ from pathlib import Path
 # Strings
 SERVICE_NAME = 'endpointdb'
 APP_SCRIPT_NAME = 'app.py'
+GUNICORN_HARDCODED_ARGS = '--workers=2 --access-logfile=- app:app'
 
 # Paths
 HOME_PATH = Path('/home/ubuntu')

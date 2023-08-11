@@ -31,7 +31,9 @@ class EndpointDBCharm(ops.CharmBase):
 
     def _on_config_changed(self, event: ops.ConfigChangedEvent):
         """Handle changed configuration."""
-        return
+        self.unit.status = MaintenanceStatus('Updating config')
+        util.update_service_args(self.config.get('wsgi-server-port'), c.SERVICE_NAME, c.GUNICORN_HARDCODED_ARGS, True)
+        self.unit.status = ActiveStatus('Configuration updated')
 
     def _on_install(self, event: ops.InstallEvent) -> None:
         """Handle charm installation."""
@@ -42,12 +44,17 @@ class EndpointDBCharm(ops.CharmBase):
         self.unit.status = MaintenanceStatus('Installing script and service')
         self.install_files()
         # TODO: generate secret key and auth password automatically, to be replaced if needed?
+        util.update_service_args(self.config.get('wsgi-server-port'), c.SERVICE_NAME, c.GUNICORN_HARDCODED_ARGS, False)
         self.unit.status = ActiveStatus('Installation complete')
 
     def install_files(self):
+        self.copy_template_files()
+        util.install_service_file(f'templates/etc/systemd/system/{c.SERVICE_NAME}.service', c.SERVICE_NAME)
+        util.create_env_file_for_service(c.SERVICE_NAME)
+
+    def copy_template_files(self):
         shutil.copy(self.charm_dir / 'templates/app.py', c.APP_SCRIPT_PATH)
         shutil.copy(self.charm_dir / 'templates/db_util.py', c.DB_UTIL_SCRIPT_PATH)
-        util.install_service_file(f'templates/etc/systemd/system/{c.SERVICE_NAME}.service', c.SERVICE_NAME)
 
     def _on_start(self, event: ops.StartEvent):
         """Handle start event."""

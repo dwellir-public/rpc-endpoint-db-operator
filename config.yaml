@@ -4,12 +4,8 @@
 # See https://juju.is/docs/config for guidance.
 
 options:
-  # An example config option to customise the log level of the workload
-  log-level:
+  wsgi-server-port:
     description: |
-      Configures the log level of the app.
-
-      Available settings increasing in severity:
-      [debug, info, warning, error, critical]
-    default: info
-    type: string
+      The port that the Gunicorn server listens to.
+    default: 8000
+    type: int
