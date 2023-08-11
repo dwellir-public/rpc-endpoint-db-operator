@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
 
+"""
+Utility script to interact with the RPC endpoint database.
+
+Can access the endpoint database through two means:
+- Using the Flask API wrapping the database
+- Directly accessing the database file, if it's available locally
+"""
+
 import requests
 import json
 import argparse
