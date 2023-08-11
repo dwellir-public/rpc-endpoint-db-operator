@@ -5,6 +5,8 @@ import sqlite3
 import tempfile
 from pathlib import Path
 import unittest
+
+# TODO: fix import path
 from app import app, create_tables_if_not_exist
 
 
