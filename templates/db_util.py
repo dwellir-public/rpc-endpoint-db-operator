@@ -101,7 +101,7 @@ def import_data(args) -> None:
 def api_import_from_json_files(chains: dict, rpc_urls: dict, api_url: str) -> None:
     """
     Imports data from JSON files into an SQLite database.
-    Assumes the JSON files has a specific format as defined by XYZ. # TODO: mention the schema when implemented
+    Assumes the JSON files has a specific format, see `db_json` folder in this repository.
     """
     authorization_header = get_auth_header(api_url)
 
@@ -137,7 +137,7 @@ def api_import_from_json_files(chains: dict, rpc_urls: dict, api_url: str) -> No
 def local_import_from_json_files(chains: dict, rpc_urls: dict, db_file: str) -> None:
     """
     Imports data from JSON files into an SQLite database.
-    Assumes the JSON files has a specific format as defined by XYZ. # TODO: mention the schema when implemented
+    Assumes the JSON files has a specific format, see `db_json` folder in this repository.
     """
     conn = sqlite3.connect(db_file)
     conn.execute('PRAGMA foreign_keys = ON')
@@ -190,7 +190,6 @@ def export_data(args) -> None:
         print(f'Export source: API at URL {args.source_url}')
         api_export_json(Path(args.target) / 'chains.json', args.source_url + '/all/chains', sort_by='name', force=args.force)
         api_export_json(Path(args.target) / 'rpc_urls.json', args.source_url + '/all/rpc_urls', sort_by='chain_name', force=args.force)
-        # TODO: add sorting?
     if args.source_db:
         print(f'Export source: database on path {args.source_db}')
         local_export_to_json_files(Path(args.target) / 'chains.json', Path(args.target) / 'rpc_urls.json', args.source_db, force=args.force)
@@ -210,7 +209,7 @@ def api_export_json(path: Path, url: str, sort_by: str, force: bool) -> None:
 def local_export_to_json_files(target_chains: Path, target_rpc_urls: Path, db_file: str, force: bool) -> None:
     """
     Exports data from an SQLite database into JSON files.
-    The output JSON files has a specific format as defined by XYZ. # TODO: mention the schema when implemented
+    The output JSON files has a specific format, see `db_json` folder in this repository.
     """
     conn = sqlite3.connect(db_file)
     conn.execute('PRAGMA foreign_keys = ON')
@@ -319,7 +318,7 @@ def validate_json(args) -> None:
         rpcs.reverse()
     error_log = []
 
-    # TODO: make this a session of async tasks
+    # TODO: make this a session of async tasks to shorten time to run
     for rpc in rpcs:
         print(f'Validating {rpc["url"]}')
         # Confirm chain exists for URLs
@@ -393,7 +392,6 @@ def get_jsonrpc_method(api_class: str) -> str:
     return method
 
 
-# TODO: set return type, dict or None
 def load_json_file(filepath: Path):
     try:
         with open(filepath, 'r', encoding='utf-8') as f:

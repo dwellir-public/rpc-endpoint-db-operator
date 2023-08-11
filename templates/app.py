@@ -412,15 +412,13 @@ def get_chain_info():
     cursor = conn.cursor()
     # Fetch chain
     cursor.execute(f'SELECT * FROM {TABLE_CHAINS} WHERE name=?', (chain_name,))
-    chain_record = cursor.fetchone()  # TODO: fetchone() should be enough here, right? Only one should exist.
+    chain_record = cursor.fetchone()
     if not chain_record:
-        # TODO: can this error happen, since we found it in the previous if?
-        return jsonify({'error': f'Chain \'{chain_name}\' not found'}), 404
+        return jsonify({'error': f'Chain \'{chain_name}\' not found in database'}), 404
     # Fetch urls
     cursor.execute(f'SELECT url, chain_name FROM {TABLE_RPC_URLS} WHERE chain_name=?', (chain_name,))
     url_records = cursor.fetchall()
     conn.close()
-    # TODO: do we need a try/except block around here? Any out of bounds risks?
     urls = []
     for ur in url_records:
         urls.append(ur[0])
