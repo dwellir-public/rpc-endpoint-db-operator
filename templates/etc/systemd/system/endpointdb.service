@@ -5,6 +5,7 @@ Documentation=https://github.com/dwellir-public/rpc-endpoint-db
 
 [Service]
 Type=simple
+EnvironmentFile=/etc/default/endpointdb
 ExecStart=/usr/local/bin/gunicorn $ENDPOINTDB_CLI_ARGS
 WorkingDirectory=/home/ubuntu
 Restart=always

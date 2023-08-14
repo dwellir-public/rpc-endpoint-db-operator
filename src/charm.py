@@ -75,6 +75,7 @@ class EndpointDBCharm(ops.CharmBase):
         """Handle charm upgrade."""
         util.stop_service(c.SERVICE_NAME)
         self.install_files()
+        util.update_service_args(self.config.get('wsgi-server-port'), c.SERVICE_NAME, c.GUNICORN_HARDCODED_ARGS, False)
         util.start_service(c.SERVICE_NAME)
 
 # TODO: add action to set up API access info; token/auth etc.
