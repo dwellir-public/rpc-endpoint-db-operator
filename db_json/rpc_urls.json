@@ -688,10 +688,6 @@
         "chain_name": "Polkadot-pc HydraDX"
     },
     {
-        "url": "wss://hydradx.api.onfinality.io/public-ws",
-        "chain_name": "Polkadot-pc HydraDX"
-    },
-    {
         "url": "wss://rpc.hydradx.cloud",
         "chain_name": "Polkadot-pc HydraDX"
     },
