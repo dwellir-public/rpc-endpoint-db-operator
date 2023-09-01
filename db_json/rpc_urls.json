@@ -380,10 +380,6 @@
         "chain_name": "Kusama-pc Karura"
     },
     {
-        "url": "wss://karura.api.onfinality.io/public-ws",
-        "chain_name": "Kusama-pc Karura"
-    },
-    {
         "url": "https://karura-rpc-0.aca-api.network",
         "chain_name": "Kusama-pc Karura"
     },
