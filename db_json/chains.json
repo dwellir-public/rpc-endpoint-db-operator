@@ -24,6 +24,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Chiado",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Cronos mainnet",
         "api_class": "ethereum"
     },
@@ -45,6 +49,10 @@
     },
     {
         "name": "Fantom testnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Gnosis",
         "api_class": "ethereum"
     },
     {
@@ -101,6 +109,10 @@
     },
     {
         "name": "Kusama-pc Shiden",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Tinkernet",
         "api_class": "substrate"
     },
     {

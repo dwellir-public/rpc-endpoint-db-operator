@@ -108,6 +108,22 @@
         "chain_name": "Binance Smart Chain testnet"
     },
     {
+        "url": "https://chiado-archive-rpc-1.dwellir.com",
+        "chain_name": "Chiado"
+    },
+    {
+        "url": "https://chiado-archive-rpc-2.dwellir.com",
+        "chain_name": "Chiado"
+    },
+    {
+        "url": "https://rpc.chiado.gnosis.gateway.fm",
+        "chain_name": "Chiado"
+    },
+    {
+        "url": "https://rpc.chiadochain.net",
+        "chain_name": "Chiado"
+    },
+    {
         "url": "https://evm.cronos.org",
         "chain_name": "Cronos mainnet"
     },
@@ -218,6 +234,26 @@
     {
         "url": "https://fantom-testnet-archive-rpc-2.dwellir.com",
         "chain_name": "Fantom testnet"
+    },
+    {
+        "url": "https://gnosis-archive-rpc-1.dwellir.com",
+        "chain_name": "Gnosis"
+    },
+    {
+        "url": "https://gnosis-archive-rpc-2.dwellir.com",
+        "chain_name": "Gnosis"
+    },
+    {
+        "url": "https://gnosis-mainnet.public.blastapi.io",
+        "chain_name": "Gnosis"
+    },
+    {
+        "url": "https://gnosis.api.onfinality.io/public",
+        "chain_name": "Gnosis"
+    },
+    {
+        "url": "https://rpc.gnosis.gateway.fm",
+        "chain_name": "Gnosis"
     },
     {
         "url": "https://kusama-rpc.dwellir.com",
@@ -442,6 +478,14 @@
     {
         "url": "wss://rpc.shiden.astar.network",
         "chain_name": "Kusama-pc Shiden"
+    },
+    {
+        "url": "https://tinkernet-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Tinkernet"
+    },
+    {
+        "url": "https://invarch-tinkernet.api.onfinality.io/public-http",
+        "chain_name": "Kusama-pc Tinkernet"
     },
     {
         "url": "wss://turing-rpc.dwellir.com",
@@ -780,14 +824,6 @@
         "chain_name": "Polkadot-pc Zeitgeist"
     },
     {
-        "url": "https://polygon-mumbai.blockpi.network/v1/rpc/public",
-        "chain_name": "Polygon Mumbai"
-    },
-    {
-        "url": "https://polygon-mumbai-bor.publicnode.com",
-        "chain_name": "Polygon Mumbai"
-    },
-    {
         "url": "https://rpc-mumbai.maticvigil.com",
         "chain_name": "Polygon Mumbai"
     },
@@ -800,11 +836,15 @@
         "chain_name": "Polygon Mumbai"
     },
     {
-        "url": "https://polygon-rpc.com/",
-        "chain_name": "Polygon mainnet"
+        "url": "https://polygon-mumbai.blockpi.network/v1/rpc/public",
+        "chain_name": "Polygon Mumbai"
     },
     {
-        "url": "https://polygon.llamarpc.com",
+        "url": "https://polygon-mumbai-bor.publicnode.com",
+        "chain_name": "Polygon Mumbai"
+    },
+    {
+        "url": "https://polygon-rpc.com/",
         "chain_name": "Polygon mainnet"
     },
     {
@@ -825,6 +865,10 @@
     },
     {
         "url": "https://polygon-mainnet-full-rpc-2.dwellir.com",
+        "chain_name": "Polygon mainnet"
+    },
+    {
+        "url": "https://polygon.llamarpc.com",
         "chain_name": "Polygon mainnet"
     },
     {
@@ -885,6 +929,10 @@
     },
     {
         "url": "https://rpc-westend.luckyfriday.io",
+        "chain_name": "Westend Relaychain"
+    },
+    {
+        "url": "https://subscan-westend-rpc.dwellir.com",
         "chain_name": "Westend Relaychain"
     },
     {
