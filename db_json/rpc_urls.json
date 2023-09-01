@@ -268,10 +268,6 @@
         "chain_name": "Kusama Relaychain"
     },
     {
-        "url": "https://kusama.api.onfinality.io/public-http",
-        "chain_name": "Kusama Relaychain"
-    },
-    {
         "url": "https://kusama-rpc.polkadot.io",
         "chain_name": "Kusama Relaychain"
     },
@@ -329,10 +325,6 @@
     },
     {
         "url": "https://bifrost-rpc.liebi.com/http",
-        "chain_name": "Kusama-pc Bifrost"
-    },
-    {
-        "url": "wss://bifrost-parachain.api.onfinality.io/public-ws",
         "chain_name": "Kusama-pc Bifrost"
     },
     {
@@ -484,10 +476,6 @@
         "chain_name": "Kusama-pc Tinkernet"
     },
     {
-        "url": "https://invarch-tinkernet.api.onfinality.io/public-http",
-        "chain_name": "Kusama-pc Tinkernet"
-    },
-    {
         "url": "wss://turing-rpc.dwellir.com",
         "chain_name": "Kusama-pc Turing Network"
     },
@@ -501,10 +489,6 @@
     },
     {
         "url": "wss://wss.api.moonbase.moonbeam.network",
-        "chain_name": "Moonbase Alpha testnet"
-    },
-    {
-        "url": "https://moonbeam-alpha.api.onfinality.io/public-http",
         "chain_name": "Moonbase Alpha testnet"
     },
     {
@@ -573,10 +557,6 @@
     },
     {
         "url": "wss://rpc.polkadot.io",
-        "chain_name": "Polkadot Relaychain"
-    },
-    {
-        "url": "https://polkadot.api.onfinality.io/public-http",
         "chain_name": "Polkadot Relaychain"
     },
     {
@@ -792,10 +772,6 @@
         "chain_name": "Polkadot-pc Moonbeam"
     },
     {
-        "url": "https://moonbeam.api.onfinality.io/public-http",
-        "chain_name": "Polkadot-pc Moonbeam"
-    },
-    {
         "url": "wss://moonbeam.public.blastapi.io",
         "chain_name": "Polkadot-pc Moonbeam"
     },
@@ -813,10 +789,6 @@
     },
     {
         "url": "https://zeitgeist-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Zeitgeist"
-    },
-    {
-        "url": "wss://zeitgeist.api.onfinality.io/public-ws",
         "chain_name": "Polkadot-pc Zeitgeist"
     },
     {
