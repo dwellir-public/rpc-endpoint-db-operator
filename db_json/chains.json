@@ -4,6 +4,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Alpeh Zero",
+        "api_class": "substrate"
+    },
+    {
         "name": "Arbitrum mainnet",
         "api_class": "ethereum"
     },

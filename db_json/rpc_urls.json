@@ -8,6 +8,14 @@
         "chain_name": "Aleph Zero Testnet"
     },
     {
+        "url": "https://aleph-zero-rpc.dwellir.com",
+        "chain_name": "Alpeh Zero"
+    },
+    {
+        "url": "wss://ws.azero.dev",
+        "chain_name": "Alpeh Zero"
+    },
+    {
         "url": "https://arbitrum-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Arbitrum mainnet"
     },
@@ -709,6 +717,10 @@
     },
     {
         "url": "wss://rpc.hydradx.cloud",
+        "chain_name": "Polkadot-pc HydraDX"
+    },
+    {
+        "url": "https://hydradx-rpc-2.dwellir.com",
         "chain_name": "Polkadot-pc HydraDX"
     },
     {
