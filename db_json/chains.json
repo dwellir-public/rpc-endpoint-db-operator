@@ -20,6 +20,14 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Base Goerli testnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Base mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Binance Smart Chain mainnet",
         "api_class": "ethereum"
     },

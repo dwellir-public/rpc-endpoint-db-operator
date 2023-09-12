@@ -76,6 +76,58 @@
         "chain_name": "Avalanche mainnet"
     },
     {
+        "url": "https://base-testnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Base Goerli testnet"
+    },
+    {
+        "url": "https://base-testnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Base Goerli testnet"
+    },
+    {
+        "url": "https://rpc.notadegen.com/base/goerli",
+        "chain_name": "Base Goerli testnet"
+    },
+    {
+        "url": "https://base-goerli.publicnode.com",
+        "chain_name": "Base Goerli testnet"
+    },
+    {
+        "url": "https://goerli.base.org",
+        "chain_name": "Base Goerli testnet"
+    },
+    {
+        "url": "https://1rpc.io/base-goerli",
+        "chain_name": "Base Goerli testnet"
+    },
+    {
+        "url": "https://base-mainnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Base mainnet"
+    },
+    {
+        "url": "https://base-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Base mainnet"
+    },
+    {
+        "url": "https://base.blockpi.network/v1/rpc/public",
+        "chain_name": "Base mainnet"
+    },
+    {
+        "url": "https://rpc.notadegen.com/base",
+        "chain_name": "Base mainnet"
+    },
+    {
+        "url": "https://base.publicnode.com",
+        "chain_name": "Base mainnet"
+    },
+    {
+        "url": "https://mainnet.base.org",
+        "chain_name": "Base mainnet"
+    },
+    {
+        "url": "https://1rpc.io/base",
+        "chain_name": "Base mainnet"
+    },
+    {
         "url": "https://bsc-dataseed1.binance.org",
         "chain_name": "Binance Smart Chain mainnet"
     },
