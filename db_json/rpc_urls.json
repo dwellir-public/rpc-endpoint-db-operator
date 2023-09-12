@@ -200,6 +200,14 @@
         "chain_name": "Cronos mainnet"
     },
     {
+        "url": "https://enjin-matrix-rpc-1.dwellir.com",
+        "chain_name": "Enjin Matrixchain"
+    },
+    {
+        "url": "https://rpc.matrix.blockchain.enjin.io",
+        "chain_name": "Enjin Matrixchain"
+    },
+    {
         "url": "https://ethereum-goerli.publicnode.com",
         "chain_name": "Ethereum Goerli testnet"
     },

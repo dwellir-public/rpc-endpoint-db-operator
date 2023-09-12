@@ -44,6 +44,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Enjin Matrixchain",
+        "api_class": "substrate"
+    },
+    {
         "name": "Ethereum Goerli testnet",
         "api_class": "ethereum"
     },
