@@ -21,13 +21,18 @@ The charm installs all required software in its container, including the Python 
 
 ### API authentication
 
-The charm automatically generates the authentication files that are needed to run the application; `auth_jwt_secret_key` and `auth_password`. They need to be in the container's root folder, together with the `app.py` script, in order for the app to run. If you're doing a re-deploy, or for some other reason want to re-use an earlier secret key or auth password you can simply overwrite the files that were generated at charm install. If a need for new keys arise, they can be generated like thus:
+The charm automatically generates the authentication files that are needed to run the application; `auth_jwt_secret_key` and `auth_password`. They need to be in the container's root folder, together with the `app.py` script, in order for the app to run. If you're doing a re-deploy, or for some other reason want to re-use an earlier secret key or auth password you can simply overwrite the files that were generated at charm install. If a need for new keys arise, they can be generated and added to the charm like in the example below. Note: the auth password does not need to be a hexidecimal number.
 
-    openssl rand -hex 32 > key_filename
+    # Generate a 32 char hex key
+    openssl rand -hex 32
+    # Add the key to the app through action
+    juju run-action rpc-endpoint-db/0 set-jwt-secret-key key=<insert generated key>
 
 In order to make database changes over the application's API, e.g. posting a `/create_chain` request, you'll first need to generate an access token using the `/token` endpoint. To do this over the API, you'll need the auth password. The auth password, as mentioned, is found in the root folder of the charm's container. It can also be accessed through an action, which also happens to be a way to get the access token directly.
 
-    juju run-action rpc-endpoint-db/0 get-auth-pw --wait
+    # Get the auth password
+    juju run-action rpc-endpoint-db/0 get-auth-password --wait
+    # Get the access token, using the auth password present on the container
     juju run-action rpc-endpoint-db/0 get-access-token --wait
 
 ## Usage

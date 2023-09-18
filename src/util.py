@@ -29,7 +29,7 @@ def create_env_file_for_service(service_name: str) -> None:
 
 def generate_auth_files() -> None:
     sp.run(f'openssl rand -hex 32 > {c.JWT_SECRET_KEY_PATH}', shell=True, check=True)
-    sp.run(f'openssl rand -hex 32 > {c.PASSWORD_PATH}', shell=True, check=True)
+    sp.run(f'openssl rand -hex 32 > {c.AUTH_PASSWORD_PATH}', shell=True, check=True)
 
 
 def update_service_args(wsgi_server_port: str, service_name: str, hardcoded_args: str, restart: bool) -> None:

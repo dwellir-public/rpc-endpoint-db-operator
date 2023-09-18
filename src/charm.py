@@ -7,9 +7,11 @@
 
 import logging
 import shutil
+import subprocess as sp
 
 import ops
 from ops.model import ActiveStatus, MaintenanceStatus, BlockedStatus, WaitingStatus
+from ops.charm import CharmBase, ActionEvent
 import util
 import constants as c
 
@@ -17,7 +19,7 @@ import constants as c
 logger = logging.getLogger(__name__)
 
 
-class EndpointDBCharm(ops.CharmBase):
+class EndpointDBCharm(CharmBase):
     """Charms the blockchain monitoring service."""
 
     def __init__(self, *args):
@@ -28,6 +30,9 @@ class EndpointDBCharm(ops.CharmBase):
         self.framework.observe(self.on.stop, self._on_stop)
         self.framework.observe(self.on.update_status, self._on_update_status)
         self.framework.observe(self.on.upgrade_charm, self._on_upgrade_charm)
+
+        self.framework.observe(self.on.get_jwt_secret_key_action, self._on_get_jwt_secret_key_action)
+        self.framework.observe(self.on.get_auth_password_action, self._on_get_auth_password_action)
 
     def _on_install(self, event: ops.InstallEvent) -> None:
         """Handle charm installation."""
@@ -79,7 +84,24 @@ class EndpointDBCharm(ops.CharmBase):
         util.start_service(c.SERVICE_NAME)
 
 # TODO: add action to set up API access info; token/auth etc.
-# TODO: add action to get API access info; token/auth etc.
+
+    def _on_get_jwt_secret_key_action(self, event: ActionEvent) -> None:
+        event.log("Getting JWT secret key...")
+        try:
+            key = sp.check_output(['cat', c.JWT_SECRET_KEY_PATH]).decode('utf-8').strip()
+            event.set_results(results={'jwt-secret-key': key})
+        except sp.CalledProcessError as e:
+            logger.error('Error trying to get JWT secret key: %s', e)
+            event.fail("Unable to get JWT secret key")
+
+    def _on_get_auth_password_action(self, event: ActionEvent) -> None:
+        event.log("Getting API auth password...")
+        try:
+            key = sp.check_output(['cat', c.AUTH_PASSWORD_PATH]).decode('utf-8').strip()
+            event.set_results(results={'auth-password': key})
+        except sp.CalledProcessError as e:
+            logger.error('Error trying to get the API auth password: %s', e)
+            event.fail("Unable to get API auth password")
 
 
 if __name__ == "__main__":  # pragma: nocover
