@@ -31,9 +31,11 @@ class EndpointDBCharm(CharmBase):
         self.framework.observe(self.on.update_status, self._on_update_status)
         self.framework.observe(self.on.upgrade_charm, self._on_upgrade_charm)
 
+        self.framework.observe(self.on.get_access_token_action, self._on_get_access_token_action)
         self.framework.observe(self.on.get_auth_password_action, self._on_get_auth_password_action)
+        self.framework.observe(self.on.set_auth_password_action, self._on_set_auth_password_action)
         self.framework.observe(self.on.get_jwt_secret_key_action, self._on_get_jwt_secret_key_action)
-        self.framework.observe(self.on.get_jwt_secret_key_action, self._on_get_jwt_secret_key_action)
+        self.framework.observe(self.on.set_jwt_secret_key_action, self._on_set_jwt_secret_key_action)
 
     def _on_install(self, event: ops.InstallEvent) -> None:
         """Handle charm installation."""
@@ -84,7 +86,13 @@ class EndpointDBCharm(CharmBase):
         util.update_service_args(self.config.get('wsgi-server-port'), c.SERVICE_NAME, c.GUNICORN_HARDCODED_ARGS, False)
         util.start_service(c.SERVICE_NAME)
 
-# TODO: add action to set up API access info; token/auth etc.
+    def _on_get_access_token_action(self, event: ActionEvent) -> None:
+        event.log("Getting API access token...")
+        try:
+            event.set_results(results={'access-token': util.get_access_token(f'http://localhost:{self.config.get("wsgi-server-port")}')})
+        except sp.CalledProcessError as e:
+            logger.error('Error trying to get the API access token: %s', e)
+            event.fail("Unable to get API access token")
 
     def _on_get_auth_password_action(self, event: ActionEvent) -> None:
         event.log("Getting API auth password...")

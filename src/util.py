@@ -3,6 +3,7 @@
 from pathlib import Path
 import subprocess as sp
 import shutil
+import requests
 import constants as c
 
 
@@ -49,6 +50,21 @@ def is_valid_hex(string: str) -> bool:
         return True
     except ValueError:
         return False
+
+
+# TODO: merge usage with get_auth_header in db_util.py?
+def get_access_token(url: str, password: str = "") -> str:
+    if not password:
+        with open(c.AUTH_PASSWORD_PATH, 'r', encoding='utf-8') as f:
+            auth_pw = f.readline().strip()
+    elif password:
+        auth_pw = password
+    else:
+        raise ValueError("Missing authentication password for access token request!")
+    token_response = requests.post(url + '/token', json={'username': c.DATABASE_USERNAME, 'password': f'{auth_pw}'}, timeout=5)
+    if token_response.status_code != 200:
+        raise requests.exceptions.HTTPError(f"Couldn't get access token, {token_response.text}")
+    return token_response.json()["access_token"]
 
 
 def update_service_args(wsgi_server_port: str, service_name: str, hardcoded_args: str, restart: bool) -> None:
