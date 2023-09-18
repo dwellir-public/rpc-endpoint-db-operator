@@ -32,6 +32,25 @@ def generate_auth_files() -> None:
     sp.run(f'openssl rand -hex 32 > {c.AUTH_PASSWORD_PATH}', shell=True, check=True)
 
 
+def set_auth_password(auth_password: str) -> None:
+    with open(c.AUTH_PASSWORD_PATH, encoding='utf-8') as f:
+        f.write(auth_password)
+
+
+def set_jwt_secret_key(key: str) -> None:
+    if is_valid_hex(key):
+        with open(c.JWT_SECRET_KEY_PATH, encoding='utf-8') as f:
+            f.write(key)
+
+
+def is_valid_hex(string: str) -> bool:
+    try:
+        int(string, 16)
+        return True
+    except ValueError:
+        return False
+
+
 def update_service_args(wsgi_server_port: str, service_name: str, hardcoded_args: str, restart: bool) -> None:
     args = f"{service_name.upper()}_CLI_ARGS='{hardcoded_args} --bind=0.0.0.0:{wsgi_server_port}'"
     with open(f'/etc/default/{service_name.lower()}', 'w', encoding='utf-8') as f:

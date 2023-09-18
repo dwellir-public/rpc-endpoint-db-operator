@@ -31,8 +31,9 @@ class EndpointDBCharm(CharmBase):
         self.framework.observe(self.on.update_status, self._on_update_status)
         self.framework.observe(self.on.upgrade_charm, self._on_upgrade_charm)
 
-        self.framework.observe(self.on.get_jwt_secret_key_action, self._on_get_jwt_secret_key_action)
         self.framework.observe(self.on.get_auth_password_action, self._on_get_auth_password_action)
+        self.framework.observe(self.on.get_jwt_secret_key_action, self._on_get_jwt_secret_key_action)
+        self.framework.observe(self.on.get_jwt_secret_key_action, self._on_get_jwt_secret_key_action)
 
     def _on_install(self, event: ops.InstallEvent) -> None:
         """Handle charm installation."""
@@ -85,6 +86,15 @@ class EndpointDBCharm(CharmBase):
 
 # TODO: add action to set up API access info; token/auth etc.
 
+    def _on_get_auth_password_action(self, event: ActionEvent) -> None:
+        event.log("Getting API auth password...")
+        try:
+            key = sp.check_output(['cat', c.AUTH_PASSWORD_PATH]).decode('utf-8').strip()
+            event.set_results(results={'auth-password': key})
+        except sp.CalledProcessError as e:
+            logger.error('Error trying to get the API auth password: %s', e)
+            event.fail("Unable to get API auth password")
+
     def _on_get_jwt_secret_key_action(self, event: ActionEvent) -> None:
         event.log("Getting JWT secret key...")
         try:
@@ -94,14 +104,13 @@ class EndpointDBCharm(CharmBase):
             logger.error('Error trying to get JWT secret key: %s', e)
             event.fail("Unable to get JWT secret key")
 
-    def _on_get_auth_password_action(self, event: ActionEvent) -> None:
-        event.log("Getting API auth password...")
+    def _on_set_jwt_secret_key_action(self, event: ActionEvent) -> None:
+        event.log("Setting JWT secret key...")
         try:
-            key = sp.check_output(['cat', c.AUTH_PASSWORD_PATH]).decode('utf-8').strip()
-            event.set_results(results={'auth-password': key})
-        except sp.CalledProcessError as e:
-            logger.error('Error trying to get the API auth password: %s', e)
-            event.fail("Unable to get API auth password")
+            key = event.params['key']
+            util.set_jwt_secret_key(key)
+        except ValueError as e:
+            event.fail("Unable to set JWT secret key: %s", e)
 
 
 if __name__ == "__main__":  # pragma: nocover
