@@ -31,7 +31,18 @@ class EndpointDBCharm(CharmBase):
         self.framework.observe(self.on.update_status, self._on_update_status)
         self.framework.observe(self.on.upgrade_charm, self._on_upgrade_charm)
 
+        # API actions
         self.framework.observe(self.on.get_access_token_action, self._on_get_access_token_action)
+        # TODO: before committing to below, figure out how to make use of db_util in both charm and in-containter without introducing code duplication
+        # TODO: add chain
+        # TODO: add RPC
+        # TODO: list chains
+        # TODO: list RPCs
+        # TODO: show chain info
+        # TODO: delete RPC
+        # TODO: delete chain
+        # TODO: import from JSON (with/without overwrite protection?)
+        # File actions
         self.framework.observe(self.on.get_auth_password_action, self._on_get_auth_password_action)
         self.framework.observe(self.on.set_auth_password_action, self._on_set_auth_password_action)
         self.framework.observe(self.on.get_jwt_secret_key_action, self._on_get_jwt_secret_key_action)
