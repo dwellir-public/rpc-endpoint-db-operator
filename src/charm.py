@@ -37,7 +37,7 @@ class EndpointDBCharm(ops.CharmBase):
         util.install_python_dependencies(self.charm_dir / 'templates/requirements_app.txt')
         self.unit.status = MaintenanceStatus('Installing script and service')
         self.install_files()
-        # TODO: generate secret key and auth password automatically, to be replaced if needed?
+        util.generate_auth_files()
         util.update_service_args(self.config.get('wsgi-server-port'), c.SERVICE_NAME, c.GUNICORN_HARDCODED_ARGS, False)
         self.unit.status = ActiveStatus('Installation complete')
 

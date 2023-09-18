@@ -3,6 +3,7 @@
 from pathlib import Path
 import subprocess as sp
 import shutil
+import constants as c
 
 
 def install_apt_dependencies() -> None:
@@ -24,6 +25,11 @@ def install_service_file(source_path: str, service_name: str) -> None:
 def create_env_file_for_service(service_name: str) -> None:
     with open(f'/etc/default/{service_name.lower()}', 'w', encoding='utf-8') as f:
         f.write(f"{service_name.upper()}_CLI_ARGS=''")
+
+
+def generate_auth_files() -> None:
+    sp.run(f'openssl rand -hex 32 > {c.JWT_SECRET_KEY_PATH}', shell=True, check=True)
+    sp.run(f'openssl rand -hex 32 > {c.PASSWORD_PATH}', shell=True, check=True)
 
 
 def update_service_args(wsgi_server_port: str, service_name: str, hardcoded_args: str, restart: bool) -> None:
