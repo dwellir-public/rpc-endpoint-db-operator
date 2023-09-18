@@ -26,7 +26,7 @@ set-auth-password:
     Sets a new password in '/home/ubuntu/auth_password' and restarts the app service.
     On install, the charm automatically generates an auth password with openssl using `openssl rand -hex 32 > output_file`.
   params:
-    key:
+    password:
       description: The password.
       type: string
-  required: [ key ]
+  required: [ password ]

@@ -104,6 +104,14 @@ class EndpointDBCharm(CharmBase):
             logger.error('Error trying to get JWT secret key: %s', e)
             event.fail("Unable to get JWT secret key")
 
+    def _on_set_auth_password_action(self, event: ActionEvent) -> None:
+        event.log("Setting auth password...")
+        try:
+            pw = event.params['password']
+            util.set_auth_password(pw)
+        except ValueError as e:
+            event.fail("Unable to set auth password: %s", e)
+
     def _on_set_jwt_secret_key_action(self, event: ActionEvent) -> None:
         event.log("Setting JWT secret key...")
         try:
