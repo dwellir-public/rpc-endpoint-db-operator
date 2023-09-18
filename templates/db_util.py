@@ -373,6 +373,7 @@ def validate_json(args) -> None:
 
 # # # UTILS # # #
 
+# TODO: this doesn't really return a string, does it?
 def get_auth_header(url: str, password: str = "") -> str:
     if not password:
         with open(PATH_DEFAULT_AUTH_PW, 'r', encoding='utf-8') as f:
