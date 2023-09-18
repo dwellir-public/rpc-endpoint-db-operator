@@ -29,12 +29,6 @@ class EndpointDBCharm(ops.CharmBase):
         self.framework.observe(self.on.update_status, self._on_update_status)
         self.framework.observe(self.on.upgrade_charm, self._on_upgrade_charm)
 
-    def _on_config_changed(self, event: ops.ConfigChangedEvent):
-        """Handle changed configuration."""
-        self.unit.status = MaintenanceStatus('Updating config')
-        util.update_service_args(self.config.get('wsgi-server-port'), c.SERVICE_NAME, c.GUNICORN_HARDCODED_ARGS, True)
-        self.unit.status = ActiveStatus('Configuration updated')
-
     def _on_install(self, event: ops.InstallEvent) -> None:
         """Handle charm installation."""
         self.unit.status = MaintenanceStatus('Installing apt dependencies')
@@ -55,6 +49,12 @@ class EndpointDBCharm(ops.CharmBase):
     def copy_template_files(self):
         shutil.copy(self.charm_dir / 'templates/app.py', c.APP_SCRIPT_PATH)
         shutil.copy(self.charm_dir / 'templates/db_util.py', c.DB_UTIL_SCRIPT_PATH)
+
+    def _on_config_changed(self, event: ops.ConfigChangedEvent):
+        """Handle changed configuration."""
+        self.unit.status = MaintenanceStatus('Updating config')
+        util.update_service_args(self.config.get('wsgi-server-port'), c.SERVICE_NAME, c.GUNICORN_HARDCODED_ARGS, True)
+        self.unit.status = ActiveStatus('Configuration updated')
 
     def _on_start(self, event: ops.StartEvent):
         """Handle start event."""
