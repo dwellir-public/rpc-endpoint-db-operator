@@ -200,6 +200,18 @@
         "chain_name": "Cronos mainnet"
     },
     {
+        "url": "https://crust-mainnet-rpc.dwellir.com",
+        "chain_name": "Crust mainnet"
+    },
+    {
+        "url": "wss://rpc.crust.network",
+        "chain_name": "Crust mainnet"
+    },
+    {
+        "url": "wss://crust.api.onfinality.io/public-ws",
+        "chain_name": "Crust mainnet"
+    },
+    {
         "url": "https://enjin-matrix-rpc-1.dwellir.com",
         "chain_name": "Enjin Matrixchain"
     },
@@ -516,6 +528,22 @@
         "chain_name": "Kusama-pc Picasso"
     },
     {
+        "url": "https://quartz-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Quartz"
+    },
+    {
+        "url": "wss://eu-ws-quartz.unique.network",
+        "chain_name": "Kusama-pc Quartz"
+    },
+    {
+        "url": "wss://quartz.api.onfinality.io/public-ws",
+        "chain_name": "Kusama-pc Quartz"
+    },
+    {
+        "url": "wss://us-ws-quartz.unique.network",
+        "chain_name": "Kusama-pc Quartz"
+    },
+    {
         "url": "wss://shiden-rpc.dwellir.com",
         "chain_name": "Kusama-pc Shiden"
     },
@@ -696,6 +724,18 @@
         "chain_name": "Polkadot-pc BridgeHub"
     },
     {
+        "url": "https://clover-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Clover"
+    },
+    {
+        "url": "https://api-para.clover.finance",
+        "chain_name": "Polkadot-pc Clover"
+    },
+    {
+        "url": "wss://clover.api.onfinality.io/public-ws",
+        "chain_name": "Polkadot-pc Clover"
+    },
+    {
         "url": "https://polkadot-collectives-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc Collectives"
     },
@@ -844,6 +884,18 @@
         "chain_name": "Polkadot-pc Moonbeam"
     },
     {
+        "url": "wss://parallel.api.onfinality.io/public-ws",
+        "chain_name": "Polkadot-pc Parallel"
+    },
+    {
+        "url": "wss://rpc.parallel.fi",
+        "chain_name": "Polkadot-pc Parallel"
+    },
+    {
+        "url": "https://parallel-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Parallel"
+    },
+    {
         "url": "https://phala-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Phala Network"
     },
@@ -854,6 +906,34 @@
     {
         "url": "wss://api.phala.network/ws",
         "chain_name": "Polkadot-pc Phala Network"
+    },
+    {
+        "url": "https://polkadex-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Polkadex"
+    },
+    {
+        "url": "wss://polkadex-parachain.api.onfinality.io/public-ws",
+        "chain_name": "Polkadot-pc Polkadex"
+    },
+    {
+        "url": "wss://polkadex-parachain.public.curie.radiumblock.co/ws",
+        "chain_name": "Polkadot-pc Polkadex"
+    },
+    {
+        "url": "https://unique-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Unique"
+    },
+    {
+        "url": "wss://asia-ws.unique.network",
+        "chain_name": "Polkadot-pc Unique"
+    },
+    {
+        "url": "wss://eu-ws.unique.network",
+        "chain_name": "Polkadot-pc Unique"
+    },
+    {
+        "url": "https://unique.api.onfinality.io/public-http",
+        "chain_name": "Polkadot-pc Unique"
     },
     {
         "url": "https://zeitgeist-rpc.dwellir.com",

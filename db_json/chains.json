@@ -44,6 +44,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Crust mainnet",
+        "api_class": "substrate"
+    },
+    {
         "name": "Enjin Matrixchain",
         "api_class": "substrate"
     },
@@ -124,6 +128,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Kusama-pc Quartz",
+        "api_class": "substrate"
+    },
+    {
         "name": "Kusama-pc Shiden",
         "api_class": "substrate"
     },
@@ -169,6 +177,10 @@
     },
     {
         "name": "Polkadot-pc BridgeHub",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Clover",
         "api_class": "substrate"
     },
     {
@@ -224,7 +236,19 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Parallel",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Phala Network",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Polkadex",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Unique",
         "api_class": "substrate"
     },
     {
