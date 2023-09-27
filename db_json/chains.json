@@ -148,6 +148,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Optimism Goerli testnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Optimism mainnet",
         "api_class": "ethereum"
     },
@@ -256,6 +260,14 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc centrifuge",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc pendulum",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polygon Mumbai",
         "api_class": "ethereum"
     },
@@ -289,6 +301,10 @@
     },
     {
         "name": "Westend-pc Collectives",
+        "api_class": "substrate"
+    },
+    {
+        "name": "xx network",
         "api_class": "substrate"
     }
 ]

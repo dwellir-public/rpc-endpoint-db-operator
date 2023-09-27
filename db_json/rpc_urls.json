@@ -588,6 +588,26 @@
         "chain_name": "Moonbase Alpha testnet"
     },
     {
+        "url": "https://optimism-goerli-archive-rpc-2.dwellir.com",
+        "chain_name": "Optimism Goerli testnet"
+    },
+    {
+        "url": "https://optimism-goerli-archive-rpc-1.dwellir.com",
+        "chain_name": "Optimism Goerli testnet"
+    },
+    {
+        "url": "https://endpoints.omniatech.io/v1/op/goerli/public",
+        "chain_name": "Optimism Goerli testnet"
+    },
+    {
+        "url": "https://goerli.optimism.io",
+        "chain_name": "Optimism Goerli testnet"
+    },
+    {
+        "url": "wss://optimism-goerli.publicnode.com",
+        "chain_name": "Optimism Goerli testnet"
+    },
+    {
         "url": "https://optimism-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Optimism mainnet"
     },
@@ -944,6 +964,30 @@
         "chain_name": "Polkadot-pc Zeitgeist"
     },
     {
+        "url": "https://centrifuge-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc centrifuge"
+    },
+    {
+        "url": "https://centrifuge-parachain.api.onfinality.io/public",
+        "chain_name": "Polkadot-pc centrifuge"
+    },
+    {
+        "url": "https://fullnode.centrifuge.io",
+        "chain_name": "Polkadot-pc centrifuge"
+    },
+    {
+        "url": "wss://rpc-centrifuge.luckyfriday.io",
+        "chain_name": "Polkadot-pc centrifuge"
+    },
+    {
+        "url": "https://pendulum-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc pendulum"
+    },
+    {
+        "url": "https://rpc-pendulum.prd.pendulumchain.tech",
+        "chain_name": "Polkadot-pc pendulum"
+    },
+    {
         "url": "https://rpc-mumbai.maticvigil.com",
         "chain_name": "Polygon Mumbai"
     },
@@ -1094,5 +1138,9 @@
     {
         "url": "wss://sys.dotters.network/collectives-westend",
         "chain_name": "Westend-pc Collectives"
+    },
+    {
+        "url": "https://xxnetwork-rpc.dwellir.com",
+        "chain_name": "xx network"
     }
 ]
