@@ -40,6 +40,14 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Chiliz Spicy testnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Chiliz mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Cronos mainnet",
         "api_class": "ethereum"
     },

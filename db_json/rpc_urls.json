@@ -184,6 +184,34 @@
         "chain_name": "Chiado"
     },
     {
+        "url": "https://chiliz-testnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Chiliz Spicy testnet"
+    },
+    {
+        "url": "https://chiliz-testnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Chiliz Spicy testnet"
+    },
+    {
+        "url": "https://spicy-rpc.chiliz.com/",
+        "chain_name": "Chiliz Spicy testnet"
+    },
+    {
+        "url": "https://chiliz-mainnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Chiliz mainnet"
+    },
+    {
+        "url": "https://chiliz-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Chiliz mainnet"
+    },
+    {
+        "url": "https://rpc.ankr.com/chiliz",
+        "chain_name": "Chiliz mainnet"
+    },
+    {
+        "url": "https://chiliz.public-rpc.com",
+        "chain_name": "Chiliz mainnet"
+    },
+    {
         "url": "https://evm.cronos.org",
         "chain_name": "Cronos mainnet"
     },
