@@ -604,10 +604,6 @@
         "chain_name": "Optimism Goerli testnet"
     },
     {
-        "url": "wss://optimism-goerli.publicnode.com",
-        "chain_name": "Optimism Goerli testnet"
-    },
-    {
         "url": "https://optimism-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Optimism mainnet"
     },
