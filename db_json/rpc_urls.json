@@ -380,10 +380,6 @@
         "chain_name": "Kusama-pc AssetHub (Statemine)"
     },
     {
-        "url": "wss://statemine.api.onfinality.io/public-ws",
-        "chain_name": "Kusama-pc AssetHub (Statemine)"
-    },
-    {
         "url": "https://kusama-asset-hub-rpc.polkadot.io",
         "chain_name": "Kusama-pc AssetHub (Statemine)"
     },
