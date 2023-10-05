@@ -10,7 +10,7 @@ import shutil
 import subprocess as sp
 
 import ops
-from ops.model import ActiveStatus, MaintenanceStatus, BlockedStatus, WaitingStatus
+from ops.model import ModelError, ActiveStatus, MaintenanceStatus, BlockedStatus, WaitingStatus
 from ops.charm import CharmBase, ActionEvent
 import util
 import constants as c
@@ -58,16 +58,28 @@ class EndpointDBCharm(CharmBase):
         self.install_files()
         util.generate_auth_files()
         util.update_service_args(self.config.get('wsgi-server-port'), c.SERVICE_NAME, c.GUNICORN_HARDCODED_ARGS, False)
+        self.import_db_from_resources()
         self.unit.status = ActiveStatus('Installation complete')
 
-    def install_files(self):
+    def install_files(self) -> None:
         self.copy_template_files()
         util.install_service_file(f'templates/etc/systemd/system/{c.SERVICE_NAME}.service', c.SERVICE_NAME)
         util.create_env_file_for_service(c.SERVICE_NAME)
 
-    def copy_template_files(self):
+    def copy_template_files(self) -> None:
         shutil.copy(self.charm_dir / 'templates/app.py', c.APP_SCRIPT_PATH)
         shutil.copy(self.charm_dir / 'templates/db_util.py', c.DB_UTIL_SCRIPT_PATH)
+
+    def import_db_from_resources(self) -> None:
+        try:
+            rpc_chains_path = self.model.resources.fetch('rpc-chains')
+            rpc_urls_path = self.model.resources.fetch('rpc-urls')
+            rpc_chains = util.load_json_file(rpc_chains_path)
+            rpc_urls = util.load_json_file(rpc_urls_path)
+            util.start_service(c.SERVICE_NAME)  # Start service to initialize DB before import
+            util.local_import_from_json_files(rpc_chains, rpc_urls, str(c.DATABASE_PATH))
+        except (NameError, ModelError) as e:
+            logger.error('Error trying to import DB from resources: %s', e)
 
     def _on_config_changed(self, event: ops.ConfigChangedEvent):
         """Handle changed configuration."""

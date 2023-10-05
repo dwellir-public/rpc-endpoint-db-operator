@@ -3,7 +3,9 @@
 from pathlib import Path
 import subprocess as sp
 import shutil
+import json
 import requests
+import sqlite3
 import constants as c
 
 
@@ -65,6 +67,63 @@ def get_access_token(url: str, password: str = "") -> str:
     if token_response.status_code != 200:
         raise requests.exceptions.HTTPError(f"Couldn't get access token, {token_response.text}")
     return token_response.json()["access_token"]
+
+
+# TODO: merge usage with local_import_from_json_files in db_util.py?
+def local_import_from_json_files(chains: dict, rpc_urls: dict, db_file: str) -> None:
+    """
+    Imports data from JSON files into an SQLite database.
+    Assumes the JSON files has a specific format, see `db_json` folder in this repository.
+    """
+    conn = sqlite3.connect(db_file)
+    conn.execute('PRAGMA foreign_keys = ON')
+    cursor = conn.cursor()
+
+    if chains:
+        unique_chain_counter = 0
+        for entry in chains:
+            name = entry['name']
+            api_class = entry['api_class']
+            query = f'INSERT INTO {c.TABLE_CHAINS} (name, api_class) VALUES (?, ?)'
+            values = (name, api_class)
+            try:
+                cursor.execute(query, values)
+                print(f'> Added chain {entry["name"]}')
+            except sqlite3.IntegrityError as e:
+                if "UNIQUE constraint failed" in str(e):
+                    unique_chain_counter = unique_chain_counter + 1
+        if unique_chain_counter > 0:
+            print(f"{unique_chain_counter} chains already existing in the database were skipped")
+
+    if rpc_urls:
+        unique_rpc_counter = 0
+        for entry in rpc_urls:
+            url = entry['url']
+            chain_name = entry['chain_name']
+            query = f'INSERT INTO {c.TABLE_RPC_URLS} (url, chain_name) VALUES (?, ?)'
+            values = (url, chain_name)
+            try:
+                cursor.execute(query, values)
+                print(f'> Added RPC URL {entry["url"]}')
+            except sqlite3.IntegrityError as e:
+                if "UNIQUE constraint failed" in str(e):
+                    unique_rpc_counter = unique_rpc_counter + 1
+        if unique_rpc_counter > 0:
+            print(f"{unique_rpc_counter} RPC URL:s already existing in the database were skipped")
+
+    conn.commit()
+    conn.close()
+
+
+# TODO: merge usage with load_json_file in db_util.py?
+def load_json_file(filepath: Path):
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            result = json.load(f)
+    except FileNotFoundError as e:
+        print(e)
+        result = None
+    return result
 
 
 def update_service_args(wsgi_server_port: str, service_name: str, hardcoded_args: str, restart: bool) -> None:
