@@ -8,6 +8,7 @@
 import logging
 import shutil
 import subprocess as sp
+import time
 
 import ops
 from ops.model import ModelError, ActiveStatus, MaintenanceStatus, BlockedStatus, WaitingStatus
@@ -77,6 +78,7 @@ class EndpointDBCharm(CharmBase):
             rpc_chains = util.load_json_file(rpc_chains_path)
             rpc_urls = util.load_json_file(rpc_urls_path)
             util.start_service(c.SERVICE_NAME)  # Start service to initialize DB before import
+            time.sleep(5)  # Give service time to initialize DB
             util.local_import_from_json_files(rpc_chains, rpc_urls, str(c.DATABASE_PATH))
         except (NameError, ModelError) as e:
             logger.error('Error trying to import DB from resources: %s', e)
