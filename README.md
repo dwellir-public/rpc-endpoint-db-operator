@@ -1,13 +1,3 @@
-<!--
-Avoid using this README file for information that is maintained or published elsewhere, e.g.:
-
-* metadata.yaml > published on Charmhub
-* documentation > published on (or linked to from) Charmhub
-* detailed contribution guide > documentation or CONTRIBUTING.md
-
-Use links instead.
--->
-
 # rpc-endpoint-db-operator
 
 Charmhub package name: rpc-endpoint-db
@@ -19,22 +9,35 @@ This charm runs an application that maintains and serves a database of RPC endpo
 
 The charm installs all required software in its container, including the Python libraries used by the Flask app. If you would like to do a manual deployment of the app, for development purposes or similar, just follow the steps taken by [the charm](src/charm.py). Note: for a local deployment it is advised that you make use of a Python virtual environment.
 
+### Deployment
+
+    cd rpc-endpoint-db-operator
+    charmcraft pack
+
+    # Deploy using version controlled JSON files as resources, to initialize the database with
+    juju deploy ./rpc-endpoint-db_ubuntu-22.04-amd64.charm --resource rpc-chains=./db_json/chains.json --resource rpc-urls=./db_json/rpc_urls.json
+
 ### API authentication
 
-The charm automatically generates the authentication files that are needed to run the application; `auth_jwt_secret_key` and `auth_password`. They need to be in the container's root folder, together with the `app.py` script, in order for the app to run. If you're doing a re-deploy, or for some other reason want to re-use an earlier secret key or auth password you can simply overwrite the files that were generated at charm install. If a need for new keys arise, they can be generated like thus:
+The charm automatically generates the authentication files that are needed to run the application; `auth_jwt_secret_key` and `auth_password`. They need to be in the container's root folder, together with the `app.py` script, in order for the app to run. If you're doing a re-deploy, or for some other reason want to re-use an earlier secret key or auth password you can simply overwrite the files that were generated at charm install. If a need for new keys arise, they can be generated and added to the charm like in the example below. Note: the auth password does not need to be a hexidecimal number.
 
-    openssl rand -hex 32 > key_filename
+    # Generate a 32 char hex key
+    openssl rand -hex 32
+    # Add the key to the app through action
+    juju run-action rpc-endpoint-db/0 set-jwt-secret-key key=<insert generated key>
 
 In order to make database changes over the application's API, e.g. posting a `/create_chain` request, you'll first need to generate an access token using the `/token` endpoint. To do this over the API, you'll need the auth password. The auth password, as mentioned, is found in the root folder of the charm's container. It can also be accessed through an action, which also happens to be a way to get the access token directly.
 
-    juju run-action rpc-endpoint-db/0 get-auth-pw --wait
+    # Get the auth password
+    juju run-action rpc-endpoint-db/0 get-auth-password --wait
+    # Get the access token, using the auth password present on the container
     juju run-action rpc-endpoint-db/0 get-access-token --wait
 
 ## Usage
 
 When the charm has started the [systemd](https://wiki.archlinux.org/title/systemd) service serving the application it will be accessible on the port designated by the configuration (default is port 8000). This is the access point that should be set to the [blockchain-monitor's](https://github.com/dwellir-public/blockchain-monitor-operator) configuration, the application this endpoint database was made to serve.
 
-There are two main reasons to interact with the app and its database after a deployment. The first is to populate a newly deployed app with the current list of chains and endpoints that should be tracked. The second reason is to update that list when the situation changes. To ease interaction with the application there is a utility script, [db_util.py](templates/db_util.py). It can be run either from your local clone of this repo or from the charm's container, where it is copied during the install and subsequent charm upgrades.
+There is one main reason to interact with the app and its databse after it has been set up: to update the lists of chains and RPC endpoints when the external situation changes. To ease interaction with the application there is a utility script, [db_util.py](templates/db_util.py). It can be run either from your local clone of this repo or from the charm's container, where it is copied during the install and subsequent charm upgrades. There is also planned work to implement Juju actions to handle database interactions.
 
 ### Query via db_util.py
 

@@ -261,7 +261,7 @@ def local_export_rpc_urls(target_rpc_urls: Path, entries: list, force: bool) -> 
 
 # # # REQUEST # # #
 
-def get_all(url: str) -> None:
+def make_get_request(url: str) -> None:
     response = requests.get(url, timeout=5)
     if response.status_code == 200:
         data = response.json()
@@ -272,11 +272,11 @@ def get_all(url: str) -> None:
 
 
 def get_all_chains(args) -> None:
-    get_all(args.url + '/all/chains')
+    make_get_request(args.url + '/all/chains')
 
 
 def get_all_rpc_urls(args) -> None:
-    get_all(args.url + '/all/rpc_urls')
+    make_get_request(args.url + '/all/rpc_urls')
 
 
 def add_rpc(args) -> None:
@@ -373,6 +373,7 @@ def validate_json(args) -> None:
 
 # # # UTILS # # #
 
+# TODO: this doesn't really return a string, does it?
 def get_auth_header(url: str, password: str = "") -> str:
     if not password:
         with open(PATH_DEFAULT_AUTH_PW, 'r', encoding='utf-8') as f:

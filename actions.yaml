@@ -1,0 +1,37 @@
+# Copyright 2023 Dwellir
+# See LICENSE file for licensing details.
+
+get-access-token:
+  description: |
+    Requests the API for the access token and returns it as a string.
+    The access token is needed to access the app's protected API endpoints.
+
+get-auth-password:
+  description: |
+    Reads and returns the auth password stored in the app's container.
+    The auth password is needed to generate an access token for the app's API.
+
+get-jwt-secret-key:
+  description: |
+    Reads and returns the JWT secret key stored in the app's container.
+
+set-auth-password:
+  description: |
+    Sets a new password in '/home/ubuntu/auth_password' and restarts the app service.
+    On install, the charm automatically generates an auth password with openssl using `openssl rand -hex 32 > output_file`.
+  params:
+    password:
+      description: The password.
+      type: string
+  required: [ password ]
+
+set-jwt-secret-key:
+  description: |
+    Sets a new key in '/home/ubuntu/auth_jwt_secret_key' and restarts the app service.
+    A secret key can be any string of hexadecimals but to generate one of the same type as the charm does on install,
+    it can be generated with openssl using `openssl rand -hex 32 > output_file`.
+  params:
+    key:
+      description: The secret key.
+      type: string
+  required: [ key ]

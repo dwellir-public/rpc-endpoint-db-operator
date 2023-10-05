@@ -10,10 +10,18 @@ display-name: RPC endpoint database operator
 summary: Runs a database with RPC endpoint information as well as an API to access that database.
 
 description: |
-  A single sentence that says what the charm is, concisely and memorably.
+  This charm operates a database of RPC endpoint information.
 
-  A paragraph of one to three short sentences, that describe what the charm does.
+  The operation includes storing the RPC endpoint data and serving it over an API. The data will be used by other applications making inquires to the RPC endpoints, this app mainly acts as the caretaker of which endpoints to poll for information.
 
-  A third paragraph that explains what need the charm meets.
-
-  Finally, a paragraph that describes whom the charm is useful for.
+resources:
+  rpc-chains:
+    type: file
+    description: |
+      A JSON file with a list of chains to initialize the database with. The db_json/chains.json file in the charm's repo can be used, and should be kept updated for this purpose.
+    filename: resource_rpc_chains.json
+  rpc-urls:
+    type: file
+    description: |
+      A JSON file with a list of RPC URL:s to initialize the database with. The db_json/rpc_urls.json file in the charm's repo can be used, and should be kept updated for this purpose.
+    filename: resource_rpc_urls.json
