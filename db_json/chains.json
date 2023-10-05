@@ -248,6 +248,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc OriginTrail",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Parallel",
         "api_class": "substrate"
     },

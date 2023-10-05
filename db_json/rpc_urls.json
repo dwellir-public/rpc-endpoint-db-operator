@@ -924,6 +924,18 @@
         "chain_name": "Polkadot-pc Moonbeam"
     },
     {
+        "url": "https://parachain-rpc.origin-trail.network",
+        "chain_name": "Polkadot-pc OriginTrail"
+    },
+    {
+        "url": "https://origintrail-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc OriginTrail"
+    },
+    {
+        "url": "wss://origintrail.api.onfinality.io/public-ws",
+        "chain_name": "Polkadot-pc OriginTrail"
+    },
+    {
         "url": "wss://parallel.api.onfinality.io/public-ws",
         "chain_name": "Polkadot-pc Parallel"
     },
