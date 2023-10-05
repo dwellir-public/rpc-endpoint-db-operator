@@ -1162,5 +1162,13 @@
     {
         "url": "https://xxnetwork-rpc.dwellir.com",
         "chain_name": "xx network"
+    },
+    {
+        "url": "https://xx.api.onfinality.io/public",
+        "chain_name": "xx network"
+    },
+    {
+        "url": "wss://rpc.xx.network",
+        "chain_name": "xx network"
     }
 ]
