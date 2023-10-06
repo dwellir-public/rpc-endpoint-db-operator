@@ -296,6 +296,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Rococo-pc Frequency",
+        "api_class": "substrate"
+    },
+    {
         "name": "Shibuya",
         "api_class": "substrate"
     },
