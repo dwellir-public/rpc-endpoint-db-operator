@@ -389,13 +389,15 @@ def get_auth_header(url: str, password: str = "") -> str:
 
 
 def get_jsonrpc_method(api_class: str) -> str:
-    method = ""
+    method = ''
     if api_class == 'aptos':
-        method = ""
+        method = ''
     elif api_class == 'substrate':
-        method = "chain_getHeader"
+        method = 'chain_getHeader'
     elif api_class == 'ethereum':
-        method = "eth_blockNumber"
+        method = 'eth_blockNumber'
+    elif api_class == 'starknet':
+        method = 'starknet_blockNumber'
     else:
         raise ValueError('Invalid api_class:', api_class)
     return method
