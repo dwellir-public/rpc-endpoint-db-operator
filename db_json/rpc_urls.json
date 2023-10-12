@@ -1112,6 +1112,18 @@
         "chain_name": "Shibuya"
     },
     {
+        "url": "https://starknet-mainnet-rpc.dwellir.com",
+        "chain_name": "Starknet mainnet"
+    },
+    {
+        "url": "https://starknet-mainnet.g.alchemy.com/v2/demo",
+        "chain_name": "Starknet mainnet"
+    },
+    {
+        "url": "https://g.w.lavanet.xyz:443/gateway/strk/rpc-http/f7ee0000000000000000000000000000",
+        "chain_name": "Starknet mainnet"
+    },
+    {
         "url": "https://westend-rpc.dwellir.com",
         "chain_name": "Westend Relaychain"
     },

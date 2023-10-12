@@ -304,6 +304,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Starknet mainnet",
+        "api_class": "starknet"
+    },
+    {
         "name": "Westend Relaychain",
         "api_class": "substrate"
     },
