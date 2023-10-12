@@ -16,7 +16,7 @@ import websocket
 from pathlib import Path
 
 
-DEFAULT_URL = 'http://localhost:5000'
+DEFAULT_URL = 'http://localhost:8000'
 
 PATH_DIR = Path(__file__).parent.absolute()
 PATH_DEFAULT_AUTH_PW = PATH_DIR / 'auth_password'
