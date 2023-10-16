@@ -350,7 +350,7 @@ def validate_json(args) -> None:
                 if api_class == 'aptos':
                     response = requests.get(rpc['url'], timeout=5)
                 else:
-                    response = requests.post(rpc['url'], json=payload, headers=headers, timeout=5)
+                    response = requests.post(rpc['url'], json=payload, headers=headers, timeout=3)
                 if not response.status_code == 200:
                     print(f'#> URL error for {rpc["url"]}')
                     error_log.append(f'URL {rpc["url"]} produced response.text={response.text} with status_code={response.status_code}')
