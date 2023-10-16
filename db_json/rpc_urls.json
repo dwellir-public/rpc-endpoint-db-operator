@@ -236,7 +236,7 @@
         "chain_name": "Crust mainnet"
     },
     {
-        "url": "wss://crust.api.onfinality.io/public-ws",
+        "url": "https://crust.api.onfinality.io/public-http",
         "chain_name": "Crust mainnet"
     },
     {
@@ -380,7 +380,7 @@
         "chain_name": "Kusama Relaychain"
     },
     {
-        "url": "https://rpc-kusama.luckyfriday.io",
+        "url": "wss://rpc-kusama.luckyfriday.io",
         "chain_name": "Kusama Relaychain"
     },
     {
@@ -388,7 +388,7 @@
         "chain_name": "Kusama-pc Amplitude"
     },
     {
-        "url": "wss://rpc-amplitude.pendulumchain.tech",
+        "url": "https://rpc-amplitude.pendulumchain.tech",
         "chain_name": "Kusama-pc Amplitude"
     },
     {
@@ -424,7 +424,7 @@
         "chain_name": "Kusama-pc Bifrost"
     },
     {
-        "url": "wss://bifrost-rpc.liebi.com/ws",
+        "url": "https://bifrost-rpc.liebi.com/http",
         "chain_name": "Kusama-pc Bifrost"
     },
     {
@@ -436,15 +436,11 @@
         "chain_name": "Kusama-pc BridgeHub"
     },
     {
-        "url": "wss://kusama-bridge-hub-rpc-ng.dwellir.com",
+        "url": "https://kusama-bridge-hub-rpc.polkadot.io",
         "chain_name": "Kusama-pc BridgeHub"
     },
     {
-        "url": "wss://kusama-bridge-hub-rpc.polkadot.io",
-        "chain_name": "Kusama-pc BridgeHub"
-    },
-    {
-        "url": "wss://ksm-rpc.stakeworld.io/bridgehub",
+        "url": "https://ksm-rpc.stakeworld.io/bridgehub",
         "chain_name": "Kusama-pc BridgeHub"
     },
     {
@@ -460,10 +456,6 @@
         "chain_name": "Kusama-pc Darwinia Crab"
     },
     {
-        "url": "https://crab.api.onfinality.io/public-http",
-        "chain_name": "Kusama-pc Darwinia Crab"
-    },
-    {
         "url": "https://kusama-encointer-rpc-ng.dwellir.com",
         "chain_name": "Kusama-pc Encointer"
     },
@@ -472,11 +464,11 @@
         "chain_name": "Kusama-pc Encointer"
     },
     {
-        "url": "wss://ksm-rpc.stakeworld.io/encointer",
+        "url": "https://ksm-rpc.stakeworld.io/encointer",
         "chain_name": "Kusama-pc Encointer"
     },
     {
-        "url": "wss://encointer.api.onfinality.io/public-ws",
+        "url": "https://encointer.api.onfinality.io/public-http",
         "chain_name": "Kusama-pc Encointer"
     },
     {
@@ -488,7 +480,7 @@
         "chain_name": "Kusama-pc Karura"
     },
     {
-        "url": "wss://karura-rpc-3.aca-api.network/ws",
+        "url": "https://karura-rpc-3.aca-api.network",
         "chain_name": "Kusama-pc Karura"
     },
     {
@@ -496,15 +488,15 @@
         "chain_name": "Kusama-pc Khala"
     },
     {
-        "url": "wss://khala.api.onfinality.io/public-ws",
+        "url": "https://khala.api.onfinality.io/public-http",
         "chain_name": "Kusama-pc Khala"
     },
     {
-        "url": "wss://khala-api.phala.network/ws",
+        "url": "https://khala-api.phala.network/http",
         "chain_name": "Kusama-pc Khala"
     },
     {
-        "url": "wss://kintsugi-rpc.dwellir.com",
+        "url": "https://kintsugi-rpc.dwellir.com",
         "chain_name": "Kusama-pc Kintsugi BTC"
     },
     {
@@ -512,11 +504,11 @@
         "chain_name": "Kusama-pc Kintsugi BTC"
     },
     {
-        "url": "wss://api-kusama.interlay.io/parachain",
+        "url": "https://api-kusama.interlay.io/parachain",
         "chain_name": "Kusama-pc Kintsugi BTC"
     },
     {
-        "url": "wss://kintsugi.api.onfinality.io/public-ws",
+        "url": "https://kintsugi.api.onfinality.io/public-http",
         "chain_name": "Kusama-pc Kintsugi BTC"
     },
     {
@@ -524,19 +516,19 @@
         "chain_name": "Kusama-pc Moonriver"
     },
     {
-        "url": "wss://moonriver.api.onfinality.io/public-ws",
+        "url": "https://moonriver.api.onfinality.io/public-http",
         "chain_name": "Kusama-pc Moonriver"
     },
     {
-        "url": "wss://wss.api.moonriver.moonbeam.network",
+        "url": "https://moonriver-mainnet.gateway.pokt.network/v1/lb/62a74fdb123e6f003963642f",
         "chain_name": "Kusama-pc Moonriver"
     },
     {
-        "url": "wss://moonriver.public.blastapi.io",
+        "url": "https://moonriver.public.blastapi.io",
         "chain_name": "Kusama-pc Moonriver"
     },
     {
-        "url": "wss://moonriver.unitedbloc.com",
+        "url": "https://moonriver.unitedbloc.com",
         "chain_name": "Kusama-pc Moonriver"
     },
     {
@@ -544,11 +536,11 @@
         "chain_name": "Kusama-pc Picasso"
     },
     {
-        "url": "wss://picasso-rpc.dwellir.com",
+        "url": "https://picasso-rpc.dwellir.com",
         "chain_name": "Kusama-pc Picasso"
     },
     {
-        "url": "wss://rpc.composablenodes.tech",
+        "url": "https://rpc.composablenodes.tech",
         "chain_name": "Kusama-pc Picasso"
     },
     {
@@ -556,19 +548,15 @@
         "chain_name": "Kusama-pc Quartz"
     },
     {
-        "url": "wss://eu-ws-quartz.unique.network",
+        "url": "https://eu-ws-quartz.unique.network",
         "chain_name": "Kusama-pc Quartz"
     },
     {
-        "url": "wss://quartz.api.onfinality.io/public-ws",
+        "url": "https://us-ws-quartz.unique.network",
         "chain_name": "Kusama-pc Quartz"
     },
     {
-        "url": "wss://us-ws-quartz.unique.network",
-        "chain_name": "Kusama-pc Quartz"
-    },
-    {
-        "url": "wss://shiden-rpc.dwellir.com",
+        "url": "https://shiden-rpc.dwellir.com",
         "chain_name": "Kusama-pc Shiden"
     },
     {
@@ -580,11 +568,11 @@
         "chain_name": "Kusama-pc Shiden"
     },
     {
-        "url": "wss://shiden.api.onfinality.io/public-ws",
+        "url": "https://shiden.api.onfinality.io/public-http",
         "chain_name": "Kusama-pc Shiden"
     },
     {
-        "url": "wss://rpc.shiden.astar.network",
+        "url": "https://rpc.shiden.astar.network",
         "chain_name": "Kusama-pc Shiden"
     },
     {
@@ -592,11 +580,11 @@
         "chain_name": "Kusama-pc Tinkernet"
     },
     {
-        "url": "wss://turing-rpc.dwellir.com",
+        "url": "https://turing-rpc.dwellir.com",
         "chain_name": "Kusama-pc Turing Network"
     },
     {
-        "url": "wss://rpc.turing.oak.tech",
+        "url": "https://rpc.turing.oak.tech",
         "chain_name": "Kusama-pc Turing Network"
     },
     {
@@ -604,11 +592,15 @@
         "chain_name": "Moonbase Alpha testnet"
     },
     {
-        "url": "wss://wss.api.moonbase.moonbeam.network",
+        "url": "https://rpc.api.moonbase.moonbeam.network",
         "chain_name": "Moonbase Alpha testnet"
     },
     {
-        "url": "wss://moonbase.unitedbloc.com",
+        "url": "https://moonbase-alpha.public.blastapi.io",
+        "chain_name": "Moonbase Alpha testnet"
+    },
+    {
+        "url": "https://moonbase.unitedbloc.com",
         "chain_name": "Moonbase Alpha testnet"
     },
     {
@@ -688,7 +680,7 @@
         "chain_name": "Polkadot Relaychain"
     },
     {
-        "url": "wss://rpc.polkadot.io",
+        "url": "https://rpc.polkadot.io",
         "chain_name": "Polkadot Relaychain"
     },
     {
@@ -700,15 +692,15 @@
         "chain_name": "Polkadot-pc Acala"
     },
     {
-        "url": "wss://acala-polkadot.api.onfinality.io/public-ws",
+        "url": "https://acala-polkadot.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Acala"
     },
     {
-        "url": "wss://acala-rpc-0.aca-api.network",
+        "url": "https://acala-rpc-0.aca-api.network",
         "chain_name": "Polkadot-pc Acala"
     },
     {
-        "url": "wss://acala-rpc-1.aca-api.network",
+        "url": "https://acala-rpc-1.aca-api.network",
         "chain_name": "Polkadot-pc Acala"
     },
     {
@@ -732,7 +724,7 @@
         "chain_name": "Polkadot-pc AssetHub (Statemint)"
     },
     {
-        "url": "wss://statemint.public.curie.radiumblock.co/ws",
+        "url": "https://statemint.public.curie.radiumblock.co/http",
         "chain_name": "Polkadot-pc AssetHub (Statemint)"
     },
     {
@@ -748,7 +740,7 @@
         "chain_name": "Polkadot-pc Astar"
     },
     {
-        "url": "wss://astar.api.onfinality.io/public-ws",
+        "url": "https://astar.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Astar"
     },
     {
@@ -756,11 +748,11 @@
         "chain_name": "Polkadot-pc BridgeHub"
     },
     {
-        "url": "wss://polkadot-bridge-hub-rpc.polkadot.io",
+        "url": "https://polkadot-bridge-hub-rpc.polkadot.io",
         "chain_name": "Polkadot-pc BridgeHub"
     },
     {
-        "url": "wss://dot-rpc.stakeworld.io/bridgehub",
+        "url": "https://dot-rpc.stakeworld.io/bridgehub",
         "chain_name": "Polkadot-pc BridgeHub"
     },
     {
@@ -772,7 +764,7 @@
         "chain_name": "Polkadot-pc Clover"
     },
     {
-        "url": "wss://clover.api.onfinality.io/public-ws",
+        "url": "https://clover.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Clover"
     },
     {
@@ -820,11 +812,11 @@
         "chain_name": "Polkadot-pc Eden"
     },
     {
-        "url": "wss://eden-rpc.dwellir.com",
+        "url": "https://eden-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Eden"
     },
     {
-        "url": "wss://nodle-parachain.api.onfinality.io/public-ws",
+        "url": "https://nodle-parachain.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Eden"
     },
     {
@@ -832,11 +824,11 @@
         "chain_name": "Polkadot-pc Equilibrium"
     },
     {
-        "url": "wss://equilibrium-rpc.dwellir.com",
+        "url": "https://equilibrium-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Equilibrium"
     },
     {
-        "url": "wss://node.pol.equilibrium.io",
+        "url": "https://node.pol.equilibrium.io",
         "chain_name": "Polkadot-pc Equilibrium"
     },
     {
@@ -844,11 +836,11 @@
         "chain_name": "Polkadot-pc Frequency"
     },
     {
-        "url": "wss://0.rpc.frequency.xyz",
+        "url": "https://0.rpc.frequency.xyz",
         "chain_name": "Polkadot-pc Frequency"
     },
     {
-        "url": "wss://1.rpc.frequency.xyz",
+        "url": "https://1.rpc.frequency.xyz",
         "chain_name": "Polkadot-pc Frequency"
     },
     {
@@ -872,15 +864,19 @@
         "chain_name": "Polkadot-pc Integritee Shell"
     },
     {
+        "url": "https://integritee-parachain.api.onfinality.io/public-http",
+        "chain_name": "Polkadot-pc Integritee Shell"
+    },
+    {
         "url": "https://interlay-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Interlay"
     },
     {
-        "url": "wss://api.interlay.io/parachain",
+        "url": "https://api.interlay.io/parachain",
         "chain_name": "Polkadot-pc Interlay"
     },
     {
-        "url": "wss://interlay.api.onfinality.io/public-ws",
+        "url": "https://interlay.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Interlay"
     },
     {
@@ -892,7 +888,7 @@
         "chain_name": "Polkadot-pc Kilt Spiritnet"
     },
     {
-        "url": "wss://spiritnet.kilt.io",
+        "url": "https://spiritnet.kilt.io",
         "chain_name": "Polkadot-pc Kilt Spiritnet"
     },
     {
@@ -904,7 +900,7 @@
         "chain_name": "Polkadot-pc Litentry"
     },
     {
-        "url": "wss://litentry-rpc.dwellir.com",
+        "url": "https://litentry-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Litentry"
     },
     {
@@ -916,11 +912,15 @@
         "chain_name": "Polkadot-pc Moonbeam"
     },
     {
-        "url": "wss://wss.api.moonbeam.network",
+        "url": "https://moonbeam.public.blastapi.io",
         "chain_name": "Polkadot-pc Moonbeam"
     },
     {
-        "url": "wss://moonbeam.public.blastapi.io",
+        "url": "https://moonbeam.api.onfinality.io/public",
+        "chain_name": "Polkadot-pc Moonbeam"
+    },
+    {
+        "url": "https://moonbeam.unitedbloc.com",
         "chain_name": "Polkadot-pc Moonbeam"
     },
     {
@@ -932,15 +932,15 @@
         "chain_name": "Polkadot-pc OriginTrail"
     },
     {
-        "url": "wss://origintrail.api.onfinality.io/public-ws",
+        "url": "https://origintrail.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc OriginTrail"
     },
     {
-        "url": "wss://parallel.api.onfinality.io/public-ws",
+        "url": "https://parallel.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Parallel"
     },
     {
-        "url": "wss://rpc.parallel.fi",
+        "url": "https://rpc.parallel.fi",
         "chain_name": "Polkadot-pc Parallel"
     },
     {
@@ -952,11 +952,11 @@
         "chain_name": "Polkadot-pc Phala Network"
     },
     {
-        "url": "wss://phala.api.onfinality.io/public-ws",
+        "url": "https://phala.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Phala Network"
     },
     {
-        "url": "wss://api.phala.network/ws",
+        "url": "https://api.phala.network/http",
         "chain_name": "Polkadot-pc Phala Network"
     },
     {
@@ -964,11 +964,11 @@
         "chain_name": "Polkadot-pc Polkadex"
     },
     {
-        "url": "wss://polkadex-parachain.api.onfinality.io/public-ws",
+        "url": "https://polkadex-parachain.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Polkadex"
     },
     {
-        "url": "wss://polkadex-parachain.public.curie.radiumblock.co/ws",
+        "url": "https://polkadex-parachain.public.curie.radiumblock.co/http",
         "chain_name": "Polkadot-pc Polkadex"
     },
     {
@@ -976,11 +976,11 @@
         "chain_name": "Polkadot-pc Unique"
     },
     {
-        "url": "wss://asia-ws.unique.network",
+        "url": "https://asia-ws.unique.network",
         "chain_name": "Polkadot-pc Unique"
     },
     {
-        "url": "wss://eu-ws.unique.network",
+        "url": "https://eu-ws.unique.network",
         "chain_name": "Polkadot-pc Unique"
     },
     {
@@ -996,28 +996,32 @@
         "chain_name": "Polkadot-pc Zeitgeist"
     },
     {
+        "url": "https://zeitgeist.api.onfinality.io/public-http",
+        "chain_name": "Polkadot-pc Zeitgeist"
+    },
+    {
         "url": "https://centrifuge-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc centrifuge"
+        "chain_name": "Polkadot-pc Centrifuge"
     },
     {
         "url": "https://centrifuge-parachain.api.onfinality.io/public",
-        "chain_name": "Polkadot-pc centrifuge"
+        "chain_name": "Polkadot-pc Centrifuge"
     },
     {
         "url": "https://fullnode.centrifuge.io",
-        "chain_name": "Polkadot-pc centrifuge"
+        "chain_name": "Polkadot-pc Centrifuge"
     },
     {
         "url": "wss://rpc-centrifuge.luckyfriday.io",
-        "chain_name": "Polkadot-pc centrifuge"
+        "chain_name": "Polkadot-pc Centrifuge"
     },
     {
         "url": "https://pendulum-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc pendulum"
+        "chain_name": "Polkadot-pc Pendulum"
     },
     {
         "url": "https://rpc-pendulum.prd.pendulumchain.tech",
-        "chain_name": "Polkadot-pc pendulum"
+        "chain_name": "Polkadot-pc Pendulum"
     },
     {
         "url": "https://rpc-mumbai.maticvigil.com",
@@ -1092,7 +1096,7 @@
         "chain_name": "PulseChain testnet"
     },
     {
-        "url": "wss://frequency-rococo-rpc.dwellir.com/",
+        "url": "https://frequency-rococo-rpc.dwellir.com/",
         "chain_name": "Rococo-pc Frequency"
     },
     {
@@ -1104,11 +1108,11 @@
         "chain_name": "Shibuya"
     },
     {
-        "url": "wss://shibuya-rpc.dwellir.com",
+        "url": "https://shibuya-rpc.dwellir.com",
         "chain_name": "Shibuya"
     },
     {
-        "url": "wss://rpc.shibuya.astar.network",
+        "url": "https://rpc.shibuya.astar.network",
         "chain_name": "Shibuya"
     },
     {
@@ -1136,7 +1140,7 @@
         "chain_name": "Westend Relaychain"
     },
     {
-        "url": "wss://westend.api.onfinality.io/public-ws",
+        "url": "https://westend.api.onfinality.io/public-http",
         "chain_name": "Westend Relaychain"
     },
     {
@@ -1164,11 +1168,11 @@
         "chain_name": "Westend-pc AssetHub (Westmint)"
     },
     {
-        "url": "wss://westend-asset-hub-rpc.polkadot.io",
+        "url": "https://westend-asset-hub-rpc.polkadot.io",
         "chain_name": "Westend-pc AssetHub (Westmint)"
     },
     {
-        "url": "wss://wnd-rpc.stakeworld.io/westmint",
+        "url": "https://wnd-rpc.stakeworld.io/westmint",
         "chain_name": "Westend-pc AssetHub (Westmint)"
     },
     {
@@ -1184,11 +1188,11 @@
         "chain_name": "Westend-pc Collectives"
     },
     {
-        "url": "wss://sys.ibp.network/collectives-westend",
+        "url": "https://sys.ibp.network/collectives-westend",
         "chain_name": "Westend-pc Collectives"
     },
     {
-        "url": "wss://sys.dotters.network/collectives-westend",
+        "url": "https://sys.dotters.network/collectives-westend",
         "chain_name": "Westend-pc Collectives"
     },
     {
@@ -1200,7 +1204,7 @@
         "chain_name": "xx network"
     },
     {
-        "url": "wss://rpc.xx.network",
+        "url": "https://rpc.xx.network",
         "chain_name": "xx network"
     }
 ]
