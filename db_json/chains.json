@@ -4,7 +4,7 @@
         "api_class": "substrate"
     },
     {
-        "name": "Alpeh Zero",
+        "name": "Aleph Zero",
         "api_class": "substrate"
     },
     {
@@ -272,11 +272,11 @@
         "api_class": "substrate"
     },
     {
-        "name": "Polkadot-pc centrifuge",
+        "name": "Polkadot-pc Centrifuge",
         "api_class": "substrate"
     },
     {
-        "name": "Polkadot-pc pendulum",
+        "name": "Polkadot-pc Pendulum",
         "api_class": "substrate"
     },
     {

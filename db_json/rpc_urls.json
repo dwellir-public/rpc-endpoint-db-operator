@@ -4,16 +4,16 @@
         "chain_name": "Aleph Zero Testnet"
     },
     {
-        "url": "wss://ws.test.azero.dev",
+        "url": "https://ws.test.azero.dev",
         "chain_name": "Aleph Zero Testnet"
     },
     {
         "url": "https://aleph-zero-rpc.dwellir.com",
-        "chain_name": "Alpeh Zero"
+        "chain_name": "Aleph Zero"
     },
     {
-        "url": "wss://ws.azero.dev",
-        "chain_name": "Alpeh Zero"
+        "url": "https://ws.azero.dev",
+        "chain_name": "Aleph Zero"
     },
     {
         "url": "https://arbitrum-mainnet-archive-rpc-1.dwellir.com",

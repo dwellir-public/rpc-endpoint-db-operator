@@ -346,13 +346,16 @@ def validate_json(args) -> None:
             "id": 1
         }
         if 'http' in rpc['url']:
-            if api_class == 'aptos':
-                response = requests.get(rpc['url'], timeout=5)
-            else:
-                response = requests.post(rpc['url'], json=payload, headers=headers, timeout=5)
-            if not response.status_code == 200:
-                print(f'#> URL error for {rpc["url"]}')
-                error_log.append(f'URL {rpc["url"]} produced response.text={response.text} with status_code={response.status_code}')
+            try:
+                if api_class == 'aptos':
+                    response = requests.get(rpc['url'], timeout=5)
+                else:
+                    response = requests.post(rpc['url'], json=payload, headers=headers, timeout=5)
+                if not response.status_code == 200:
+                    print(f'#> URL error for {rpc["url"]}')
+                    error_log.append(f'URL {rpc["url"]} produced response.text={response.text} with status_code={response.status_code}')
+            except Exception as e:
+                error_log.append(f'URL {rpc["url"]} failed HTTP connection: {e}')
         elif 'ws' in rpc['url']:
             try:
                 ws = websocket.create_connection(rpc['url'])
