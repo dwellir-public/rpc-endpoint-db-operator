@@ -84,10 +84,6 @@
         "chain_name": "Base Goerli testnet"
     },
     {
-        "url": "https://rpc.notadegen.com/base/goerli",
-        "chain_name": "Base Goerli testnet"
-    },
-    {
         "url": "https://base-goerli.publicnode.com",
         "chain_name": "Base Goerli testnet"
     },
