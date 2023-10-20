@@ -440,6 +440,14 @@
         "chain_name": "Kusama-pc BridgeHub"
     },
     {
+        "url": "https://kusama-bridge-hub-rpc-tn.dwellir.com",
+        "chain_name": "Kusama-pc BridgeHub"
+    },
+    {
+        "url": "wss://kusama-bridge-hub-rpc.dwellir.com",
+        "chain_name": "Kusama-pc BridgeHub"
+    },
+    {
         "url": "https://darwiniacrab-rpc.dwellir.com",
         "chain_name": "Kusama-pc Darwinia Crab"
     },
@@ -752,6 +760,14 @@
         "chain_name": "Polkadot-pc BridgeHub"
     },
     {
+        "url": "https://polkadot-bridge-hub-rpc-tn.dwellir.com",
+        "chain_name": "Polkadot-pc BridgeHub"
+    },
+    {
+        "url": "wss://polkadot-bridge-hub-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc BridgeHub"
+    },
+    {
         "url": "https://clover-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Clover"
     },
@@ -777,6 +793,14 @@
     },
     {
         "url": "https://collectives.public.curie.radiumblock.co/http",
+        "chain_name": "Polkadot-pc Collectives"
+    },
+    {
+        "url": "https://polkadot-collectives-rpc-tn.dwellir.com",
+        "chain_name": "Polkadot-pc Collectives"
+    },
+    {
+        "url": "wss://polkadot-collectives-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Collectives"
     },
     {
@@ -1092,6 +1116,22 @@
         "chain_name": "PulseChain testnet"
     },
     {
+        "url": "wss://rococo-asset-hub-rpc.polkadot.io",
+        "chain_name": "Rococo-pc AssetHub"
+    },
+    {
+        "url": "wss://rococo-asset-hub-rpc.dwellir.com",
+        "chain_name": "Rococo-pc AssetHub"
+    },
+    {
+        "url": "wss://rococo-bridge-hub-rpc.dwellir.com",
+        "chain_name": "Rococo-pc BridgeHub"
+    },
+    {
+        "url": "wss://rococo-bridge-hub-rpc.polkadot.io",
+        "chain_name": "Rococo-pc BridgeHub"
+    },
+    {
         "url": "https://frequency-rococo-rpc.dwellir.com/",
         "chain_name": "Rococo-pc Frequency"
     },
@@ -1180,6 +1220,14 @@
         "chain_name": "Westend-pc BridgeHub"
     },
     {
+        "url": "https://westend-bridge-hub-rpc-tn.dwellir.com",
+        "chain_name": "Westend-pc BridgeHub"
+    },
+    {
+        "url": "wss://westend-bridge-hub-rpc.dwellir.com",
+        "chain_name": "Westend-pc BridgeHub"
+    },
+    {
         "url": "https://westend-collectives-rpc-ng.dwellir.com",
         "chain_name": "Westend-pc Collectives"
     },
@@ -1189,6 +1237,14 @@
     },
     {
         "url": "https://sys.dotters.network/collectives-westend",
+        "chain_name": "Westend-pc Collectives"
+    },
+    {
+        "url": "https://westend-collectives-rpc-tn.dwellir.com",
+        "chain_name": "Westend-pc Collectives"
+    },
+    {
+        "url": "wss://westend-collectives-rpc.dwellir.com",
         "chain_name": "Westend-pc Collectives"
     },
     {
