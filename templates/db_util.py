@@ -24,6 +24,9 @@ PATH_DEFAULT_DB = PATH_DIR / 'live_database.db'
 PATH_DEFAULT_DB_JSON_DIR = PATH_DIR / 'db_json'
 PATH_DEFAULT_CHAINS = PATH_DEFAULT_DB_JSON_DIR / 'chains.json'
 PATH_DEFAULT_RPC_URLS = PATH_DEFAULT_DB_JSON_DIR / 'rpc_urls.json'
+PATH_DEFAULT_IN_DIR = PATH_DIR / 'in'
+PATH_DEFAULT_IN_CHAINS = PATH_DEFAULT_IN_DIR / 'chains.json'
+PATH_DEFAULT_IN_RPC_URLS = PATH_DEFAULT_IN_DIR / 'rpc_urls.json'
 PATH_DEFAULT_OUT_DIR = PATH_DIR / 'out'
 
 TABLE_CHAINS = 'chains'
@@ -36,27 +39,28 @@ def main() -> None:
     # Import
     parser_import = subparsers.add_parser('import', help='Import data into a database from JSON files')
     parser_import.add_argument('--chains', type=str,
-                               help=f'JSON file with chains to import, default={PATH_DEFAULT_CHAINS}', default=PATH_DEFAULT_CHAINS)
+                               help=f'JSON file with chains to import, default={PATH_DEFAULT_IN_CHAINS}')
     parser_import.add_argument('--rpc_urls', type=str,
-                               help=f'JSON file with RPC URL:s to import, default={PATH_DEFAULT_RPC_URLS}', default=PATH_DEFAULT_RPC_URLS)
+                               help=f'JSON file with RPC URL:s to import, default={PATH_DEFAULT_IN_RPC_URLS}')
+    parser_import.set_defaults(func=import_data, chains=str(PATH_DEFAULT_IN_CHAINS), rpc_urls=str(PATH_DEFAULT_IN_RPC_URLS))
     import_target_group = parser_import.add_mutually_exclusive_group(required=True)
     import_target_group.add_argument('-db', '--target_db', type=str, help='The path to the local database file')
     import_target_group.add_argument('-url', '--target_url', type=str, help='The url for the API of the database')
-    parser_import.set_defaults(func=import_data)
     # Export
     parser_export = subparsers.add_parser('export', help='Export data from a database to JSON files')
     parser_export.add_argument('--target', type=str,
-                               help=f'Directory the JSON:s will exported to, default={PATH_DEFAULT_OUT_DIR}', default=PATH_DEFAULT_OUT_DIR)
+                               help=f'Directory the JSON:s will exported to, default={PATH_DEFAULT_OUT_DIR}')
     parser_export.add_argument('--force', action='store_true', help='Force export to overwrite files without asking')
+    parser_export.set_defaults(func=export_data, target=str(PATH_DEFAULT_OUT_DIR))
     export_target_group = parser_export.add_mutually_exclusive_group(required=True)
     export_target_group.add_argument('-db', '--source_db', type=str, help='The path to the local database file')
     export_target_group.add_argument('-url', '--source_url', type=str, help='The URL for the API of the database')
-    parser_export.set_defaults(func=export_data)
 
     # Make an RPC request
     parser_request = subparsers.add_parser('request', help='Send a request to the Flask API serving the database')
-    parser_request.add_argument('--url', type=str, help='The url for the API of the database', default=DEFAULT_URL)
-    parser_request.add_argument('--auth-pw', type=str, help='The authentication password to get the access token for the API', default="")
+    parser_request.add_argument('--url', type=str, help='The url for the API of the database')
+    parser_request.add_argument('--auth-pw', type=str, help='The authentication password to get the access token for the API')
+    parser_request.set_defaults(url=DEFAULT_URL)
     request_sp = parser_request.add_subparsers()
     # Chains
     request_chains = request_sp.add_parser('chains', help='Get all chains')
@@ -82,10 +86,10 @@ def main() -> None:
     # Validate JSON files
     parser_json = subparsers.add_parser('json', help='Check and validate JSON files with chains and RPC:s')
     parser_json.add_argument('directory', type=str,
-                             help=f'Directory containing the JSON files, default={PATH_DEFAULT_OUT_DIR}', default=PATH_DEFAULT_OUT_DIR)
+                             help=f'Directory containing the JSON files, default={PATH_DEFAULT_OUT_DIR}')
     parser_json.add_argument('-r', '--reverse', action='store_true', help='Reverse the order the list of RPC:s is parsed')
     parser_json.add_argument('-f', '--filter', type=str, help='Filter the list of chains to validate')
-    parser_json.set_defaults(func=validate_json)
+    parser_json.set_defaults(func=validate_json, directory=str(PATH_DEFAULT_OUT_DIR))
 
     args = parser.parse_args()
     args.func(args)
