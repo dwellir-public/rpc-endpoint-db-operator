@@ -1,19 +1,19 @@
 [
     {
-        "url": "https://aleph-zero-testnet-rpc.dwellir.com",
-        "chain_name": "Aleph Zero Testnet"
-    },
-    {
-        "url": "https://ws.test.azero.dev",
-        "chain_name": "Aleph Zero Testnet"
-    },
-    {
         "url": "https://aleph-zero-rpc.dwellir.com",
         "chain_name": "Aleph Zero"
     },
     {
         "url": "https://ws.azero.dev",
         "chain_name": "Aleph Zero"
+    },
+    {
+        "url": "https://aleph-zero-testnet-rpc.dwellir.com",
+        "chain_name": "Aleph Zero Testnet"
+    },
+    {
+        "url": "https://ws.test.azero.dev",
+        "chain_name": "Aleph Zero Testnet"
     },
     {
         "url": "https://arbitrum-mainnet-archive-rpc-1.dwellir.com",
@@ -424,10 +424,6 @@
         "chain_name": "Kusama-pc Bifrost"
     },
     {
-        "url": "https://bifrost-rpc.liebi.com/http",
-        "chain_name": "Kusama-pc Bifrost"
-    },
-    {
         "url": "https://kusama-bridge-hub-rpc-ng.dwellir.com",
         "chain_name": "Kusama-pc BridgeHub"
     },
@@ -504,10 +500,6 @@
         "chain_name": "Kusama-pc Kintsugi BTC"
     },
     {
-        "url": "https://kintsugi-rpc.dwellir.com",
-        "chain_name": "Kusama-pc Kintsugi BTC"
-    },
-    {
         "url": "https://api-kusama.interlay.io/parachain",
         "chain_name": "Kusama-pc Kintsugi BTC"
     },
@@ -540,10 +532,6 @@
         "chain_name": "Kusama-pc Picasso"
     },
     {
-        "url": "https://picasso-rpc.dwellir.com",
-        "chain_name": "Kusama-pc Picasso"
-    },
-    {
         "url": "https://rpc.composablenodes.tech",
         "chain_name": "Kusama-pc Picasso"
     },
@@ -558,10 +546,6 @@
     {
         "url": "https://us-ws-quartz.unique.network",
         "chain_name": "Kusama-pc Quartz"
-    },
-    {
-        "url": "https://shiden-rpc.dwellir.com",
-        "chain_name": "Kusama-pc Shiden"
     },
     {
         "url": "https://shiden-rpc.dwellir.com",
@@ -768,6 +752,22 @@
         "chain_name": "Polkadot-pc BridgeHub"
     },
     {
+        "url": "https://centrifuge-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Centrifuge"
+    },
+    {
+        "url": "https://centrifuge-parachain.api.onfinality.io/public",
+        "chain_name": "Polkadot-pc Centrifuge"
+    },
+    {
+        "url": "https://fullnode.centrifuge.io",
+        "chain_name": "Polkadot-pc Centrifuge"
+    },
+    {
+        "url": "wss://rpc-centrifuge.luckyfriday.io",
+        "chain_name": "Polkadot-pc Centrifuge"
+    },
+    {
         "url": "https://clover-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Clover"
     },
@@ -832,16 +832,8 @@
         "chain_name": "Polkadot-pc Eden"
     },
     {
-        "url": "https://eden-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Eden"
-    },
-    {
         "url": "https://nodle-parachain.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Eden"
-    },
-    {
-        "url": "https://equilibrium-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Equilibrium"
     },
     {
         "url": "https://equilibrium-rpc.dwellir.com",
@@ -920,10 +912,6 @@
         "chain_name": "Polkadot-pc Litentry"
     },
     {
-        "url": "https://litentry-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Litentry"
-    },
-    {
         "url": "https://rpc.litentry-parachain.litentry.io",
         "chain_name": "Polkadot-pc Litentry"
     },
@@ -966,6 +954,14 @@
     {
         "url": "https://parallel-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Parallel"
+    },
+    {
+        "url": "https://pendulum-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Pendulum"
+    },
+    {
+        "url": "https://rpc-pendulum.prd.pendulumchain.tech",
+        "chain_name": "Polkadot-pc Pendulum"
     },
     {
         "url": "https://phala-rpc.dwellir.com",
@@ -1018,30 +1014,6 @@
     {
         "url": "https://zeitgeist.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Zeitgeist"
-    },
-    {
-        "url": "https://centrifuge-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Centrifuge"
-    },
-    {
-        "url": "https://centrifuge-parachain.api.onfinality.io/public",
-        "chain_name": "Polkadot-pc Centrifuge"
-    },
-    {
-        "url": "https://fullnode.centrifuge.io",
-        "chain_name": "Polkadot-pc Centrifuge"
-    },
-    {
-        "url": "wss://rpc-centrifuge.luckyfriday.io",
-        "chain_name": "Polkadot-pc Centrifuge"
-    },
-    {
-        "url": "https://pendulum-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Pendulum"
-    },
-    {
-        "url": "https://rpc-pendulum.prd.pendulumchain.tech",
-        "chain_name": "Polkadot-pc Pendulum"
     },
     {
         "url": "https://rpc-mumbai.maticvigil.com",
@@ -1138,10 +1110,6 @@
     {
         "url": "wss://rpc.rococo.frequency.xyz",
         "chain_name": "Rococo-pc Frequency"
-    },
-    {
-        "url": "https://shibuya-rpc.dwellir.com",
-        "chain_name": "Shibuya"
     },
     {
         "url": "https://shibuya-rpc.dwellir.com",

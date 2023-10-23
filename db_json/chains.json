@@ -1,10 +1,10 @@
 [
     {
-        "name": "Aleph Zero Testnet",
+        "name": "Aleph Zero",
         "api_class": "substrate"
     },
     {
-        "name": "Aleph Zero",
+        "name": "Aleph Zero Testnet",
         "api_class": "substrate"
     },
     {
@@ -192,6 +192,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Centrifuge",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Clover",
         "api_class": "substrate"
     },
@@ -256,6 +260,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Pendulum",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Phala Network",
         "api_class": "substrate"
     },
@@ -269,14 +277,6 @@
     },
     {
         "name": "Polkadot-pc Zeitgeist",
-        "api_class": "substrate"
-    },
-    {
-        "name": "Polkadot-pc Centrifuge",
-        "api_class": "substrate"
-    },
-    {
-        "name": "Polkadot-pc Pendulum",
         "api_class": "substrate"
     },
     {
