@@ -288,6 +288,14 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Polygon zkEVM mainnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Polygon zkEVM testnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "PulseChain mainnet",
         "api_class": "ethereum"
     },

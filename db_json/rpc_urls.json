@@ -1064,6 +1064,42 @@
         "chain_name": "Polygon mainnet"
     },
     {
+        "url": "https://zkevm-rpc.com",
+        "chain_name": "Polygon zkEVM mainnet"
+    },
+    {
+        "url": "https://polygon-zkevm-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Polygon zkEVM mainnet"
+    },
+    {
+        "url": "https://polygon-zkevm-mainnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Polygon zkEVM mainnet"
+    },
+    {
+        "url": "https://1rpc.io/polygon/zkevm",
+        "chain_name": "Polygon zkEVM mainnet"
+    },
+    {
+        "url": "https://polygon-zkevm-mainnet.public.blastapi.io",
+        "chain_name": "Polygon zkEVM mainnet"
+    },
+    {
+        "url": "https://polygon-zkevm-testnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Polygon zkEVM testnet"
+    },
+    {
+        "url": "https://polygon-zkevm-testnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Polygon zkEVM testnet"
+    },
+    {
+        "url": "https://rpc.public.zkevm-test.net",
+        "chain_name": "Polygon zkEVM testnet"
+    },
+    {
+        "url": "https://polygon-zkevm-testnet.drpc.org/",
+        "chain_name": "Polygon zkEVM testnet"
+    },
+    {
         "url": "https://pulsechain-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "PulseChain mainnet"
     },
