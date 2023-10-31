@@ -16,6 +16,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Astar zkEVM zKatana",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Avalanche mainnet",
         "api_class": "ethereum"
     },
@@ -233,6 +237,10 @@
     },
     {
         "name": "Polkadot-pc Interlay",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc InvArch",
         "api_class": "substrate"
     },
     {

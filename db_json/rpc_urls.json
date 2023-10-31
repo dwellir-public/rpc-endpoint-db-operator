@@ -56,6 +56,14 @@
         "chain_name": "Arbitrum testnet"
     },
     {
+        "url": "https://rpc.startale.com/zkatana",
+        "chain_name": "Astar zkEVM zKatana"
+    },
+    {
+        "url": "https://rpc.zkatana.gelato.digital",
+        "chain_name": "Astar zkEVM zKatana"
+    },
+    {
         "url": "https://api.avax.network/ext/bc/C/rpc",
         "chain_name": "Avalanche mainnet"
     },
@@ -890,6 +898,10 @@
     {
         "url": "https://interlay.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Interlay"
+    },
+    {
+        "url": "wss://invarch-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc InvArch"
     },
     {
         "url": "https://kapex-rpc.dwellir.com",
