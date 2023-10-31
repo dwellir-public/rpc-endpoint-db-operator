@@ -64,6 +64,10 @@
         "chain_name": "Astar zkEVM zKatana"
     },
     {
+        "url": "https://astar-zkevm-zkatana-rpc.dwellir.com",
+        "chain_name": "Astar zkEVM zKatana"
+    },
+    {
         "url": "https://api.avax.network/ext/bc/C/rpc",
         "chain_name": "Avalanche mainnet"
     },
