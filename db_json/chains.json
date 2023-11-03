@@ -200,10 +200,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Polkadot-pc Clover",
-        "api_class": "substrate"
-    },
-    {
         "name": "Polkadot-pc Collectives",
         "api_class": "substrate"
     },

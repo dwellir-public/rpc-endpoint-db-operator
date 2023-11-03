@@ -780,18 +780,6 @@
         "chain_name": "Polkadot-pc Centrifuge"
     },
     {
-        "url": "https://clover-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Clover"
-    },
-    {
-        "url": "https://api-para.clover.finance",
-        "chain_name": "Polkadot-pc Clover"
-    },
-    {
-        "url": "https://clover.api.onfinality.io/public-http",
-        "chain_name": "Polkadot-pc Clover"
-    },
-    {
         "url": "https://polkadot-collectives-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc Collectives"
     },
