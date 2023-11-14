@@ -436,6 +436,14 @@
         "chain_name": "Kusama-pc Bifrost"
     },
     {
+        "url": "https://us.bifrost-rpc.liebi.com/http",
+        "chain_name": "Kusama-pc Bifrost"
+    },
+    {
+        "url": "https://bifrost-parachain.api.onfinality.io/public-http",
+        "chain_name": "Kusama-pc Bifrost"
+    },
+    {
         "url": "https://kusama-bridge-hub-rpc-ng.dwellir.com",
         "chain_name": "Kusama-pc BridgeHub"
     },
@@ -742,6 +750,18 @@
     {
         "url": "https://astar.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Astar"
+    },
+    {
+        "url": "https://hk.p.bifrost-rpc.liebi.com/http",
+        "chain_name": "Polkadot-pc Bifrost"
+    },
+    {
+        "url": "https://eu.bifrost-polkadot-rpc.liebi.com/http",
+        "chain_name": "Polkadot-pc Bifrost"
+    },
+    {
+        "url": "https://bifrost-polkadot.api.onfinality.io/public-http",
+        "chain_name": "Polkadot-pc Bifrost"
     },
     {
         "url": "https://polkadot-bridge-hub-rpc-ng.dwellir.com",
