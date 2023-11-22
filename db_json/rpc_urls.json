@@ -1286,5 +1286,17 @@
     {
         "url": "https://rpc.xx.network",
         "chain_name": "xx network"
+    },
+    {
+        "url": "https://zksync-era-testnet-rpc-1.dwellir.com",
+        "chain_name": "zkSync Era testnet"
+    },
+    {
+        "url": "https://zksync-era-testnet-rpc-2.dwellir.com",
+        "chain_name": "zkSync Era testnet"
+    },
+    {
+        "url": "https://testnet.era.zksync.dev",
+        "chain_name": "zkSync Era testnet"
     }
 ]
