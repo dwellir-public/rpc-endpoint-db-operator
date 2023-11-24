@@ -460,7 +460,7 @@
         "chain_name": "Kusama-pc BridgeHub"
     },
     {
-        "url": "wss://kusama-bridge-hub-rpc.dwellir.com",
+        "url": "https://kusama-bridge-hub-rpc.dwellir.com",
         "chain_name": "Kusama-pc BridgeHub"
     },
     {
@@ -764,6 +764,10 @@
         "chain_name": "Polkadot-pc Bifrost"
     },
     {
+        "url": "https://bifrost-polkadot-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Bifrost"
+    },
+    {
         "url": "https://polkadot-bridge-hub-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc BridgeHub"
     },
@@ -780,7 +784,7 @@
         "chain_name": "Polkadot-pc BridgeHub"
     },
     {
-        "url": "wss://polkadot-bridge-hub-rpc.dwellir.com",
+        "url": "https://polkadot-bridge-hub-rpc.dwellir.com",
         "chain_name": "Polkadot-pc BridgeHub"
     },
     {
@@ -820,7 +824,7 @@
         "chain_name": "Polkadot-pc Collectives"
     },
     {
-        "url": "wss://polkadot-collectives-rpc.dwellir.com",
+        "url": "https://polkadot-collectives-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Collectives"
     },
     {
@@ -912,7 +916,7 @@
         "chain_name": "Polkadot-pc Interlay"
     },
     {
-        "url": "wss://invarch-rpc.dwellir.com",
+        "url": "https://invarch-rpc.dwellir.com",
         "chain_name": "Polkadot-pc InvArch"
     },
     {
@@ -1152,15 +1156,15 @@
         "chain_name": "Rococo-pc AssetHub"
     },
     {
-        "url": "wss://rococo-asset-hub-rpc.dwellir.com",
+        "url": "https://rococo-asset-hub-rpc.dwellir.com",
         "chain_name": "Rococo-pc AssetHub"
     },
     {
-        "url": "wss://rococo-bridge-hub-rpc.dwellir.com",
+        "url": "wss://rococo-bridge-hub-rpc.polkadot.io",
         "chain_name": "Rococo-pc BridgeHub"
     },
     {
-        "url": "wss://rococo-bridge-hub-rpc.polkadot.io",
+        "url": "https://rococo-bridge-hub-rpc.dwellir.com",
         "chain_name": "Rococo-pc BridgeHub"
     },
     {
@@ -1252,7 +1256,7 @@
         "chain_name": "Westend-pc BridgeHub"
     },
     {
-        "url": "wss://westend-bridge-hub-rpc.dwellir.com",
+        "url": "https://westend-bridge-hub-rpc.dwellir.com",
         "chain_name": "Westend-pc BridgeHub"
     },
     {
@@ -1272,7 +1276,7 @@
         "chain_name": "Westend-pc Collectives"
     },
     {
-        "url": "wss://westend-collectives-rpc.dwellir.com",
+        "url": "https://westend-collectives-rpc.dwellir.com",
         "chain_name": "Westend-pc Collectives"
     },
     {
