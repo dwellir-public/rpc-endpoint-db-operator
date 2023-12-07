@@ -8,6 +8,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Arbitrum Sepolia",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Arbitrum mainnet",
         "api_class": "ethereum"
     },
@@ -161,6 +165,10 @@
     },
     {
         "name": "Optimism Goerli testnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Optimism Sepolia",
         "api_class": "ethereum"
     },
     {
@@ -326,6 +334,10 @@
     {
         "name": "Shibuya",
         "api_class": "substrate"
+    },
+    {
+        "name": "Starknet Sepolia",
+        "api_class": "starknet"
     },
     {
         "name": "Starknet mainnet",

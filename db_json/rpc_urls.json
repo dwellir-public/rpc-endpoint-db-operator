@@ -16,6 +16,26 @@
         "chain_name": "Aleph Zero Testnet"
     },
     {
+        "url": "https://arbitrum-sepolia-archive-rpc-1.dwellir.com",
+        "chain_name": "Arbitrum Sepolia"
+    },
+    {
+        "url": "https://arbitrum-sepolia-archive-rpc-2.dwellir.com",
+        "chain_name": "Arbitrum Sepolia"
+    },
+    {
+        "url": "https://sepolia-rollup.arbitrum.io/rpc",
+        "chain_name": "Arbitrum Sepolia"
+    },
+    {
+        "url": "https://arbitrum-sepolia.publicnode.com",
+        "chain_name": "Arbitrum Sepolia"
+    },
+    {
+        "url": "https://arbitrum-sepolia.public.blastapi.io",
+        "chain_name": "Arbitrum Sepolia"
+    },
+    {
         "url": "https://arbitrum-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Arbitrum mainnet"
     },
@@ -628,6 +648,18 @@
         "chain_name": "Optimism Goerli testnet"
     },
     {
+        "url": "https://optimism-sepolia-archive-rpc-1.dwellir.com",
+        "chain_name": "Optimism Sepolia"
+    },
+    {
+        "url": "https://optimism-sepolia-archive-rpc-2.dwellir.com",
+        "chain_name": "Optimism Sepolia"
+    },
+    {
+        "url": "https://sepolia.optimism.io/",
+        "chain_name": "Optimism Sepolia"
+    },
+    {
         "url": "https://optimism-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Optimism mainnet"
     },
@@ -1184,15 +1216,35 @@
         "chain_name": "Shibuya"
     },
     {
+        "url": "https://starknet-testnet-sepolia-rpc-1.dwellir.com",
+        "chain_name": "Starknet Sepolia"
+    },
+    {
+        "url": "https://starknet-testnet-sepolia-rpc-2.dwellir.com",
+        "chain_name": "Starknet Sepolia"
+    },
+    {
         "url": "https://starknet-mainnet-rpc.dwellir.com",
         "chain_name": "Starknet mainnet"
     },
     {
-        "url": "https://starknet-mainnet.g.alchemy.com/v2/demo",
+        "url": "https://starknet-mainnet-rpc-2.dwellir.com",
         "chain_name": "Starknet mainnet"
     },
     {
-        "url": "https://g.w.lavanet.xyz:443/gateway/strk/rpc-http/f7ee0000000000000000000000000000",
+        "url": "https://starknet-mainnet-rpc-1.dwellir.com",
+        "chain_name": "Starknet mainnet"
+    },
+    {
+        "url": "https://starknet-mainnet.public.blastapi.io",
+        "chain_name": "Starknet mainnet"
+    },
+    {
+        "url": "https://rpc.starknet.lava.build",
+        "chain_name": "Starknet mainnet"
+    },
+    {
+        "url": "https://free-rpc.nethermind.io/mainnet-juno",
         "chain_name": "Starknet mainnet"
     },
     {
