@@ -616,6 +616,54 @@
         "chain_name": "Kusama-pc Turing Network"
     },
     {
+        "url": "https://linea-goerli.public.blastapi.io",
+        "chain_name": "Linea goerli"
+    },
+    {
+        "url": "https://rpc.goerli.linea.build",
+        "chain_name": "Linea goerli"
+    },
+    {
+        "url": "https://linea-testnet.rpc.thirdweb.com",
+        "chain_name": "Linea goerli"
+    },
+    {
+        "url": "https://linea-goerli-archive-rpc-2.dwellir.com",
+        "chain_name": "Linea goerli"
+    },
+    {
+        "url": "https://linea-goerli-archive-rpc-1.dwellir.com",
+        "chain_name": "Linea goerli"
+    },
+    {
+        "url": "https://linea-mainnet.public.blastapi.io",
+        "chain_name": "Linea mainnet"
+    },
+    {
+        "url": "https://rpc.linea.build",
+        "chain_name": "Linea mainnet"
+    },
+    {
+        "url": "https://linea.rpc.thirdweb.com",
+        "chain_name": "Linea mainnet"
+    },
+    {
+        "url": "https://linea.blockpi.network/v1/rpc/public",
+        "chain_name": "Linea mainnet"
+    },
+    {
+        "url": "https://linea-mainnet-public.unifra.io",
+        "chain_name": "Linea mainnet"
+    },
+    {
+        "url": "https://linea-mainnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Linea mainnet"
+    },
+    {
+        "url": "https://linea-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Linea mainnet"
+    },
+    {
         "url": "https://moonbase-rpc.dwellir.com",
         "chain_name": "Moonbase Alpha testnet"
     },
@@ -1342,6 +1390,26 @@
     {
         "url": "https://rpc.xx.network",
         "chain_name": "xx network"
+    },
+    {
+        "url": "https://zksync-era-mainnet-rpc-1.dwellir.com",
+        "chain_name": "zkSync Era mainnet"
+    },
+    {
+        "url": "https://zksync-era-mainnet-rpc-2.dwellir.com",
+        "chain_name": "zkSync Era mainnet"
+    },
+    {
+        "url": "https://mainnet.era.zksync.io",
+        "chain_name": "zkSync Era mainnet"
+    },
+    {
+        "url": "https://zksync.meowrpc.com",
+        "chain_name": "zkSync Era mainnet"
+    },
+    {
+        "url": "https://zksync-era.blockpi.network/v1/rpc/public",
+        "chain_name": "zkSync Era mainnet"
     },
     {
         "url": "https://zksync-era-testnet-rpc-1.dwellir.com",

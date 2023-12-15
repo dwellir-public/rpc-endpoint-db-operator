@@ -160,6 +160,14 @@
         "api_class": "substrate"
     },
     {
+        "name": "Linea goerli",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Linea mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Moonbase Alpha testnet",
         "api_class": "substrate"
     },
@@ -362,6 +370,10 @@
     {
         "name": "xx network",
         "api_class": "substrate"
+    },
+    {
+        "name": "zkSync Era mainnet",
+        "api_class": "ethereum"
     },
     {
         "name": "zkSync Era testnet",
