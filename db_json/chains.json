@@ -172,10 +172,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Optimism Goerli testnet",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Optimism Sepolia",
         "api_class": "ethereum"
     },
