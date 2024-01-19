@@ -288,6 +288,30 @@
         "chain_name": "Ethereum Goerli testnet"
     },
     {
+        "url": "https://eth-holesky-archive-rpc-1.dwellir.com",
+        "chain_name": "Ethereum Holesky Testnet"
+    },
+    {
+        "url": "https://eth-holesky-archive-rpc-2.dwellir.com",
+        "chain_name": "Ethereum Holesky Testnet"
+    },
+    {
+        "url": "https://holesky.rpc.thirdweb.com",
+        "chain_name": "Ethereum Holesky Testnet"
+    },
+    {
+        "url": "https://ethereum-holesky.publicnode.com",
+        "chain_name": "Ethereum Holesky Testnet"
+    },
+    {
+        "url": "https://rpc.holesky.ethpandaops.io",
+        "chain_name": "Ethereum Holesky Testnet"
+    },
+    {
+        "url": "https://1rpc.io/holesky",
+        "chain_name": "Ethereum Holesky Testnet"
+    },
+    {
         "url": "https://rpc.sepolia.org",
         "chain_name": "Ethereum Sepolia testnet"
     },
@@ -734,6 +758,22 @@
     {
         "url": "https://palm-testnet-archive-rpc-2.dwellir.com",
         "chain_name": "Palm testnet"
+    },
+    {
+        "url": "https://api-polkadex-mainnet.dwellir.com",
+        "chain_name": "Polkadex mainnet"
+    },
+    {
+        "url": "https://polkadex-mainnet-rpc.dwellir.com",
+        "chain_name": "Polkadex mainnet"
+    },
+    {
+        "url": "https://polkadex.api.onfinality.io/public-http",
+        "chain_name": "Polkadex mainnet"
+    },
+    {
+        "url": "https://polkadex.public.curie.radiumblock.co/http",
+        "chain_name": "Polkadex mainnet"
     },
     {
         "url": "https://polkadot-rpc.dwellir.com",
@@ -1249,6 +1289,14 @@
     },
     {
         "url": "https://starknet-testnet-sepolia-rpc-2.dwellir.com",
+        "chain_name": "Starknet Sepolia"
+    },
+    {
+        "url": "https://starknet-sepolia.public.blastapi.io",
+        "chain_name": "Starknet Sepolia"
+    },
+    {
+        "url": "https://free-rpc.nethermind.io/sepolia-juno",
         "chain_name": "Starknet Sepolia"
     },
     {

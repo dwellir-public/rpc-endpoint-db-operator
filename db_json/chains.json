@@ -72,6 +72,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Ethereum Holesky Testnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Ethereum Sepolia testnet",
         "api_class": "ethereum"
     },
@@ -186,6 +190,10 @@
     {
         "name": "Palm testnet",
         "api_class": "ethereum"
+    },
+    {
+        "name": "Polkadex mainnet",
+        "api_class": "substrate"
     },
     {
         "name": "Polkadot Relaychain",
