@@ -88,6 +88,10 @@
         "chain_name": "Astar zkEVM zKatana"
     },
     {
+        "url": "https://goldberg.avail.tools/api",
+        "chain_name": "Avail Goldberg"
+    },
+    {
         "url": "https://api.avax.network/ext/bc/C/rpc",
         "chain_name": "Avalanche mainnet"
     },
@@ -684,6 +688,38 @@
         "chain_name": "Linea mainnet"
     },
     {
+        "url": "https://mantle-goerli-archive-rpc-1.dwellir.com",
+        "chain_name": "Mantle goerli"
+    },
+    {
+        "url": "https://mantle-goerli-archive-rpc-2.dwellir.com",
+        "chain_name": "Mantle goerli"
+    },
+    {
+        "url": "https://rpc.testnet.mantle.xyz",
+        "chain_name": "Mantle goerli"
+    },
+    {
+        "url": "https://mantle-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Mantle mainnet"
+    },
+    {
+        "url": "https://mantle-mainnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Mantle mainnet"
+    },
+    {
+        "url": "https://rpc.mantle.xyz",
+        "chain_name": "Mantle mainnet"
+    },
+    {
+        "url": "https://rpc.ankr.com/mantle",
+        "chain_name": "Mantle mainnet"
+    },
+    {
+        "url": "https://mantle.publicnode.com",
+        "chain_name": "Mantle mainnet"
+    },
+    {
         "url": "https://moonbase-rpc.dwellir.com",
         "chain_name": "Moonbase Alpha testnet"
     },
@@ -758,6 +794,14 @@
     {
         "url": "https://palm-testnet-archive-rpc-2.dwellir.com",
         "chain_name": "Palm testnet"
+    },
+    {
+        "url": "https://paseo-rpc-ng.dwellir.com",
+        "chain_name": "Paseo Relaychain"
+    },
+    {
+        "url": "https://rpc.ibp.network/paseo",
+        "chain_name": "Paseo Relaychain"
     },
     {
         "url": "https://api-polkadex-mainnet.dwellir.com",

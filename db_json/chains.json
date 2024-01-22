@@ -24,6 +24,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Avail Goldberg",
+        "api_class": "substrate"
+    },
+    {
         "name": "Avalanche mainnet",
         "api_class": "ethereum"
     },
@@ -172,6 +176,14 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Mantle Goerli",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Mantle mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Moonbase Alpha testnet",
         "api_class": "substrate"
     },
@@ -190,6 +202,10 @@
     {
         "name": "Palm testnet",
         "api_class": "ethereum"
+    },
+    {
+        "name": "Paseo Relaychain",
+        "api_class": "substrate"
     },
     {
         "name": "Polkadex mainnet",
