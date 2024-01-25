@@ -1172,6 +1172,14 @@
         "chain_name": "Polkadot-pc Polkadex"
     },
     {
+        "url": "https://subsocial-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Subsocial"
+    },
+    {
+        "url": "https://para.f3joule.space",
+        "chain_name": "Polkadot-pc Subsocial"
+    },
+    {
         "url": "https://unique-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Unique"
     },
