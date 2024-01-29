@@ -1,5 +1,19 @@
 #!/usr/bin/env python3
+"""
+A script to test and validate endpoints for use with the RPC endpoint DB charm.
 
+Usage:
+    python3 check_endpoint.py --url <URL>
+    python3 check_endpoint.py --file <FILE>
+    python3 check_endpoint.py --both
+
+    --url: URL to test
+    --file: File with URLs to test, in JSON format as a list where each field is a dict with the key "url"
+            [{"url": "http://localhost:9933"}, {"url": "ws://localhost:9944"}]
+    -http, --aiohttp: Test using aiohttp package
+    -ws, --websocket: Test using websocket package
+    --both: Test both packages
+"""
 
 import argparse
 import time
@@ -12,7 +26,7 @@ import queue
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Utility script to test that an endpoint is working')
+    parser = argparse.ArgumentParser(description='Utility script to test that an endpoint or a list of endpoitns are working')
     parser.add_argument('--url', type=str, help='URL to test')
     parser.add_argument('--file', type=str, help='File with URLs to test')
     protocol = parser.add_mutually_exclusive_group(required=True)
@@ -40,15 +54,15 @@ def main():
 
     if args.websocket or args.both:
         print("> websocket")
-        wss_urls = [url for url in urls if url.startswith("wss")]
-        print(f"#> URL:s with wss URL: {len(wss_urls)}")
+        wss_urls = [url for url in urls if url.startswith("ws")]
+        print(f"#> URL:s with ws URL: {len(wss_urls)}")
         payload = {
             "jsonrpc": "2.0",
             "method": "chain_getHeader",
             "params": [],
             "id": 1
         }
-        err_counter = 0
+        err_counter = []
         for url in wss_urls:
             try:
                 print(f'#> testing {url}')
@@ -59,12 +73,12 @@ def main():
                 thread.join(timeout=3)  # 3 seconds timeout for the thread to set up the ws connection
                 if thread.is_alive():
                     print("# #> Send operation timed out")
-                    err_counter = err_counter + 1
+                    err_counter.append(url)
                 else:
                     if not ws_queue.empty():
                         ws, status = ws_queue.get()
                         if status == 1:
-                            err_counter += 1
+                            err_counter.append(url)
                         elif ws is not None:
                             response = json.loads(ws.recv())
                             print(response)
@@ -72,13 +86,17 @@ def main():
                             if not 'jsonrpc' in response.keys():
                                 print(f'# #> error in response for {url}')
                                 print(f'URL {url} produced WS response={response}')
-                                err_counter = err_counter + 1
+                                err_counter.append(url)
                         else:
                             print(f'# #> Unkown error for {url}')
-                            err_counter = err_counter + 1
+                            err_counter.append(url)
             except Exception as e:
                 print(f'URL {url} failed WS connection: {e}')
-        print(f"#> Errors during run: {err_counter}")
+
+        print(f"#> Errors during run: {len(err_counter)}")
+        print(f"#> URL:s failing:")
+        for url in err_counter:
+            print(f" > {url}")
 
 
 def send_payload(url: str, payload, ws_queue):
