@@ -1,40 +1,64 @@
 #!/usr/bin/env python3
 
 
+import argparse
 import time
 import asyncio
 import aiohttp
 import websocket
 import json
+import json
 
 
 def main():
-    url = "wss://main.rpc.zeitgeist.pm/ws"
+    parser = argparse.ArgumentParser(description='Utility script to test that an endpoint is working')
+    parser.add_argument('--url', type=str, help='URL to test')
+    parser.add_argument('--file', type=str, help='File with URLs to test')
+    protocol = parser.add_mutually_exclusive_group(required=True)
+    protocol.add_argument('-http', '--aiohttp', action="store_true", help='Make requests using aiohttp')
+    protocol.add_argument('-ws', '--websocket', action="store_true", help='Make requests using the websocket package')
+    protocol.add_argument('--both', action="store_true", help='Make requests using both of the above')
+    args = parser.parse_args()
 
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    print("> aiohttp")
-    loop.run_until_complete(fetch(url))
+    urls = []
+    if args.url:
+        urls.append(args.url)
+    if args.file:
+        with open(args.file, 'r') as f:
+            json_data = f.read()
+            data = json.loads(json_data)
+        file_urls = [item['url'] for item in data]
+        urls.extend(file_urls)
+    print(f"URL:s found from input: {len(urls)}")
 
-    if "ws" in url:
+    if args.aiohttp or args.both:
+        print("> aiohttp")
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        loop.run_until_complete(fetch(urls))
+
+    if args.websocket or args.both:
         print("> websocket")
-        payload = {
-            "jsonrpc": "2.0",
-            "method": "chain_getHeader",
-            "params": [],
-            "id": 1
-        }
-        try:
-            ws = websocket.create_connection(url)
-            ws.send(json.dumps(payload))
-            response = json.loads(ws.recv())
-            print(response)
-            ws.close()
-            if not 'jsonrpc' in response.keys():
-                print(f'#> error for {url}')
-                print(f'URL {url} produced WS response={response}')
-        except Exception as e:
-            print(f'URL {url} failed WS connection: {e}')
+        wss_urls = [url for url in urls if url.startswith("wss")]
+        print(f"URL:s with wss URL: {len(wss_urls)}")
+        for url in wss_urls:
+            payload = {
+                "jsonrpc": "2.0",
+                "method": "chain_getHeader",
+                "params": [],
+                "id": 1
+            }
+            try:
+                ws = websocket.create_connection(url)
+                ws.send(json.dumps(payload))
+                response = json.loads(ws.recv())
+                print(response)
+                ws.close()
+                if not 'jsonrpc' in response.keys():
+                    print(f'#> error for {url}')
+                    print(f'URL {url} produced WS response={response}')
+            except Exception as e:
+                print(f'URL {url} failed WS connection: {e}')
 
 
 async def get_substrate(api_url):
@@ -85,10 +109,11 @@ async def request(url: str):
     return await get_substrate(url)
 
 
-async def fetch(url: str):
+async def fetch(urls: list[str]):
     loop = asyncio.get_event_loop()
     tasks = []
-    tasks.append(loop.create_task(request(url)))
+    for url in urls:
+        tasks.append(loop.create_task(request(url)))
     results = await asyncio.gather(*tasks, return_exceptions=True)
     return results
 
