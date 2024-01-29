@@ -6,8 +6,9 @@ import time
 import asyncio
 import aiohttp
 import websocket
+import threading
 import json
-import json
+import queue
 
 
 def main():
@@ -40,25 +41,54 @@ def main():
     if args.websocket or args.both:
         print("> websocket")
         wss_urls = [url for url in urls if url.startswith("wss")]
-        print(f"URL:s with wss URL: {len(wss_urls)}")
+        print(f"#> URL:s with wss URL: {len(wss_urls)}")
+        payload = {
+            "jsonrpc": "2.0",
+            "method": "chain_getHeader",
+            "params": [],
+            "id": 1
+        }
+        err_counter = 0
         for url in wss_urls:
-            payload = {
-                "jsonrpc": "2.0",
-                "method": "chain_getHeader",
-                "params": [],
-                "id": 1
-            }
             try:
-                ws = websocket.create_connection(url)
-                ws.send(json.dumps(payload))
-                response = json.loads(ws.recv())
-                print(response)
-                ws.close()
-                if not 'jsonrpc' in response.keys():
-                    print(f'#> error for {url}')
-                    print(f'URL {url} produced WS response={response}')
+                print(f'#> testing {url}')
+                ws_queue = queue.Queue()
+                # Create a thread to time limit the ws connection
+                thread = threading.Thread(target=send_payload, args=(url, payload, ws_queue), daemon=True)
+                thread.start()
+                thread.join(timeout=3)  # 3 seconds timeout for the thread to set up the ws connection
+                if thread.is_alive():
+                    print("# #> Send operation timed out")
+                    err_counter = err_counter + 1
+                else:
+                    if not ws_queue.empty():
+                        ws, status = ws_queue.get()
+                        if status == 1:
+                            err_counter += 1
+                        elif ws is not None:
+                            response = json.loads(ws.recv())
+                            print(response)
+                            ws.close()
+                            if not 'jsonrpc' in response.keys():
+                                print(f'# #> error in response for {url}')
+                                print(f'URL {url} produced WS response={response}')
+                                err_counter = err_counter + 1
+                        else:
+                            print(f'# #> Unkown error for {url}')
+                            err_counter = err_counter + 1
             except Exception as e:
                 print(f'URL {url} failed WS connection: {e}')
+        print(f"#> Errors during run: {err_counter}")
+
+
+def send_payload(url: str, payload, ws_queue):
+    try:
+        ws = websocket.create_connection(url)
+        ws.send(json.dumps(payload))
+        ws_queue.put((ws, 0))  # 0 indicates success
+    except (websocket.WebSocketBadStatusException, websocket._exceptions.WebSocketException) as e:
+        print(f'# #> WebSocket connection failed for {url} with error: {e}')
+        ws_queue.put((None, 1))  # 1 indicates an error
 
 
 async def get_substrate(api_url):
