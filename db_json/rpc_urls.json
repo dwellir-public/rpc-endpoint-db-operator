@@ -536,10 +536,6 @@
         "chain_name": "Kusama-pc Encointer"
     },
     {
-        "url": "https://encointer.api.onfinality.io/public-http",
-        "chain_name": "Kusama-pc Encointer"
-    },
-    {
         "url": "https://karura-rpc.dwellir.com",
         "chain_name": "Kusama-pc Karura"
     },
@@ -992,10 +988,6 @@
         "chain_name": "Polkadot-pc Composable Finance"
     },
     {
-        "url": "https://composable.api.onfinality.io/public-http",
-        "chain_name": "Polkadot-pc Composable Finance"
-    },
-    {
         "url": "https://darwinia-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Darwinia"
     },
@@ -1056,10 +1048,6 @@
         "chain_name": "Polkadot-pc Integritee Shell"
     },
     {
-        "url": "https://integritee-parachain.api.onfinality.io/public-http",
-        "chain_name": "Polkadot-pc Integritee Shell"
-    },
-    {
         "url": "https://interlay-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Interlay"
     },
@@ -1068,7 +1056,7 @@
         "chain_name": "Polkadot-pc Interlay"
     },
     {
-        "url": "https://interlay.api.onfinality.io/public-http",
+        "url": "https://rpc-interlay.luckyfriday.io",
         "chain_name": "Polkadot-pc Interlay"
     },
     {
@@ -1122,14 +1110,6 @@
     {
         "url": "https://origintrail-rpc.dwellir.com",
         "chain_name": "Polkadot-pc OriginTrail"
-    },
-    {
-        "url": "https://origintrail.api.onfinality.io/public-http",
-        "chain_name": "Polkadot-pc OriginTrail"
-    },
-    {
-        "url": "https://parallel.api.onfinality.io/public-http",
-        "chain_name": "Polkadot-pc Parallel"
     },
     {
         "url": "https://rpc.parallel.fi",
@@ -1189,10 +1169,6 @@
     },
     {
         "url": "https://eu-ws.unique.network",
-        "chain_name": "Polkadot-pc Unique"
-    },
-    {
-        "url": "https://unique.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Unique"
     },
     {
@@ -1473,10 +1449,6 @@
     },
     {
         "url": "https://xxnetwork-rpc.dwellir.com",
-        "chain_name": "xx network"
-    },
-    {
-        "url": "https://xx.api.onfinality.io/public",
         "chain_name": "xx network"
     },
     {
