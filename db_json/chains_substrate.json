@@ -1,0 +1,254 @@
+[
+    {
+        "name": "Aleph Zero",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Aleph Zero Testnet",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Avail Goldberg",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Crust mainnet",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Enjin Matrixchain",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama Relaychain",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Amplitude",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc AssetHub (Statemine)",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Basilisk",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Bifrost",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc BridgeHub",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Darwinia Crab",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Encointer",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Karura",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Khala",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Kintsugi BTC",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Moonriver",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Picasso",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Quartz",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Shiden",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Tinkernet",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Turing Network",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Moonbase Alpha testnet",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Paseo Relaychain",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadex mainnet",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot Relaychain",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Acala",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc AssetHub (Statemint)",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Astar",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Bifrost",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc BridgeHub",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Centrifuge",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Collectives",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Composable Finance",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Darwinia",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Eden",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Equilibrium",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Frequency",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc HydraDX",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Integritee Shell",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Interlay",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc InvArch",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Kapex",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Kilt Spiritnet",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Litentry",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Moonbeam",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc OriginTrail",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Parallel",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Pendulum",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Phala Network",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Polkadex",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Subsocial",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Unique",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Zeitgeist",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Rococo-pc AssetHub",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Rococo-pc BridgeHub",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Rococo-pc Frequency",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Shibuya",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Westend Relaychain",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Westend-pc AssetHub (Westmint)",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Westend-pc BridgeHub",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Westend-pc Collectives",
+        "api_class": "substrate"
+    },
+    {
+        "name": "xx network",
+        "api_class": "substrate"
+    }
+]
