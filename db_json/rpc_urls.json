@@ -136,6 +136,26 @@
         "chain_name": "Base Goerli testnet"
     },
     {
+        "url": "https://base-sepolia-archive-rpc-1.dwellir.com",
+        "chain_name": "Base Sepolia"
+    },
+    {
+        "url": "https://base-sepolia-archive-rpc-2.dwellir.com",
+        "chain_name": "Base Sepolia"
+    },
+    {
+        "url": "https://sepolia.base.org/",
+        "chain_name": "Base Sepolia"
+    },
+    {
+        "url": "https://rpc.ankr.com/base_sepolia",
+        "chain_name": "Base Sepolia"
+    },
+    {
+        "url": "https://base-sepolia.publicnode.com",
+        "chain_name": "Base Sepolia"
+    },
+    {
         "url": "https://base-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Base mainnet"
     },
@@ -272,12 +292,32 @@
         "chain_name": "Crust mainnet"
     },
     {
+        "url": "https://enjin-canary-relay-rpc.dwellir.com",
+        "chain_name": "Enjin Canary Relay Chain"
+    },
+    {
+        "url": "wss://rpc.relay.canary.enjin.io/",
+        "chain_name": "Enjin Canary Relay Chain"
+    },
+    {
         "url": "https://enjin-matrix-rpc-1.dwellir.com",
         "chain_name": "Enjin Matrixchain"
     },
     {
         "url": "https://rpc.matrix.blockchain.enjin.io",
         "chain_name": "Enjin Matrixchain"
+    },
+    {
+        "url": "https://enjin-relay-rpc.dwellir.com",
+        "chain_name": "Enjin Relay Chain"
+    },
+    {
+        "url": "wss://rpc.relay.blockchain.enjin.io/",
+        "chain_name": "Enjin Relay Chain"
+    },
+    {
+        "url": "wss://enjin-relay-chain.matrixed.link/",
+        "chain_name": "Enjin Relay Chain"
     },
     {
         "url": "https://ethereum-goerli.publicnode.com",

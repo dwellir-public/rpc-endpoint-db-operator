@@ -36,6 +36,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Base Sepolia",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Base mainnet",
         "api_class": "ethereum"
     },
@@ -68,7 +72,15 @@
         "api_class": "substrate"
     },
     {
+        "name": "Enjin Canary Relay Chain",
+        "api_class": "substrate"
+    },
+    {
         "name": "Enjin Matrixchain",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Enjin Relay Chain",
         "api_class": "substrate"
     },
     {
