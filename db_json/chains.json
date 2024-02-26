@@ -72,6 +72,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Enjin Canary Matrix Chain",
+        "api_class": "substrate"
+    },
+    {
         "name": "Enjin Canary Relay Chain",
         "api_class": "substrate"
     },
@@ -340,6 +344,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polygon Amoy",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Polygon Mumbai",
         "api_class": "ethereum"
     },
@@ -349,6 +357,10 @@
     },
     {
         "name": "Polygon zkEVM mainnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Polygon zkEVM sepolia",
         "api_class": "ethereum"
     },
     {
@@ -409,6 +421,10 @@
     },
     {
         "name": "zkSync Era mainnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "zkSync Era sepolia",
         "api_class": "ethereum"
     },
     {

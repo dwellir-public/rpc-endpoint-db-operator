@@ -240,6 +240,10 @@
         "chain_name": "Chiado"
     },
     {
+        "url": "https://api-chiado-archive.dwellir.com",
+        "chain_name": "Chiado"
+    },
+    {
         "url": "https://chiliz-testnet-archive-rpc-1.dwellir.com",
         "chain_name": "Chiliz Spicy testnet"
     },
@@ -290,6 +294,14 @@
     {
         "url": "https://crust.api.onfinality.io/public-http",
         "chain_name": "Crust mainnet"
+    },
+    {
+        "url": "https://rpc.matrix.canary.enjin.io",
+        "chain_name": "Enjin Canary Matrix Chain"
+    },
+    {
+        "url": "https://enjin-canary-matrix-rpc.dwellir.com",
+        "chain_name": "Enjin Canary Matrix Chain"
     },
     {
         "url": "https://enjin-canary-relay-rpc.dwellir.com",
@@ -405,6 +417,10 @@
     },
     {
         "url": "https://eth-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Ethereum mainnet"
+    },
+    {
+        "url": "https://api-eth-mainnet-archive.dwellir.com",
         "chain_name": "Ethereum mainnet"
     },
     {
@@ -1224,6 +1240,18 @@
         "chain_name": "Polkadot-pc Zeitgeist"
     },
     {
+        "url": "https://polygon-amoy-archive-rpc-1.dwellir.com",
+        "chain_name": "Polygon Amoy"
+    },
+    {
+        "url": "https://polygon-amoy-archive-rpc-2.dwellir.com",
+        "chain_name": "Polygon Amoy"
+    },
+    {
+        "url": "https://polygon-amoy.drpc.org",
+        "chain_name": "Polygon Amoy"
+    },
+    {
         "url": "https://rpc-mumbai.maticvigil.com",
         "chain_name": "Polygon Mumbai"
     },
@@ -1272,6 +1300,10 @@
         "chain_name": "Polygon mainnet"
     },
     {
+        "url": "https://api-polygon-mainnet-full.dwellir.com",
+        "chain_name": "Polygon mainnet"
+    },
+    {
         "url": "https://zkevm-rpc.com",
         "chain_name": "Polygon zkEVM mainnet"
     },
@@ -1290,6 +1322,18 @@
     {
         "url": "https://polygon-zkevm-mainnet.public.blastapi.io",
         "chain_name": "Polygon zkEVM mainnet"
+    },
+    {
+        "url": "https://polygon-zkevm-sepolia-archive-rpc-1.dwellir.com",
+        "chain_name": "Polygon zkEVM sepolia"
+    },
+    {
+        "url": "https://polygon-zkevm-sepolia-archive-rpc-2.dwellir.com",
+        "chain_name": "Polygon zkEVM sepolia"
+    },
+    {
+        "url": "https://2442.rpc.thirdweb.com",
+        "chain_name": "Polygon zkEVM sepolia"
     },
     {
         "url": "https://polygon-zkevm-testnet-archive-rpc-2.dwellir.com",
@@ -1514,6 +1558,22 @@
     {
         "url": "https://zksync-era.blockpi.network/v1/rpc/public",
         "chain_name": "zkSync Era mainnet"
+    },
+    {
+        "url": "https://zksync-era-sepolia-rpc-2.dwellir.com",
+        "chain_name": "zkSync Era sepolia"
+    },
+    {
+        "url": "https://sepolia.era.zksync.dev",
+        "chain_name": "zkSync Era sepolia"
+    },
+    {
+        "url": "https://zksync-era-sepolia-rpc-1.dwellir.com",
+        "chain_name": "zkSync Era sepolia"
+    },
+    {
+        "url": "https://zksync-era-sepolia.blockpi.network/v1/rpc/public",
+        "chain_name": "zkSync Era sepolia"
     },
     {
         "url": "https://zksync-era-testnet-rpc-1.dwellir.com",
