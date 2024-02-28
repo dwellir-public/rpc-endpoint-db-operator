@@ -1056,14 +1056,6 @@
         "chain_name": "Polkadot-pc Darwinia"
     },
     {
-        "url": "https://eden-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Eden"
-    },
-    {
-        "url": "https://nodle-parachain.api.onfinality.io/public-http",
-        "chain_name": "Polkadot-pc Eden"
-    },
-    {
         "url": "https://equilibrium-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Equilibrium"
     },
@@ -1161,11 +1153,27 @@
     },
     {
         "url": "https://parachain-rpc.origin-trail.network",
-        "chain_name": "Polkadot-pc OriginTrail"
+        "chain_name": "Polkadot-pc NeuroWeb (OriginTrail)"
     },
     {
-        "url": "https://origintrail-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc OriginTrail"
+        "url": "https://api-neuroweb.dwellir.com",
+        "chain_name": "Polkadot-pc NeuroWeb (OriginTrail)"
+    },
+    {
+        "url": "https://neuroweb-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc NeuroWeb (OriginTrail)"
+    },
+    {
+        "url": "https://nodle-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Nodle (Eden)"
+    },
+    {
+        "url": "https://nodle-parachain.api.onfinality.io/public-http",
+        "chain_name": "Polkadot-pc Nodle (Eden)"
+    },
+    {
+        "url": "https://api-nodle.dwellir.com",
+        "chain_name": "Polkadot-pc Nodle (Eden)"
     },
     {
         "url": "https://rpc.parallel.fi",
@@ -1473,6 +1481,10 @@
     },
     {
         "url": "https://subscan-westend-rpc.dwellir.com",
+        "chain_name": "Westend Relaychain"
+    },
+    {
+        "url": "https://api-westend.dwellir.com",
         "chain_name": "Westend Relaychain"
     },
     {

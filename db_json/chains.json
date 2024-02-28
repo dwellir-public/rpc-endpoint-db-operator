@@ -268,10 +268,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Polkadot-pc Eden",
-        "api_class": "substrate"
-    },
-    {
         "name": "Polkadot-pc Equilibrium",
         "api_class": "substrate"
     },
@@ -312,7 +308,11 @@
         "api_class": "substrate"
     },
     {
-        "name": "Polkadot-pc OriginTrail",
+        "name": "Polkadot-pc NeuroWeb (OriginTrail)",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Nodle (Eden)",
         "api_class": "substrate"
     },
     {
