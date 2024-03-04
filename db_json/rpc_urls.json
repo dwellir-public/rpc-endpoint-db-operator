@@ -668,6 +668,18 @@
         "chain_name": "Kusama-pc Quartz"
     },
     {
+        "url": "wss://robonomics.0xsamsara.com",
+        "chain_name": "Kusama-pc Robonomics"
+    },
+    {
+        "url": "wss://kusama.rpc.robonomics.network",
+        "chain_name": "Kusama-pc Robonomics"
+    },
+    {
+        "url": "wss://robonomics-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Robonomics"
+    },
+    {
         "url": "https://shiden-rpc.dwellir.com",
         "chain_name": "Kusama-pc Shiden"
     },
