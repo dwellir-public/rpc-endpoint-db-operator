@@ -188,6 +188,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Liberland mainnet",
+        "api_class": "substrate"
+    },
+    {
         "name": "Linea goerli",
         "api_class": "ethereum"
     },

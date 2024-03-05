@@ -708,6 +708,14 @@
         "chain_name": "Kusama-pc Turing Network"
     },
     {
+        "url": "https://liberland-rpc.dwellir.com",
+        "chain_name": "Liberland mainnet"
+    },
+    {
+        "url": "wss://mainnet.liberland.org",
+        "chain_name": "Liberland mainnet"
+    },
+    {
         "url": "https://linea-goerli.public.blastapi.io",
         "chain_name": "Linea goerli"
     },
