@@ -20,6 +20,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Astar zkEVM mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Astar zkEVM zKatana",
         "api_class": "ethereum"
     },
@@ -205,6 +209,10 @@
     },
     {
         "name": "Mantle mainnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Mantle sepolia",
         "api_class": "ethereum"
     },
     {

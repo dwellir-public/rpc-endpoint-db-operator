@@ -76,6 +76,14 @@
         "chain_name": "Arbitrum testnet"
     },
     {
+        "url": "https://rpc.startale.com/astar-zkevm",
+        "chain_name": "Astar zkEVM mainnet"
+    },
+    {
+        "url": "https://api-astar-zkevm-mainnet.dwellir.com",
+        "chain_name": "Astar zkEVM mainnet"
+    },
+    {
         "url": "https://rpc.startale.com/zkatana",
         "chain_name": "Astar zkEVM zKatana"
     },
@@ -796,6 +804,18 @@
         "chain_name": "Mantle mainnet"
     },
     {
+        "url": "https://mantle-sepolia-archive-rpc-2.dwellir.com",
+        "chain_name": "Mantle sepolia"
+    },
+    {
+        "url": "https://mantle-sepolia-archive-rpc-1.dwellir.com",
+        "chain_name": "Mantle sepolia"
+    },
+    {
+        "url": "https://rpc.sepolia.mantle.xyz",
+        "chain_name": "Mantle sepolia"
+    },
+    {
         "url": "https://moonbase-rpc.dwellir.com",
         "chain_name": "Moonbase Alpha testnet"
     },
@@ -937,6 +957,10 @@
     },
     {
         "url": "https://acala-rpc-1.aca-api.network",
+        "chain_name": "Polkadot-pc Acala"
+    },
+    {
+        "url": "https://api-acala.dwellir.com",
         "chain_name": "Polkadot-pc Acala"
     },
     {
