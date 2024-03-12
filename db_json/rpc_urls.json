@@ -548,6 +548,10 @@
         "chain_name": "Kusama-pc AssetHub (Statemine)"
     },
     {
+        "url": "https://api-assethub-kusama.dwellir.com",
+        "chain_name": "Kusama-pc AssetHub (Statemine)"
+    },
+    {
         "url": "https://basilisk-rpc.dwellir.com",
         "chain_name": "Kusama-pc Basilisk"
     },
@@ -849,6 +853,10 @@
     },
     {
         "url": "https://moonbase.unitedbloc.com",
+        "chain_name": "Moonbase Alpha testnet"
+    },
+    {
+        "url": "https://api-moonbase.dwellir.com",
         "chain_name": "Moonbase Alpha testnet"
     },
     {
@@ -1232,6 +1240,10 @@
         "chain_name": "Polkadot-pc Moonbeam"
     },
     {
+        "url": "https://api-moonbeam.dwellir.com",
+        "chain_name": "Polkadot-pc Moonbeam"
+    },
+    {
         "url": "https://parachain-rpc.origin-trail.network",
         "chain_name": "Polkadot-pc NeuroWeb (OriginTrail)"
     },
@@ -1241,6 +1253,10 @@
     },
     {
         "url": "https://neuroweb-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc NeuroWeb (OriginTrail)"
+    },
+    {
+        "url": "https://api-origintrail.dwellir.com",
         "chain_name": "Polkadot-pc NeuroWeb (OriginTrail)"
     },
     {
@@ -1493,6 +1509,10 @@
     },
     {
         "url": "https://rpc.shibuya.astar.network",
+        "chain_name": "Shibuya"
+    },
+    {
+        "url": "https://api-shibuya.dwellir.com",
         "chain_name": "Shibuya"
     },
     {
