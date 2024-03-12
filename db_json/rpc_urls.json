@@ -840,6 +840,10 @@
         "chain_name": "Mantle sepolia"
     },
     {
+        "url": "https://api-mantle-sepolia-archive.dwellir.com",
+        "chain_name": "Mantle sepolia"
+    },
+    {
         "url": "https://moonbase-rpc.dwellir.com",
         "chain_name": "Moonbase Alpha testnet"
     },
