@@ -8,11 +8,19 @@
         "chain_name": "Aleph Zero"
     },
     {
+        "url": "https://api-aleph-zero-mainnet.dwellir.com",
+        "chain_name": "Aleph Zero"
+    },
+    {
         "url": "https://aleph-zero-testnet-rpc.dwellir.com",
         "chain_name": "Aleph Zero Testnet"
     },
     {
         "url": "https://ws.test.azero.dev",
+        "chain_name": "Aleph Zero Testnet"
+    },
+    {
+        "url": "https://api-aleph-zero-testnet.dwellir.com",
         "chain_name": "Aleph Zero Testnet"
     },
     {
@@ -304,6 +312,10 @@
         "chain_name": "Crust mainnet"
     },
     {
+        "url": "https://api-crust-mainnet.dwellir.com",
+        "chain_name": "Crust mainnet"
+    },
+    {
         "url": "https://rpc.matrix.canary.enjin.io",
         "chain_name": "Enjin Canary Matrix Chain"
     },
@@ -512,6 +524,10 @@
         "chain_name": "Kusama-pc Amplitude"
     },
     {
+        "url": "https://api-amplitude.dwellir.com",
+        "chain_name": "Kusama-pc Amplitude"
+    },
+    {
         "url": "https://statemine-rpc.dwellir.com",
         "chain_name": "Kusama-pc AssetHub (Statemine)"
     },
@@ -553,6 +569,10 @@
     },
     {
         "url": "https://bifrost-parachain.api.onfinality.io/public-http",
+        "chain_name": "Kusama-pc Bifrost"
+    },
+    {
+        "url": "https://api-bifrost-kusama.dwellir.com",
         "chain_name": "Kusama-pc Bifrost"
     },
     {
@@ -1004,6 +1024,10 @@
         "chain_name": "Polkadot-pc Astar"
     },
     {
+        "url": "https://api-astar.dwellir.com",
+        "chain_name": "Polkadot-pc Astar"
+    },
+    {
         "url": "https://hk.p.bifrost-rpc.liebi.com/http",
         "chain_name": "Polkadot-pc Bifrost"
     },
@@ -1017,6 +1041,10 @@
     },
     {
         "url": "https://bifrost-polkadot-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Bifrost"
+    },
+    {
+        "url": "https://api-bifrost-polkadot.dwellir.com",
         "chain_name": "Polkadot-pc Bifrost"
     },
     {
@@ -1129,6 +1157,14 @@
     },
     {
         "url": "https://hydradx-rpc-2.dwellir.com",
+        "chain_name": "Polkadot-pc HydraDX"
+    },
+    {
+        "url": "https://hydradx-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc HydraDX"
+    },
+    {
+        "url": "https://api-hydradx.dwellir.com",
         "chain_name": "Polkadot-pc HydraDX"
     },
     {
@@ -1497,6 +1533,10 @@
     },
     {
         "url": "https://free-rpc.nethermind.io/mainnet-juno",
+        "chain_name": "Starknet mainnet"
+    },
+    {
+        "url": "https://api-starknet-mainnet.dwellir.com",
         "chain_name": "Starknet mainnet"
     },
     {
