@@ -432,6 +432,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Zora Mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "xx network",
         "api_class": "substrate"
     },
