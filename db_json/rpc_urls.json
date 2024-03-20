@@ -240,6 +240,14 @@
         "chain_name": "Binance Smart Chain testnet"
     },
     {
+        "url": "https://bittensor-mainnet-rpc.dwellir.com",
+        "chain_name": "Bittensor Mainnet"
+    },
+    {
+        "url": "wss://entrypoint-finney.opentensor.ai:443",
+        "chain_name": "Bittensor Mainnet"
+    },
+    {
         "url": "https://chiado-archive-rpc-1.dwellir.com",
         "chain_name": "Chiado"
     },

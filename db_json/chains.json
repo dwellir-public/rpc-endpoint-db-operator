@@ -56,6 +56,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Bittensor Mainnet",
+        "api_class": "substrate"
+    },
+    {
         "name": "Chiado",
         "api_class": "ethereum"
     },
