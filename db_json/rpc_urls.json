@@ -680,6 +680,14 @@
         "chain_name": "Kusama-pc Moonriver"
     },
     {
+        "url": "https://moonriver-rpc-1.dwellir.com",
+        "chain_name": "Kusama-pc Moonriver"
+    },
+    {
+        "url": "https://moonriver-rpc-2.dwellir.com",
+        "chain_name": "Kusama-pc Moonriver"
+    },
+    {
         "url": "https://picasso-rpc.dwellir.com",
         "chain_name": "Kusama-pc Picasso"
     },
