@@ -880,6 +880,14 @@
         "chain_name": "Moonbase Alpha testnet"
     },
     {
+        "url": "https://moonbase-rpc-1.dwellir.com",
+        "chain_name": "Moonbase Alpha testnet"
+    },
+    {
+        "url": "https://moonbase-rpc-2.dwellir.com",
+        "chain_name": "Moonbase Alpha testnet"
+    },
+    {
         "url": "https://optimism-sepolia-archive-rpc-1.dwellir.com",
         "chain_name": "Optimism Sepolia"
     },
