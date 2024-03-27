@@ -248,6 +248,18 @@
         "chain_name": "Bittensor Mainnet"
     },
     {
+        "url": "https://api-chainflip.dwellir.com",
+        "chain_name": "Chainflip"
+    },
+    {
+        "url": "https://chainflip-rpc.dwellir.com",
+        "chain_name": "Chainflip"
+    },
+    {
+        "url": "https://mainnet-archive.chainflip.io",
+        "chain_name": "Chainflip"
+    },
+    {
         "url": "https://chiado-archive-rpc-1.dwellir.com",
         "chain_name": "Chiado"
     },
