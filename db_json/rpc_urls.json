@@ -308,6 +308,10 @@
         "chain_name": "Chiliz mainnet"
     },
     {
+        "url": "https://api-chiliz.dwellir.com",
+        "chain_name": "Chiliz mainnet"
+    },
+    {
         "url": "https://evm.cronos.org",
         "chain_name": "Cronos mainnet"
     },
@@ -480,6 +484,10 @@
         "chain_name": "Fantom mainnet"
     },
     {
+        "url": "https://api-fantom-mainnet.dwellir.com",
+        "chain_name": "Fantom mainnet"
+    },
+    {
         "url": "https://rpc.testnet.fantom.network",
         "chain_name": "Fantom testnet"
     },
@@ -516,6 +524,10 @@
         "chain_name": "Gnosis"
     },
     {
+        "url": "https://api-gnosis-archive.dwellir.com",
+        "chain_name": "Gnosis"
+    },
+    {
         "url": "https://kusama-rpc.dwellir.com",
         "chain_name": "Kusama Relaychain"
     },
@@ -533,6 +545,10 @@
     },
     {
         "url": "wss://rpc-kusama.luckyfriday.io",
+        "chain_name": "Kusama Relaychain"
+    },
+    {
+        "url": "https://api-kusama.dwellir.com",
         "chain_name": "Kusama Relaychain"
     },
     {
@@ -577,6 +593,10 @@
     },
     {
         "url": "wss://rpc.basilisk.cloud",
+        "chain_name": "Kusama-pc Basilisk"
+    },
+    {
+        "url": "https://api-basilisk.dwellir.com",
         "chain_name": "Kusama-pc Basilisk"
     },
     {
@@ -632,6 +652,10 @@
         "chain_name": "Kusama-pc Darwinia Crab"
     },
     {
+        "url": "https://api-darwiniacrab.dwellir.com",
+        "chain_name": "Kusama-pc Darwinia Crab"
+    },
+    {
         "url": "https://kusama-encointer-rpc-ng.dwellir.com",
         "chain_name": "Kusama-pc Encointer"
     },
@@ -656,6 +680,10 @@
         "chain_name": "Kusama-pc Karura"
     },
     {
+        "url": "https://api-karura.dwellir.com",
+        "chain_name": "Kusama-pc Karura"
+    },
+    {
         "url": "https://khala-rpc.dwellir.com",
         "chain_name": "Kusama-pc Khala"
     },
@@ -668,6 +696,10 @@
         "chain_name": "Kusama-pc Khala"
     },
     {
+        "url": "https://api-khala.dwellir.com",
+        "chain_name": "Kusama-pc Khala"
+    },
+    {
         "url": "https://kintsugi-rpc.dwellir.com",
         "chain_name": "Kusama-pc Kintsugi BTC"
     },
@@ -677,6 +709,10 @@
     },
     {
         "url": "https://kintsugi.api.onfinality.io/public-http",
+        "chain_name": "Kusama-pc Kintsugi BTC"
+    },
+    {
+        "url": "https://api-kintsugi.dwellir.com",
         "chain_name": "Kusama-pc Kintsugi BTC"
     },
     {
@@ -708,11 +744,19 @@
         "chain_name": "Kusama-pc Moonriver"
     },
     {
+        "url": "https://api-moonriver.dwellir.com",
+        "chain_name": "Kusama-pc Moonriver"
+    },
+    {
         "url": "https://picasso-rpc.dwellir.com",
         "chain_name": "Kusama-pc Picasso"
     },
     {
         "url": "https://rpc.composablenodes.tech",
+        "chain_name": "Kusama-pc Picasso"
+    },
+    {
+        "url": "https://api-picasso.dwellir.com",
         "chain_name": "Kusama-pc Picasso"
     },
     {
@@ -725,6 +769,10 @@
     },
     {
         "url": "https://us-ws-quartz.unique.network",
+        "chain_name": "Kusama-pc Quartz"
+    },
+    {
+        "url": "https://api-quartz.dwellir.com",
         "chain_name": "Kusama-pc Quartz"
     },
     {
@@ -756,6 +804,10 @@
         "chain_name": "Kusama-pc Shiden"
     },
     {
+        "url": "https://api-shiden.dwellir.com",
+        "chain_name": "Kusama-pc Shiden"
+    },
+    {
         "url": "https://tinkernet-rpc.dwellir.com",
         "chain_name": "Kusama-pc Tinkernet"
     },
@@ -765,6 +817,10 @@
     },
     {
         "url": "https://rpc.turing.oak.tech",
+        "chain_name": "Kusama-pc Turing Network"
+    },
+    {
+        "url": "https://api-turing.dwellir.com",
         "chain_name": "Kusama-pc Turing Network"
     },
     {
@@ -821,6 +877,10 @@
     },
     {
         "url": "https://linea-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Linea mainnet"
+    },
+    {
+        "url": "https://api-linea-mainnet-archive.dwellir.com",
         "chain_name": "Linea mainnet"
     },
     {
@@ -1136,6 +1196,10 @@
         "chain_name": "Polkadot-pc Centrifuge"
     },
     {
+        "url": "https://api-centrifuge.dwellir.com",
+        "chain_name": "Polkadot-pc Centrifuge"
+    },
+    {
         "url": "https://polkadot-collectives-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc Collectives"
     },
@@ -1168,6 +1232,10 @@
         "chain_name": "Polkadot-pc Composable Finance"
     },
     {
+        "url": "https://api-composable.dwellir.com",
+        "chain_name": "Polkadot-pc Composable Finance"
+    },
+    {
         "url": "https://darwinia-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Darwinia"
     },
@@ -1180,11 +1248,19 @@
         "chain_name": "Polkadot-pc Darwinia"
     },
     {
+        "url": "https://api-darwinia.dwellir.com",
+        "chain_name": "Polkadot-pc Darwinia"
+    },
+    {
         "url": "https://equilibrium-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Equilibrium"
     },
     {
         "url": "https://node.pol.equilibrium.io",
+        "chain_name": "Polkadot-pc Equilibrium"
+    },
+    {
+        "url": "https://api-equilibrium.dwellir.com",
         "chain_name": "Polkadot-pc Equilibrium"
     },
     {
@@ -1197,6 +1273,10 @@
     },
     {
         "url": "https://1.rpc.frequency.xyz",
+        "chain_name": "Polkadot-pc Frequency"
+    },
+    {
+        "url": "https://api-frequency.dwellir.com",
         "chain_name": "Polkadot-pc Frequency"
     },
     {
@@ -1228,6 +1308,10 @@
         "chain_name": "Polkadot-pc Integritee Shell"
     },
     {
+        "url": "https://api-integritee.dwellir.com",
+        "chain_name": "Polkadot-pc Integritee Shell"
+    },
+    {
         "url": "https://interlay-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Interlay"
     },
@@ -1240,7 +1324,15 @@
         "chain_name": "Polkadot-pc Interlay"
     },
     {
+        "url": "https://api-interlay.dwellir.com",
+        "chain_name": "Polkadot-pc Interlay"
+    },
+    {
         "url": "https://invarch-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc InvArch"
+    },
+    {
+        "url": "https://api-invarch.dwellir.com",
         "chain_name": "Polkadot-pc InvArch"
     },
     {
@@ -1260,11 +1352,19 @@
         "chain_name": "Polkadot-pc Kilt Spiritnet"
     },
     {
+        "url": "https://api-kilt.dwellir.com",
+        "chain_name": "Polkadot-pc Kilt Spiritnet"
+    },
+    {
         "url": "https://litentry-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Litentry"
     },
     {
         "url": "https://rpc.litentry-parachain.litentry.io",
+        "chain_name": "Polkadot-pc Litentry"
+    },
+    {
+        "url": "https://api-litentry.dwellir.com",
         "chain_name": "Polkadot-pc Litentry"
     },
     {
@@ -1332,11 +1432,19 @@
         "chain_name": "Polkadot-pc Parallel"
     },
     {
+        "url": "https://api-parallel.dwellir.com",
+        "chain_name": "Polkadot-pc Parallel"
+    },
+    {
         "url": "https://pendulum-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Pendulum"
     },
     {
         "url": "https://rpc-pendulum.prd.pendulumchain.tech",
+        "chain_name": "Polkadot-pc Pendulum"
+    },
+    {
+        "url": "https://api-pendulum.dwellir.com",
         "chain_name": "Polkadot-pc Pendulum"
     },
     {
@@ -1349,6 +1457,10 @@
     },
     {
         "url": "https://api.phala.network/http",
+        "chain_name": "Polkadot-pc Phala Network"
+    },
+    {
+        "url": "https://api-phala.dwellir.com",
         "chain_name": "Polkadot-pc Phala Network"
     },
     {
@@ -1372,6 +1484,10 @@
         "chain_name": "Polkadot-pc Subsocial"
     },
     {
+        "url": "https://api-subsocial.dwellir.com",
+        "chain_name": "Polkadot-pc Subsocial"
+    },
+    {
         "url": "https://unique-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Unique"
     },
@@ -1384,6 +1500,10 @@
         "chain_name": "Polkadot-pc Unique"
     },
     {
+        "url": "https://api-unique.dwellir.com",
+        "chain_name": "Polkadot-pc Unique"
+    },
+    {
         "url": "https://zeitgeist-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Zeitgeist"
     },
@@ -1393,6 +1513,10 @@
     },
     {
         "url": "https://zeitgeist.api.onfinality.io/public-http",
+        "chain_name": "Polkadot-pc Zeitgeist"
+    },
+    {
+        "url": "https://api-zeitgeist.dwellir.com",
         "chain_name": "Polkadot-pc Zeitgeist"
     },
     {
@@ -1449,10 +1573,6 @@
     },
     {
         "url": "https://polygon-mainnet-full-rpc-2.dwellir.com",
-        "chain_name": "Polygon mainnet"
-    },
-    {
-        "url": "https://polygon.llamarpc.com",
         "chain_name": "Polygon mainnet"
     },
     {
@@ -1520,6 +1640,10 @@
         "chain_name": "PulseChain mainnet"
     },
     {
+        "url": "https://api-pulsechain-mainnet.dwellir.com",
+        "chain_name": "PulseChain mainnet"
+    },
+    {
         "url": "https://pulsechain-testnet-archive-rpc-1.dwellir.com",
         "chain_name": "PulseChain testnet"
     },
@@ -1529,6 +1653,10 @@
     },
     {
         "url": "https://rpc.v4.testnet.pulsechain.com",
+        "chain_name": "PulseChain testnet"
+    },
+    {
+        "url": "https://api-pulsechain-testnet-v4.dwellir.com",
         "chain_name": "PulseChain testnet"
     },
     {
@@ -1553,6 +1681,10 @@
     },
     {
         "url": "wss://rpc.rococo.frequency.xyz",
+        "chain_name": "Rococo-pc Frequency"
+    },
+    {
+        "url": "https://api-frequency-rococo.dwellir.com",
         "chain_name": "Rococo-pc Frequency"
     },
     {
@@ -1709,6 +1841,10 @@
     },
     {
         "url": "https://rpc.zora.energy",
+        "chain_name": "Zora mainnet"
+    },
+    {
+        "url": "https://api-zora-mainnet.dwellir.com",
         "chain_name": "Zora mainnet"
     },
     {
