@@ -20,6 +20,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Astar zKyoto testnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Astar zkEVM mainnet",
         "api_class": "ethereum"
     },
