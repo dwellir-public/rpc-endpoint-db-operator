@@ -1732,6 +1732,10 @@
         "chain_name": "Starknet Sepolia"
     },
     {
+        "url": "https://api-starknet-sepolia.dwellir.com",
+        "chain_name": "Starknet Sepolia"
+    },
+    {
         "url": "https://starknet-mainnet-rpc.dwellir.com",
         "chain_name": "Starknet mainnet"
     },
