@@ -252,6 +252,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Paseo-pc AssetHub",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadex mainnet",
         "api_class": "substrate"
     },
@@ -441,6 +445,10 @@
     },
     {
         "name": "Westend-pc Collectives",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Westend-pc Coretime",
         "api_class": "substrate"
     },
     {

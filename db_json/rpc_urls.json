@@ -1044,6 +1044,14 @@
         "chain_name": "Paseo Relaychain"
     },
     {
+        "url": "https://pas-rpc.stakeworld.io/assethub",
+        "chain_name": "Paseo-pc AssetHub"
+    },
+    {
+        "url": "https://asset-hub-paseo-rpc-ng.dwellir.com",
+        "chain_name": "Paseo-pc AssetHub"
+    },
+    {
         "url": "https://api-polkadex-mainnet.dwellir.com",
         "chain_name": "Polkadex mainnet"
     },
@@ -1850,6 +1858,14 @@
     {
         "url": "https://westend-collectives-rpc.dwellir.com",
         "chain_name": "Westend-pc Collectives"
+    },
+    {
+        "url": "https://coretime-westend-rpc-ng.dwellir.com",
+        "chain_name": "Westend-pc Coretime"
+    },
+    {
+        "url": "https://westend-coretime-rpc.polkadot.io",
+        "chain_name": "Westend-pc Coretime"
     },
     {
         "url": "https://zora-mainnet-rpc-1.dwellir.com",
