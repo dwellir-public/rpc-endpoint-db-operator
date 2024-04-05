@@ -324,7 +324,7 @@
         "chain_name": "Chiliz mainnet"
     },
     {
-        "url": "https://api-chiliz.dwellir.com",
+        "url": "https://api-chiliz-mainnet-archive.dwellir.com",
         "chain_name": "Chiliz mainnet"
     },
     {
@@ -1624,6 +1624,10 @@
         "chain_name": "Polygon zkEVM mainnet"
     },
     {
+        "url": "https://api-polygon-zkevm-mainnet-archive.dwellir.com",
+        "chain_name": "Polygon zkEVM mainnet"
+    },
+    {
         "url": "https://polygon-zkevm-sepolia-archive-rpc-1.dwellir.com",
         "chain_name": "Polygon zkEVM sepolia"
     },
@@ -1866,6 +1870,14 @@
     {
         "url": "https://westend-coretime-rpc.polkadot.io",
         "chain_name": "Westend-pc Coretime"
+    },
+    {
+        "url": "https://people-westend-rpc-ng.dwellir.com",
+        "chain_name": "Westend-pc People"
+    },
+    {
+        "url": "wss://westend-people-rpc.polkadot.io/",
+        "chain_name": "Westend-pc People"
     },
     {
         "url": "https://zora-mainnet-rpc-1.dwellir.com",
