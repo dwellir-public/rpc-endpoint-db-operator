@@ -208,6 +208,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Linea Sepolia",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Linea goerli",
         "api_class": "ethereum"
     },
@@ -469,10 +473,6 @@
     },
     {
         "name": "zkSync Era sepolia",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "zkSync Era testnet",
         "api_class": "ethereum"
     }
 ]

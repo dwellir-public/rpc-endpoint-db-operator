@@ -852,6 +852,14 @@
         "chain_name": "Liberland mainnet"
     },
     {
+        "url": "https://linea-sepolia-archive-rpc-2.dwellir.com",
+        "chain_name": "Linea Sepolia"
+    },
+    {
+        "url": "https://linea-sepolia-archive-rpc-1.dwellir.com",
+        "chain_name": "Linea Sepolia"
+    },
+    {
         "url": "https://linea-goerli.public.blastapi.io",
         "chain_name": "Linea goerli"
     },
@@ -1942,17 +1950,5 @@
     {
         "url": "https://zksync-era-sepolia.blockpi.network/v1/rpc/public",
         "chain_name": "zkSync Era sepolia"
-    },
-    {
-        "url": "https://zksync-era-testnet-rpc-1.dwellir.com",
-        "chain_name": "zkSync Era testnet"
-    },
-    {
-        "url": "https://zksync-era-testnet-rpc-2.dwellir.com",
-        "chain_name": "zkSync Era testnet"
-    },
-    {
-        "url": "https://testnet.era.zksync.dev",
-        "chain_name": "zkSync Era testnet"
     }
 ]
