@@ -108,6 +108,10 @@
         "chain_name": "Astar zkEVM mainnet"
     },
     {
+        "url": "https://rpc.astar-zkevm.gelato.digital",
+        "chain_name": "Astar zkEVM mainnet"
+    },
+    {
         "url": "https://rpc.startale.com/zkatana",
         "chain_name": "Astar zkEVM zKatana"
     },
