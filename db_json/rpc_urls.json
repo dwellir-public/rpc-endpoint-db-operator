@@ -240,6 +240,10 @@
         "chain_name": "Binance Smart Chain mainnet"
     },
     {
+        "url": "https://api-bsc-mainnet-full.dwellir.com",
+        "chain_name": "Binance Smart Chain mainnet"
+    },
+    {
         "url": "https://data-seed-prebsc-1-s1.binance.org:8545",
         "chain_name": "Binance Smart Chain testnet"
     },
@@ -257,6 +261,10 @@
     },
     {
         "url": "https://bsc-testnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Binance Smart Chain testnet"
+    },
+    {
+        "url": "https://api-bsc-testnet-archive.dwellir.com",
         "chain_name": "Binance Smart Chain testnet"
     },
     {
@@ -1916,6 +1924,10 @@
         "chain_name": "Zetachain Mainnet"
     },
     {
+        "url": "https://api-zetachain-mainnet-archive.dwellir.com",
+        "chain_name": "Zetachain Mainnet"
+    },
+    {
         "url": "https://zetachain-testnet-archive-rpc-2.dwellir.com",
         "chain_name": "Zetachain Testnet"
     },
@@ -1933,6 +1945,10 @@
     },
     {
         "url": "https://zetachain-testnet-evm.itrocket.net",
+        "chain_name": "Zetachain Testnet"
+    },
+    {
+        "url": "https://api-zetachain-testnet-archive.dwellir.com",
         "chain_name": "Zetachain Testnet"
     },
     {
