@@ -696,6 +696,14 @@
         "chain_name": "Kusama-pc Encointer"
     },
     {
+        "url": "https://api-encointer-kusama.dwellir.com",
+        "chain_name": "Kusama-pc Encointer"
+    },
+    {
+        "url": "https://encointer-kusama-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Encointer"
+    },
+    {
         "url": "https://karura-rpc.dwellir.com",
         "chain_name": "Kusama-pc Karura"
     },
