@@ -1824,10 +1824,6 @@
         "chain_name": "Westend Relaychain"
     },
     {
-        "url": "https://subscan-westend-rpc.dwellir.com",
-        "chain_name": "Westend Relaychain"
-    },
-    {
         "url": "https://api-westend.dwellir.com",
         "chain_name": "Westend Relaychain"
     },
