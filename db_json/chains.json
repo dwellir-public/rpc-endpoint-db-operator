@@ -460,6 +460,14 @@
         "api_class": "substrate"
     },
     {
+        "name": "Zetachain Mainnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Zetachain Testnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Zora Mainnet",
         "api_class": "ethereum"
     },

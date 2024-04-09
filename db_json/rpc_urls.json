@@ -860,6 +860,10 @@
         "chain_name": "Linea Sepolia"
     },
     {
+        "url": "https://rpc.sepolia.linea.build",
+        "chain_name": "Linea Sepolia"
+    },
+    {
         "url": "https://linea-goerli.public.blastapi.io",
         "chain_name": "Linea goerli"
     },
@@ -1890,6 +1894,46 @@
     {
         "url": "wss://westend-people-rpc.polkadot.io/",
         "chain_name": "Westend-pc People"
+    },
+    {
+        "url": "https://zetachain-evm.blockpi.network/v1/rpc/public",
+        "chain_name": "Zetachain Mainnet"
+    },
+    {
+        "url": "https://zetachain-mainnet-archive.allthatnode.com:8545",
+        "chain_name": "Zetachain Mainnet"
+    },
+    {
+        "url": "https://zetachain-mainnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Zetachain Mainnet"
+    },
+    {
+        "url": "https://zetachain-mainnet.public.blastapi.io",
+        "chain_name": "Zetachain Mainnet"
+    },
+    {
+        "url": "https://zetachain-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Zetachain Mainnet"
+    },
+    {
+        "url": "https://zetachain-testnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Zetachain Testnet"
+    },
+    {
+        "url": "https://zetachain-testnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Zetachain Testnet"
+    },
+    {
+        "url": "https://zetachain-testnet-archive.allthatnode.com:8545",
+        "chain_name": "Zetachain Testnet"
+    },
+    {
+        "url": "https://zetachain-athens-evm.blockpi.network/v1/rpc/public",
+        "chain_name": "Zetachain Testnet"
+    },
+    {
+        "url": "https://zetachain-testnet-evm.itrocket.net",
+        "chain_name": "Zetachain Testnet"
     },
     {
         "url": "https://zora-mainnet-rpc-1.dwellir.com",
