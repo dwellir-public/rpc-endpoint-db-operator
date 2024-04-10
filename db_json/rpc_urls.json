@@ -932,18 +932,6 @@
         "chain_name": "Linea mainnet"
     },
     {
-        "url": "https://mantle-goerli-archive-rpc-1.dwellir.com",
-        "chain_name": "Mantle goerli"
-    },
-    {
-        "url": "https://mantle-goerli-archive-rpc-2.dwellir.com",
-        "chain_name": "Mantle goerli"
-    },
-    {
-        "url": "https://rpc.testnet.mantle.xyz",
-        "chain_name": "Mantle goerli"
-    },
-    {
         "url": "https://mantle-mainnet-archive-rpc-2.dwellir.com",
         "chain_name": "Mantle mainnet"
     },
@@ -1073,6 +1061,14 @@
     },
     {
         "url": "https://rpc.ibp.network/paseo",
+        "chain_name": "Paseo Relaychain"
+    },
+    {
+        "url": "https://paseo-rpc.dwellir.com",
+        "chain_name": "Paseo Relaychain"
+    },
+    {
+        "url": "https://api-paseo.dwellir.com",
         "chain_name": "Paseo Relaychain"
     },
     {

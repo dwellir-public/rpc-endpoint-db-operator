@@ -220,10 +220,6 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Mantle Goerli",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Mantle mainnet",
         "api_class": "ethereum"
     },
