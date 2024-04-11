@@ -112,18 +112,6 @@
         "chain_name": "Astar zkEVM mainnet"
     },
     {
-        "url": "https://rpc.startale.com/zkatana",
-        "chain_name": "Astar zkEVM zKatana"
-    },
-    {
-        "url": "https://rpc.zkatana.gelato.digital",
-        "chain_name": "Astar zkEVM zKatana"
-    },
-    {
-        "url": "https://astar-zkatana-rpc.dwellir.com",
-        "chain_name": "Astar zkEVM zKatana"
-    },
-    {
         "url": "https://goldberg.avail.tools/api",
         "chain_name": "Avail Goldberg"
     },

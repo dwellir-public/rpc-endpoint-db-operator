@@ -28,10 +28,6 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Astar zkEVM zKatana",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Avail Goldberg",
         "api_class": "substrate"
     },
