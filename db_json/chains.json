@@ -60,6 +60,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Celo Mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Chainflip",
         "api_class": "substrate"
     },

@@ -112,6 +112,10 @@
         "chain_name": "Astar zkEVM mainnet"
     },
     {
+        "url": "https://cn-astar-zkevm-mainnet.dwellir.com",
+        "chain_name": "Astar zkEVM mainnet"
+    },
+    {
         "url": "https://goldberg.avail.tools/api",
         "chain_name": "Avail Goldberg"
     },
@@ -262,6 +266,22 @@
     {
         "url": "wss://entrypoint-finney.opentensor.ai:443",
         "chain_name": "Bittensor Mainnet"
+    },
+    {
+        "url": "https://forno.celo.org",
+        "chain_name": "Celo Mainnet"
+    },
+    {
+        "url": "https://rpc.ankr.com/celo",
+        "chain_name": "Celo Mainnet"
+    },
+    {
+        "url": "https://1rpc.io/celo",
+        "chain_name": "Celo Mainnet"
+    },
+    {
+        "url": "https://42220.rpc.thirdweb.com",
+        "chain_name": "Celo Mainnet"
     },
     {
         "url": "https://api-chainflip.dwellir.com",
@@ -1157,6 +1177,10 @@
     },
     {
         "url": "https://api-assethub-polkadot.dwellir.com",
+        "chain_name": "Polkadot-pc AssetHub (Statemint)"
+    },
+    {
+        "url": "https://cn-asset-hub-polkadot.dwellir.com",
         "chain_name": "Polkadot-pc AssetHub (Statemint)"
     },
     {
