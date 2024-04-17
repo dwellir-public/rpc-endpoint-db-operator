@@ -940,6 +940,22 @@
         "chain_name": "Linea mainnet"
     },
     {
+        "url": "https://api-manta-pacific-archive.dwellir.com",
+        "chain_name": "Manta Pacific"
+    },
+    {
+        "url": "https://manta-pacific.drpc.org",
+        "chain_name": "Manta Pacific"
+    },
+    {
+        "url": "https://pacific-rpc.manta.network/http",
+        "chain_name": "Manta Pacific"
+    },
+    {
+        "url": "https://1rpc.io/manta",
+        "chain_name": "Manta Pacific"
+    },
+    {
         "url": "https://mantle-mainnet-archive-rpc-2.dwellir.com",
         "chain_name": "Mantle mainnet"
     },

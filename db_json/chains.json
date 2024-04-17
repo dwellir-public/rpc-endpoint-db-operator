@@ -220,6 +220,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Manta Pacific",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Mantle mainnet",
         "api_class": "ethereum"
     },
