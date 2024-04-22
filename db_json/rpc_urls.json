@@ -1104,6 +1104,18 @@
         "chain_name": "Paseo-pc AssetHub"
     },
     {
+        "url": "https://sys.dotters.network/asset-hub-paseo",
+        "chain_name": "Paseo-pc AssetHub"
+    },
+    {
+        "url": "https://api-asset-hub-paseo.dwellir.com",
+        "chain_name": "Paseo-pc AssetHub"
+    },
+    {
+        "url": "https://asset-hub-paseo-rpc.dwellir.com",
+        "chain_name": "Paseo-pc AssetHub"
+    },
+    {
         "url": "https://api-polkadex-mainnet.dwellir.com",
         "chain_name": "Polkadex mainnet"
     },
