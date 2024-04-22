@@ -120,7 +120,11 @@
         "chain_name": "Avail Goldberg"
     },
     {
-        "url": "https://avail-rpc.dwellir.com",
+        "url": "https://avail-goldberg-rpc.dwellir.com",
+        "chain_name": "Avail Goldberg"
+    },
+    {
+        "url": "https://api-avail-goldberg.dwellir.com",
         "chain_name": "Avail Goldberg"
     },
     {
