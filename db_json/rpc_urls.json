@@ -452,6 +452,10 @@
         "chain_name": "Ethereum Holesky Testnet"
     },
     {
+        "url": "https://api-eth-holesky-archive.dwellir.com",
+        "chain_name": "Ethereum Holesky Testnet"
+    },
+    {
         "url": "https://rpc.sepolia.org",
         "chain_name": "Ethereum Sepolia testnet"
     },
