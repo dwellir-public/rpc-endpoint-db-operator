@@ -288,6 +288,10 @@
         "chain_name": "Celo Mainnet"
     },
     {
+        "url": "https://api-celo-mainnet-archive.dwellir.com",
+        "chain_name": "Celo Mainnet"
+    },
+    {
         "url": "https://api-chainflip.dwellir.com",
         "chain_name": "Chainflip"
     },
@@ -2013,6 +2017,10 @@
     },
     {
         "url": "https://api-zora-mainnet.dwellir.com",
+        "chain_name": "Zora mainnet"
+    },
+    {
+        "url": "https://zora.rpc.thirdweb.com/",
         "chain_name": "Zora mainnet"
     },
     {
