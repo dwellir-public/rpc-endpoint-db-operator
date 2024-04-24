@@ -156,6 +156,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Kusama-pc Coretime",
+        "api_class": "substrate"
+    },
+    {
         "name": "Kusama-pc Darwinia Crab",
         "api_class": "substrate"
     },
