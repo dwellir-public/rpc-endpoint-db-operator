@@ -1536,10 +1536,6 @@
         "chain_name": "Polkadot-pc InvArch"
     },
     {
-        "url": "https://kapex-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Kapex"
-    },
-    {
         "url": "https://kilt-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Kilt Spiritnet"
     },

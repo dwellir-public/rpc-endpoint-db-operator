@@ -332,10 +332,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Polkadot-pc Kapex",
-        "api_class": "substrate"
-    },
-    {
         "name": "Polkadot-pc Kilt Spiritnet",
         "api_class": "substrate"
     },
