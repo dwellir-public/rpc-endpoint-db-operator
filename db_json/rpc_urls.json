@@ -44,6 +44,10 @@
         "chain_name": "Arbitrum Sepolia"
     },
     {
+        "url": "https://api-arbitrum-sepolia-archive.dwellir.com",
+        "chain_name": "Arbitrum Sepolia"
+    },
+    {
         "url": "https://arbitrum-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Arbitrum mainnet"
     },
@@ -172,6 +176,10 @@
         "chain_name": "Base Goerli testnet"
     },
     {
+        "url": "https://api-base-testnet-archive.dwellir.com",
+        "chain_name": "Base Goerli testnet"
+    },
+    {
         "url": "https://base-sepolia-archive-rpc-1.dwellir.com",
         "chain_name": "Base Sepolia"
     },
@@ -189,6 +197,10 @@
     },
     {
         "url": "https://base-sepolia.publicnode.com",
+        "chain_name": "Base Sepolia"
+    },
+    {
+        "url": "https://api-base-sepolia-archive.dwellir.com",
         "chain_name": "Base Sepolia"
     },
     {
@@ -1105,6 +1117,10 @@
     },
     {
         "url": "https://sepolia.optimism.io/",
+        "chain_name": "Optimism Sepolia"
+    },
+    {
+        "url": "https://api-optimism-sepolia-archive.dwellir.com",
         "chain_name": "Optimism Sepolia"
     },
     {
