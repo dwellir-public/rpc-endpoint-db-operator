@@ -1964,6 +1964,18 @@
         "chain_name": "Starknet mainnet"
     },
     {
+        "url": "https://tangle-mainnet-rpc.dwellir.com",
+        "chain_name": "Tangle Mainnet"
+    },
+    {
+        "url": "https://api-tangle-mainnet.dwellir.com",
+        "chain_name": "Tangle Mainnet"
+    },
+    {
+        "url": "wss://rpc.tangle.tools",
+        "chain_name": "Tangle Mainnet"
+    },
+    {
         "url": "https://westend-rpc.dwellir.com",
         "chain_name": "Westend Relaychain"
     },

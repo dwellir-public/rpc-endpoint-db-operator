@@ -436,6 +436,10 @@
         "api_class": "starknet"
     },
     {
+        "name": "Tangle Mainnet",
+        "api_class": "substrate"
+    },
+    {
         "name": "Westend Relaychain",
         "api_class": "substrate"
     },
