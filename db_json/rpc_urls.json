@@ -1936,6 +1936,14 @@
         "chain_name": "Starknet Sepolia"
     },
     {
+        "url": "https://braavos-starknet-sepolia-rpc-1.dwellir.com",
+        "chain_name": "Starknet Sepolia"
+    },
+    {
+        "url": "https://braavos-starknet-sepolia-rpc-2.dwellir.com",
+        "chain_name": "Starknet Sepolia"
+    },
+    {
         "url": "https://starknet-mainnet-rpc.dwellir.com",
         "chain_name": "Starknet mainnet"
     },
@@ -1961,6 +1969,14 @@
     },
     {
         "url": "https://api-starknet-mainnet.dwellir.com",
+        "chain_name": "Starknet mainnet"
+    },
+    {
+        "url": "https://braavos-starknet-mainnet-rpc-1.dwellir.com",
+        "chain_name": "Starknet mainnet"
+    },
+    {
+        "url": "https://braavos-starknet-mainnet-rpc-2.dwellir.com",
         "chain_name": "Starknet mainnet"
     },
     {
