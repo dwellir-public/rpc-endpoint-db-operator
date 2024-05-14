@@ -60,6 +60,14 @@
         "api_class": "substrate"
     },
     {
+        "name": "Blast Sepolia",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Blast mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Celo Mainnet",
         "api_class": "ethereum"
     },
@@ -181,6 +189,10 @@
     },
     {
         "name": "Kusama-pc Moonriver",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc People",
         "api_class": "substrate"
     },
     {
@@ -381,10 +393,6 @@
     },
     {
         "name": "Polygon Amoy",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "Polygon Mumbai",
         "api_class": "ethereum"
     },
     {

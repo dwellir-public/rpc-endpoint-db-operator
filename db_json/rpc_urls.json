@@ -296,6 +296,50 @@
         "chain_name": "Bittensor Mainnet"
     },
     {
+        "url": "https://api-blast-sepolia-archive.dwellir.com",
+        "chain_name": "Blast Sepolia"
+    },
+    {
+        "url": "https://blast-sepolia-archive-rpc-1.dwellir.com",
+        "chain_name": "Blast Sepolia"
+    },
+    {
+        "url": "https://blast-sepolia-archive-rpc-2.dwellir.com",
+        "chain_name": "Blast Sepolia"
+    },
+    {
+        "url": "https://sepolia.blast.io",
+        "chain_name": "Blast Sepolia"
+    },
+    {
+        "url": "https://blast-sepolia.drpc.org",
+        "chain_name": "Blast Sepolia"
+    },
+    {
+        "url": "https://blast-mainnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Blast mainnet"
+    },
+    {
+        "url": "https://blast-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Blast mainnet"
+    },
+    {
+        "url": "https://api-blast-mainnet-archive.dwellir.com",
+        "chain_name": "Blast mainnet"
+    },
+    {
+        "url": "https://rpc.blast.io",
+        "chain_name": "Blast mainnet"
+    },
+    {
+        "url": "https://rpc.ankr.com/blast",
+        "chain_name": "Blast mainnet"
+    },
+    {
+        "url": "https://blast.blockpi.network/v1/rpc/public",
+        "chain_name": "Blast mainnet"
+    },
+    {
         "url": "https://forno.celo.org",
         "chain_name": "Celo Mainnet"
     },
@@ -874,6 +918,14 @@
     {
         "url": "https://api-moonriver.dwellir.com",
         "chain_name": "Kusama-pc Moonriver"
+    },
+    {
+        "url": "https://people-kusama-rpc-ng.dwellir.com",
+        "chain_name": "Kusama-pc People"
+    },
+    {
+        "url": "https://kusama-people-rpc.polkadot.io",
+        "chain_name": "Kusama-pc People"
     },
     {
         "url": "https://picasso-rpc.dwellir.com",
