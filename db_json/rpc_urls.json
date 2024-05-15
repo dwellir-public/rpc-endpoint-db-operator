@@ -440,6 +440,10 @@
         "chain_name": "Cronos mainnet"
     },
     {
+        "url": "https://api-cronos-mainnet.dwellir.com",
+        "chain_name": "Cronos mainnet"
+    },
+    {
         "url": "https://crust-mainnet-rpc.dwellir.com",
         "chain_name": "Crust mainnet"
     },
