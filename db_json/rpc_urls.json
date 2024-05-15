@@ -2044,7 +2044,7 @@
         "chain_name": "Tangle Mainnet"
     },
     {
-        "url": "wss://rpc.tangle.tools",
+        "url": "https://rpc.tangle.tools",
         "chain_name": "Tangle Mainnet"
     },
     {
