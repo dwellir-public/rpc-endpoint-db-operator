@@ -188,6 +188,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Kusama-pc Krest",
+        "api_class": "substrate"
+    },
+    {
         "name": "Kusama-pc Moonriver",
         "api_class": "substrate"
     },
@@ -389,6 +393,10 @@
     },
     {
         "name": "Polkadot-pc Zeitgeist",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc peaq",
         "api_class": "substrate"
     },
     {

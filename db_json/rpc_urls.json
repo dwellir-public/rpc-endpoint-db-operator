@@ -892,6 +892,22 @@
         "chain_name": "Kusama-pc Kintsugi BTC"
     },
     {
+        "url": "wss://wss-krest.peaq.network/",
+        "chain_name": "Kusama-pc Krest"
+    },
+    {
+        "url": "wss://krest.api.onfinality.io/public-ws",
+        "chain_name": "Kusama-pc Krest"
+    },
+    {
+        "url": "wss://krest.unitedbloc.com/",
+        "chain_name": "Kusama-pc Krest"
+    },
+    {
+        "url": "https://krest-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Krest"
+    },
+    {
         "url": "https://moonriver-rpc.dwellir.com",
         "chain_name": "Kusama-pc Moonriver"
     },
@@ -1774,6 +1790,14 @@
     {
         "url": "https://api-zeitgeist.dwellir.com",
         "chain_name": "Polkadot-pc Zeitgeist"
+    },
+    {
+        "url": "https://peaq-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc peaq"
+    },
+    {
+        "url": "wss://peaq.api.onfinality.io/public-ws",
+        "chain_name": "Polkadot-pc peaq"
     },
     {
         "url": "https://polygon-amoy-archive-rpc-1.dwellir.com",
