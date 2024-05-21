@@ -616,6 +616,14 @@
         "chain_name": "Ethereum mainnet"
     },
     {
+        "url": "https://eth-mainnet-archive-nethermind-rpc-1.dwellir.com",
+        "chain_name": "Ethereum mainnet"
+    },
+    {
+        "url": "https://eth-mainnet-archive-nethermind-rpc-2.dwellir.com",
+        "chain_name": "Ethereum mainnet"
+    },
+    {
         "url": "https://rpc.ftm.tools",
         "chain_name": "Fantom mainnet"
     },
@@ -905,6 +913,10 @@
     },
     {
         "url": "https://krest-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Krest"
+    },
+    {
+        "url": "https://api-krest.dwellir.com",
         "chain_name": "Kusama-pc Krest"
     },
     {
@@ -1800,6 +1812,10 @@
         "chain_name": "Polkadot-pc peaq"
     },
     {
+        "url": "https://api-peaq.dwellir.com",
+        "chain_name": "Polkadot-pc peaq"
+    },
+    {
         "url": "https://polygon-amoy-archive-rpc-1.dwellir.com",
         "chain_name": "Polygon Amoy"
     },
@@ -2230,6 +2246,30 @@
     {
         "url": "https://api-zetachain-testnet-archive.dwellir.com",
         "chain_name": "Zetachain Testnet"
+    },
+    {
+        "url": "https://zora-mainnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Zora Mainnet"
+    },
+    {
+        "url": "https://zora-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Zora Mainnet"
+    },
+    {
+        "url": "https://zora-sepolia-archive-rpc-1.dwellir.com",
+        "chain_name": "Zora Sepolia"
+    },
+    {
+        "url": "https://zora-sepolia-archive-rpc-2.dwellir.com",
+        "chain_name": "Zora Sepolia"
+    },
+    {
+        "url": "https://sepolia.rpc.zora.energy",
+        "chain_name": "Zora Sepolia"
+    },
+    {
+        "url": "https://999999999.rpc.thirdweb.com",
+        "chain_name": "Zora Sepolia"
     },
     {
         "url": "https://zora-mainnet-rpc-1.dwellir.com",
