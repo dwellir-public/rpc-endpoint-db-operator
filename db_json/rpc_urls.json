@@ -2292,6 +2292,42 @@
         "chain_name": "Zora mainnet"
     },
     {
+        "url": "https://opbnb-mainnet-archive-rpc-1.dwellir.com",
+        "chain_name": "opBNB mainnet"
+    },
+    {
+        "url": "https://opbnb-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "opBNB mainnet"
+    },
+    {
+        "url": "https://opbnb-rpc.publicnode.com",
+        "chain_name": "opBNB mainnet"
+    },
+    {
+        "url": "https://opbnb-mainnet-rpc.bnbchain.org",
+        "chain_name": "opBNB mainnet"
+    },
+    {
+        "url": "https://1rpc.io/opbnb",
+        "chain_name": "opBNB mainnet"
+    },
+    {
+        "url": "https://opbnb-testnet-archive-rpc-2.dwellir.com",
+        "chain_name": "opBNB testnet"
+    },
+    {
+        "url": "https://opbnb-testnet-archive-rpc-1.dwellir.com",
+        "chain_name": "opBNB testnet"
+    },
+    {
+        "url": "https://opbnb-testnet-rpc.bnbchain.org",
+        "chain_name": "opBNB testnet"
+    },
+    {
+        "url": "https://opbnb-testnet-rpc.publicnode.com",
+        "chain_name": "opBNB testnet"
+    },
+    {
         "url": "https://xxnetwork-rpc.dwellir.com",
         "chain_name": "xx network"
     },

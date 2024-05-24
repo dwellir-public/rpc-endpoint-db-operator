@@ -496,6 +496,14 @@
         "api_class": "ethereum"
     },
     {
+        "name": "opBNB mainnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "opBNB testnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "xx network",
         "api_class": "substrate"
     },
