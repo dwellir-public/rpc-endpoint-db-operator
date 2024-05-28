@@ -120,10 +120,6 @@
         "chain_name": "Astar zkEVM mainnet"
     },
     {
-        "url": "https://cn-astar-zkevm-mainnet.dwellir.com",
-        "chain_name": "Astar zkEVM mainnet"
-    },
-    {
         "url": "https://goldberg.avail.tools/api",
         "chain_name": "Avail Goldberg"
     },
