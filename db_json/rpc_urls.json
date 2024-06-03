@@ -1716,10 +1716,6 @@
         "chain_name": "Polkadot-pc Parallel"
     },
     {
-        "url": "https://pendulum-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Pendulum"
-    },
-    {
         "url": "https://rpc-pendulum.prd.pendulumchain.tech",
         "chain_name": "Polkadot-pc Pendulum"
     },
@@ -2028,11 +2024,7 @@
         "chain_name": "Starknet Sepolia"
     },
     {
-        "url": "https://braavos-starknet-sepolia-rpc-1.dwellir.com",
-        "chain_name": "Starknet Sepolia"
-    },
-    {
-        "url": "https://braavos-starknet-sepolia-rpc-2.dwellir.com",
+        "url": "https://braavos-starknet-sepolia-rpc.dwellir.com",
         "chain_name": "Starknet Sepolia"
     },
     {
@@ -2064,11 +2056,7 @@
         "chain_name": "Starknet mainnet"
     },
     {
-        "url": "https://braavos-starknet-mainnet-rpc-1.dwellir.com",
-        "chain_name": "Starknet mainnet"
-    },
-    {
-        "url": "https://braavos-starknet-mainnet-rpc-2.dwellir.com",
+        "url": "https://braavos-starknet-mainnet-rpc.dwellir.com",
         "chain_name": "Starknet mainnet"
     },
     {
