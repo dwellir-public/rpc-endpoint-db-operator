@@ -812,6 +812,10 @@
         "chain_name": "Kusama-pc Coretime"
     },
     {
+        "url": "https://coretime-kusama-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Coretime"
+    },
+    {
         "url": "https://darwiniacrab-rpc.dwellir.com",
         "chain_name": "Kusama-pc Darwinia Crab"
     },
@@ -953,6 +957,14 @@
     },
     {
         "url": "https://kusama-people-rpc.polkadot.io",
+        "chain_name": "Kusama-pc People"
+    },
+    {
+        "url": "https://people-kusama-rpc.dwellir.com",
+        "chain_name": "Kusama-pc People"
+    },
+    {
+        "url": "https://api-people-kusama.dwellir.com",
         "chain_name": "Kusama-pc People"
     },
     {
@@ -2176,11 +2188,27 @@
         "chain_name": "Westend-pc Coretime"
     },
     {
+        "url": "https://coretime-westend-rpc.dwellir.com",
+        "chain_name": "Westend-pc Coretime"
+    },
+    {
+        "url": "https://api-coretime-westend.dwellir.com",
+        "chain_name": "Westend-pc Coretime"
+    },
+    {
         "url": "https://people-westend-rpc-ng.dwellir.com",
         "chain_name": "Westend-pc People"
     },
     {
         "url": "wss://westend-people-rpc.polkadot.io/",
+        "chain_name": "Westend-pc People"
+    },
+    {
+        "url": "https://api-people-westend.dwellir.com",
+        "chain_name": "Westend-pc People"
+    },
+    {
+        "url": "https://people-westend-rpc.dwellir.com",
         "chain_name": "Westend-pc People"
     },
     {
