@@ -1772,6 +1772,10 @@
         "chain_name": "Polkadot-pc Polkadex"
     },
     {
+        "url": "https://api-polkadex-parachain.dwellir.com",
+        "chain_name": "Polkadot-pc Polkadex"
+    },
+    {
         "url": "https://subsocial-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Subsocial"
     },
@@ -2357,6 +2361,10 @@
     },
     {
         "url": "https://rpc.xx.network",
+        "chain_name": "xx network"
+    },
+    {
+        "url": "https://api-xxnetwork.dwellir.com",
         "chain_name": "xx network"
     },
     {
