@@ -1032,6 +1032,10 @@
         "chain_name": "Kusama-pc Tinkernet"
     },
     {
+        "url": "https://api-tinkernet.dwellir.com",
+        "chain_name": "Kusama-pc Tinkernet"
+    },
+    {
         "url": "https://turing-rpc.dwellir.com",
         "chain_name": "Kusama-pc Turing Network"
     },
@@ -2337,6 +2341,10 @@
     },
     {
         "url": "https://opbnb-testnet-rpc.publicnode.com",
+        "chain_name": "opBNB testnet"
+    },
+    {
+        "url": "https://api-opbnb-testnet-archive.dwellir.com",
         "chain_name": "opBNB testnet"
     },
     {
