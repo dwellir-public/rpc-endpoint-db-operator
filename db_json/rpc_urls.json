@@ -72,26 +72,6 @@
         "chain_name": "Arbitrum mainnet"
     },
     {
-        "url": "https://arbitrum-testnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Arbitrum testnet"
-    },
-    {
-        "url": "https://arbitrum-testnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Arbitrum testnet"
-    },
-    {
-        "url": "https://arbitrum-goerli.public.blastapi.io",
-        "chain_name": "Arbitrum testnet"
-    },
-    {
-        "url": "https://arbitrum-goerli.publicnode.com",
-        "chain_name": "Arbitrum testnet"
-    },
-    {
-        "url": "https://goerli-rollup.arbitrum.io/rpc",
-        "chain_name": "Arbitrum testnet"
-    },
-    {
         "url": "https://api-astar-zkyoto.dwellir.com",
         "chain_name": "Astar zKyoto testnet"
     },

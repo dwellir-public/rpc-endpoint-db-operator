@@ -16,10 +16,6 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Arbitrum testnet",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Astar zKyoto testnet",
         "api_class": "ethereum"
     },
