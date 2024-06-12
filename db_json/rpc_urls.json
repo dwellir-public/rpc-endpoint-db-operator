@@ -132,30 +132,6 @@
         "chain_name": "Avalanche mainnet"
     },
     {
-        "url": "https://base-testnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Base Goerli testnet"
-    },
-    {
-        "url": "https://base-testnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Base Goerli testnet"
-    },
-    {
-        "url": "https://base-goerli.publicnode.com",
-        "chain_name": "Base Goerli testnet"
-    },
-    {
-        "url": "https://goerli.base.org",
-        "chain_name": "Base Goerli testnet"
-    },
-    {
-        "url": "https://1rpc.io/base-goerli",
-        "chain_name": "Base Goerli testnet"
-    },
-    {
-        "url": "https://api-base-testnet-archive.dwellir.com",
-        "chain_name": "Base Goerli testnet"
-    },
-    {
         "url": "https://base-sepolia-archive-rpc-1.dwellir.com",
         "chain_name": "Base Sepolia"
     },
@@ -486,22 +462,6 @@
     {
         "url": "https://api-enjin-relay.dwellir.com",
         "chain_name": "Enjin Relay Chain"
-    },
-    {
-        "url": "https://ethereum-goerli.publicnode.com",
-        "chain_name": "Ethereum Goerli testnet"
-    },
-    {
-        "url": "https://goerli.blockpi.network/v1/rpc/public",
-        "chain_name": "Ethereum Goerli testnet"
-    },
-    {
-        "url": "https://eth-goerli-archive-rpc-1.dwellir.com",
-        "chain_name": "Ethereum Goerli testnet"
-    },
-    {
-        "url": "https://eth-goerli-archive-rpc-2.dwellir.com",
-        "chain_name": "Ethereum Goerli testnet"
     },
     {
         "url": "https://eth-holesky-archive-rpc-1.dwellir.com",
@@ -1054,26 +1014,6 @@
     {
         "url": "https://rpc.sepolia.linea.build",
         "chain_name": "Linea Sepolia"
-    },
-    {
-        "url": "https://linea-goerli.public.blastapi.io",
-        "chain_name": "Linea goerli"
-    },
-    {
-        "url": "https://rpc.goerli.linea.build",
-        "chain_name": "Linea goerli"
-    },
-    {
-        "url": "https://linea-testnet.rpc.thirdweb.com",
-        "chain_name": "Linea goerli"
-    },
-    {
-        "url": "https://linea-goerli-archive-rpc-2.dwellir.com",
-        "chain_name": "Linea goerli"
-    },
-    {
-        "url": "https://linea-goerli-archive-rpc-1.dwellir.com",
-        "chain_name": "Linea goerli"
     },
     {
         "url": "https://linea-mainnet.public.blastapi.io",
@@ -1824,26 +1764,6 @@
         "chain_name": "Polygon Amoy"
     },
     {
-        "url": "https://rpc-mumbai.maticvigil.com",
-        "chain_name": "Polygon Mumbai"
-    },
-    {
-        "url": "https://polygon-mumbai-archive-rpc-1.dwellir.com",
-        "chain_name": "Polygon Mumbai"
-    },
-    {
-        "url": "https://polygon-mumbai-archive-rpc-2.dwellir.com",
-        "chain_name": "Polygon Mumbai"
-    },
-    {
-        "url": "https://polygon-mumbai.blockpi.network/v1/rpc/public",
-        "chain_name": "Polygon Mumbai"
-    },
-    {
-        "url": "https://polygon-mumbai-bor.publicnode.com",
-        "chain_name": "Polygon Mumbai"
-    },
-    {
         "url": "https://polygon-rpc.com/",
         "chain_name": "Polygon mainnet"
     },
@@ -1910,22 +1830,6 @@
     {
         "url": "https://api-polygon-zkevm-sepolia-archive.dwellir.com",
         "chain_name": "Polygon zkEVM sepolia"
-    },
-    {
-        "url": "https://polygon-zkevm-testnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Polygon zkEVM testnet"
-    },
-    {
-        "url": "https://polygon-zkevm-testnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Polygon zkEVM testnet"
-    },
-    {
-        "url": "https://rpc.public.zkevm-test.net",
-        "chain_name": "Polygon zkEVM testnet"
-    },
-    {
-        "url": "https://polygon-zkevm-testnet.drpc.org/",
-        "chain_name": "Polygon zkEVM testnet"
     },
     {
         "url": "https://pulsechain-mainnet-archive-rpc-1.dwellir.com",

@@ -32,10 +32,6 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Base Goerli testnet",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Base Sepolia",
         "api_class": "ethereum"
     },
@@ -106,10 +102,6 @@
     {
         "name": "Enjin Relay Chain",
         "api_class": "substrate"
-    },
-    {
-        "name": "Ethereum Goerli testnet",
-        "api_class": "ethereum"
     },
     {
         "name": "Ethereum Holesky Testnet",
@@ -225,10 +217,6 @@
     },
     {
         "name": "Linea Sepolia",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "Linea goerli",
         "api_class": "ethereum"
     },
     {
@@ -409,10 +397,6 @@
     },
     {
         "name": "Polygon zkEVM sepolia",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "Polygon zkEVM testnet",
         "api_class": "ethereum"
     },
     {
