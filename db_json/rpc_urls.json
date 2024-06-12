@@ -2316,6 +2316,10 @@
         "chain_name": "opBNB mainnet"
     },
     {
+        "url": "https://api-opbnb-mainnet-archive.dwellir.com",
+        "chain_name": "opBNB mainnet"
+    },
+    {
         "url": "https://opbnb-testnet-archive-rpc-2.dwellir.com",
         "chain_name": "opBNB testnet"
     },
