@@ -132,6 +132,10 @@
         "chain_name": "Avalanche mainnet"
     },
     {
+        "url": "https://api-avalanche-mainnet-archive.dwellir.com/ext/bc/C/rpc",
+        "chain_name": "Avalanche mainnet"
+    },
+    {
         "url": "https://base-sepolia-archive-rpc-1.dwellir.com",
         "chain_name": "Base Sepolia"
     },
