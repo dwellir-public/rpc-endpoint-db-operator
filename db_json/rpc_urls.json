@@ -1280,10 +1280,6 @@
         "chain_name": "Polkadot Relaychain"
     },
     {
-        "url": "https://api-polkadot-full.dwellir.com",
-        "chain_name": "Polkadot Relaychain"
-    },
-    {
         "url": "https://acala-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Acala"
     },
