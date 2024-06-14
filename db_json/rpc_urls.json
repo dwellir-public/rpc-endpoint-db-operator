@@ -1192,6 +1192,10 @@
         "chain_name": "Palm mainnet"
     },
     {
+        "url": "https://api-palm-mainnet.dwellir.com/",
+        "chain_name": "Palm mainnet"
+    },
+    {
         "url": "https://palm-testnet.public.blastapi.io",
         "chain_name": "Palm testnet"
     },
