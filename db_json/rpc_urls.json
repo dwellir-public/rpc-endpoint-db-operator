@@ -736,11 +736,11 @@
         "chain_name": "Kusama-pc BridgeHub"
     },
     {
-        "url": "https://kusama-bridge-hub-rpc.dwellir.com",
+        "url": "https://api-bridge-hub-kusama.dwellir.com",
         "chain_name": "Kusama-pc BridgeHub"
     },
     {
-        "url": "https://api-bridge-hub-kusama.dwellir.com",
+        "url": "https://bridge-hub-kusama-rpc.dwellir.com",
         "chain_name": "Kusama-pc BridgeHub"
     },
     {
@@ -1396,11 +1396,11 @@
         "chain_name": "Polkadot-pc BridgeHub"
     },
     {
-        "url": "https://polkadot-bridge-hub-rpc.dwellir.com",
+        "url": "https://api-bridge-hub-polkadot.dwellir.com",
         "chain_name": "Polkadot-pc BridgeHub"
     },
     {
-        "url": "https://api-bridge-hub-polkadot.dwellir.com",
+        "url": "https://bridge-hub-polkadot-rpc.dwellir.com",
         "chain_name": "Polkadot-pc BridgeHub"
     },
     {
@@ -1884,11 +1884,11 @@
         "chain_name": "Rococo-pc BridgeHub"
     },
     {
-        "url": "https://rococo-bridge-hub-rpc.dwellir.com",
+        "url": "https://api-bridge-hub-rococo.dwellir.com",
         "chain_name": "Rococo-pc BridgeHub"
     },
     {
-        "url": "https://api-bridge-hub-rococo.dwellir.com",
+        "url": "https://bridge-hub-rococo-rpc.dwellir.com",
         "chain_name": "Rococo-pc BridgeHub"
     },
     {
@@ -2048,11 +2048,11 @@
         "chain_name": "Westend-pc BridgeHub"
     },
     {
-        "url": "https://westend-bridge-hub-rpc.dwellir.com",
+        "url": "https://api-bridge-hub-westend.dwellir.com",
         "chain_name": "Westend-pc BridgeHub"
     },
     {
-        "url": "https://api-bridge-hub-westend.dwellir.com",
+        "url": "https://bridge-hub-westend-rpc.dwellir.com",
         "chain_name": "Westend-pc BridgeHub"
     },
     {
