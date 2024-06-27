@@ -192,6 +192,14 @@
         "chain_name": "Base mainnet"
     },
     {
+        "url": "https://berachain-bartio-archive-rpc-1.dwellir.com",
+        "chain_name": "Berachain Bartio"
+    },
+    {
+        "url": "https://berachain-bartio-archive-rpc-2.dwellir.com",
+        "chain_name": "Berachain Bartio"
+    },
+    {
         "url": "https://bsc-dataseed1.binance.org",
         "chain_name": "Binance Smart Chain mainnet"
     },
@@ -1480,6 +1488,14 @@
         "chain_name": "Polkadot-pc Darwinia"
     },
     {
+        "url": "https://api-energywebx.dwellir.com",
+        "chain_name": "Polkadot-pc Energy Web X"
+    },
+    {
+        "url": "https://public-rpc.mainnet.energywebx.com",
+        "chain_name": "Polkadot-pc Energy Web X"
+    },
+    {
         "url": "https://equilibrium-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Equilibrium"
     },
@@ -2297,6 +2313,14 @@
     },
     {
         "url": "https://zksync-era-sepolia.blockpi.network/v1/rpc/public",
+        "chain_name": "zkSync Era sepolia"
+    },
+    {
+        "url": "https://zksync-sepolia.drpc.org",
+        "chain_name": "zkSync Era sepolia"
+    },
+    {
+        "url": "https://endpoints.omniatech.io/v1/zksync-era/sepolia/public",
         "chain_name": "zkSync Era sepolia"
     }
 ]

@@ -40,6 +40,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Berachain Bartio",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Binance Smart Chain mainnet",
         "api_class": "ethereum"
     },
@@ -305,6 +309,10 @@
     },
     {
         "name": "Polkadot-pc Darwinia",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Energy Web X",
         "api_class": "substrate"
     },
     {
