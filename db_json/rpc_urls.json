@@ -193,11 +193,23 @@
     },
     {
         "url": "https://berachain-bartio-archive-rpc-1.dwellir.com",
-        "chain_name": "Berachain Bartio"
+        "chain_name": "Berachain bArtio"
     },
     {
         "url": "https://berachain-bartio-archive-rpc-2.dwellir.com",
-        "chain_name": "Berachain Bartio"
+        "chain_name": "Berachain bArtio"
+    },
+    {
+        "url": "https://bartio.rpc.berachain.com",
+        "chain_name": "Berachain bArtio"
+    },
+    {
+        "url": "https://bera-testnet.nodeinfra.com",
+        "chain_name": "Berachain bArtio"
+    },
+    {
+        "url": "https://bartio.rpc.b-harvest.io",
+        "chain_name": "Berachain bArtio"
     },
     {
         "url": "https://bsc-dataseed1.binance.org",
