@@ -272,6 +272,14 @@
         "chain_name": "Bittensor Mainnet"
     },
     {
+        "url": "https://api-bittensor-testnet.dwellir.com",
+        "chain_name": "Bittensor Testnet"
+    },
+    {
+        "url": "wss://test.finney.opentensor.ai",
+        "chain_name": "Bittensor Testnet"
+    },
+    {
         "url": "https://api-blast-sepolia-archive.dwellir.com",
         "chain_name": "Blast Sepolia"
     },
@@ -2200,6 +2208,10 @@
         "chain_name": "Zora Mainnet"
     },
     {
+        "url": "https://api-zora-mainnet-archive.dwellir.com",
+        "chain_name": "Zora Mainnet"
+    },
+    {
         "url": "https://zora-sepolia-archive-rpc-1.dwellir.com",
         "chain_name": "Zora Sepolia"
     },
@@ -2217,10 +2229,6 @@
     },
     {
         "url": "https://rpc.zora.energy",
-        "chain_name": "Zora mainnet"
-    },
-    {
-        "url": "https://api-zora-mainnet.dwellir.com",
         "chain_name": "Zora mainnet"
     },
     {

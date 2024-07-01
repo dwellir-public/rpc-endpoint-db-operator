@@ -56,6 +56,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Bittensor Testnet",
+        "api_class": "substrate"
+    },
+    {
         "name": "Blast Sepolia",
         "api_class": "ethereum"
     },
