@@ -2216,14 +2216,6 @@
         "chain_name": "Zora Sepolia"
     },
     {
-        "url": "https://zora-mainnet-rpc-1.dwellir.com",
-        "chain_name": "Zora mainnet"
-    },
-    {
-        "url": "https://zora-mainnet-rpc-2.dwellir.com",
-        "chain_name": "Zora mainnet"
-    },
-    {
         "url": "https://rpc.zora.energy",
         "chain_name": "Zora mainnet"
     },
