@@ -212,6 +212,10 @@
         "chain_name": "Berachain bArtio"
     },
     {
+        "url": "https://api-berachain-bartio-archive.dwellir.com",
+        "chain_name": "Berachain bArtio"
+    },
+    {
         "url": "https://bsc-dataseed1.binance.org",
         "chain_name": "Binance Smart Chain mainnet"
     },
