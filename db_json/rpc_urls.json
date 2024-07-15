@@ -1760,10 +1760,6 @@
         "chain_name": "Polkadot-pc Unique"
     },
     {
-        "url": "https://zeitgeist-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Zeitgeist"
-    },
-    {
         "url": "wss://main.rpc.zeitgeist.pm/ws",
         "chain_name": "Polkadot-pc Zeitgeist"
     },
