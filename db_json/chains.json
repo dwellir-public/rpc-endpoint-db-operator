@@ -140,6 +140,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Kusama-pc Acurast Canary",
+        "api_class": "substrate"
+    },
+    {
         "name": "Kusama-pc Amplitude",
         "api_class": "substrate"
     },
