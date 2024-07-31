@@ -1256,6 +1256,10 @@
         "chain_name": "Paseo Relaychain"
     },
     {
+        "url": "https://snowbridge-paseo-rpc.dwellir.com",
+        "chain_name": "Paseo Relaychain"
+    },
+    {
         "url": "https://pas-rpc.stakeworld.io/assethub",
         "chain_name": "Paseo-pc AssetHub"
     },
@@ -1313,6 +1317,10 @@
     },
     {
         "url": "https://api-polkadot.dwellir.com",
+        "chain_name": "Polkadot Relaychain"
+    },
+    {
+        "url": "https://snowbridge-polkadot-rpc.dwellir.com",
         "chain_name": "Polkadot Relaychain"
     },
     {
@@ -2045,6 +2053,10 @@
     },
     {
         "url": "https://api-westend.dwellir.com",
+        "chain_name": "Westend Relaychain"
+    },
+    {
+        "url": "https://snowbridge-westend-rpc.dwellir.com",
         "chain_name": "Westend Relaychain"
     },
     {

@@ -384,6 +384,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Polkadot Offchain Indexing",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Subsocial",
         "api_class": "substrate"
     },
@@ -473,6 +477,10 @@
     },
     {
         "name": "Westend-pc People",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Westend-pc Westend Offchain Indexing",
         "api_class": "substrate"
     },
     {
