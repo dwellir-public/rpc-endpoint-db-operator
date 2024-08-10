@@ -1100,12 +1100,8 @@
         "chain_name": "Manta Pacific"
     },
     {
-        "url": "https://mantle-mainnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Mantle mainnet"
-    },
-    {
-        "url": "https://mantle-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Mantle mainnet"
+        "url": "https://arkham-manta-pacific-archive.dwellir.com",
+        "chain_name": "Manta Pacific"
     },
     {
         "url": "https://rpc.mantle.xyz",
@@ -1121,6 +1117,14 @@
     },
     {
         "url": "https://api-mantle-mainnet-archive.dwellir.com",
+        "chain_name": "Mantle mainnet"
+    },
+    {
+        "url": "https://mantle-mainnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Mantle mainnet"
+    },
+    {
+        "url": "https://mantle-mainnet-archive-rpc-2.dwellir.com",
         "chain_name": "Mantle mainnet"
     },
     {
