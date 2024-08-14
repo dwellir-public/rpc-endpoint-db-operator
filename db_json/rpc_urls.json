@@ -1944,18 +1944,6 @@
         "chain_name": "Rococo-pc BridgeHub"
     },
     {
-        "url": "https://frequency-rococo-rpc.dwellir.com/",
-        "chain_name": "Rococo-pc Frequency"
-    },
-    {
-        "url": "wss://rpc.rococo.frequency.xyz",
-        "chain_name": "Rococo-pc Frequency"
-    },
-    {
-        "url": "https://api-frequency-rococo.dwellir.com",
-        "chain_name": "Rococo-pc Frequency"
-    },
-    {
         "url": "https://shibuya-rpc.dwellir.com",
         "chain_name": "Shibuya"
     },

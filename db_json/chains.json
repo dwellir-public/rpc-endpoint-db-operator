@@ -436,10 +436,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Rococo-pc Frequency",
-        "api_class": "substrate"
-    },
-    {
         "name": "Shibuya",
         "api_class": "substrate"
     },
