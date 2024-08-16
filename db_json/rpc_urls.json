@@ -1284,6 +1284,10 @@
         "chain_name": "Paseo-pc AssetHub"
     },
     {
+        "url": "https://bridge-hub-paseo-rpc-ng.dwellir.com",
+        "chain_name": "Paseo-pc BridgeHub"
+    },
+    {
         "url": "https://api-polkadex-mainnet.dwellir.com",
         "chain_name": "Polkadex mainnet"
     },
