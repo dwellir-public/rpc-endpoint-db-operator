@@ -1588,6 +1588,10 @@
         "chain_name": "Polkadot-pc HydraDX"
     },
     {
+        "url": "https://zapper-fi-hydration-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc HydraDX"
+    },
+    {
         "url": "https://integritee-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Integritee Shell"
     },
