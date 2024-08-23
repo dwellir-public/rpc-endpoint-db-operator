@@ -264,6 +264,18 @@
         "chain_name": "Binance Smart Chain testnet"
     },
     {
+        "url": "https://bsc-testnet-full-rpc-2.dwellir.com",
+        "chain_name": "Binance Smart Chain testnet"
+    },
+    {
+        "url": "https://bsc-testnet-full-rpc-1.dwellir.com",
+        "chain_name": "Binance Smart Chain testnet"
+    },
+    {
+        "url": "https://api-bsc-testnet-full.dwellir.com",
+        "chain_name": "Binance Smart Chain testnet"
+    },
+    {
         "url": "https://bittensor-mainnet-rpc.dwellir.com",
         "chain_name": "Bittensor Mainnet"
     },
