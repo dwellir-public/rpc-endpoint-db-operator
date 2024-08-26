@@ -320,6 +320,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Coretime",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Darwinia",
         "api_class": "substrate"
     },

@@ -1524,6 +1524,14 @@
         "chain_name": "Polkadot-pc Composable Finance"
     },
     {
+        "url": "https://coretime-polkadot-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc Coretime"
+    },
+    {
+        "url": "wss://polkadot-coretime-rpc.polkadot.io",
+        "chain_name": "Polkadot-pc Coretime"
+    },
+    {
         "url": "https://darwinia-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Darwinia"
     },
