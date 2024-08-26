@@ -1112,10 +1112,6 @@
         "chain_name": "Manta Pacific"
     },
     {
-        "url": "https://arkham-manta-pacific-archive.dwellir.com",
-        "chain_name": "Manta Pacific"
-    },
-    {
         "url": "https://rpc.mantle.xyz",
         "chain_name": "Mantle mainnet"
     },
