@@ -600,6 +600,10 @@
         "chain_name": "Ethereum mainnet"
     },
     {
+        "url": "https://api-eth-mainnet-archive-reth.dwellir.com",
+        "chain_name": "Ethereum mainnet"
+    },
+    {
         "url": "https://rpc.ftm.tools",
         "chain_name": "Fantom mainnet"
     },
