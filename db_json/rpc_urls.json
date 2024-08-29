@@ -252,18 +252,6 @@
         "chain_name": "Binance Smart Chain testnet"
     },
     {
-        "url": "https://bsc-testnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Binance Smart Chain testnet"
-    },
-    {
-        "url": "https://bsc-testnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Binance Smart Chain testnet"
-    },
-    {
-        "url": "https://api-bsc-testnet-archive.dwellir.com",
-        "chain_name": "Binance Smart Chain testnet"
-    },
-    {
         "url": "https://bsc-testnet-full-rpc-2.dwellir.com",
         "chain_name": "Binance Smart Chain testnet"
     },
@@ -1661,6 +1649,10 @@
     },
     {
         "url": "https://api-kilt.dwellir.com",
+        "chain_name": "Polkadot-pc Kilt Spiritnet"
+    },
+    {
+        "url": "https://kilt-polkadot-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc Kilt Spiritnet"
     },
     {
