@@ -1696,6 +1696,10 @@
         "chain_name": "Polkadot-pc Moonbeam"
     },
     {
+        "url": "https://moonbeam-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc Moonbeam"
+    },
+    {
         "url": "https://parachain-rpc.origin-trail.network",
         "chain_name": "Polkadot-pc NeuroWeb (OriginTrail)"
     },
