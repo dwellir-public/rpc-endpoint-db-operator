@@ -100,18 +100,6 @@
         "chain_name": "Astar zkEVM mainnet"
     },
     {
-        "url": "https://goldberg.avail.tools/api",
-        "chain_name": "Avail Goldberg"
-    },
-    {
-        "url": "https://avail-goldberg-rpc.dwellir.com",
-        "chain_name": "Avail Goldberg"
-    },
-    {
-        "url": "https://api-avail-goldberg.dwellir.com",
-        "chain_name": "Avail Goldberg"
-    },
-    {
         "url": "https://api.avax.network/ext/bc/C/rpc",
         "chain_name": "Avalanche mainnet"
     },
@@ -1544,18 +1532,6 @@
         "chain_name": "Polkadot-pc Energy Web X"
     },
     {
-        "url": "https://equilibrium-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Equilibrium"
-    },
-    {
-        "url": "https://node.pol.equilibrium.io",
-        "chain_name": "Polkadot-pc Equilibrium"
-    },
-    {
-        "url": "https://api-equilibrium.dwellir.com",
-        "chain_name": "Polkadot-pc Equilibrium"
-    },
-    {
         "url": "https://frequency-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Frequency"
     },
@@ -1805,6 +1781,10 @@
     },
     {
         "url": "https://api-unique.dwellir.com",
+        "chain_name": "Polkadot-pc Unique"
+    },
+    {
+        "url": "https://unique-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc Unique"
     },
     {

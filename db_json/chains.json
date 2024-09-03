@@ -24,10 +24,6 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Avail Goldberg",
-        "api_class": "substrate"
-    },
-    {
         "name": "Avalanche mainnet",
         "api_class": "ethereum"
     },
@@ -329,10 +325,6 @@
     },
     {
         "name": "Polkadot-pc Energy Web X",
-        "api_class": "substrate"
-    },
-    {
-        "name": "Polkadot-pc Equilibrium",
         "api_class": "substrate"
     },
     {
