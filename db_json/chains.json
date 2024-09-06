@@ -352,6 +352,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Laos",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Litentry",
         "api_class": "substrate"
     },

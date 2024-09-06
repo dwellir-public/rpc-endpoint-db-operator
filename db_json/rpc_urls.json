@@ -1632,6 +1632,14 @@
         "chain_name": "Polkadot-pc Kilt Spiritnet"
     },
     {
+        "url": "wss://rpc.laos.laosfoundation.io",
+        "chain_name": "Polkadot-pc Laos"
+    },
+    {
+        "url": "wss://laos-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc Laos"
+    },
+    {
         "url": "https://litentry-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Litentry"
     },
