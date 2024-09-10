@@ -1748,6 +1748,18 @@
         "chain_name": "Polkadot-pc Phala Network"
     },
     {
+        "url": "https://polimec-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc Polimec"
+    },
+    {
+        "url": "https://polimec.rpc.amforc.com",
+        "chain_name": "Polkadot-pc Polimec"
+    },
+    {
+        "url": "https://rpc.polimec.org",
+        "chain_name": "Polkadot-pc Polimec"
+    },
+    {
         "url": "https://polkadex-parachain.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Polkadex"
     },
@@ -1988,10 +2000,6 @@
         "chain_name": "Starknet Sepolia"
     },
     {
-        "url": "https://braavos-starknet-sepolia-rpc.dwellir.com",
-        "chain_name": "Starknet Sepolia"
-    },
-    {
         "url": "https://starknet-mainnet-rpc.dwellir.com",
         "chain_name": "Starknet mainnet"
     },
@@ -2017,10 +2025,6 @@
     },
     {
         "url": "https://api-starknet-mainnet.dwellir.com",
-        "chain_name": "Starknet mainnet"
-    },
-    {
-        "url": "https://braavos-starknet-mainnet-rpc.dwellir.com",
         "chain_name": "Starknet mainnet"
     },
     {

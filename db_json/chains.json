@@ -384,6 +384,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Polimec",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Polkadex",
         "api_class": "substrate"
     },
