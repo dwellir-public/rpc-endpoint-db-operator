@@ -1076,6 +1076,22 @@
         "chain_name": "Linea mainnet"
     },
     {
+        "url": "https://rpc.sepolia-api.lisk.com",
+        "chain_name": "Lisk Sepolia"
+    },
+    {
+        "url": "https://lisk-mainnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Lisk mainnet"
+    },
+    {
+        "url": "https://lisk-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Lisk mainnet"
+    },
+    {
+        "url": "https://rpc.api.lisk.com",
+        "chain_name": "Lisk mainnet"
+    },
+    {
         "url": "https://api-manta-pacific-archive.dwellir.com",
         "chain_name": "Manta Pacific"
     },

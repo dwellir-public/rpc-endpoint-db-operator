@@ -232,6 +232,14 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Lisk Sepolia",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Lisk mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Manta Pacific",
         "api_class": "ethereum"
     },
