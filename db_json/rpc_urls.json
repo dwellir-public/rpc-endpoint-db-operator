@@ -1080,6 +1080,14 @@
         "chain_name": "Lisk Sepolia"
     },
     {
+        "url": "https://lisk-sepolia-archive-rpc-2.dwellir.com",
+        "chain_name": "Lisk Sepolia"
+    },
+    {
+        "url": "https://lisk-sepolia-archive-rpc-1.dwellir.com",
+        "chain_name": "Lisk Sepolia"
+    },
+    {
         "url": "https://lisk-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Lisk mainnet"
     },
