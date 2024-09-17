@@ -2004,6 +2004,14 @@
         "chain_name": "Shibuya"
     },
     {
+        "url": "https://api-soneium-minato.dwellir.com",
+        "chain_name": "Soneium Minato"
+    },
+    {
+        "url": "https://rpc.minato.soneium.org/",
+        "chain_name": "Soneium Minato"
+    },
+    {
         "url": "https://starknet-testnet-sepolia-rpc-1.dwellir.com",
         "chain_name": "Starknet Sepolia"
     },

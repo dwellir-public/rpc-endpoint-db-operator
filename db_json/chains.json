@@ -456,6 +456,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Soneium Minato",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Starknet Sepolia",
         "api_class": "starknet"
     },
