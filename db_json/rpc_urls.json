@@ -616,6 +616,30 @@
         "chain_name": "Fantom testnet"
     },
     {
+        "url": "https://flow-evm-gateway-mainnet-rpc-1.dwellir.com",
+        "chain_name": "Flow EVM Gateway mainnet"
+    },
+    {
+        "url": "https://flow-evm-gateway-mainnet-rpc-2.dwellir.com",
+        "chain_name": "Flow EVM Gateway mainnet"
+    },
+    {
+        "url": "https://mainnet.evm.nodes.onflow.org",
+        "chain_name": "Flow EVM Gateway mainnet"
+    },
+    {
+        "url": "https://flow-evm-gateway-testnet-rpc-1.dwellir.com",
+        "chain_name": "Flow EVM Gateway testnet"
+    },
+    {
+        "url": "https://flow-evm-gateway-testnet-rpc-2.dwellir.com",
+        "chain_name": "Flow EVM Gateway testnet"
+    },
+    {
+        "url": "https://testnet.evm.nodes.onflow.org",
+        "chain_name": "Flow EVM Gateway testnet"
+    },
+    {
         "url": "https://gnosis-archive-rpc-1.dwellir.com",
         "chain_name": "Gnosis"
     },
@@ -1298,6 +1322,18 @@
     {
         "url": "https://bridge-hub-paseo-rpc-ng.dwellir.com",
         "chain_name": "Paseo-pc BridgeHub"
+    },
+    {
+        "url": "https://people-paseo-rpc-ng.dwellir.com",
+        "chain_name": "Paseo-pc People"
+    },
+    {
+        "url": "https://people-paseo.dotters.network",
+        "chain_name": "Paseo-pc People"
+    },
+    {
+        "url": "https://people-paseo.rpc.amforc.com",
+        "chain_name": "Paseo-pc People"
     },
     {
         "url": "https://api-polkadex-mainnet.dwellir.com",
@@ -1990,6 +2026,30 @@
     {
         "url": "https://bridge-hub-rococo-rpc.dwellir.com",
         "chain_name": "Rococo-pc BridgeHub"
+    },
+    {
+        "url": "https://ronin-mainnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Ronin mainnet"
+    },
+    {
+        "url": "https://ronin-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Ronin mainnet"
+    },
+    {
+        "url": "https://api-ronin-mainnet.dwellir.com",
+        "chain_name": "Ronin mainnet"
+    },
+    {
+        "url": "https://ronin.lgns.net/rpc",
+        "chain_name": "Ronin mainnet"
+    },
+    {
+        "url": "https://api.roninchain.com/rpc",
+        "chain_name": "Ronin mainnet"
+    },
+    {
+        "url": "https://ronin.drpc.org",
+        "chain_name": "Ronin mainnet"
     },
     {
         "url": "https://shibuya-rpc.dwellir.com",

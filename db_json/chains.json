@@ -128,6 +128,14 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Flow EVM Gateway mainnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Flow EVM Gateway testnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Gnosis",
         "api_class": "ethereum"
     },
@@ -281,6 +289,10 @@
     },
     {
         "name": "Paseo-pc BridgeHub",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Paseo-pc People",
         "api_class": "substrate"
     },
     {
@@ -450,6 +462,10 @@
     {
         "name": "Rococo-pc BridgeHub",
         "api_class": "substrate"
+    },
+    {
+        "name": "Ronin mainnet",
+        "api_class": "ethereum"
     },
     {
         "name": "Shibuya",
