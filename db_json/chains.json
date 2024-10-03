@@ -64,6 +64,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Celo Alfajores",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Celo Mainnet",
         "api_class": "ethereum"
     },
@@ -464,6 +468,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Ronin Saigon testnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Ronin mainnet",
         "api_class": "ethereum"
     },
@@ -474,6 +482,10 @@
     {
         "name": "Soneium Minato",
         "api_class": "ethereum"
+    },
+    {
+        "name": "Sora Mainnet",
+        "api_class": "substrate"
     },
     {
         "name": "Starknet Sepolia",

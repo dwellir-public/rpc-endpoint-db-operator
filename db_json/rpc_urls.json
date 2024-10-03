@@ -316,6 +316,14 @@
         "chain_name": "Blast mainnet"
     },
     {
+        "url": "https://api-celo-alfajores-archive.dwellir.com",
+        "chain_name": "Celo Alfajores"
+    },
+    {
+        "url": "wss://alfajores-forno.celo-testnet.org/ws",
+        "chain_name": "Celo Alfajores"
+    },
+    {
         "url": "https://forno.celo.org",
         "chain_name": "Celo Mainnet"
     },
@@ -2028,6 +2036,22 @@
         "chain_name": "Rococo-pc BridgeHub"
     },
     {
+        "url": "https://ronin-saigon-testnet-archive-rpc-1.dwellir.com",
+        "chain_name": "Ronin Saigon testnet"
+    },
+    {
+        "url": "https://ronin-saigon-testnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Ronin Saigon testnet"
+    },
+    {
+        "url": "https://api-ronin-saigon-testnet.dwellir.com",
+        "chain_name": "Ronin Saigon testnet"
+    },
+    {
+        "url": "https://saigon-testnet.roninchain.com/rpc",
+        "chain_name": "Ronin Saigon testnet"
+    },
+    {
         "url": "https://ronin-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Ronin mainnet"
     },
@@ -2070,6 +2094,26 @@
     {
         "url": "https://rpc.minato.soneium.org/",
         "chain_name": "Soneium Minato"
+    },
+    {
+        "url": "https://api-sora-mainnet.dwellir.com",
+        "chain_name": "Sora Mainnet"
+    },
+    {
+        "url": "wss://sora.api.onfinality.io/public-ws",
+        "chain_name": "Sora Mainnet"
+    },
+    {
+        "url": "wss://ws.mof.sora.org",
+        "chain_name": "Sora Mainnet"
+    },
+    {
+        "url": "wss://mof2.sora.org",
+        "chain_name": "Sora Mainnet"
+    },
+    {
+        "url": "wss://mof3.sora.org",
+        "chain_name": "Sora Mainnet"
     },
     {
         "url": "https://starknet-testnet-sepolia-rpc-1.dwellir.com",
