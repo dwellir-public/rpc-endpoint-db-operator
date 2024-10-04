@@ -2100,10 +2100,6 @@
         "chain_name": "Sora Mainnet"
     },
     {
-        "url": "wss://sora.api.onfinality.io/public-ws",
-        "chain_name": "Sora Mainnet"
-    },
-    {
         "url": "wss://ws.mof.sora.org",
         "chain_name": "Sora Mainnet"
     },
@@ -2113,6 +2109,10 @@
     },
     {
         "url": "wss://mof3.sora.org",
+        "chain_name": "Sora Mainnet"
+    },
+    {
+        "url": "https://sora.api.onfinality.io/public-http",
         "chain_name": "Sora Mainnet"
     },
     {
