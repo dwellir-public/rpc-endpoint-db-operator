@@ -296,6 +296,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Paseo-pc Coretime",
+        "api_class": "substrate"
+    },
+    {
         "name": "Paseo-pc People",
         "api_class": "substrate"
     },

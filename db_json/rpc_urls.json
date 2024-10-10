@@ -1332,6 +1332,10 @@
         "chain_name": "Paseo-pc BridgeHub"
     },
     {
+        "url": "https://coretime-paseo.dotters.network",
+        "chain_name": "Paseo-pc Coretime"
+    },
+    {
         "url": "https://people-paseo-rpc-ng.dwellir.com",
         "chain_name": "Paseo-pc People"
     },
@@ -2093,6 +2097,10 @@
     },
     {
         "url": "https://rpc.minato.soneium.org/",
+        "chain_name": "Soneium Minato"
+    },
+    {
+        "url": "https://soneium-minato-rpc.dwellir.com",
         "chain_name": "Soneium Minato"
     },
     {
