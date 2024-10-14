@@ -1336,6 +1336,14 @@
         "chain_name": "Paseo-pc BridgeHub"
     },
     {
+        "url": "https://api-bridge-hub-paseo.dwellir.com",
+        "chain_name": "Paseo-pc BridgeHub"
+    },
+    {
+        "url": "https://bridge-hub-paseo.dotters.network",
+        "chain_name": "Paseo-pc BridgeHub"
+    },
+    {
         "url": "https://coretime-paseo.dotters.network",
         "chain_name": "Paseo-pc Coretime"
     },
