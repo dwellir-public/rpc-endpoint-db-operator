@@ -100,6 +100,10 @@
         "chain_name": "Astar zkEVM mainnet"
     },
     {
+        "url": "https://astar-zkevm-rpc.dwellir.com",
+        "chain_name": "Astar zkEVM mainnet"
+    },
+    {
         "url": "https://api.avax.network/ext/bc/C/rpc",
         "chain_name": "Avalanche mainnet"
     },
@@ -316,11 +320,11 @@
         "chain_name": "Blast mainnet"
     },
     {
-        "url": "https://api-celo-alfajores-archive.dwellir.com",
+        "url": "https://alfajores-forno.celo-testnet.org",
         "chain_name": "Celo Alfajores"
     },
     {
-        "url": "wss://alfajores-forno.celo-testnet.org/ws",
+        "url": "https://api-celo-alfajores-archive.dwellir.com",
         "chain_name": "Celo Alfajores"
     },
     {
@@ -1332,7 +1336,23 @@
         "chain_name": "Paseo-pc BridgeHub"
     },
     {
+        "url": "https://api-bridge-hub-paseo.dwellir.com",
+        "chain_name": "Paseo-pc BridgeHub"
+    },
+    {
+        "url": "https://bridge-hub-paseo.dotters.network",
+        "chain_name": "Paseo-pc BridgeHub"
+    },
+    {
         "url": "https://coretime-paseo.dotters.network",
+        "chain_name": "Paseo-pc Coretime"
+    },
+    {
+        "url": "https://paseo-coretime.paranodes.io",
+        "chain_name": "Paseo-pc Coretime"
+    },
+    {
+        "url": "https://coretime-paseo-rpc-ng.dwellir.com",
         "chain_name": "Paseo-pc Coretime"
     },
     {
@@ -2104,23 +2124,23 @@
         "chain_name": "Soneium Minato"
     },
     {
+        "url": "https://sora.api.onfinality.io/public-http",
+        "chain_name": "Sora Mainnet"
+    },
+    {
+        "url": "https://mof2.sora.org",
+        "chain_name": "Sora Mainnet"
+    },
+    {
         "url": "https://api-sora-mainnet.dwellir.com",
         "chain_name": "Sora Mainnet"
     },
     {
-        "url": "wss://ws.mof.sora.org",
+        "url": "https://mof3.sora.org",
         "chain_name": "Sora Mainnet"
     },
     {
-        "url": "wss://mof2.sora.org",
-        "chain_name": "Sora Mainnet"
-    },
-    {
-        "url": "wss://mof3.sora.org",
-        "chain_name": "Sora Mainnet"
-    },
-    {
-        "url": "https://sora.api.onfinality.io/public-http",
+        "url": "https://ws.mof.sora.org",
         "chain_name": "Sora Mainnet"
     },
     {
