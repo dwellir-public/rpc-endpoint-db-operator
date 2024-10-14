@@ -100,6 +100,10 @@
         "chain_name": "Astar zkEVM mainnet"
     },
     {
+        "url": "https://astar-zkevm-rpc.dwellir.com",
+        "chain_name": "Astar zkEVM mainnet"
+    },
+    {
         "url": "https://api.avax.network/ext/bc/C/rpc",
         "chain_name": "Avalanche mainnet"
     },
@@ -1336,6 +1340,14 @@
         "chain_name": "Paseo-pc Coretime"
     },
     {
+        "url": "https://paseo-coretime.paranodes.io",
+        "chain_name": "Paseo-pc Coretime"
+    },
+    {
+        "url": "https://coretime-paseo-rpc.dwellir.com",
+        "chain_name": "Paseo-pc Coretime"
+    },
+    {
         "url": "https://people-paseo-rpc-ng.dwellir.com",
         "chain_name": "Paseo-pc People"
     },
@@ -2104,23 +2116,23 @@
         "chain_name": "Soneium Minato"
     },
     {
+        "url": "https://sora.api.onfinality.io/public-http",
+        "chain_name": "Sora Mainnet"
+    },
+    {
+        "url": "https://mof2.sora.org",
+        "chain_name": "Sora Mainnet"
+    },
+    {
         "url": "https://api-sora-mainnet.dwellir.com",
         "chain_name": "Sora Mainnet"
     },
     {
-        "url": "wss://ws.mof.sora.org",
+        "url": "https://mof3.sora.org",
         "chain_name": "Sora Mainnet"
     },
     {
-        "url": "wss://mof2.sora.org",
-        "chain_name": "Sora Mainnet"
-    },
-    {
-        "url": "wss://mof3.sora.org",
-        "chain_name": "Sora Mainnet"
-    },
-    {
-        "url": "https://sora.api.onfinality.io/public-http",
+        "url": "https://ws.mof.sora.org",
         "chain_name": "Sora Mainnet"
     },
     {
