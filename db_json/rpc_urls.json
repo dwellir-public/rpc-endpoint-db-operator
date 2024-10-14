@@ -320,11 +320,11 @@
         "chain_name": "Blast mainnet"
     },
     {
-        "url": "https://api-celo-alfajores-archive.dwellir.com",
+        "url": "https://alfajores-forno.celo-testnet.org",
         "chain_name": "Celo Alfajores"
     },
     {
-        "url": "wss://alfajores-forno.celo-testnet.org/ws",
+        "url": "https://api-celo-alfajores-archive.dwellir.com",
         "chain_name": "Celo Alfajores"
     },
     {
@@ -1344,7 +1344,7 @@
         "chain_name": "Paseo-pc Coretime"
     },
     {
-        "url": "https://coretime-paseo-rpc.dwellir.com",
+        "url": "https://coretime-paseo-rpc-ng.dwellir.com",
         "chain_name": "Paseo-pc Coretime"
     },
     {
