@@ -392,18 +392,17 @@ def get_auth_header(url: str, password: str = "") -> str:
 
 
 def get_jsonrpc_method(api_class: str) -> str:
-    method = ''
-    if api_class == 'aptos':
-        method = ''
-    elif api_class == 'substrate':
-        method = 'chain_getHeader'
-    elif api_class == 'ethereum':
-        method = 'eth_blockNumber'
-    elif api_class == 'starknet':
-        method = 'starknet_blockNumber'
+    """Get the JSON-RPC method for the API class."""
+    if api_class == 'substrate':
+        return 'chain_getHeader'
+    if api_class == 'ethereum':
+        return 'eth_blockNumber'
+    if api_class == 'starknet':
+        return 'starknet_blockNumber'
+    if api_class == "filecoin":
+        return "Filecoin.ChainHead"
     else:
         raise ValueError('Invalid api_class:', api_class)
-    return method
 
 
 def load_json_file(filepath: Path):
