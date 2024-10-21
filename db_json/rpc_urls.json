@@ -636,6 +636,26 @@
         "chain_name": "Fantom testnet"
     },
     {
+        "url": "https://paribu-filecoin-mainnet.dwellir.com/rpc/v1",
+        "chain_name": "Filecoin mainnet"
+    },
+    {
+        "url": "https://api-filecoin-mainnet.dwellir.com/rpc/v1",
+        "chain_name": "Filecoin mainnet"
+    },
+    {
+        "url": "https://rpc.ankr.com/filecoin",
+        "chain_name": "Filecoin mainnet"
+    },
+    {
+        "url": "https://api.node.glif.io",
+        "chain_name": "Filecoin mainnet"
+    },
+    {
+        "url": "https://filecoin.chainup.net/rpc/v1",
+        "chain_name": "Filecoin mainnet"
+    },
+    {
         "url": "https://flow-evm-gateway-mainnet-rpc-1.dwellir.com",
         "chain_name": "Flow EVM Gateway mainnet"
     },

@@ -132,6 +132,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Filecoin mainnet",
+        "api_class": "filecoin"
+    },
+    {
         "name": "Flow EVM Gateway mainnet",
         "api_class": "ethereum"
     },
