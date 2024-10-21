@@ -11,11 +11,11 @@ import subprocess as sp
 import time
 
 import ops
-from ops.model import ModelError, ActiveStatus, MaintenanceStatus, BlockedStatus, WaitingStatus
-from ops.charm import CharmBase, ActionEvent
-import util
-import constants as c
+from ops.charm import ActionEvent, CharmBase
+from ops.model import ActiveStatus, MaintenanceStatus, ModelError, WaitingStatus
 
+import constants as c
+import util
 
 logger = logging.getLogger(__name__)
 
