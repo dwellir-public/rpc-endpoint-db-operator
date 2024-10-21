@@ -464,11 +464,15 @@
         "chain_name": "Enjin Canary Relay Chain"
     },
     {
-        "url": "wss://rpc.relay.canary.enjin.io/",
+        "url": "https://api-enjin-canary-relay.dwellir.com",
         "chain_name": "Enjin Canary Relay Chain"
     },
     {
-        "url": "https://api-enjin-canary-relay.dwellir.com",
+        "url": "https://enjin-relay-canary-paribu.dwellir.com",
+        "chain_name": "Enjin Canary Relay Chain"
+    },
+    {
+        "url": "https://rpc.relay.canary.enjin.io",
         "chain_name": "Enjin Canary Relay Chain"
     },
     {
@@ -488,15 +492,19 @@
         "chain_name": "Enjin Relay Chain"
     },
     {
-        "url": "wss://rpc.relay.blockchain.enjin.io/",
-        "chain_name": "Enjin Relay Chain"
-    },
-    {
-        "url": "wss://enjin-relay-chain.matrixed.link/",
-        "chain_name": "Enjin Relay Chain"
-    },
-    {
         "url": "https://api-enjin-relay.dwellir.com",
+        "chain_name": "Enjin Relay Chain"
+    },
+    {
+        "url": "https://enjin-relay-mainnet-paribu.dwellir.com",
+        "chain_name": "Enjin Relay Chain"
+    },
+    {
+        "url": "https://enjin-relay-chain.matrixed.link",
+        "chain_name": "Enjin Relay Chain"
+    },
+    {
+        "url": "https://rpc.relay.blockchain.enjin.io",
         "chain_name": "Enjin Relay Chain"
     },
     {
