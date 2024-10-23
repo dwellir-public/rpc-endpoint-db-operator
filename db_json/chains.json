@@ -320,6 +320,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Ajuna",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc AssetHub (Statemint)",
         "api_class": "substrate"
     },
@@ -365,6 +369,10 @@
     },
     {
         "name": "Polkadot-pc HydraDX",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Hyperbridge-Nexus",
         "api_class": "substrate"
     },
     {

@@ -656,14 +656,6 @@
         "chain_name": "Filecoin mainnet"
     },
     {
-        "url": "https://flow-evm-gateway-mainnet-rpc-1.dwellir.com",
-        "chain_name": "Flow EVM Gateway mainnet"
-    },
-    {
-        "url": "https://flow-evm-gateway-mainnet-rpc-2.dwellir.com",
-        "chain_name": "Flow EVM Gateway mainnet"
-    },
-    {
         "url": "https://mainnet.evm.nodes.onflow.org",
         "chain_name": "Flow EVM Gateway mainnet"
     },
@@ -1452,6 +1444,26 @@
         "chain_name": "Polkadot-pc Acala"
     },
     {
+        "url": "https://ajuna-polkadot-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc Ajuna"
+    },
+    {
+        "url": "https://ajuna.api.onfinality.io/public-ws",
+        "chain_name": "Polkadot-pc Ajuna"
+    },
+    {
+        "url": "https://rpc-para.ajuna.network",
+        "chain_name": "Polkadot-pc Ajuna"
+    },
+    {
+        "url": "https://ajuna.dotters.network",
+        "chain_name": "Polkadot-pc Ajuna"
+    },
+    {
+        "url": "https://ajuna.ibp.network",
+        "chain_name": "Polkadot-pc Ajuna"
+    },
+    {
         "url": "https://statemint-rpc.dwellir.com",
         "chain_name": "Polkadot-pc AssetHub (Statemint)"
     },
@@ -1686,6 +1698,22 @@
     {
         "url": "https://zapper-fi-hydration-rpc.dwellir.com",
         "chain_name": "Polkadot-pc HydraDX"
+    },
+    {
+        "url": "https://nexus.dotters.network",
+        "chain_name": "Polkadot-pc Hyperbridge-Nexus"
+    },
+    {
+        "url": "https://nexus.ibp.network",
+        "chain_name": "Polkadot-pc Hyperbridge-Nexus"
+    },
+    {
+        "url": "https://hyperbridge-nexus-rpc.blockops.network",
+        "chain_name": "Polkadot-pc Hyperbridge-Nexus"
+    },
+    {
+        "url": "https://hyperbridge-nexus-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc Hyperbridge-Nexus"
     },
     {
         "url": "https://integritee-rpc.dwellir.com",
