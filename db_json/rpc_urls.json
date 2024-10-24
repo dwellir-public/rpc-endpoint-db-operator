@@ -464,11 +464,15 @@
         "chain_name": "Enjin Canary Relay Chain"
     },
     {
-        "url": "wss://rpc.relay.canary.enjin.io/",
+        "url": "https://api-enjin-canary-relay.dwellir.com",
         "chain_name": "Enjin Canary Relay Chain"
     },
     {
-        "url": "https://api-enjin-canary-relay.dwellir.com",
+        "url": "https://enjin-relay-canary-paribu.dwellir.com",
+        "chain_name": "Enjin Canary Relay Chain"
+    },
+    {
+        "url": "https://rpc.relay.canary.enjin.io",
         "chain_name": "Enjin Canary Relay Chain"
     },
     {
@@ -488,15 +492,19 @@
         "chain_name": "Enjin Relay Chain"
     },
     {
-        "url": "wss://rpc.relay.blockchain.enjin.io/",
-        "chain_name": "Enjin Relay Chain"
-    },
-    {
-        "url": "wss://enjin-relay-chain.matrixed.link/",
-        "chain_name": "Enjin Relay Chain"
-    },
-    {
         "url": "https://api-enjin-relay.dwellir.com",
+        "chain_name": "Enjin Relay Chain"
+    },
+    {
+        "url": "https://enjin-relay-mainnet-paribu.dwellir.com",
+        "chain_name": "Enjin Relay Chain"
+    },
+    {
+        "url": "https://enjin-relay-chain.matrixed.link",
+        "chain_name": "Enjin Relay Chain"
+    },
+    {
+        "url": "https://rpc.relay.blockchain.enjin.io",
         "chain_name": "Enjin Relay Chain"
     },
     {
@@ -628,12 +636,24 @@
         "chain_name": "Fantom testnet"
     },
     {
-        "url": "https://flow-evm-gateway-mainnet-rpc-1.dwellir.com",
-        "chain_name": "Flow EVM Gateway mainnet"
+        "url": "https://paribu-filecoin-mainnet.dwellir.com/rpc/v1",
+        "chain_name": "Filecoin mainnet"
     },
     {
-        "url": "https://flow-evm-gateway-mainnet-rpc-2.dwellir.com",
-        "chain_name": "Flow EVM Gateway mainnet"
+        "url": "https://api-filecoin-mainnet.dwellir.com/rpc/v1",
+        "chain_name": "Filecoin mainnet"
+    },
+    {
+        "url": "https://rpc.ankr.com/filecoin",
+        "chain_name": "Filecoin mainnet"
+    },
+    {
+        "url": "https://api.node.glif.io",
+        "chain_name": "Filecoin mainnet"
+    },
+    {
+        "url": "https://filecoin.chainup.net/rpc/v1",
+        "chain_name": "Filecoin mainnet"
     },
     {
         "url": "https://mainnet.evm.nodes.onflow.org",
@@ -1308,10 +1328,6 @@
         "chain_name": "Paseo Relaychain"
     },
     {
-        "url": "https://snowbridge-paseo-rpc.dwellir.com",
-        "chain_name": "Paseo Relaychain"
-    },
-    {
         "url": "https://pas-rpc.stakeworld.io/assethub",
         "chain_name": "Paseo-pc AssetHub"
     },
@@ -1408,10 +1424,6 @@
         "chain_name": "Polkadot Relaychain"
     },
     {
-        "url": "https://snowbridge-polkadot-rpc.dwellir.com",
-        "chain_name": "Polkadot Relaychain"
-    },
-    {
         "url": "https://acala-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Acala"
     },
@@ -1430,6 +1442,26 @@
     {
         "url": "https://api-acala.dwellir.com",
         "chain_name": "Polkadot-pc Acala"
+    },
+    {
+        "url": "https://ajuna-polkadot-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc Ajuna"
+    },
+    {
+        "url": "https://ajuna.api.onfinality.io/public-ws",
+        "chain_name": "Polkadot-pc Ajuna"
+    },
+    {
+        "url": "https://rpc-para.ajuna.network",
+        "chain_name": "Polkadot-pc Ajuna"
+    },
+    {
+        "url": "https://ajuna.dotters.network",
+        "chain_name": "Polkadot-pc Ajuna"
+    },
+    {
+        "url": "https://ajuna.ibp.network",
+        "chain_name": "Polkadot-pc Ajuna"
     },
     {
         "url": "https://statemint-rpc.dwellir.com",
@@ -1666,6 +1698,22 @@
     {
         "url": "https://zapper-fi-hydration-rpc.dwellir.com",
         "chain_name": "Polkadot-pc HydraDX"
+    },
+    {
+        "url": "https://nexus.dotters.network",
+        "chain_name": "Polkadot-pc Hyperbridge-Nexus"
+    },
+    {
+        "url": "https://nexus.ibp.network",
+        "chain_name": "Polkadot-pc Hyperbridge-Nexus"
+    },
+    {
+        "url": "https://hyperbridge-nexus-rpc.blockops.network",
+        "chain_name": "Polkadot-pc Hyperbridge-Nexus"
+    },
+    {
+        "url": "https://hyperbridge-nexus-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc Hyperbridge-Nexus"
     },
     {
         "url": "https://integritee-rpc.dwellir.com",
@@ -2225,10 +2273,6 @@
     },
     {
         "url": "https://api-westend.dwellir.com",
-        "chain_name": "Westend Relaychain"
-    },
-    {
-        "url": "https://snowbridge-westend-rpc.dwellir.com",
         "chain_name": "Westend Relaychain"
     },
     {

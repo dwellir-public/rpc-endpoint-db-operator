@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 
-from pathlib import Path
-import subprocess as sp
-import shutil
 import json
-import requests
+import shutil
 import sqlite3
+import subprocess as sp
+from pathlib import Path
+
+import requests
+
 import constants as c
 
 
@@ -71,8 +73,7 @@ def get_access_token(url: str, password: str = "") -> str:
 
 # TODO: merge usage with local_import_from_json_files in db_util.py?
 def local_import_from_json_files(chains: dict, rpc_urls: dict, db_file: str) -> None:
-    """
-    Imports data from JSON files into an SQLite database.
+    """Imports data from JSON files into an SQLite database.
     Assumes the JSON files has a specific format, see `db_json` folder in this repository.
     """
     conn = sqlite3.connect(db_file)

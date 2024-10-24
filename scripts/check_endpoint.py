@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-A script to test and validate endpoints for use with the RPC endpoint DB charm.
+"""A script to test and validate endpoints for use with the RPC endpoint DB charm.
 
 Usage:
     python3 check_endpoint.py --url <URL>
@@ -16,13 +15,14 @@ Usage:
 """
 
 import argparse
-import time
 import asyncio
-import aiohttp
-import websocket
-import threading
 import json
 import queue
+import threading
+import time
+
+import aiohttp
+import websocket
 
 
 def main():
@@ -83,7 +83,7 @@ def main():
                             response = json.loads(ws.recv())
                             print(response)
                             ws.close()
-                            if not 'jsonrpc' in response.keys():
+                            if 'jsonrpc' not in response.keys():
                                 print(f'# #> error in response for {url}')
                                 print(f'URL {url} produced WS response={response}')
                                 err_counter.append(url)
@@ -94,7 +94,7 @@ def main():
                 print(f'URL {url} failed WS connection: {e}')
 
         print(f"#> Errors during run: {len(err_counter)}")
-        print(f"#> URL:s failing:")
+        print("#> URL:s failing:")
         for url in err_counter:
             print(f" > {url}")
 

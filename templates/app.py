@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-from pathlib import Path
-from flask import Flask, jsonify, request, Response
-from flask_jwt_extended import JWTManager, jwt_required, create_access_token
-import sqlite3
 import logging
+import sqlite3
+from pathlib import Path
 from urllib.parse import urlparse
 
+from flask import Flask, Response, jsonify, request
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required
 
 TABLE_CHAINS = 'chains'
 TABLE_RPC_URLS = 'rpc_urls'
@@ -54,8 +54,7 @@ conn.close()
 
 @app.route("/token", methods=["POST"])
 def generate_token():
-    """
-    Generates an access token which is needed to make requests to any protected (@jwt_required decorator)
+    """Generates an access token which is needed to make requests to any protected (@jwt_required decorator)
     functions in this API. The password is stored securely on the machine of the app.
 
     Requires JSON data with parameters 'username' and 'password' in the request, example:
@@ -98,8 +97,7 @@ def insert_into_database(table: str, request_data: dict) -> Response:
 @app.route('/create_chain', methods=['POST'])
 @jwt_required()
 def create_chain_record() -> Response:
-    """
-    Creates a record in the 'chains' table, corresponding to the input data.
+    """Creates a record in the 'chains' table, corresponding to the input data.
 
     Requires JSON data with parameters 'name' and 'api_class' in the request, example:
 
@@ -120,8 +118,7 @@ def create_chain_record() -> Response:
 @app.route('/create_rpc_url', methods=['POST'])
 @jwt_required()
 def create_rpc_url_record() -> Response:
-    """
-    Creates a record in the 'rpc_urls' table, corresponding to the input data.
+    """Creates a record in the 'rpc_urls' table, corresponding to the input data.
 
     Requires JSON data with parameters 'url' and 'chain_name' in the request, example:
 
@@ -140,8 +137,7 @@ def create_rpc_url_record() -> Response:
 
 @app.route('/all/<string:table>', methods=['GET'])
 def get_all_records(table: str) -> Response:
-    """
-    Gets all the entries of the table in the path.
+    """Gets all the entries of the table in the path.
 
     curl 'http://localhost:5000/all/chains'
     """
@@ -170,8 +166,7 @@ def get_all_records(table: str) -> Response:
 
 @app.route('/get_chain_by_name/<string:name>', methods=['GET'])
 def get_chain_by_name(name: str) -> Response:
-    """
-    Gets the chain entry corresponding to the input chain name.
+    """Gets the chain entry corresponding to the input chain name.
 
     curl 'http://localhost:5000/get_chain_by_name/PulseChain%20mainnet'
     """
@@ -187,8 +182,7 @@ def get_chain_by_name(name: str) -> Response:
 
 @app.route('/get_chain_by_url', methods=['GET'])
 def get_chain_by_url() -> Response:
-    """
-    Gets the chain entry corresponding to the input url.
+    """Gets the chain entry corresponding to the input url.
 
     Requires that url parameters 'protocol' and 'address' are present in the request, example:
 
@@ -215,8 +209,7 @@ def get_chain_by_url() -> Response:
 
 @app.route('/get_url', methods=['GET'])
 def get_url() -> Response:
-    """
-    Gets the RPC url entry corresponding to the input url.
+    """Gets the RPC url entry corresponding to the input url.
 
     Requires that url parameters 'protocol' and 'address' are present in the request, example:
 
@@ -241,8 +234,7 @@ def get_url() -> Response:
 # Get urls for a specific chain
 @app.route('/get_urls/<string:chain_name>', methods=['GET'])
 def get_urls(chain_name: str) -> Response:
-    """
-    Gets the RPC URL entries corresponding to the chain name in the path.
+    """Gets the RPC URL entries corresponding to the chain name in the path.
 
     curl -X GET 'http://localhost:5000/get_urls/chain5'
     """
@@ -262,8 +254,7 @@ def get_urls(chain_name: str) -> Response:
 @app.route('/update_url', methods=['PUT'])
 @jwt_required()
 def update_url_record() -> Response:
-    """
-    Updates the rpc_urls entry corresponding to the input url.
+    """Updates the rpc_urls entry corresponding to the input url.
 
     Requires that url parameters 'protocol' and 'address' are present in the request, example:
 
@@ -308,8 +299,7 @@ def update_url_record() -> Response:
 @app.route('/delete_chain', methods=['DELETE'])
 @jwt_required()
 def delete_chain_record() -> Response:
-    """
-    Deletes the chain entry corresponding to the input name.
+    """Deletes the chain entry corresponding to the input name.
 
     Requires that url parameter 'name' is present in the request, example:
 
@@ -337,8 +327,7 @@ def delete_chain_record() -> Response:
 @app.route('/delete_url', methods=['DELETE'])
 @jwt_required()
 def delete_url_record() -> Response:
-    """
-    Deletes the rpc_urls entry corresponding to the input url.
+    """Deletes the rpc_urls entry corresponding to the input url.
 
     Requires that url parameters 'protocol' and 'address' are present in the request, example:
 
@@ -370,8 +359,7 @@ def delete_url_record() -> Response:
 @app.route('/delete_urls', methods=['DELETE'])
 @jwt_required()
 def delete_url_records() -> Response:
-    """
-    Deletes the url entries corresponding to the input chain_name.
+    """Deletes the url entries corresponding to the input chain_name.
 
     Requires that url parameter 'chain_name' is present in the request, example:
 
@@ -397,8 +385,7 @@ def delete_url_records() -> Response:
 
 @app.route('/chain_info', methods=['GET'])
 def get_chain_info():
-    """
-    Gets info for the chain corresponding to the input name.
+    """Gets info for the chain corresponding to the input name.
 
     Requires that url parameter 'name' is present in the request, example:
 
@@ -434,12 +421,12 @@ def get_chain_info():
 # UTILITY FUNCTIONS
 
 def is_valid_api(api):
-    """ Test that api string is valid. """
-    return api.lower() in ['substrate', 'ethereum', 'starknet']
+    """Test that api string is valid."""
+    return api.lower() in ['substrate', 'ethereum', 'starknet', 'filecoin']
 
 
 def is_valid_url(url):
-    """ Test that a url is valid, e.g. only http(s) and ws(s). """
+    """Test that a url is valid, e.g. only http(s) and ws(s)."""
     ALLOWED_SCHEMES = {'http', 'https', 'ws', 'wss'}
     try:
         result = urlparse(url)
@@ -449,8 +436,7 @@ def is_valid_url(url):
 
 
 def url_from_request_args() -> str:
-    """
-    Return a full url from url parameters 'protocol' and 'address'.
+    """Return a full url from url parameters 'protocol' and 'address'.
 
     Caller is responsible for excepting any errors.
     """

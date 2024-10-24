@@ -132,6 +132,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Filecoin mainnet",
+        "api_class": "filecoin"
+    },
+    {
         "name": "Flow EVM Gateway mainnet",
         "api_class": "ethereum"
     },
@@ -316,6 +320,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Ajuna",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc AssetHub (Statemint)",
         "api_class": "substrate"
     },
@@ -361,6 +369,10 @@
     },
     {
         "name": "Polkadot-pc HydraDX",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Hyperbridge-Nexus",
         "api_class": "substrate"
     },
     {

@@ -1,20 +1,19 @@
 #!/usr/bin/env python3
 
-"""
-Utility script to interact with the RPC endpoint database.
+"""Utility script to interact with the RPC endpoint database.
 
 Can access the endpoint database through two means:
 - Using the Flask API wrapping the database
 - Directly accessing the database file, if it's available locally
 """
 
-import requests
-import json
 import argparse
+import json
 import sqlite3
-import websocket
 from pathlib import Path
 
+import requests
+import websocket
 
 DEFAULT_URL = 'http://localhost:8000'
 
@@ -111,8 +110,7 @@ def import_data(args) -> None:
 
 
 def api_import_from_json_files(chains: dict, rpc_urls: dict, api_url: str) -> None:
-    """
-    Imports data from JSON files into an SQLite database.
+    """Imports data from JSON files into an SQLite database.
     Assumes the JSON files has a specific format, see `db_json` folder in this repository.
     """
     authorization_header = get_auth_header(api_url)
@@ -147,8 +145,7 @@ def api_import_from_json_files(chains: dict, rpc_urls: dict, api_url: str) -> No
 
 
 def local_import_from_json_files(chains: dict, rpc_urls: dict, db_file: str) -> None:
-    """
-    Imports data from JSON files into an SQLite database.
+    """Imports data from JSON files into an SQLite database.
     Assumes the JSON files has a specific format, see `db_json` folder in this repository.
     """
     conn = sqlite3.connect(db_file)
@@ -219,8 +216,7 @@ def api_export_json(path: Path, url: str, sort_by: str, force: bool) -> None:
 
 
 def local_export_to_json_files(target_chains: Path, target_rpc_urls: Path, db_file: str, force: bool) -> None:
-    """
-    Exports data from an SQLite database into JSON files.
+    """Exports data from an SQLite database into JSON files.
     The output JSON files has a specific format, see `db_json` folder in this repository.
     """
     conn = sqlite3.connect(db_file)
@@ -334,7 +330,7 @@ def validate_json(args) -> None:
     for rpc in rpcs:
         print(f'Validating {rpc["url"]}')
         # Confirm chain exists for URLs
-        if not rpc['chain_name'] in chain_names:
+        if rpc['chain_name'] not in chain_names:
             print(f'#> Chain name error for {rpc["url"]}')
             error_log.append(f'Chain {rpc["chain_name"]} missing for URL {rpc["url"]}')
             continue
@@ -366,7 +362,7 @@ def validate_json(args) -> None:
                 ws.send(json.dumps(payload))
                 response = json.loads(ws.recv())
                 ws.close()
-                if not 'jsonrpc' in response.keys():
+                if 'jsonrpc' not in response.keys():
                     print(f'#> error for {rpc["url"]}')
                     error_log.append(f'URL {rpc["url"]} produced WS response={response}')
             except Exception as e:
@@ -396,18 +392,17 @@ def get_auth_header(url: str, password: str = "") -> str:
 
 
 def get_jsonrpc_method(api_class: str) -> str:
-    method = ''
-    if api_class == 'aptos':
-        method = ''
-    elif api_class == 'substrate':
-        method = 'chain_getHeader'
-    elif api_class == 'ethereum':
-        method = 'eth_blockNumber'
-    elif api_class == 'starknet':
-        method = 'starknet_blockNumber'
+    """Get the JSON-RPC method for the API class."""
+    if api_class == 'substrate':
+        return 'chain_getHeader'
+    if api_class == 'ethereum':
+        return 'eth_blockNumber'
+    if api_class == 'starknet':
+        return 'starknet_blockNumber'
+    if api_class == "filecoin":
+        return "Filecoin.ChainHead"
     else:
         raise ValueError('Invalid api_class:', api_class)
-    return method
 
 
 def load_json_file(filepath: Path):
