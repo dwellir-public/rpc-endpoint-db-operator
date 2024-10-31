@@ -16,7 +16,11 @@
         "chain_name": "Aleph Zero EVM Mainnet"
     },
     {
-        "url": "https://rpc.alephzero-testnet.gelato.digital",
+        "url": "https://rpc.alephzero.raas.gelato.cloud",
+        "chain_name": "Aleph Zero EVM Mainnet"
+    },
+    {
+        "url": "https://alephzero.drpc.org",
         "chain_name": "Aleph Zero EVM Mainnet"
     },
     {
