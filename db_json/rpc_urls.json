@@ -12,6 +12,14 @@
         "chain_name": "Aleph Zero"
     },
     {
+        "url": "https://api-aleph-zero-evm-mainnet.dwellir.com",
+        "chain_name": "Aleph Zero EVM Mainnet"
+    },
+    {
+        "url": "https://rpc.alephzero-testnet.gelato.digital",
+        "chain_name": "Aleph Zero EVM Mainnet"
+    },
+    {
         "url": "https://aleph-zero-testnet-rpc.dwellir.com",
         "chain_name": "Aleph Zero Testnet"
     },
@@ -600,6 +608,10 @@
         "chain_name": "Ethereum mainnet"
     },
     {
+        "url": "https://snowfork-eth-mainnet-full-geth.dwellir.com",
+        "chain_name": "Ethereum mainnet"
+    },
+    {
         "url": "https://rpc.ftm.tools",
         "chain_name": "Fantom mainnet"
     },
@@ -657,6 +669,14 @@
     },
     {
         "url": "https://mainnet.evm.nodes.onflow.org",
+        "chain_name": "Flow EVM Gateway mainnet"
+    },
+    {
+        "url": "https://flow-evm-gateway-mainnet-rpc-2.dwellir.com",
+        "chain_name": "Flow EVM Gateway mainnet"
+    },
+    {
+        "url": "https://flow-evm-gateway-mainnet-rpc-1.dwellir.com",
         "chain_name": "Flow EVM Gateway mainnet"
     },
     {
@@ -1100,6 +1120,14 @@
         "chain_name": "Linea Sepolia"
     },
     {
+        "url": "https://linea-sepolia-besu-archive-rpc-2.dwellir.com",
+        "chain_name": "Linea Sepolia"
+    },
+    {
+        "url": "https://linea-sepolia-besu-archive-rpc-1.dwellir.com",
+        "chain_name": "Linea Sepolia"
+    },
+    {
         "url": "https://linea-mainnet.public.blastapi.io",
         "chain_name": "Linea mainnet"
     },
@@ -1129,6 +1157,14 @@
     },
     {
         "url": "https://api-linea-mainnet-archive.dwellir.com",
+        "chain_name": "Linea mainnet"
+    },
+    {
+        "url": "https://linea-mainnet-besu-archive-rpc-1.dwellir.com",
+        "chain_name": "Linea mainnet"
+    },
+    {
+        "url": "https://linea-mainnet-besu-archive-rpc-2.dwellir.com",
         "chain_name": "Linea mainnet"
     },
     {
