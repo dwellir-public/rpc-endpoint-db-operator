@@ -2128,30 +2128,6 @@
         "chain_name": "PulseChain testnet"
     },
     {
-        "url": "wss://rococo-asset-hub-rpc.polkadot.io",
-        "chain_name": "Rococo-pc AssetHub"
-    },
-    {
-        "url": "https://api-asset-hub-rococo.dwellir.com",
-        "chain_name": "Rococo-pc AssetHub"
-    },
-    {
-        "url": "https://asset-hub-rococo-rpc.dwellir.com",
-        "chain_name": "Rococo-pc AssetHub"
-    },
-    {
-        "url": "wss://rococo-bridge-hub-rpc.polkadot.io",
-        "chain_name": "Rococo-pc BridgeHub"
-    },
-    {
-        "url": "https://api-bridge-hub-rococo.dwellir.com",
-        "chain_name": "Rococo-pc BridgeHub"
-    },
-    {
-        "url": "https://bridge-hub-rococo-rpc.dwellir.com",
-        "chain_name": "Rococo-pc BridgeHub"
-    },
-    {
         "url": "https://ronin-saigon-testnet-archive-rpc-1.dwellir.com",
         "chain_name": "Ronin Saigon testnet"
     },
@@ -2278,6 +2254,18 @@
     {
         "url": "https://api-starknet-mainnet.dwellir.com",
         "chain_name": "Starknet mainnet"
+    },
+    {
+        "url": "https://fullnode.mainnet.sui.io",
+        "chain_name": "Sui mainnet"
+    },
+    {
+        "url": "https://api-sui-mainnet-full.dwellir.com",
+        "chain_name": "Sui mainnet"
+    },
+    {
+        "url": "https://sui-mainnet-endpoint.blockvision.org",
+        "chain_name": "Sui mainnet"
     },
     {
         "url": "https://tangle-mainnet-rpc.dwellir.com",

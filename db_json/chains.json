@@ -480,14 +480,6 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Rococo-pc AssetHub",
-        "api_class": "substrate"
-    },
-    {
-        "name": "Rococo-pc BridgeHub",
-        "api_class": "substrate"
-    },
-    {
         "name": "Ronin Saigon testnet",
         "api_class": "ethereum"
     },
@@ -514,6 +506,10 @@
     {
         "name": "Starknet mainnet",
         "api_class": "starknet"
+    },
+    {
+        "name": "Sui mainnet",
+        "api_class": "sui"
     },
     {
         "name": "Tangle Mainnet",
