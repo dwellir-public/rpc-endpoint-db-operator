@@ -196,14 +196,6 @@
         "chain_name": "Base mainnet"
     },
     {
-        "url": "https://berachain-bartio-archive-rpc-1.dwellir.com",
-        "chain_name": "Berachain bArtio"
-    },
-    {
-        "url": "https://berachain-bartio-archive-rpc-2.dwellir.com",
-        "chain_name": "Berachain bArtio"
-    },
-    {
         "url": "https://bartio.rpc.berachain.com",
         "chain_name": "Berachain bArtio"
     },
@@ -736,19 +728,19 @@
         "chain_name": "Kusama Relaychain"
     },
     {
-        "url": "wss://rpc-kusama.luckyfriday.io",
-        "chain_name": "Kusama Relaychain"
-    },
-    {
         "url": "https://api-kusama.dwellir.com",
         "chain_name": "Kusama Relaychain"
     },
     {
-        "url": "wss://public-rpc.canary.acurast.com",
-        "chain_name": "Kusama-pc Acurast Canary"
+        "url": "https://rpc-kusama.luckyfriday.io",
+        "chain_name": "Kusama Relaychain"
     },
     {
         "url": "https://api-acurast-canary.dwellir.com",
+        "chain_name": "Kusama-pc Acurast Canary"
+    },
+    {
+        "url": "https://public-rpc.canary.acurast.com",
         "chain_name": "Kusama-pc Acurast Canary"
     },
     {
@@ -796,11 +788,11 @@
         "chain_name": "Kusama-pc Basilisk"
     },
     {
-        "url": "wss://rpc.basilisk.cloud",
+        "url": "https://api-basilisk.dwellir.com",
         "chain_name": "Kusama-pc Basilisk"
     },
     {
-        "url": "https://api-basilisk.dwellir.com",
+        "url": "https://rpc.basilisk.cloud",
         "chain_name": "Kusama-pc Basilisk"
     },
     {
@@ -852,15 +844,15 @@
         "chain_name": "Kusama-pc Coretime"
     },
     {
-        "url": "wss://kusama-coretime-rpc.polkadot.io",
-        "chain_name": "Kusama-pc Coretime"
-    },
-    {
         "url": "https://api-coretime-kusama.dwellir.com",
         "chain_name": "Kusama-pc Coretime"
     },
     {
         "url": "https://coretime-kusama-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Coretime"
+    },
+    {
+        "url": "https://kusama-coretime-rpc.polkadot.io",
         "chain_name": "Kusama-pc Coretime"
     },
     {
@@ -884,10 +876,6 @@
         "chain_name": "Kusama-pc Encointer"
     },
     {
-        "url": "wss://kusama.api.encointer.org",
-        "chain_name": "Kusama-pc Encointer"
-    },
-    {
         "url": "https://ksm-rpc.stakeworld.io/encointer",
         "chain_name": "Kusama-pc Encointer"
     },
@@ -897,6 +885,10 @@
     },
     {
         "url": "https://encointer-kusama-rpc.dwellir.com",
+        "chain_name": "Kusama-pc Encointer"
+    },
+    {
+        "url": "https://kusama.api.encointer.org",
         "chain_name": "Kusama-pc Encointer"
     },
     {
@@ -948,23 +940,23 @@
         "chain_name": "Kusama-pc Kintsugi BTC"
     },
     {
-        "url": "wss://wss-krest.peaq.network/",
-        "chain_name": "Kusama-pc Krest"
-    },
-    {
-        "url": "wss://krest.api.onfinality.io/public-ws",
-        "chain_name": "Kusama-pc Krest"
-    },
-    {
-        "url": "wss://krest.unitedbloc.com/",
-        "chain_name": "Kusama-pc Krest"
-    },
-    {
         "url": "https://krest-rpc.dwellir.com",
         "chain_name": "Kusama-pc Krest"
     },
     {
         "url": "https://api-krest.dwellir.com",
+        "chain_name": "Kusama-pc Krest"
+    },
+    {
+        "url": "https://krest.unitedbloc.com",
+        "chain_name": "Kusama-pc Krest"
+    },
+    {
+        "url": "https://krest.api.onfinality.io/public-ws",
+        "chain_name": "Kusama-pc Krest"
+    },
+    {
+        "url": "https://wss-krest.peaq.network",
         "chain_name": "Kusama-pc Krest"
     },
     {
@@ -1226,22 +1218,6 @@
     {
         "url": "https://api-mantle-mainnet-archive.dwellir.com",
         "chain_name": "Mantle mainnet"
-    },
-    {
-        "url": "https://mantle-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Mantle mainnet"
-    },
-    {
-        "url": "https://mantle-mainnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Mantle mainnet"
-    },
-    {
-        "url": "https://mantle-sepolia-archive-rpc-2.dwellir.com",
-        "chain_name": "Mantle sepolia"
-    },
-    {
-        "url": "https://mantle-sepolia-archive-rpc-1.dwellir.com",
-        "chain_name": "Mantle sepolia"
     },
     {
         "url": "https://rpc.sepolia.mantle.xyz",
@@ -2060,14 +2036,6 @@
         "chain_name": "Polygon zkEVM mainnet"
     },
     {
-        "url": "https://polygon-zkevm-mainnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Polygon zkEVM mainnet"
-    },
-    {
-        "url": "https://polygon-zkevm-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Polygon zkEVM mainnet"
-    },
-    {
         "url": "https://1rpc.io/polygon/zkevm",
         "chain_name": "Polygon zkEVM mainnet"
     },
@@ -2078,14 +2046,6 @@
     {
         "url": "https://api-polygon-zkevm-mainnet-archive.dwellir.com",
         "chain_name": "Polygon zkEVM mainnet"
-    },
-    {
-        "url": "https://polygon-zkevm-sepolia-archive-rpc-1.dwellir.com",
-        "chain_name": "Polygon zkEVM sepolia"
-    },
-    {
-        "url": "https://polygon-zkevm-sepolia-archive-rpc-2.dwellir.com",
-        "chain_name": "Polygon zkEVM sepolia"
     },
     {
         "url": "https://2442.rpc.thirdweb.com",
@@ -2212,14 +2172,6 @@
         "chain_name": "Sora Mainnet"
     },
     {
-        "url": "https://starknet-testnet-sepolia-rpc-1.dwellir.com",
-        "chain_name": "Starknet Sepolia"
-    },
-    {
-        "url": "https://starknet-testnet-sepolia-rpc-2.dwellir.com",
-        "chain_name": "Starknet Sepolia"
-    },
-    {
         "url": "https://starknet-sepolia.public.blastapi.io",
         "chain_name": "Starknet Sepolia"
     },
@@ -2230,14 +2182,6 @@
     {
         "url": "https://api-starknet-sepolia.dwellir.com",
         "chain_name": "Starknet Sepolia"
-    },
-    {
-        "url": "https://starknet-mainnet-rpc-2.dwellir.com",
-        "chain_name": "Starknet mainnet"
-    },
-    {
-        "url": "https://starknet-mainnet-rpc-1.dwellir.com",
-        "chain_name": "Starknet mainnet"
     },
     {
         "url": "https://starknet-mainnet.public.blastapi.io",
@@ -2260,11 +2204,15 @@
         "chain_name": "Sui mainnet"
     },
     {
-        "url": "https://api-sui-mainnet-full.dwellir.com",
+        "url": "https://sui-mainnet-endpoint.blockvision.org",
         "chain_name": "Sui mainnet"
     },
     {
-        "url": "https://sui-mainnet-endpoint.blockvision.org",
+        "url": "https://api-sui-mainnet-full.n.dwellir.com",
+        "chain_name": "Sui mainnet"
+    },
+    {
+        "url": "https://paribu-sui-mainnet-full.dwellir.com",
         "chain_name": "Sui mainnet"
     },
     {
@@ -2420,28 +2368,12 @@
         "chain_name": "Zetachain Mainnet"
     },
     {
-        "url": "https://zetachain-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Zetachain Mainnet"
-    },
-    {
         "url": "https://zetachain-mainnet.public.blastapi.io",
-        "chain_name": "Zetachain Mainnet"
-    },
-    {
-        "url": "https://zetachain-mainnet-archive-rpc-2.dwellir.com",
         "chain_name": "Zetachain Mainnet"
     },
     {
         "url": "https://api-zetachain-mainnet-archive.dwellir.com",
         "chain_name": "Zetachain Mainnet"
-    },
-    {
-        "url": "https://zetachain-testnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Zetachain Testnet"
-    },
-    {
-        "url": "https://zetachain-testnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Zetachain Testnet"
     },
     {
         "url": "https://zetachain-testnet-archive.allthatnode.com:8545",
@@ -2460,24 +2392,8 @@
         "chain_name": "Zetachain Testnet"
     },
     {
-        "url": "https://zora-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Zora Mainnet"
-    },
-    {
-        "url": "https://zora-mainnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Zora Mainnet"
-    },
-    {
         "url": "https://api-zora-mainnet-archive.dwellir.com",
         "chain_name": "Zora Mainnet"
-    },
-    {
-        "url": "https://zora-sepolia-archive-rpc-1.dwellir.com",
-        "chain_name": "Zora Sepolia"
-    },
-    {
-        "url": "https://zora-sepolia-archive-rpc-2.dwellir.com",
-        "chain_name": "Zora Sepolia"
     },
     {
         "url": "https://sepolia.rpc.zora.energy",
@@ -2496,14 +2412,6 @@
         "chain_name": "Zora mainnet"
     },
     {
-        "url": "https://opbnb-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "opBNB mainnet"
-    },
-    {
-        "url": "https://opbnb-mainnet-archive-rpc-2.dwellir.com",
-        "chain_name": "opBNB mainnet"
-    },
-    {
         "url": "https://opbnb-rpc.publicnode.com",
         "chain_name": "opBNB mainnet"
     },
@@ -2518,14 +2426,6 @@
     {
         "url": "https://api-opbnb-mainnet-archive.dwellir.com",
         "chain_name": "opBNB mainnet"
-    },
-    {
-        "url": "https://opbnb-testnet-archive-rpc-2.dwellir.com",
-        "chain_name": "opBNB testnet"
-    },
-    {
-        "url": "https://opbnb-testnet-archive-rpc-1.dwellir.com",
-        "chain_name": "opBNB testnet"
     },
     {
         "url": "https://opbnb-testnet-rpc.bnbchain.org",
@@ -2552,14 +2452,6 @@
         "chain_name": "xx network"
     },
     {
-        "url": "https://zksync-era-mainnet-rpc-1.dwellir.com",
-        "chain_name": "zkSync Era mainnet"
-    },
-    {
-        "url": "https://zksync-era-mainnet-rpc-2.dwellir.com",
-        "chain_name": "zkSync Era mainnet"
-    },
-    {
         "url": "https://mainnet.era.zksync.io",
         "chain_name": "zkSync Era mainnet"
     },
@@ -2572,15 +2464,7 @@
         "chain_name": "zkSync Era mainnet"
     },
     {
-        "url": "https://zksync-era-sepolia-rpc-2.dwellir.com",
-        "chain_name": "zkSync Era sepolia"
-    },
-    {
         "url": "https://sepolia.era.zksync.dev",
-        "chain_name": "zkSync Era sepolia"
-    },
-    {
-        "url": "https://zksync-era-sepolia-rpc-1.dwellir.com",
         "chain_name": "zkSync Era sepolia"
     },
     {
