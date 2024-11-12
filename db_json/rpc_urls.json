@@ -264,11 +264,11 @@
         "chain_name": "Bittensor Mainnet"
     },
     {
-        "url": "wss://entrypoint-finney.opentensor.ai:443",
+        "url": "https://api-bittensor-mainnet.dwellir.com",
         "chain_name": "Bittensor Mainnet"
     },
     {
-        "url": "https://api-bittensor-mainnet.dwellir.com",
+        "url": "https://entrypoint-finney.opentensor.ai:443",
         "chain_name": "Bittensor Mainnet"
     },
     {
@@ -276,7 +276,7 @@
         "chain_name": "Bittensor Testnet"
     },
     {
-        "url": "wss://test.finney.opentensor.ai",
+        "url": "https://test.finney.opentensor.ai",
         "chain_name": "Bittensor Testnet"
     },
     {
@@ -1036,19 +1036,15 @@
         "chain_name": "Kusama-pc Quartz"
     },
     {
-        "url": "wss://robonomics.0xsamsara.com",
-        "chain_name": "Kusama-pc Robonomics"
-    },
-    {
-        "url": "wss://kusama.rpc.robonomics.network",
-        "chain_name": "Kusama-pc Robonomics"
-    },
-    {
         "url": "https://robonomics-rpc.dwellir.com",
         "chain_name": "Kusama-pc Robonomics"
     },
     {
         "url": "https://api-robonomics.dwellir.com",
+        "chain_name": "Kusama-pc Robonomics"
+    },
+    {
+        "url": "https://kusama.rpc.robonomics.network",
         "chain_name": "Kusama-pc Robonomics"
     },
     {
@@ -1096,11 +1092,11 @@
         "chain_name": "Liberland mainnet"
     },
     {
-        "url": "wss://mainnet.liberland.org",
+        "url": "https://api-liberland.dwellir.com",
         "chain_name": "Liberland mainnet"
     },
     {
-        "url": "https://api-liberland.dwellir.com",
+        "url": "https://mainnet.liberland.org",
         "chain_name": "Liberland mainnet"
     },
     {
@@ -1596,11 +1592,11 @@
         "chain_name": "Polkadot-pc Centrifuge"
     },
     {
-        "url": "wss://rpc-centrifuge.luckyfriday.io",
+        "url": "https://api-centrifuge.dwellir.com",
         "chain_name": "Polkadot-pc Centrifuge"
     },
     {
-        "url": "https://api-centrifuge.dwellir.com",
+        "url": "https://rpc-centrifuge.luckyfriday.io",
         "chain_name": "Polkadot-pc Centrifuge"
     },
     {
@@ -1648,7 +1644,7 @@
         "chain_name": "Polkadot-pc Coretime"
     },
     {
-        "url": "wss://polkadot-coretime-rpc.polkadot.io",
+        "url": "https://polkadot-coretime-rpc.polkadot.io",
         "chain_name": "Polkadot-pc Coretime"
     },
     {
@@ -1696,10 +1692,6 @@
         "chain_name": "Polkadot-pc HydraDX"
     },
     {
-        "url": "wss://rpc.hydradx.cloud",
-        "chain_name": "Polkadot-pc HydraDX"
-    },
-    {
         "url": "https://hydradx-rpc-2.dwellir.com",
         "chain_name": "Polkadot-pc HydraDX"
     },
@@ -1717,6 +1709,10 @@
     },
     {
         "url": "https://zapper-fi-hydration-rpc.dwellir.com",
+        "chain_name": "Polkadot-pc HydraDX"
+    },
+    {
+        "url": "https://rpc.hydradx.cloud",
         "chain_name": "Polkadot-pc HydraDX"
     },
     {
@@ -1740,11 +1736,11 @@
         "chain_name": "Polkadot-pc Integritee Shell"
     },
     {
-        "url": "wss://polkadot.api.integritee.network",
+        "url": "https://api-integritee.dwellir.com",
         "chain_name": "Polkadot-pc Integritee Shell"
     },
     {
-        "url": "https://api-integritee.dwellir.com",
+        "url": "https://polkadot.api.integritee.network",
         "chain_name": "Polkadot-pc Integritee Shell"
     },
     {
@@ -1792,11 +1788,11 @@
         "chain_name": "Polkadot-pc Kilt Spiritnet"
     },
     {
-        "url": "wss://rpc.laos.laosfoundation.io",
+        "url": "https://laos-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Laos"
     },
     {
-        "url": "wss://laos-rpc.dwellir.com",
+        "url": "https://rpc.laos.laosfoundation.io",
         "chain_name": "Polkadot-pc Laos"
     },
     {
@@ -1968,10 +1964,6 @@
         "chain_name": "Polkadot-pc Unique"
     },
     {
-        "url": "wss://main.rpc.zeitgeist.pm/ws",
-        "chain_name": "Polkadot-pc Zeitgeist"
-    },
-    {
         "url": "https://zeitgeist.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Zeitgeist"
     },
@@ -1980,15 +1972,19 @@
         "chain_name": "Polkadot-pc Zeitgeist"
     },
     {
+        "url": "https://main.rpc.zeitgeist.pm/ws",
+        "chain_name": "Polkadot-pc Zeitgeist"
+    },
+    {
         "url": "https://peaq-rpc.dwellir.com",
         "chain_name": "Polkadot-pc peaq"
     },
     {
-        "url": "wss://peaq.api.onfinality.io/public-ws",
+        "url": "https://api-peaq.dwellir.com",
         "chain_name": "Polkadot-pc peaq"
     },
     {
-        "url": "https://api-peaq.dwellir.com",
+        "url": "https://peaq.api.onfinality.io/public-ws",
         "chain_name": "Polkadot-pc peaq"
     },
     {
@@ -2348,15 +2344,15 @@
         "chain_name": "Westend-pc People"
     },
     {
-        "url": "wss://westend-people-rpc.polkadot.io/",
-        "chain_name": "Westend-pc People"
-    },
-    {
         "url": "https://api-people-westend.dwellir.com",
         "chain_name": "Westend-pc People"
     },
     {
         "url": "https://people-westend-rpc.dwellir.com",
+        "chain_name": "Westend-pc People"
+    },
+    {
+        "url": "https://westend-people-rpc.polkadot.io",
         "chain_name": "Westend-pc People"
     },
     {
@@ -2450,33 +2446,5 @@
     {
         "url": "https://api-xxnetwork.dwellir.com",
         "chain_name": "xx network"
-    },
-    {
-        "url": "https://mainnet.era.zksync.io",
-        "chain_name": "zkSync Era mainnet"
-    },
-    {
-        "url": "https://zksync.meowrpc.com",
-        "chain_name": "zkSync Era mainnet"
-    },
-    {
-        "url": "https://zksync-era.blockpi.network/v1/rpc/public",
-        "chain_name": "zkSync Era mainnet"
-    },
-    {
-        "url": "https://sepolia.era.zksync.dev",
-        "chain_name": "zkSync Era sepolia"
-    },
-    {
-        "url": "https://zksync-era-sepolia.blockpi.network/v1/rpc/public",
-        "chain_name": "zkSync Era sepolia"
-    },
-    {
-        "url": "https://zksync-sepolia.drpc.org",
-        "chain_name": "zkSync Era sepolia"
-    },
-    {
-        "url": "https://endpoints.omniatech.io/v1/zksync-era/sepolia/public",
-        "chain_name": "zkSync Era sepolia"
     }
 ]

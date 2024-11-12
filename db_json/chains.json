@@ -570,13 +570,5 @@
     {
         "name": "xx network",
         "api_class": "substrate"
-    },
-    {
-        "name": "zkSync Era mainnet",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "zkSync Era sepolia",
-        "api_class": "ethereum"
     }
 ]
