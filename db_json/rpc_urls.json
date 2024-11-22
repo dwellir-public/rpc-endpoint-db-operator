@@ -140,6 +140,14 @@
         "chain_name": "Avalanche mainnet"
     },
     {
+        "url": "https://balanceai-mainnet-rpc.dwellir.com",
+        "chain_name": "BalanceAI mainnet"
+    },
+    {
+        "url": "https://rpc.balanceai.network",
+        "chain_name": "BalanceAI mainnet"
+    },
+    {
         "url": "https://base-sepolia-archive-rpc-1.dwellir.com",
         "chain_name": "Base Sepolia"
     },
@@ -173,10 +181,6 @@
     },
     {
         "url": "https://base.blockpi.network/v1/rpc/public",
-        "chain_name": "Base mainnet"
-    },
-    {
-        "url": "https://rpc.notadegen.com/base",
         "chain_name": "Base mainnet"
     },
     {
@@ -1708,10 +1712,6 @@
         "chain_name": "Polkadot-pc HydraDX"
     },
     {
-        "url": "https://zapper-fi-hydration-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc HydraDX"
-    },
-    {
         "url": "https://rpc.hydradx.cloud",
         "chain_name": "Polkadot-pc HydraDX"
     },
@@ -2004,10 +2004,6 @@
         "chain_name": "Polygon mainnet"
     },
     {
-        "url": "https://rpc-mainnet.maticvigil.com",
-        "chain_name": "Polygon mainnet"
-    },
-    {
         "url": "https://rpc-mainnet.matic.quiknode.pro",
         "chain_name": "Polygon mainnet"
     },
@@ -2025,6 +2021,10 @@
     },
     {
         "url": "https://api-polygon-mainnet-full.dwellir.com",
+        "chain_name": "Polygon mainnet"
+    },
+    {
+        "url": "https://rpc-mainnet.maticvigil.com",
         "chain_name": "Polygon mainnet"
     },
     {
@@ -2049,6 +2049,10 @@
     },
     {
         "url": "https://api-polygon-zkevm-sepolia-archive.dwellir.com",
+        "chain_name": "Polygon zkEVM sepolia"
+    },
+    {
+        "url": "https://rpc.cardona.zkevm-rpc.com",
         "chain_name": "Polygon zkEVM sepolia"
     },
     {
@@ -2210,6 +2214,26 @@
     {
         "url": "https://paribu-sui-mainnet-full.dwellir.com",
         "chain_name": "Sui mainnet"
+    },
+    {
+        "url": "https://sui-rpc.publicnode.com",
+        "chain_name": "Sui mainnet"
+    },
+    {
+        "url": "https://imc-sui-mainnet-full.dwellir.com",
+        "chain_name": "Sui mainnet"
+    },
+    {
+        "url": "https://api-sui-testnet-full.n.dwellir.com",
+        "chain_name": "Sui testnet"
+    },
+    {
+        "url": "https://fullnode.testnet.sui.io:443",
+        "chain_name": "Sui testnet"
+    },
+    {
+        "url": "https://sui-testnet-rpc.publicnode.com",
+        "chain_name": "Sui testnet"
     },
     {
         "url": "https://tangle-mainnet-rpc.dwellir.com",

@@ -32,6 +32,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "BalanceAI mainnet",
+        "api_class": "substrate"
+    },
+    {
         "name": "Base Sepolia",
         "api_class": "ethereum"
     },
@@ -509,6 +513,10 @@
     },
     {
         "name": "Sui mainnet",
+        "api_class": "sui"
+    },
+    {
+        "name": "Sui testnet",
         "api_class": "sui"
     },
     {
