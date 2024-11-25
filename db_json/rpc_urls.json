@@ -24,6 +24,18 @@
         "chain_name": "Aleph Zero EVM Mainnet"
     },
     {
+        "url": "https://api-aleph-zero-evm-testnet.dwellir.com",
+        "chain_name": "Aleph Zero EVM Testnet"
+    },
+    {
+        "url": "https://rpc.alephzero-testnet.gelato.digital",
+        "chain_name": "Aleph Zero EVM Testnet"
+    },
+    {
+        "url": "https://alephzero-sepolia.drpc.org",
+        "chain_name": "Aleph Zero EVM Testnet"
+    },
+    {
         "url": "https://aleph-zero-testnet-rpc.dwellir.com",
         "chain_name": "Aleph Zero Testnet"
     },
@@ -680,6 +692,10 @@
         "chain_name": "Flow EVM Gateway mainnet"
     },
     {
+        "url": "https://api-flow-evm-gateway-mainnet.n.dwellir.com",
+        "chain_name": "Flow EVM Gateway mainnet"
+    },
+    {
         "url": "https://flow-evm-gateway-testnet-rpc-1.dwellir.com",
         "chain_name": "Flow EVM Gateway testnet"
     },
@@ -689,6 +705,10 @@
     },
     {
         "url": "https://testnet.evm.nodes.onflow.org",
+        "chain_name": "Flow EVM Gateway testnet"
+    },
+    {
+        "url": "https://api-flow-evm-gateway-testnet.n.dwellir.com",
         "chain_name": "Flow EVM Gateway testnet"
     },
     {

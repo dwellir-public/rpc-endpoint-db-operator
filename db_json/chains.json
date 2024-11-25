@@ -8,6 +8,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Aleph Zero EVM Testnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Aleph Zero Testnet",
         "api_class": "substrate"
     },
