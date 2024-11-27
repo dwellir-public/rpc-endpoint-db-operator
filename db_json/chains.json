@@ -528,6 +528,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Waves mainnet",
+        "api_class": "rest"
+    },
+    {
         "name": "Westend Relaychain",
         "api_class": "substrate"
     },

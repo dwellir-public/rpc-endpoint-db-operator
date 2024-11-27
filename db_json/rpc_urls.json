@@ -2268,6 +2268,14 @@
         "chain_name": "Tangle Mainnet"
     },
     {
+        "url": "https://nodes.wavesnodes.com/blocks/height",
+        "chain_name": "Waves mainnet"
+    },
+    {
+        "url": "https://paribu-waves-mainnet.dwellir.com/blocks/height",
+        "chain_name": "Waves mainnet"
+    },
+    {
         "url": "https://westend-rpc.dwellir.com",
         "chain_name": "Westend Relaychain"
     },
