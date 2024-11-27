@@ -422,7 +422,7 @@ def get_chain_info():
 
 def is_valid_api(api):
     """Test that api string is valid."""
-    return api.lower() in ['substrate', 'ethereum', 'starknet', 'filecoin', 'sui']
+    return api.lower() in ['substrate', 'ethereum', 'starknet', 'filecoin', 'sui', "rest"]
 
 
 def is_valid_url(url):
