@@ -760,6 +760,10 @@
         "chain_name": "Kusama Relaychain"
     },
     {
+        "url": "https://api-kusama.n.dwellir.com",
+        "chain_name": "Kusama Relaychain"
+    },
+    {
         "url": "https://api-acurast-canary.dwellir.com",
         "chain_name": "Kusama-pc Acurast Canary"
     },
@@ -1460,6 +1464,10 @@
         "chain_name": "Polkadot Relaychain"
     },
     {
+        "url": "https://api-polkadot.n.dwellir.com",
+        "chain_name": "Polkadot Relaychain"
+    },
+    {
         "url": "https://acala-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Acala"
     },
@@ -1805,6 +1813,10 @@
     },
     {
         "url": "https://kilt-polkadot-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc Kilt Spiritnet"
+    },
+    {
+        "url": "https://api-kilt.n.dwellir.com",
         "chain_name": "Polkadot-pc Kilt Spiritnet"
     },
     {
@@ -2422,22 +2434,6 @@
     {
         "url": "https://api-zetachain-mainnet-archive.dwellir.com",
         "chain_name": "Zetachain Mainnet"
-    },
-    {
-        "url": "https://zetachain-testnet-archive.allthatnode.com:8545",
-        "chain_name": "Zetachain Testnet"
-    },
-    {
-        "url": "https://zetachain-athens-evm.blockpi.network/v1/rpc/public",
-        "chain_name": "Zetachain Testnet"
-    },
-    {
-        "url": "https://zetachain-testnet-evm.itrocket.net",
-        "chain_name": "Zetachain Testnet"
-    },
-    {
-        "url": "https://api-zetachain-testnet-archive.dwellir.com",
-        "chain_name": "Zetachain Testnet"
     },
     {
         "url": "https://api-zora-mainnet-archive.dwellir.com",
