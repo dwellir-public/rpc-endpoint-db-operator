@@ -403,6 +403,8 @@ def get_jsonrpc_method(api_class: str) -> str:
         return "Filecoin.ChainHead"
     if api_class == "sui":
         return "sui_getLatestCheckpointSequenceNumber"
+    if api_class == "ton":
+        return "getMasterchainInfo"
     else:
         raise ValueError('Invalid api_class:', api_class)
 

@@ -624,6 +624,10 @@
         "chain_name": "Ethereum mainnet"
     },
     {
+        "url": "https://reth-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Ethereum mainnet"
+    },
+    {
         "url": "https://rpc.ftm.tools",
         "chain_name": "Fantom mainnet"
     },
@@ -1492,6 +1496,10 @@
         "chain_name": "Polkadot-pc Acala"
     },
     {
+        "url": "https://acala-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc Acala"
+    },
+    {
         "url": "https://ajuna-polkadot-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc Ajuna"
     },
@@ -1793,6 +1801,10 @@
     },
     {
         "url": "https://api-invarch.dwellir.com",
+        "chain_name": "Polkadot-pc InvArch"
+    },
+    {
+        "url": "https://invarch-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc InvArch"
     },
     {
@@ -2266,6 +2278,26 @@
     {
         "url": "https://sui-testnet-rpc.publicnode.com",
         "chain_name": "Sui testnet"
+    },
+    {
+        "url": "https://api-ton-mainnet-archive.n.dwellir.com/jsonRPC",
+        "chain_name": "TON mainnet"
+    },
+    {
+        "url": "https://toncenter.com/api/v2/jsonRPC",
+        "chain_name": "TON mainnet"
+    },
+    {
+        "url": "https://go.getblock.io/4e534f9e51d14d09b2e9d75dd6ba44a2/jsonRPC",
+        "chain_name": "TON mainnet"
+    },
+    {
+        "url": "https://api-ton-testnet-archive.n.dwellir.com/jsonRPC",
+        "chain_name": "TON testnet"
+    },
+    {
+        "url": "https://testnet.toncenter.com/api/v2/jsonRPC",
+        "chain_name": "TON testnet"
     },
     {
         "url": "https://tangle-mainnet-rpc.dwellir.com",
