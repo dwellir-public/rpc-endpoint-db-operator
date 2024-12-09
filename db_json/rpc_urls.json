@@ -1572,11 +1572,11 @@
         "chain_name": "Polkadot-pc AssetHub (Statemint)"
     },
     {
-        "url": "https://api-asset-hub-polkadot-sidecar.dwellir.com/blocks/head/header",
+        "url": "https://api-asset-hub-polkadot-sidecar.n.dwellir.com/blocks/head/header",
         "chain_name": "Polkadot-pc AssetHub Sidecar"
     },
     {
-        "url": "https://polkadot-public-sidecar.parity-chains.parity.io/blocks/head/header",
+        "url": "https://polkadot-asset-hub-public-sidecar.parity-chains.parity.io/blocks/head/header",
         "chain_name": "Polkadot-pc AssetHub Sidecar"
     },
     {
@@ -1662,6 +1662,10 @@
     {
         "url": "https://rpc-centrifuge.luckyfriday.io",
         "chain_name": "Polkadot-pc Centrifuge"
+    },
+    {
+        "url": "https://api-centrifuge-sidecar.n.dwellir.com/blocks/head/header",
+        "chain_name": "Polkadot-pc Centrifuge Sidecar"
     },
     {
         "url": "https://collectives-polkadot-rpc-ng.dwellir.com",
@@ -1830,6 +1834,10 @@
     {
         "url": "https://invarch-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc InvArch"
+    },
+    {
+        "url": "https://api-kilt-sidecar.n.dwellir.com/blocks/head/header",
+        "chain_name": "Polkadot-pc Kilt Sidecar"
     },
     {
         "url": "https://kilt-rpc.dwellir.com",

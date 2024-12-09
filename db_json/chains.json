@@ -364,6 +364,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Centrifuge Sidecar",
+        "api_class": "sidecar"
+    },
+    {
         "name": "Polkadot-pc Collectives",
         "api_class": "substrate"
     },
@@ -406,6 +410,10 @@
     {
         "name": "Polkadot-pc InvArch",
         "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Kilt Sidecar",
+        "api_class": "sidecar"
     },
     {
         "name": "Polkadot-pc Kilt Spiritnet",
