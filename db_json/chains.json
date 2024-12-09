@@ -541,7 +541,7 @@
     },
     {
         "name": "Waves mainnet",
-        "api_class": "rest"
+        "api_class": "waves"
     },
     {
         "name": "Westend Relaychain",
