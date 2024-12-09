@@ -76,6 +76,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Celestia Mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Celo Alfajores",
         "api_class": "ethereum"
     },

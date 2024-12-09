@@ -340,6 +340,22 @@
         "chain_name": "Blast mainnet"
     },
     {
+        "url": "https://api-celestia-mainnet-full.n.dwellir.com",
+        "chain_name": "Celestia Mainnet"
+    },
+    {
+        "url": "https://rpc.lunaroasis.net",
+        "chain_name": "Celestia Mainnet"
+    },
+    {
+        "url": "https://public-celestia-rpc.numia.xyz",
+        "chain_name": "Celestia Mainnet"
+    },
+    {
+        "url": "https://celestia-rpc.brightlystake.com",
+        "chain_name": "Celestia Mainnet"
+    },
+    {
         "url": "https://alfajores-forno.celo-testnet.org",
         "chain_name": "Celo Alfajores"
     },
