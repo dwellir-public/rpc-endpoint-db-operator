@@ -340,20 +340,16 @@
         "chain_name": "Blast mainnet"
     },
     {
-        "url": "https://api-celestia-mainnet-full.n.dwellir.com",
-        "chain_name": "Celestia Mainnet"
+        "url": "https://api-celestia-mainnet-full.n.dwellir.com/cosmos/base/tendermint/v1beta1/blocks/latest",
+        "chain_name": "Celestia mainnet"
     },
     {
-        "url": "https://public-celestia-lcd.numia.xyz",
-        "chain_name": "Celestia Mainnet"
+        "url": "https://api.lunaroasis.net/cosmos/base/tendermint/v1beta1/blocks/latest",
+        "chain_name": "Celestia mainnet"
     },
     {
-        "url": "https://celestia-rest.mesa.newmetric.xyz",
-        "chain_name": "Celestia Mainnet"
-    },
-    {
-        "url": "https://api.lunaroasis.net",
-        "chain_name": "Celestia Mainnet"
+        "url": "https://public-celestia-lcd.numia.xyz/cosmos/base/tendermint/v1beta1/blocks/latest",
+        "chain_name": "Celestia mainnet"
     },
     {
         "url": "https://alfajores-forno.celo-testnet.org",

@@ -76,8 +76,8 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Celestia Mainnet",
-        "api_class": "ethereum"
+        "name": "Celestia mainnet",
+        "api_class": "cosmos-tendermint"
     },
     {
         "name": "Celo Alfajores",

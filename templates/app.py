@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""Application to manage a database of blockchain endpoints."""
+
 import logging
 import sqlite3
 from pathlib import Path
@@ -19,9 +21,7 @@ logging.basicConfig(level=logging.INFO)
 
 # Confirm authorization file availability
 if not PATH_PASSWORD.exists():
-    raise FileNotFoundError(
-        f"Password file not found on {str(PATH_PASSWORD)}, check the README.md for a setup guide"
-    )
+    raise FileNotFoundError(f"Password file not found on {str(PATH_PASSWORD)}, check the README.md for a setup guide")
 if not PATH_JWT_SECRET_KEY.exists():
     raise FileNotFoundError(
         f"JWT secret key file not found on {str(PATH_JWT_SECRET_KEY)}, check the README.md for a setup guide"
@@ -59,9 +59,10 @@ conn.close()
 
 @app.route("/token", methods=["POST"])
 def generate_token():
-    """Generates an access token which is needed to make requests to any protected (@jwt_required decorator)
-    functions in this API. The password is stored securely on the machine of the app.
+    """Generate an access token.
 
+    The token is needed to make requests to any protected (@jwt_required decorator)
+    functions in this API. The password is stored securely on the machine of the app.
     Requires JSON data with parameters 'username' and 'password' in the request, example:
 
     curl -X POST http://localhost:5000/token -H 'Content-Type: application/json' \
@@ -71,8 +72,8 @@ def generate_token():
     password = request.json.get("password", None)
 
     with PATH_PASSWORD.open() as pw_file:
-        AUTH_PASSWORD = pw_file.read().strip()
-    if username != "dwellir_endpointdb" or password != AUTH_PASSWORD:
+        auth_password = pw_file.read().strip()
+    if username != "dwellir_endpointdb" or password != auth_password:
         return jsonify({"msg": "Bad username or password"}), 401
 
     access_token = create_access_token(identity=username)
@@ -80,6 +81,7 @@ def generate_token():
 
 
 def insert_into_database(table: str, request_data: dict) -> Response:
+    """Insert a record into the database table."""
     try:
         conn = sqlite3.connect(app.config["DATABASE"])
         conn.execute("PRAGMA foreign_keys = ON")  # enforce that any URL has an existing chain
@@ -102,7 +104,7 @@ def insert_into_database(table: str, request_data: dict) -> Response:
 @app.route("/create_chain", methods=["POST"])
 @jwt_required()
 def create_chain_record() -> Response:
-    """Creates a record in the 'chains' table, corresponding to the input data.
+    """Create a record in the 'chains' table, corresponding to the input data.
 
     Requires JSON data with parameters 'name' and 'api_class' in the request, example:
 
@@ -123,7 +125,7 @@ def create_chain_record() -> Response:
 @app.route("/create_rpc_url", methods=["POST"])
 @jwt_required()
 def create_rpc_url_record() -> Response:
-    """Creates a record in the 'rpc_urls' table, corresponding to the input data.
+    """Create a record in the 'rpc_urls' table, corresponding to the input data.
 
     Requires JSON data with parameters 'url' and 'chain_name' in the request, example:
 
@@ -142,7 +144,7 @@ def create_rpc_url_record() -> Response:
 
 @app.route("/all/<string:table>", methods=["GET"])
 def get_all_records(table: str) -> Response:
-    """Gets all the entries of the table in the path.
+    """Get all the entries of the table in the path.
 
     curl 'http://localhost:5000/all/chains'
     """
@@ -171,7 +173,7 @@ def get_all_records(table: str) -> Response:
 
 @app.route("/get_chain_by_name/<string:name>", methods=["GET"])
 def get_chain_by_name(name: str) -> Response:
-    """Gets the chain entry corresponding to the input chain name.
+    """Get the chain entry corresponding to the input chain name.
 
     curl 'http://localhost:5000/get_chain_by_name/PulseChain%20mainnet'
     """
@@ -187,7 +189,7 @@ def get_chain_by_name(name: str) -> Response:
 
 @app.route("/get_chain_by_url", methods=["GET"])
 def get_chain_by_url() -> Response:
-    """Gets the chain entry corresponding to the input url.
+    """Get the chain entry corresponding to the input url.
 
     Requires that url parameters 'protocol' and 'address' are present in the request, example:
 
@@ -197,20 +199,14 @@ def get_chain_by_url() -> Response:
         url = url_from_request_args()
     except TypeError as e:
         app.logger.error("TypeError when trying to build RPC url from parameters: %s", str(e))
-        return jsonify(
-            {
-                "error": "url parameters 'protocol' and 'address' required for get_chain_by_url request"
-            }
-        ), 400
+        return jsonify({"error": "url parameters 'protocol' and 'address' required for get_chain_by_url request"}), 400
 
     conn = sqlite3.connect(app.config["DATABASE"])
     cursor = conn.cursor()
     cursor.execute(f"SELECT url, chain_name FROM {TABLE_RPC_URLS} WHERE url=?", (url,))
     url_record = cursor.fetchone()
     if url_record:
-        cursor.execute(
-            f"SELECT name, api_class FROM {TABLE_CHAINS} WHERE name = ?", (url_record[1],)
-        )
+        cursor.execute(f"SELECT name, api_class FROM {TABLE_CHAINS} WHERE name = ?", (url_record[1],))
         chain_record = cursor.fetchone()
         if chain_record:
             return jsonify({"name": chain_record[0], "api_class": chain_record[1]})
@@ -220,7 +216,7 @@ def get_chain_by_url() -> Response:
 
 @app.route("/get_url", methods=["GET"])
 def get_url() -> Response:
-    """Gets the RPC url entry corresponding to the input url.
+    """Get the RPC url entry corresponding to the input url.
 
     Requires that url parameters 'protocol' and 'address' are present in the request, example:
 
@@ -230,11 +226,7 @@ def get_url() -> Response:
         url = url_from_request_args()
     except TypeError as e:
         app.logger.error("TypeError when trying to build RPC url from parameters: %s", str(e))
-        return jsonify(
-            {
-                "error": "url parameters 'protocol' and 'address' required for update_url_record request"
-            }
-        ), 400
+        return jsonify({"error": "url parameters 'protocol' and 'address' required for update_url_record request"}), 400
 
     conn = sqlite3.connect(app.config["DATABASE"])
     cursor = conn.cursor()
@@ -249,15 +241,13 @@ def get_url() -> Response:
 # Get urls for a specific chain
 @app.route("/get_urls/<string:chain_name>", methods=["GET"])
 def get_urls(chain_name: str) -> Response:
-    """Gets the RPC URL entries corresponding to the chain name in the path.
+    """Get the RPC URL entries corresponding to the chain name in the path.
 
     curl -X GET 'http://localhost:5000/get_urls/chain5'
     """
     conn = sqlite3.connect(app.config["DATABASE"])
     cursor = conn.cursor()
-    cursor.execute(
-        f"SELECT url, chain_name FROM {TABLE_RPC_URLS} WHERE chain_name=?", (chain_name,)
-    )
+    cursor.execute(f"SELECT url, chain_name FROM {TABLE_RPC_URLS} WHERE chain_name=?", (chain_name,))
     records = cursor.fetchall()
     conn.close()
     urls = []
@@ -271,7 +261,7 @@ def get_urls(chain_name: str) -> Response:
 @app.route("/update_url", methods=["PUT"])
 @jwt_required()
 def update_url_record() -> Response:
-    """Updates the rpc_urls entry corresponding to the input url.
+    """Update the rpc_urls entry corresponding to the input url.
 
     Requires that url parameters 'protocol' and 'address' are present in the request, example:
 
@@ -282,11 +272,7 @@ def update_url_record() -> Response:
         url_old = url_from_request_args()
     except TypeError as e:
         app.logger.error("TypeError when trying to build RPC url from parameters: %s", str(e))
-        return jsonify(
-            {
-                "error": "url parameters 'protocol' and 'address' required for update_url_record request"
-            }
-        ), 400
+        return jsonify({"error": "url parameters 'protocol' and 'address' required for update_url_record request"}), 400
 
     try:
         url_new = request.json["url"]
@@ -323,7 +309,7 @@ def update_url_record() -> Response:
 @app.route("/delete_chain", methods=["DELETE"])
 @jwt_required()
 def delete_chain_record() -> Response:
-    """Deletes the chain entry corresponding to the input name.
+    """Delete the chain entry corresponding to the input name.
 
     Requires that url parameter 'name' is present in the request, example:
 
@@ -351,7 +337,7 @@ def delete_chain_record() -> Response:
 @app.route("/delete_url", methods=["DELETE"])
 @jwt_required()
 def delete_url_record() -> Response:
-    """Deletes the rpc_urls entry corresponding to the input url.
+    """Delete the rpc_urls entry corresponding to the input url.
 
     Requires that url parameters 'protocol' and 'address' are present in the request, example:
 
@@ -361,9 +347,7 @@ def delete_url_record() -> Response:
         url = url_from_request_args()
     except TypeError as e:
         app.logger.error("TypeError when trying to build RPC url from parameters: %s", str(e))
-        return jsonify(
-            {"error": "url parameters 'protocol' and 'address' required for delete_url request"}
-        ), 400
+        return jsonify({"error": "url parameters 'protocol' and 'address' required for delete_url request"}), 400
 
     conn = sqlite3.connect(app.config["DATABASE"])
     cursor = conn.cursor()
@@ -385,7 +369,7 @@ def delete_url_record() -> Response:
 @app.route("/delete_urls", methods=["DELETE"])
 @jwt_required()
 def delete_url_records() -> Response:
-    """Deletes the url entries corresponding to the input chain_name.
+    """Delete the url entries corresponding to the input chain_name.
 
     Requires that url parameter 'chain_name' is present in the request, example:
 
@@ -411,7 +395,7 @@ def delete_url_records() -> Response:
 
 @app.route("/chain_info", methods=["GET"])
 def get_chain_info():
-    """Gets info for the chain corresponding to the input name.
+    """Get info for the chain corresponding to the input name.
 
     Requires that url parameter 'name' is present in the request, example:
 
@@ -429,9 +413,7 @@ def get_chain_info():
     if not chain_record:
         return jsonify({"error": f"Chain '{chain_name}' not found in database"}), 404
     # Fetch urls
-    cursor.execute(
-        f"SELECT url, chain_name FROM {TABLE_RPC_URLS} WHERE chain_name=?", (chain_name,)
-    )
+    cursor.execute(f"SELECT url, chain_name FROM {TABLE_RPC_URLS} WHERE chain_name=?", (chain_name,))
     url_records = cursor.fetchall()
     conn.close()
     urls = []
@@ -444,18 +426,30 @@ def get_chain_info():
 
 # UTILITY FUNCTIONS
 
+VALID_API_CLASSES = [
+    "substrate",
+    "ethereum",
+    "starknet",
+    "filecoin",
+    "sui",
+    "waves",
+    "ton",
+    "sidecar",
+    "cosmos-tendermint",
+]
 
-def is_valid_api(api):
-    """Test that api string is valid."""
-    return api.lower() in ["substrate", "ethereum", "starknet", "filecoin", "sui", "waves", "ton", "sidecar"]
+
+def is_valid_api(api: str) -> bool:
+    """Test that an API class string is valid."""
+    return api.lower() in VALID_API_CLASSES
 
 
-def is_valid_url(url):
+def is_valid_url(url: str) -> bool:
     """Test that a url is valid, e.g. only http(s) and ws(s)."""
-    ALLOWED_SCHEMES = {"http", "https", "ws", "wss"}
+    allowed_schemes = {"http", "https", "ws", "wss"}
     try:
         result = urlparse(url)
-        return all([result.scheme in ALLOWED_SCHEMES, result.netloc])
+        return all([result.scheme in allowed_schemes, result.netloc])
     except ValueError:
         return False
 
