@@ -1572,6 +1572,14 @@
         "chain_name": "Polkadot-pc AssetHub (Statemint)"
     },
     {
+        "url": "https://api-asset-hub-polkadot-sidecar.dwellir.com/blocks/head/header",
+        "chain_name": "Polkadot-pc AssetHub Sidecar"
+    },
+    {
+        "url": "https://polkadot-public-sidecar.parity-chains.parity.io/blocks/head/header",
+        "chain_name": "Polkadot-pc AssetHub Sidecar"
+    },
+    {
         "url": "https://astar-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Astar"
     },

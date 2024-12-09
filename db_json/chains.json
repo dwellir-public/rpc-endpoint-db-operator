@@ -344,6 +344,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc AssetHub Sidecar",
+        "api_class": "sidecar"
+    },
+    {
         "name": "Polkadot-pc Astar",
         "api_class": "substrate"
     },
