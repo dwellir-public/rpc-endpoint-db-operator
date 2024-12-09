@@ -344,15 +344,15 @@
         "chain_name": "Celestia Mainnet"
     },
     {
-        "url": "https://rpc.lunaroasis.net",
+        "url": "https://public-celestia-lcd.numia.xyz",
         "chain_name": "Celestia Mainnet"
     },
     {
-        "url": "https://public-celestia-rpc.numia.xyz",
+        "url": "https://celestia-rest.mesa.newmetric.xyz",
         "chain_name": "Celestia Mainnet"
     },
     {
-        "url": "https://celestia-rpc.brightlystake.com",
+        "url": "https://api.lunaroasis.net",
         "chain_name": "Celestia Mainnet"
     },
     {
