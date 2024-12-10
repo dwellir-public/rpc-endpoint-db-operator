@@ -676,10 +676,6 @@
         "chain_name": "Fantom testnet"
     },
     {
-        "url": "https://paribu-filecoin-mainnet.dwellir.com/rpc/v1",
-        "chain_name": "Filecoin mainnet"
-    },
-    {
         "url": "https://api-filecoin-mainnet.dwellir.com/rpc/v1",
         "chain_name": "Filecoin mainnet"
     },
