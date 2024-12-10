@@ -1332,38 +1332,6 @@
         "chain_name": "Optimism mainnet"
     },
     {
-        "url": "https://palm-mainnet.public.blastapi.io",
-        "chain_name": "Palm mainnet"
-    },
-    {
-        "url": "https://palm-mainnet.infura.io/v3/3a961d6501e54add9a41aa53f15de99b",
-        "chain_name": "Palm mainnet"
-    },
-    {
-        "url": "https://palm-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Palm mainnet"
-    },
-    {
-        "url": "https://palm-mainnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Palm mainnet"
-    },
-    {
-        "url": "https://api-palm-mainnet.dwellir.com/",
-        "chain_name": "Palm mainnet"
-    },
-    {
-        "url": "https://palm-testnet.public.blastapi.io",
-        "chain_name": "Palm testnet"
-    },
-    {
-        "url": "https://palm-testnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Palm testnet"
-    },
-    {
-        "url": "https://palm-testnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Palm testnet"
-    },
-    {
         "url": "https://paseo-rpc-ng.dwellir.com",
         "chain_name": "Paseo Relaychain"
     },

@@ -296,14 +296,6 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Palm mainnet",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "Palm testnet",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Paseo Relaychain",
         "api_class": "substrate"
     },
