@@ -2496,6 +2496,10 @@
         "chain_name": "opBNB mainnet"
     },
     {
+        "url": "https://api-opbnb-mainnet-full.dwellir.com",
+        "chain_name": "opBNB mainnet"
+    },
+    {
         "url": "https://opbnb-testnet-rpc.bnbchain.org",
         "chain_name": "opBNB testnet"
     },
