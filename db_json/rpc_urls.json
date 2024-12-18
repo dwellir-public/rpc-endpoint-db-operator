@@ -2522,5 +2522,9 @@
     {
         "url": "https://api-xxnetwork.dwellir.com",
         "chain_name": "xx network"
+    },
+    {
+        "url": "https://api-zksync-era-mainnet-full.n.dwellir.com",
+        "chain_name": "zkSync Era mainnet"
     }
 ]
