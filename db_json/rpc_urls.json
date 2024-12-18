@@ -2526,5 +2526,17 @@
     {
         "url": "https://api-zksync-era-mainnet-full.n.dwellir.com",
         "chain_name": "zkSync Era mainnet"
+    },
+    {
+        "url": "https://mainnet.era.zksync.io",
+        "chain_name": "zkSync Era mainnet"
+    },
+    {
+        "url": "https://zksync.drpc.org",
+        "chain_name": "zkSync Era mainnet"
+    },
+    {
+        "url": "https://1rpc.io/zksync2-era",
+        "chain_name": "zkSync Era mainnet"
     }
 ]
