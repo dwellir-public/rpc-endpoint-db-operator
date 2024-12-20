@@ -112,6 +112,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "EOS mainnet",
+        "api_class": "eos"
+    },
+    {
         "name": "Enjin Canary Matrix Chain",
         "api_class": "substrate"
     },

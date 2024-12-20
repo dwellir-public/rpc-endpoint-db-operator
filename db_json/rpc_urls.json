@@ -480,6 +480,18 @@
         "chain_name": "Crust mainnet"
     },
     {
+        "url": "https://paribu-eos-mainnet-full.dwellir.com/v1/chain/get_info",
+        "chain_name": "EOS mainnet"
+    },
+    {
+        "url": "https://api.eostitan.com/v1/chain/get_info",
+        "chain_name": "EOS mainnet"
+    },
+    {
+        "url": "https://mainnet.eosio.sg/v1/chain/get_info",
+        "chain_name": "EOS mainnet"
+    },
+    {
         "url": "https://rpc.matrix.canary.enjin.io",
         "chain_name": "Enjin Canary Matrix Chain"
     },
@@ -637,6 +649,10 @@
     },
     {
         "url": "https://reth-mainnet-archive-rpc-2.dwellir.com",
+        "chain_name": "Ethereum mainnet"
+    },
+    {
+        "url": "https://reth-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Ethereum mainnet"
     },
     {
@@ -836,6 +852,10 @@
         "chain_name": "Kusama-pc Basilisk"
     },
     {
+        "url": "https://basilisk-rpc.n.dwellir.com",
+        "chain_name": "Kusama-pc Basilisk"
+    },
+    {
         "url": "https://bifrost-rpc.dwellir.com",
         "chain_name": "Kusama-pc Bifrost"
     },
@@ -1029,6 +1049,10 @@
     },
     {
         "url": "https://api-moonriver.dwellir.com",
+        "chain_name": "Kusama-pc Moonriver"
+    },
+    {
+        "url": "https://moonriver-rpc.n.dwellir.com",
         "chain_name": "Kusama-pc Moonriver"
     },
     {
@@ -1740,6 +1764,10 @@
         "chain_name": "Polkadot-pc HydraDX"
     },
     {
+        "url": "https://hydration-rpc.n.dwellir.com",
+        "chain_name": "Polkadot-pc HydraDX"
+    },
+    {
         "url": "https://nexus.dotters.network",
         "chain_name": "Polkadot-pc Hyperbridge-Nexus"
     },
@@ -1873,6 +1901,10 @@
     },
     {
         "url": "https://moonbeam-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc Moonbeam"
+    },
+    {
+        "url": "https://moonbeam-rpc.n.dwellir.com",
         "chain_name": "Polkadot-pc Moonbeam"
     },
     {
