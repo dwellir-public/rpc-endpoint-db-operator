@@ -436,6 +436,7 @@ VALID_API_CLASSES = [
     "ton",
     "sidecar",
     "cosmos-tendermint",
+    "eos",
 ]
 
 
