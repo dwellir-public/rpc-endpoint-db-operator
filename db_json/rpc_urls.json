@@ -380,6 +380,10 @@
         "chain_name": "Celo Mainnet"
     },
     {
+        "url": "https://api-celo-mainnet-archive.n.dwellir.com",
+        "chain_name": "Celo Mainnet"
+    },
+    {
         "url": "https://api-chainflip.dwellir.com",
         "chain_name": "Chainflip"
     },
@@ -1905,6 +1909,10 @@
     },
     {
         "url": "https://moonbeam-rpc.n.dwellir.com",
+        "chain_name": "Polkadot-pc Moonbeam"
+    },
+    {
+        "url": "https://api-moonbeam.n.dwellir.com",
         "chain_name": "Polkadot-pc Moonbeam"
     },
     {
