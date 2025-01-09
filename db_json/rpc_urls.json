@@ -1188,6 +1188,10 @@
         "chain_name": "Linea Sepolia"
     },
     {
+        "url": "https://api-linea-sepolia-archive.n.dwellir.com",
+        "chain_name": "Linea Sepolia"
+    },
+    {
         "url": "https://linea-mainnet.public.blastapi.io",
         "chain_name": "Linea mainnet"
     },
@@ -1225,6 +1229,10 @@
     },
     {
         "url": "https://linea-mainnet-besu-archive-rpc-2.dwellir.com",
+        "chain_name": "Linea mainnet"
+    },
+    {
+        "url": "https://api-linea-mainnet-archive.n.dwellir.com",
         "chain_name": "Linea mainnet"
     },
     {
