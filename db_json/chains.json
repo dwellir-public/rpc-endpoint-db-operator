@@ -248,10 +248,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Kusama-pc Tinkernet",
-        "api_class": "substrate"
-    },
-    {
         "name": "Kusama-pc Turing Network",
         "api_class": "substrate"
     },
