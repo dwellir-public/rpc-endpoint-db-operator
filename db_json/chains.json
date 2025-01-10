@@ -132,6 +132,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Eth Mainnet Beacon Chain",
+        "api_class": "eth-v1-beacon"
+    },
+    {
         "name": "Ethereum Holesky Testnet",
         "api_class": "ethereum"
     },

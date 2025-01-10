@@ -556,6 +556,18 @@
         "chain_name": "Enjin Relay Chain"
     },
     {
+        "url": "https://snowfork-eth-mainnet-beacon-lodestar.n.dwellir.com/eth/v1/beacon/headers",
+        "chain_name": "Eth Mainnet Beacon Chain"
+    },
+    {
+        "url": "https://eth-beacon-chain.drpc.org/rest/eth/v1/beacon/headers",
+        "chain_name": "Eth Mainnet Beacon Chain"
+    },
+    {
+        "url": "https://ethereum-beacon-api.publicnode.com/eth/v1/beacon/headers",
+        "chain_name": "Eth Mainnet Beacon Chain"
+    },
+    {
         "url": "https://eth-holesky-archive-rpc-1.dwellir.com",
         "chain_name": "Ethereum Holesky Testnet"
     },
