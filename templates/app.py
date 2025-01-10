@@ -437,6 +437,7 @@ VALID_API_CLASSES = [
     "sidecar",
     "cosmos-tendermint",
     "eos",
+    "eth-v1-beacon",
 ]
 
 
