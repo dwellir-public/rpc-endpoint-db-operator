@@ -96,22 +96,6 @@
         "chain_name": "Arbitrum mainnet"
     },
     {
-        "url": "https://api-astar-zkyoto.dwellir.com",
-        "chain_name": "Astar zKyoto testnet"
-    },
-    {
-        "url": "https://astar-zkyoto-rpc.dwellir.com",
-        "chain_name": "Astar zKyoto testnet"
-    },
-    {
-        "url": "https://rpc.startale.com/zkyoto",
-        "chain_name": "Astar zKyoto testnet"
-    },
-    {
-        "url": "https://rpc.zkyoto.gelato.digital",
-        "chain_name": "Astar zKyoto testnet"
-    },
-    {
         "url": "https://rpc.startale.com/astar-zkevm",
         "chain_name": "Astar zkEVM mainnet"
     },
