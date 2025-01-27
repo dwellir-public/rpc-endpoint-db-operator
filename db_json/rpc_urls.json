@@ -1700,6 +1700,10 @@
         "chain_name": "Polkadot-pc Coretime"
     },
     {
+        "url": "https://api-coretime-polkadot.n.dwellir.com",
+        "chain_name": "Polkadot-pc Coretime"
+    },
+    {
         "url": "https://darwinia-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Darwinia"
     },
@@ -1985,6 +1989,10 @@
     },
     {
         "url": "https://rpc.polimec.org",
+        "chain_name": "Polkadot-pc Polimec"
+    },
+    {
+        "url": "https://api-polimec.n.dwellir.com",
         "chain_name": "Polkadot-pc Polimec"
     },
     {
