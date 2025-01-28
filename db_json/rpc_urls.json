@@ -1788,6 +1788,10 @@
         "chain_name": "Polkadot-pc Hyperbridge-Nexus"
     },
     {
+        "url": "https://api-hyperbridge-nexus.n.dwellir.com",
+        "chain_name": "Polkadot-pc Hyperbridge-Nexus"
+    },
+    {
         "url": "https://integritee-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Integritee Shell"
     },
