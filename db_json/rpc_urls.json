@@ -1948,6 +1948,10 @@
         "chain_name": "Polkadot-pc Mythos"
     },
     {
+        "url": "https://mythos-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc Mythos"
+    },
+    {
         "url": "https://parachain-rpc.origin-trail.network",
         "chain_name": "Polkadot-pc NeuroWeb (OriginTrail)"
     },
