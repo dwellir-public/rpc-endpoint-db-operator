@@ -1940,6 +1940,14 @@
         "chain_name": "Polkadot-pc Mythos"
     },
     {
+        "url": "https://rpc.helikon.io/mythos",
+        "chain_name": "Polkadot-pc Mythos"
+    },
+    {
+        "url": "https://polkadot-mythos-rpc.polkadot.io",
+        "chain_name": "Polkadot-pc Mythos"
+    },
+    {
         "url": "https://parachain-rpc.origin-trail.network",
         "chain_name": "Polkadot-pc NeuroWeb (OriginTrail)"
     },
