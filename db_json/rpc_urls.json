@@ -768,6 +768,14 @@
         "chain_name": "Gnosis"
     },
     {
+        "url": "https://rpc-testnet.hyperlend.finance/main/evm/998",
+        "chain_name": "Hyperliquid testnet"
+    },
+    {
+        "url": "https://api.hyperliquid-testnet.xyz/evm",
+        "chain_name": "Hyperliquid testnet"
+    },
+    {
         "url": "https://kusama-rpc.dwellir.com",
         "chain_name": "Kusama Relaychain"
     },
@@ -1918,6 +1926,10 @@
     {
         "url": "https://api-moonbeam.n.dwellir.com",
         "chain_name": "Polkadot-pc Moonbeam"
+    },
+    {
+        "url": "https://api-mythos-archive.n.dwellir.com",
+        "chain_name": "Polkadot-pc Mythos"
     },
     {
         "url": "https://parachain-rpc.origin-trail.network",

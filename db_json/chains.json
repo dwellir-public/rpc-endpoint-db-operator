@@ -168,6 +168,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Hyperliquid testnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Kusama Relaychain",
         "api_class": "substrate"
     },
@@ -421,6 +425,10 @@
     },
     {
         "name": "Polkadot-pc Moonbeam",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Mythos",
         "api_class": "substrate"
     },
     {
