@@ -776,6 +776,14 @@
         "chain_name": "Hyperliquid testnet"
     },
     {
+        "url": "https://rpc-hyperliquid-testnet.imperator.co/evm",
+        "chain_name": "Hyperliquid testnet"
+    },
+    {
+        "url": "https://subsquid-hyperliquid-testnet-evm.n.dwellir.com",
+        "chain_name": "Hyperliquid testnet"
+    },
+    {
         "url": "https://kusama-rpc.dwellir.com",
         "chain_name": "Kusama Relaychain"
     },
