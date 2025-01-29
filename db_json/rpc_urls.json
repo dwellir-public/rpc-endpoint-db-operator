@@ -1988,6 +1988,22 @@
         "chain_name": "Polkadot-pc Pendulum"
     },
     {
+        "url": "https://api-polkadot-people.n.dwellir.com",
+        "chain_name": "Polkadot-pc People"
+    },
+    {
+        "url": "https://polkadot-people-rpc.polkadot.io",
+        "chain_name": "Polkadot-pc People"
+    },
+    {
+        "url": "https://people-polkadot.public.curie.radiumblock.co",
+        "chain_name": "Polkadot-pc People"
+    },
+    {
+        "url": "https://rpc-people-polkadot.luckyfriday.io",
+        "chain_name": "Polkadot-pc People"
+    },
+    {
         "url": "https://phala-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Phala Network"
     },
