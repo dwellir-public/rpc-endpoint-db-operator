@@ -236,6 +236,10 @@
         "chain_name": "Binance Smart Chain mainnet"
     },
     {
+        "url": "https://api-bsc-mainnet-full.n.dwellir.com",
+        "chain_name": "Binance Smart Chain mainnet"
+    },
+    {
         "url": "https://data-seed-prebsc-1-s1.binance.org:8545",
         "chain_name": "Binance Smart Chain testnet"
     },
@@ -257,6 +261,10 @@
     },
     {
         "url": "https://api-bsc-testnet-full.dwellir.com",
+        "chain_name": "Binance Smart Chain testnet"
+    },
+    {
+        "url": "https://api-bsc-testnet-full.n.dwellir.com",
         "chain_name": "Binance Smart Chain testnet"
     },
     {
@@ -300,6 +308,10 @@
         "chain_name": "Blast Sepolia"
     },
     {
+        "url": "https://api-blast-sepolia-archive.n.dwellir.com",
+        "chain_name": "Blast Sepolia"
+    },
+    {
         "url": "https://blast-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Blast mainnet"
     },
@@ -321,6 +333,10 @@
     },
     {
         "url": "https://blast.blockpi.network/v1/rpc/public",
+        "chain_name": "Blast mainnet"
+    },
+    {
+        "url": "https://api-blast-mainnet-archive.n.dwellir.com",
         "chain_name": "Blast mainnet"
     },
     {
@@ -1284,6 +1300,10 @@
         "chain_name": "Manta Pacific"
     },
     {
+        "url": "https://api-manta-pacific-archive.n.dwellir.com",
+        "chain_name": "Manta Pacific"
+    },
+    {
         "url": "https://rpc.mantle.xyz",
         "chain_name": "Mantle mainnet"
     },
@@ -2160,6 +2180,10 @@
         "chain_name": "Polygon mainnet"
     },
     {
+        "url": "https://api-polygon-mainnet-full.n.dwellir.com",
+        "chain_name": "Polygon mainnet"
+    },
+    {
         "url": "https://zkevm-rpc.com",
         "chain_name": "Polygon zkEVM mainnet"
     },
@@ -2233,6 +2257,10 @@
     },
     {
         "url": "https://saigon-testnet.roninchain.com/rpc",
+        "chain_name": "Ronin Saigon testnet"
+    },
+    {
+        "url": "https://api-ronin-saigon-testnet.n.dwellir.com",
         "chain_name": "Ronin Saigon testnet"
     },
     {
