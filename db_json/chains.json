@@ -552,6 +552,10 @@
         "api_class": "ton"
     },
     {
+        "name": "TRON mainnet",
+        "api_class": "tron"
+    },
+    {
         "name": "Tangle Mainnet",
         "api_class": "substrate"
     },

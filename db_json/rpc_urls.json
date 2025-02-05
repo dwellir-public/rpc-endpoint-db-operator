@@ -2416,6 +2416,14 @@
         "chain_name": "TON testnet"
     },
     {
+        "url": "https://api-tron-mainnet.n.dwellir.com/wallet/getnowblock",
+        "chain_name": "TRON mainnet"
+    },
+    {
+        "url": "https://tron-rpc.publicnode.com/wallet/getnowblock",
+        "chain_name": "TRON mainnet"
+    },
+    {
         "url": "https://tangle-mainnet-rpc.dwellir.com",
         "chain_name": "Tangle Mainnet"
     },
