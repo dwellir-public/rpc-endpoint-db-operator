@@ -2424,6 +2424,10 @@
         "chain_name": "TRON mainnet"
     },
     {
+        "url": "https://api.trongrid.io/wallet/getnowblock",
+        "chain_name": "TRON mainnet"
+    },
+    {
         "url": "https://tangle-mainnet-rpc.dwellir.com",
         "chain_name": "Tangle Mainnet"
     },
