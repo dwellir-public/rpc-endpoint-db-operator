@@ -438,6 +438,7 @@ VALID_API_CLASSES = [
     "cosmos-tendermint",
     "eos",
     "eth-v1-beacon",
+    "tron",
 ]
 
 
