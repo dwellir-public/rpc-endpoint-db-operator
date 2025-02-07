@@ -2432,6 +2432,18 @@
         "chain_name": "TRON mainnet"
     },
     {
+        "url": "https://api-tron-mainnet-jsonrpc.n.dwellir.com",
+        "chain_name": "TRON mainnet(JSON-RPC)"
+    },
+    {
+        "url": "https://tron-evm.publicnode.com",
+        "chain_name": "TRON mainnet(JSON-RPC)"
+    },
+    {
+        "url": "https://go.getblock.io/e8274931c51b4db3a4b06e10d6cc4450/jsonrpc",
+        "chain_name": "TRON mainnet(JSON-RPC)"
+    },
+    {
         "url": "https://tangle-mainnet-rpc.dwellir.com",
         "chain_name": "Tangle Mainnet"
     },

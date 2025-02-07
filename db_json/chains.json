@@ -560,6 +560,10 @@
         "api_class": "tron"
     },
     {
+        "name": "TRON mainnet(JSON-RPC)",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Tangle Mainnet",
         "api_class": "substrate"
     },
