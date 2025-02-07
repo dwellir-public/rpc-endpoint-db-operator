@@ -212,6 +212,14 @@
         "chain_name": "Berachain bArtio"
     },
     {
+        "url": "https://api-berachain-mainnet.n.dwellir.com",
+        "chain_name": "Berachain mainnet"
+    },
+    {
+        "url": "https://rpc.berachain.com",
+        "chain_name": "Berachain mainnet"
+    },
+    {
         "url": "https://bsc-dataseed1.binance.org",
         "chain_name": "Binance Smart Chain mainnet"
     },
@@ -1002,10 +1010,6 @@
     {
         "url": "https://api-karura.dwellir.com",
         "chain_name": "Kusama-pc Karura"
-    },
-    {
-        "url": "https://khala-rpc.dwellir.com",
-        "chain_name": "Kusama-pc Khala"
     },
     {
         "url": "https://khala.api.onfinality.io/public-http",
