@@ -188,10 +188,6 @@
         "chain_name": "Base mainnet"
     },
     {
-        "url": "https://1rpc.io/base",
-        "chain_name": "Base mainnet"
-    },
-    {
         "url": "https://api-base-mainnet-archive.dwellir.com",
         "chain_name": "Base mainnet"
     },
@@ -806,6 +802,18 @@
     {
         "url": "https://subsquid-hyperliquid-testnet-evm.n.dwellir.com",
         "chain_name": "Hyperliquid testnet"
+    },
+    {
+        "url": "https://immutable-zkevm.drpc.org",
+        "chain_name": "Immutable zkEVM mainnet"
+    },
+    {
+        "url": "https://api-immutable-zkevm-mainnet.n.dwellir.com",
+        "chain_name": "Immutable zkEVM mainnet"
+    },
+    {
+        "url": "https://rpc.immutable.com",
+        "chain_name": "Immutable zkEVM mainnet"
     },
     {
         "url": "https://kusama-rpc.dwellir.com",

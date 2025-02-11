@@ -176,6 +176,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Immutable zkEVM mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Kusama Relaychain",
         "api_class": "substrate"
     },
