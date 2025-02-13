@@ -2336,10 +2336,6 @@
         "chain_name": "Sonic Mainnet"
     },
     {
-        "url": "https://57054.rpc.thirdweb.com/",
-        "chain_name": "Sonic Mainnet"
-    },
-    {
         "url": "https://sora.api.onfinality.io/public-http",
         "chain_name": "Sora Mainnet"
     },
