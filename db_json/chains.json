@@ -532,6 +532,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Sonic Mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Sora Mainnet",
         "api_class": "substrate"
     },

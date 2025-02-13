@@ -2324,6 +2324,22 @@
         "chain_name": "Soneium Minato"
     },
     {
+        "url": "https://api-sonic-mainnet-archive.n.dwellir.com",
+        "chain_name": "Sonic Mainnet"
+    },
+    {
+        "url": "https://rpc.soniclabs.com/",
+        "chain_name": "Sonic Mainnet"
+    },
+    {
+        "url": "https://rpc.ankr.com/sonic_mainnet/",
+        "chain_name": "Sonic Mainnet"
+    },
+    {
+        "url": "https://57054.rpc.thirdweb.com/",
+        "chain_name": "Sonic Mainnet"
+    },
+    {
         "url": "https://sora.api.onfinality.io/public-http",
         "chain_name": "Sora Mainnet"
     },
