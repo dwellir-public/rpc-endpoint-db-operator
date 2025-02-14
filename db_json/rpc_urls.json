@@ -2312,18 +2312,6 @@
         "chain_name": "Shibuya"
     },
     {
-        "url": "https://api-soneium-minato.dwellir.com",
-        "chain_name": "Soneium Minato"
-    },
-    {
-        "url": "https://rpc.minato.soneium.org/",
-        "chain_name": "Soneium Minato"
-    },
-    {
-        "url": "https://soneium-minato-rpc.dwellir.com",
-        "chain_name": "Soneium Minato"
-    },
-    {
         "url": "https://api-sonic-mainnet-archive.n.dwellir.com",
         "chain_name": "Sonic Mainnet"
     },

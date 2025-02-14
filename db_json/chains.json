@@ -528,10 +528,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Soneium Minato",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Sonic Mainnet",
         "api_class": "ethereum"
     },
