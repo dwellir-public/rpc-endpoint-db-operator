@@ -788,19 +788,15 @@
         "chain_name": "Gnosis"
     },
     {
-        "url": "https://rpc-testnet.hyperlend.finance/main/evm/998",
-        "chain_name": "Hyperliquid testnet"
-    },
-    {
-        "url": "https://api.hyperliquid-testnet.xyz/evm",
-        "chain_name": "Hyperliquid testnet"
-    },
-    {
-        "url": "https://rpc-hyperliquid-testnet.imperator.co/evm",
-        "chain_name": "Hyperliquid testnet"
-    },
-    {
         "url": "https://subsquid-hyperliquid-testnet-evm.n.dwellir.com",
+        "chain_name": "Hyperliquid testnet"
+    },
+    {
+        "url": "https://rpc.hyperliquid-testnet.xyz/evm",
+        "chain_name": "Hyperliquid testnet"
+    },
+    {
+        "url": "http://18.181.208.188:3001/evm",
         "chain_name": "Hyperliquid testnet"
     },
     {
