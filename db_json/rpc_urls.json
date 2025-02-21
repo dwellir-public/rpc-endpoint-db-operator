@@ -788,15 +788,19 @@
         "chain_name": "Gnosis"
     },
     {
+        "url": "https://explorer-rpc-http.mainnet.stages.humanode.io",
+        "chain_name": "Humanode Mainnet"
+    },
+    {
+        "url": "https://api-humanode.n.dwellir.com",
+        "chain_name": "Humanode Mainnet"
+    },
+    {
         "url": "https://subsquid-hyperliquid-testnet-evm.n.dwellir.com",
         "chain_name": "Hyperliquid testnet"
     },
     {
         "url": "https://rpc.hyperliquid-testnet.xyz/evm",
-        "chain_name": "Hyperliquid testnet"
-    },
-    {
-        "url": "http://18.181.208.188:3001/evm",
         "chain_name": "Hyperliquid testnet"
     },
     {
@@ -2470,6 +2474,22 @@
     {
         "url": "https://rpc.tangle.tools",
         "chain_name": "Tangle Mainnet"
+    },
+    {
+        "url": "https://api-unichain-mainnet-archive.n.dwellir.com",
+        "chain_name": "Unichain mainnet"
+    },
+    {
+        "url": "https://mainnet.unichain.org",
+        "chain_name": "Unichain mainnet"
+    },
+    {
+        "url": "https://unichain.api.onfinality.io/public",
+        "chain_name": "Unichain mainnet"
+    },
+    {
+        "url": "https://unichain-rpc.publicnode.com",
+        "chain_name": "Unichain mainnet"
     },
     {
         "url": "https://nodes.wavesnodes.com/blocks/height",

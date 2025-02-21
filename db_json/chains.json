@@ -172,6 +172,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Humanode Mainnet",
+        "api_class": "substrate"
+    },
+    {
         "name": "Hyperliquid testnet",
         "api_class": "ethereum"
     },
@@ -574,6 +578,10 @@
     {
         "name": "Tangle Mainnet",
         "api_class": "substrate"
+    },
+    {
+        "name": "Unichain mainnet",
+        "api_class": "ethereum"
     },
     {
         "name": "Waves mainnet",
