@@ -2368,6 +2368,10 @@
         "chain_name": "Starknet Sepolia"
     },
     {
+        "url": "https://braavos-starknet-sepolia-rpc.n.dwellir.com",
+        "chain_name": "Starknet Sepolia"
+    },
+    {
         "url": "https://starknet-mainnet.public.blastapi.io",
         "chain_name": "Starknet mainnet"
     },
@@ -2381,6 +2385,10 @@
     },
     {
         "url": "https://api-starknet-mainnet.dwellir.com",
+        "chain_name": "Starknet mainnet"
+    },
+    {
+        "url": "https://braavos-starknet-mainnet-rpc.n.dwellir.com",
         "chain_name": "Starknet mainnet"
     },
     {
@@ -2476,10 +2484,6 @@
         "chain_name": "Tangle Mainnet"
     },
     {
-        "url": "https://api-unichain-mainnet-archive.n.dwellir.com",
-        "chain_name": "Unichain mainnet"
-    },
-    {
         "url": "https://mainnet.unichain.org",
         "chain_name": "Unichain mainnet"
     },
@@ -2489,6 +2493,10 @@
     },
     {
         "url": "https://unichain-rpc.publicnode.com",
+        "chain_name": "Unichain mainnet"
+    },
+    {
+        "url": "https://api-unichain-mainnet.n.dwellir.com",
         "chain_name": "Unichain mainnet"
     },
     {
