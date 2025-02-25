@@ -856,6 +856,14 @@
         "chain_name": "Kusama Relaychain"
     },
     {
+        "url": "https://kusama-public-sidecar.parity-chains.parity.io/blocks/head/header",
+        "chain_name": "Kusama Relaychain sidecar"
+    },
+    {
+        "url": "https://api-kusama-sidecar.n.dwellir.com/blocks/head/header",
+        "chain_name": "Kusama Relaychain sidecar"
+    },
+    {
         "url": "https://api-acurast-canary.dwellir.com",
         "chain_name": "Kusama-pc Acurast Canary"
     },
@@ -1534,6 +1542,14 @@
     {
         "url": "https://api-polkadot.n.dwellir.com",
         "chain_name": "Polkadot Relaychain"
+    },
+    {
+        "url": "https://api-polkadot-sidecar.n.dwellir.com/blocks/head/header",
+        "chain_name": "Polkadot Relaychain sidecar"
+    },
+    {
+        "url": "https://polkadot-public-sidecar.parity-chains.parity.io/blocks/head/header",
+        "chain_name": "Polkadot Relaychain sidecar"
     },
     {
         "url": "https://acala-rpc.dwellir.com",

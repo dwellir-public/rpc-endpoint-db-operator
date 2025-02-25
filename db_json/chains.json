@@ -192,6 +192,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Kusama Relaychain sidecar",
+        "api_class": "sidecar"
+    },
+    {
         "name": "Kusama-pc Acurast Canary",
         "api_class": "substrate"
     },
@@ -342,6 +346,10 @@
     {
         "name": "Polkadot Relaychain",
         "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot Relaychain sidecar",
+        "api_class": "sidecar"
     },
     {
         "name": "Polkadot-pc Acala",
