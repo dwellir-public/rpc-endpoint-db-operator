@@ -588,10 +588,6 @@
         "chain_name": "Ethereum Holesky Testnet"
     },
     {
-        "url": "https://rpc.holesky.ethpandaops.io",
-        "chain_name": "Ethereum Holesky Testnet"
-    },
-    {
         "url": "https://1rpc.io/holesky",
         "chain_name": "Ethereum Holesky Testnet"
     },
@@ -2486,6 +2482,22 @@
     {
         "url": "https://rpc.tangle.tools",
         "chain_name": "Tangle Mainnet"
+    },
+    {
+        "url": "https://api-unichain-sepolia.n.dwellir.com",
+        "chain_name": "Unichain Sepolia"
+    },
+    {
+        "url": "https://sepolia.unichain.org",
+        "chain_name": "Unichain Sepolia"
+    },
+    {
+        "url": "https://endpoints.omniatech.io/v1/unichain/sepolia/public",
+        "chain_name": "Unichain Sepolia"
+    },
+    {
+        "url": "https://unichain-sepolia.drpc.org",
+        "chain_name": "Unichain Sepolia"
     },
     {
         "url": "https://mainnet.unichain.org",

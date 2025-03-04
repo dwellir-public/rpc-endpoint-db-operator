@@ -584,6 +584,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Unichain Sepolia",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Unichain mainnet",
         "api_class": "ethereum"
     },
