@@ -444,6 +444,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Manta Atlantic mainnet",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Moonbeam",
         "api_class": "substrate"
     },

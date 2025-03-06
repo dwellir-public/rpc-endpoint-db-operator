@@ -96,6 +96,10 @@
         "chain_name": "Arbitrum mainnet"
     },
     {
+        "url": "https://api-arbitrum-mainnet-archive.n.dwellir.com",
+        "chain_name": "Arbitrum mainnet"
+    },
+    {
         "url": "https://rpc.startale.com/astar-zkevm",
         "chain_name": "Astar zkEVM mainnet"
     },
@@ -308,11 +312,11 @@
         "chain_name": "Blast Sepolia"
     },
     {
-        "url": "https://blast-sepolia.drpc.org",
+        "url": "https://api-blast-sepolia-archive.n.dwellir.com",
         "chain_name": "Blast Sepolia"
     },
     {
-        "url": "https://api-blast-sepolia-archive.n.dwellir.com",
+        "url": "https://endpoints.omniatech.io/v1/blast/sepolia/public",
         "chain_name": "Blast Sepolia"
     },
     {
@@ -1938,6 +1942,14 @@
     {
         "url": "https://api-litentry.dwellir.com",
         "chain_name": "Polkadot-pc Litentry"
+    },
+    {
+        "url": "https://api-manta-atlantic-mainnet.n.dwellir.com",
+        "chain_name": "Polkadot-pc Manta Atlantic mainnet"
+    },
+    {
+        "url": "https://ws.manta.systems",
+        "chain_name": "Polkadot-pc Manta Atlantic mainnet"
     },
     {
         "url": "https://moonbeam-rpc.dwellir.com",
