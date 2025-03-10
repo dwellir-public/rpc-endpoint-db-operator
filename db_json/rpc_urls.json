@@ -788,6 +788,18 @@
         "chain_name": "Gnosis"
     },
     {
+        "url": "https://api-gravity-alpha-mainnet.n.dwellir.com",
+        "chain_name": "Gravity Alpha"
+    },
+    {
+        "url": "https://rpc.gravity.xyz",
+        "chain_name": "Gravity Alpha"
+    },
+    {
+        "url": "https://rpc.ankr.com/gravity",
+        "chain_name": "Gravity Alpha"
+    },
+    {
         "url": "https://explorer-rpc-http.mainnet.stages.humanode.io",
         "chain_name": "Humanode Mainnet"
     },
@@ -1645,6 +1657,10 @@
     },
     {
         "url": "https://api-astar.dwellir.com",
+        "chain_name": "Polkadot-pc Astar"
+    },
+    {
+        "url": "https://allium-astar-mainnet.dwellir.com",
         "chain_name": "Polkadot-pc Astar"
     },
     {

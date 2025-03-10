@@ -172,6 +172,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Gravity Alpha",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Humanode Mainnet",
         "api_class": "substrate"
     },
