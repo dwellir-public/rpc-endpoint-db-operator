@@ -788,16 +788,16 @@
         "chain_name": "Gnosis"
     },
     {
-        "url": "https://api-gravity-alpha-mainnet.n.dwellir.com",
-        "chain_name": "Gravity Alpha"
+        "url": "https://rpc.ankr.com/gravity",
+        "chain_name": "Gravity Alpha mainnet"
     },
     {
         "url": "https://rpc.gravity.xyz",
-        "chain_name": "Gravity Alpha"
+        "chain_name": "Gravity Alpha mainnet"
     },
     {
-        "url": "https://rpc.ankr.com/gravity",
-        "chain_name": "Gravity Alpha"
+        "url": "https://api-gravity-alpha-mainnet.n.dwellir.com",
+        "chain_name": "Gravity Alpha mainnet"
     },
     {
         "url": "https://explorer-rpc-http.mainnet.stages.humanode.io",
@@ -1512,7 +1512,7 @@
         "chain_name": "Polkadex mainnet"
     },
     {
-        "url": "https://polkadex.public.curie.radiumblock.co/http",
+        "url": "https://polkadex.public.curie.radiumblock.co/ws",
         "chain_name": "Polkadex mainnet"
     },
     {
@@ -2542,6 +2542,22 @@
     {
         "url": "https://api-unichain-mainnet.n.dwellir.com",
         "chain_name": "Unichain mainnet"
+    },
+    {
+        "url": "https://viction.drpc.org",
+        "chain_name": "Viction mainnet"
+    },
+    {
+        "url": "https://viction.blockpi.network/v1/rpc/public",
+        "chain_name": "Viction mainnet"
+    },
+    {
+        "url": "https://rpc.viction.xyz",
+        "chain_name": "Viction mainnet"
+    },
+    {
+        "url": "https://api-viction-mainnet.n.dwellir.com",
+        "chain_name": "Viction mainnet"
     },
     {
         "url": "https://nodes.wavesnodes.com/blocks/height",

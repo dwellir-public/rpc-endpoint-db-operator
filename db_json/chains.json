@@ -172,7 +172,7 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Gravity Alpha",
+        "name": "Gravity Alpha mainnet",
         "api_class": "ethereum"
     },
     {
@@ -597,6 +597,10 @@
     },
     {
         "name": "Unichain mainnet",
+        "api_class": "ethereum"
+    },
+    {
+        "name": "Viction mainnet",
         "api_class": "ethereum"
     },
     {
