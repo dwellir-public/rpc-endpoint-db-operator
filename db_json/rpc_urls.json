@@ -1684,6 +1684,10 @@
         "chain_name": "Polkadot-pc Bifrost"
     },
     {
+        "url": "https://bifrost-polkadot-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc Bifrost"
+    },
+    {
         "url": "https://bridge-hub-polkadot-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc BridgeHub"
     },
@@ -2338,6 +2342,22 @@
     {
         "url": "https://ronin.drpc.org",
         "chain_name": "Ronin mainnet"
+    },
+    {
+        "url": "https://api-scroll-mainnet.n.dwellir.com",
+        "chain_name": "Scroll mainnet"
+    },
+    {
+        "url": "https://scroll.drpc.org",
+        "chain_name": "Scroll mainnet"
+    },
+    {
+        "url": "https://rpc.scroll.io",
+        "chain_name": "Scroll mainnet"
+    },
+    {
+        "url": "https://scroll-rpc.publicnode.com",
+        "chain_name": "Scroll mainnet"
     },
     {
         "url": "https://shibuya-rpc.dwellir.com",

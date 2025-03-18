@@ -544,6 +544,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Scroll mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Shibuya",
         "api_class": "substrate"
     },
