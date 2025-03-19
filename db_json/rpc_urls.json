@@ -140,6 +140,10 @@
         "chain_name": "Avalanche mainnet"
     },
     {
+        "url": "https://api-avalanche-mainnet-archive.n.dwellir.com/ext/bc/C/rpc",
+        "chain_name": "Avalanche mainnet"
+    },
+    {
         "url": "https://balanceai-mainnet-rpc.dwellir.com",
         "chain_name": "BalanceAI mainnet"
     },
@@ -193,6 +197,10 @@
     },
     {
         "url": "https://api-base-mainnet-archive.dwellir.com",
+        "chain_name": "Base mainnet"
+    },
+    {
+        "url": "https://api-base-mainnet-archive.n.dwellir.com",
         "chain_name": "Base mainnet"
     },
     {
@@ -460,6 +468,10 @@
         "chain_name": "Chiliz mainnet"
     },
     {
+        "url": "https://api-chiliz-mainnet-archive.n.dwellir.com",
+        "chain_name": "Chiliz mainnet"
+    },
+    {
         "url": "https://evm.cronos.org",
         "chain_name": "Cronos mainnet"
     },
@@ -473,6 +485,10 @@
     },
     {
         "url": "https://api-cronos-mainnet.dwellir.com",
+        "chain_name": "Cronos mainnet"
+    },
+    {
+        "url": "https://api-cronos-mainnet-archive.n.dwellir.com",
         "chain_name": "Cronos mainnet"
     },
     {
@@ -697,6 +713,10 @@
     },
     {
         "url": "https://api-fantom-mainnet.dwellir.com",
+        "chain_name": "Fantom mainnet"
+    },
+    {
+        "url": "https://api-fantom-mainnet-archive.n.dwellir.com",
         "chain_name": "Fantom mainnet"
     },
     {
@@ -938,10 +958,6 @@
     {
         "url": "https://basilisk-rpc.n.dwellir.com",
         "chain_name": "Kusama-pc Basilisk"
-    },
-    {
-        "url": "https://bifrost-rpc.dwellir.com",
-        "chain_name": "Kusama-pc Bifrost"
     },
     {
         "url": "https://bifrost-rpc.liebi.com/http",
@@ -1425,6 +1441,10 @@
     },
     {
         "url": "https://api-optimism-mainnet-archive.dwellir.com",
+        "chain_name": "Optimism mainnet"
+    },
+    {
+        "url": "https://api-optimism-mainnet-archive.n.dwellir.com",
         "chain_name": "Optimism mainnet"
     },
     {
@@ -2205,6 +2225,10 @@
     },
     {
         "url": "https://polygon-amoy.drpc.org",
+        "chain_name": "Polygon Amoy"
+    },
+    {
+        "url": "https://api-polygon-amoy.n.dwellir.com",
         "chain_name": "Polygon Amoy"
     },
     {
