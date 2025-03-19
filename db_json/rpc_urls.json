@@ -176,6 +176,10 @@
         "chain_name": "Base Sepolia"
     },
     {
+        "url": "https://api-base-sepolia-archive.n.dwellir.com",
+        "chain_name": "Base Sepolia"
+    },
+    {
         "url": "https://base-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Base mainnet"
     },
@@ -693,6 +697,10 @@
     },
     {
         "url": "https://snowfork-eth-mainnet-full-geth.n.dwellir.com",
+        "chain_name": "Ethereum mainnet"
+    },
+    {
+        "url": "https://api-ethereum-mainnet.n.dwellir.com",
         "chain_name": "Ethereum mainnet"
     },
     {
