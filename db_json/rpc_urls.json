@@ -2172,6 +2172,10 @@
         "chain_name": "Polkadot-pc People"
     },
     {
+        "url": "https://api-people-polkadot.n.dwellir.com",
+        "chain_name": "Polkadot-pc People"
+    },
+    {
         "url": "https://phala-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Phala Network"
     },
