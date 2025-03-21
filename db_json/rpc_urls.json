@@ -1172,6 +1172,10 @@
         "chain_name": "Kusama-pc Moonriver"
     },
     {
+        "url": "https://api-moonriver.n.dwellir.com",
+        "chain_name": "Kusama-pc Moonriver"
+    },
+    {
         "url": "https://people-kusama-rpc-ng.dwellir.com",
         "chain_name": "Kusama-pc People"
     },
@@ -1365,6 +1369,10 @@
     },
     {
         "url": "https://lisk-sepolia-archive-rpc-1.dwellir.com",
+        "chain_name": "Lisk Sepolia"
+    },
+    {
+        "url": "https://api-lisk-sepolia.dwellir.com",
         "chain_name": "Lisk Sepolia"
     },
     {
