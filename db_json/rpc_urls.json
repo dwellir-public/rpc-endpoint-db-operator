@@ -72,6 +72,10 @@
         "chain_name": "Arbitrum Sepolia"
     },
     {
+        "url": "https://api-arbitrum-sepolia.n.dwellir.com",
+        "chain_name": "Arbitrum Sepolia"
+    },
+    {
         "url": "https://arbitrum-mainnet-archive-rpc-1.dwellir.com",
         "chain_name": "Arbitrum mainnet"
     },
@@ -640,6 +644,10 @@
         "chain_name": "Ethereum Holesky Testnet"
     },
     {
+        "url": "https://api-ethereum-holesky.n.dwellir.com",
+        "chain_name": "Ethereum Holesky Testnet"
+    },
+    {
         "url": "https://rpc.sepolia.org",
         "chain_name": "Ethereum Sepolia testnet"
     },
@@ -997,10 +1005,6 @@
     },
     {
         "url": "https://us.bifrost-rpc.liebi.com/http",
-        "chain_name": "Kusama-pc Bifrost"
-    },
-    {
-        "url": "https://bifrost-parachain.api.onfinality.io/public-http",
         "chain_name": "Kusama-pc Bifrost"
     },
     {
@@ -1385,6 +1389,10 @@
     },
     {
         "url": "https://rpc.api.lisk.com",
+        "chain_name": "Lisk mainnet"
+    },
+    {
+        "url": "https://api-lisk-mainnet.n.dwellir.com",
         "chain_name": "Lisk mainnet"
     },
     {
