@@ -1764,10 +1764,6 @@
         "chain_name": "Polkadot-pc Bifrost"
     },
     {
-        "url": "https://bifrost-polkadot-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Bifrost"
-    },
-    {
         "url": "https://api-bifrost-polkadot.dwellir.com",
         "chain_name": "Polkadot-pc Bifrost"
     },
