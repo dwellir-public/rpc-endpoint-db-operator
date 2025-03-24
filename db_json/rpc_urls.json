@@ -2456,6 +2456,10 @@
         "chain_name": "Ronin mainnet"
     },
     {
+        "url": "https://api-ronin-mainnet.n.dwellir.com",
+        "chain_name": "Ronin mainnet"
+    },
+    {
         "url": "https://api-scroll-mainnet.n.dwellir.com",
         "chain_name": "Scroll mainnet"
     },
