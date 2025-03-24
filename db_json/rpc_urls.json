@@ -1768,10 +1768,6 @@
         "chain_name": "Polkadot-pc Bifrost"
     },
     {
-        "url": "https://bifrost-polkadot.api.onfinality.io/public-http",
-        "chain_name": "Polkadot-pc Bifrost"
-    },
-    {
         "url": "https://api-bifrost-polkadot.dwellir.com",
         "chain_name": "Polkadot-pc Bifrost"
     },
