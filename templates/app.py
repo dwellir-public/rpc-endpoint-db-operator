@@ -439,6 +439,7 @@ VALID_API_CLASSES = [
     "eos",
     "eth-v1-beacon",
     "tron",
+    "movement",
 ]
 
 
