@@ -312,6 +312,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Movement mainnet",
+        "api_class": "movement"
+    },
+    {
         "name": "Optimism Sepolia",
         "api_class": "ethereum"
     },

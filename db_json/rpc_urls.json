@@ -1472,6 +1472,18 @@
         "chain_name": "Moonbase Alpha testnet"
     },
     {
+        "url": "https://api-movement-mainnet-follower.n.dwellir.com/v1",
+        "chain_name": "Movement mainnet"
+    },
+    {
+        "url": "https://movement.blockpi.network/rpc/v1/public/v1",
+        "chain_name": "Movement mainnet"
+    },
+    {
+        "url": "https://mainnet.movementnetwork.xyz/v1",
+        "chain_name": "Movement mainnet"
+    },
+    {
         "url": "https://optimism-sepolia-archive-rpc-1.dwellir.com",
         "chain_name": "Optimism Sepolia"
     },
