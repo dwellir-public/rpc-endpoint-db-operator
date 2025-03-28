@@ -216,26 +216,6 @@
         "chain_name": "Base mainnet"
     },
     {
-        "url": "https://bartio.rpc.berachain.com",
-        "chain_name": "Berachain bArtio"
-    },
-    {
-        "url": "https://bera-testnet.nodeinfra.com",
-        "chain_name": "Berachain bArtio"
-    },
-    {
-        "url": "https://bartio.rpc.b-harvest.io",
-        "chain_name": "Berachain bArtio"
-    },
-    {
-        "url": "https://api-berachain-bartio-archive.dwellir.com",
-        "chain_name": "Berachain bArtio"
-    },
-    {
-        "url": "https://api-berachain-bartio-archive.n.dwellir.com",
-        "chain_name": "Berachain bArtio"
-    },
-    {
         "url": "https://api-berachain-mainnet.n.dwellir.com",
         "chain_name": "Berachain mainnet"
     },
@@ -676,6 +656,10 @@
         "chain_name": "Ethereum Sepolia testnet"
     },
     {
+        "url": "https://api-ethereum-sepolia.n.dwellir.com",
+        "chain_name": "Ethereum Sepolia testnet"
+    },
+    {
         "url": "https://cloudflare-eth.com",
         "chain_name": "Ethereum mainnet"
     },
@@ -845,6 +829,10 @@
     },
     {
         "url": "https://api-gnosis-archive.dwellir.com",
+        "chain_name": "Gnosis"
+    },
+    {
+        "url": "https://api-gnosis-mainnet.n.dwellir.com",
         "chain_name": "Gnosis"
     },
     {
@@ -1497,6 +1485,10 @@
     },
     {
         "url": "https://api-optimism-sepolia-archive.dwellir.com",
+        "chain_name": "Optimism Sepolia"
+    },
+    {
+        "url": "https://api-optimism-sepolia.n.dwellir.com",
         "chain_name": "Optimism Sepolia"
     },
     {
@@ -2536,6 +2528,10 @@
         "chain_name": "Sora Mainnet"
     },
     {
+        "url": "https://api-starknet-mainnet.n.dwellir.com",
+        "chain_name": "Starknet Mainnet"
+    },
+    {
         "url": "https://starknet-sepolia.public.blastapi.io",
         "chain_name": "Starknet Sepolia"
     },
@@ -2549,6 +2545,10 @@
     },
     {
         "url": "https://braavos-starknet-sepolia-rpc.n.dwellir.com",
+        "chain_name": "Starknet Sepolia"
+    },
+    {
+        "url": "https://api-starknet-sepolia.n.dwellir.com",
         "chain_name": "Starknet Sepolia"
     },
     {

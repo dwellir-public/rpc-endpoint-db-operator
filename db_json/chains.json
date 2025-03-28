@@ -44,10 +44,6 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Berachain bArtio",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Berachain mainnet",
         "api_class": "ethereum"
     },
