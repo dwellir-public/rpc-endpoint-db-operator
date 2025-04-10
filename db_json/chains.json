@@ -24,10 +24,6 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Astar zkEVM mainnet",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Avalanche mainnet",
         "api_class": "ethereum"
     },
@@ -276,10 +272,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Linea Sepolia",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Linea mainnet",
         "api_class": "ethereum"
     },
@@ -493,6 +485,10 @@
     },
     {
         "name": "Polkadot-pc Polkadot Offchain Indexing",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Robonomics",
         "api_class": "substrate"
     },
     {

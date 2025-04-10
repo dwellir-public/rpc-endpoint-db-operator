@@ -104,22 +104,6 @@
         "chain_name": "Arbitrum mainnet"
     },
     {
-        "url": "https://rpc.startale.com/astar-zkevm",
-        "chain_name": "Astar zkEVM mainnet"
-    },
-    {
-        "url": "https://api-astar-zkevm-mainnet.dwellir.com",
-        "chain_name": "Astar zkEVM mainnet"
-    },
-    {
-        "url": "https://rpc.astar-zkevm.gelato.digital",
-        "chain_name": "Astar zkEVM mainnet"
-    },
-    {
-        "url": "https://astar-zkevm-rpc.dwellir.com",
-        "chain_name": "Astar zkEVM mainnet"
-    },
-    {
         "url": "https://api.avax.network/ext/bc/C/rpc",
         "chain_name": "Avalanche mainnet"
     },
@@ -308,14 +292,6 @@
         "chain_name": "Blast Sepolia"
     },
     {
-        "url": "https://blast-sepolia-archive-rpc-1.dwellir.com",
-        "chain_name": "Blast Sepolia"
-    },
-    {
-        "url": "https://blast-sepolia-archive-rpc-2.dwellir.com",
-        "chain_name": "Blast Sepolia"
-    },
-    {
         "url": "https://sepolia.blast.io",
         "chain_name": "Blast Sepolia"
     },
@@ -326,14 +302,6 @@
     {
         "url": "https://endpoints.omniatech.io/v1/blast/sepolia/public",
         "chain_name": "Blast Sepolia"
-    },
-    {
-        "url": "https://blast-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Blast mainnet"
-    },
-    {
-        "url": "https://blast-mainnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Blast mainnet"
     },
     {
         "url": "https://api-blast-mainnet-archive.dwellir.com",
@@ -473,14 +441,6 @@
     },
     {
         "url": "https://evm.cronos.org",
-        "chain_name": "Cronos mainnet"
-    },
-    {
-        "url": "https://cronos-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Cronos mainnet"
-    },
-    {
-        "url": "https://cronos-mainnet-archive-rpc-2.dwellir.com",
         "chain_name": "Cronos mainnet"
     },
     {
@@ -644,14 +604,6 @@
         "chain_name": "Ethereum Sepolia testnet"
     },
     {
-        "url": "https://eth-sepolia-archive-rpc-1.dwellir.com",
-        "chain_name": "Ethereum Sepolia testnet"
-    },
-    {
-        "url": "https://eth-sepolia-archive-rpc-2.dwellir.com",
-        "chain_name": "Ethereum Sepolia testnet"
-    },
-    {
         "url": "https://api-eth-sepolia-archive.dwellir.com",
         "chain_name": "Ethereum Sepolia testnet"
     },
@@ -673,14 +625,6 @@
     },
     {
         "url": "https://eth-mainnet-full-rpc-2.dwellir.com",
-        "chain_name": "Ethereum mainnet"
-    },
-    {
-        "url": "https://eth-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Ethereum mainnet"
-    },
-    {
-        "url": "https://eth-mainnet-archive-rpc-2.dwellir.com",
         "chain_name": "Ethereum mainnet"
     },
     {
@@ -780,24 +724,8 @@
         "chain_name": "Flow EVM Gateway mainnet"
     },
     {
-        "url": "https://flow-evm-gateway-mainnet-rpc-2.dwellir.com",
-        "chain_name": "Flow EVM Gateway mainnet"
-    },
-    {
-        "url": "https://flow-evm-gateway-mainnet-rpc-1.dwellir.com",
-        "chain_name": "Flow EVM Gateway mainnet"
-    },
-    {
         "url": "https://api-flow-evm-gateway-mainnet.n.dwellir.com",
         "chain_name": "Flow EVM Gateway mainnet"
-    },
-    {
-        "url": "https://flow-evm-gateway-testnet-rpc-1.dwellir.com",
-        "chain_name": "Flow EVM Gateway testnet"
-    },
-    {
-        "url": "https://flow-evm-gateway-testnet-rpc-2.dwellir.com",
-        "chain_name": "Flow EVM Gateway testnet"
     },
     {
         "url": "https://testnet.evm.nodes.onflow.org",
@@ -942,10 +870,6 @@
     {
         "url": "https://api-amplitude.dwellir.com",
         "chain_name": "Kusama-pc Amplitude"
-    },
-    {
-        "url": "https://statemine-rpc.dwellir.com",
-        "chain_name": "Kusama-pc AssetHub (Statemine)"
     },
     {
         "url": "https://statemine-rpc-tn.dwellir.com",
@@ -1136,10 +1060,6 @@
         "chain_name": "Kusama-pc Moonriver"
     },
     {
-        "url": "https://moonriver-mainnet.gateway.pokt.network/v1/lb/62a74fdb123e6f003963642f",
-        "chain_name": "Kusama-pc Moonriver"
-    },
-    {
         "url": "https://moonriver.public.blastapi.io",
         "chain_name": "Kusama-pc Moonriver"
     },
@@ -1284,30 +1204,6 @@
         "chain_name": "Liberland mainnet"
     },
     {
-        "url": "https://linea-sepolia-archive-rpc-2.dwellir.com",
-        "chain_name": "Linea Sepolia"
-    },
-    {
-        "url": "https://linea-sepolia-archive-rpc-1.dwellir.com",
-        "chain_name": "Linea Sepolia"
-    },
-    {
-        "url": "https://rpc.sepolia.linea.build",
-        "chain_name": "Linea Sepolia"
-    },
-    {
-        "url": "https://linea-sepolia-besu-archive-rpc-2.dwellir.com",
-        "chain_name": "Linea Sepolia"
-    },
-    {
-        "url": "https://linea-sepolia-besu-archive-rpc-1.dwellir.com",
-        "chain_name": "Linea Sepolia"
-    },
-    {
-        "url": "https://api-linea-sepolia-archive.n.dwellir.com",
-        "chain_name": "Linea Sepolia"
-    },
-    {
         "url": "https://linea-mainnet.public.blastapi.io",
         "chain_name": "Linea mainnet"
     },
@@ -1353,14 +1249,6 @@
     },
     {
         "url": "https://rpc.sepolia-api.lisk.com",
-        "chain_name": "Lisk Sepolia"
-    },
-    {
-        "url": "https://lisk-sepolia-archive-rpc-2.dwellir.com",
-        "chain_name": "Lisk Sepolia"
-    },
-    {
-        "url": "https://lisk-sepolia-archive-rpc-1.dwellir.com",
         "chain_name": "Lisk Sepolia"
     },
     {
@@ -1448,15 +1336,11 @@
         "chain_name": "Moonbase Alpha testnet"
     },
     {
-        "url": "https://moonbase-rpc-1.dwellir.com",
-        "chain_name": "Moonbase Alpha testnet"
-    },
-    {
-        "url": "https://moonbase-rpc-2.dwellir.com",
-        "chain_name": "Moonbase Alpha testnet"
-    },
-    {
         "url": "https://api-moonbase-alpha.n.dwellir.com",
+        "chain_name": "Moonbase Alpha testnet"
+    },
+    {
+        "url": "https://moonbase-rpc.n.dwellir.com",
         "chain_name": "Moonbase Alpha testnet"
     },
     {
@@ -1490,14 +1374,6 @@
     {
         "url": "https://api-optimism-sepolia.n.dwellir.com",
         "chain_name": "Optimism Sepolia"
-    },
-    {
-        "url": "https://optimism-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Optimism mainnet"
-    },
-    {
-        "url": "https://optimism-mainnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Optimism mainnet"
     },
     {
         "url": "https://optimism.publicnode.com",
@@ -1700,8 +1576,8 @@
         "chain_name": "Polkadot-pc Ajuna"
     },
     {
-        "url": "https://statemint-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc AssetHub (Statemint)"
+        "url": "https://api-ajuna-polkadot.n.dwellir.com",
+        "chain_name": "Polkadot-pc Ajuna"
     },
     {
         "url": "https://statemint-rpc-tn.dwellir.com",
@@ -1996,10 +1872,6 @@
         "chain_name": "Polkadot-pc Interlay"
     },
     {
-        "url": "https://invarch-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc InvArch"
-    },
-    {
         "url": "https://api-invarch.dwellir.com",
         "chain_name": "Polkadot-pc InvArch"
     },
@@ -2057,6 +1929,10 @@
     },
     {
         "url": "https://api-litentry.dwellir.com",
+        "chain_name": "Polkadot-pc Litentry"
+    },
+    {
+        "url": "https://heima-rpc.n.dwellir.com",
         "chain_name": "Polkadot-pc Litentry"
     },
     {
@@ -2240,6 +2116,14 @@
         "chain_name": "Polkadot-pc Polkadex"
     },
     {
+        "url": "https://api-robonomics-polkadot.n.dwellir.com",
+        "chain_name": "Polkadot-pc Robonomics"
+    },
+    {
+        "url": "https://polkadot.rpc.robonomics.network",
+        "chain_name": "Polkadot-pc Robonomics"
+    },
+    {
         "url": "https://subsocial-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Subsocial"
     },
@@ -2302,14 +2186,6 @@
     {
         "url": "https://peaq.api.onfinality.io/public-ws",
         "chain_name": "Polkadot-pc peaq"
-    },
-    {
-        "url": "https://polygon-amoy-archive-rpc-1.dwellir.com",
-        "chain_name": "Polygon Amoy"
-    },
-    {
-        "url": "https://polygon-amoy-archive-rpc-2.dwellir.com",
-        "chain_name": "Polygon Amoy"
     },
     {
         "url": "https://polygon-amoy.drpc.org",
@@ -2414,14 +2290,6 @@
     {
         "url": "https://api-pulsechain-testnet-v4.dwellir.com",
         "chain_name": "PulseChain testnet"
-    },
-    {
-        "url": "https://ronin-saigon-testnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Ronin Saigon testnet"
-    },
-    {
-        "url": "https://ronin-saigon-testnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Ronin Saigon testnet"
     },
     {
         "url": "https://api-ronin-saigon-testnet.dwellir.com",
@@ -2750,10 +2618,6 @@
     {
         "url": "https://api-westend.n.dwellir.com",
         "chain_name": "Westend Relaychain"
-    },
-    {
-        "url": "https://westmint-rpc.dwellir.com",
-        "chain_name": "Westend-pc AssetHub (Westmint)"
     },
     {
         "url": "https://westmint-rpc-tn.dwellir.com",
