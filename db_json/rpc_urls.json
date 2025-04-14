@@ -1,9 +1,5 @@
 [
     {
-        "url": "https://aleph-zero-rpc.dwellir.com",
-        "chain_name": "Aleph Zero"
-    },
-    {
         "url": "https://ws.azero.dev",
         "chain_name": "Aleph Zero"
     },
@@ -34,10 +30,6 @@
     {
         "url": "https://api-aleph-zero-evm-testnet.n.dwellir.com",
         "chain_name": "Aleph Zero EVM Testnet"
-    },
-    {
-        "url": "https://aleph-zero-testnet-rpc.dwellir.com",
-        "chain_name": "Aleph Zero Testnet"
     },
     {
         "url": "https://ws.test.azero.dev",
@@ -324,15 +316,15 @@
         "chain_name": "Blast mainnet"
     },
     {
-        "url": "https://api-celestia-mainnet-full.n.dwellir.com/cosmos/base/tendermint/v1beta1/blocks/latest",
-        "chain_name": "Celestia mainnet"
-    },
-    {
         "url": "https://api.lunaroasis.net/cosmos/base/tendermint/v1beta1/blocks/latest",
         "chain_name": "Celestia mainnet"
     },
     {
         "url": "https://public-celestia-lcd.numia.xyz/cosmos/base/tendermint/v1beta1/blocks/latest",
+        "chain_name": "Celestia mainnet"
+    },
+    {
+        "url": "https://api-celestia-mainnet-full.n.dwellir.com/status",
         "chain_name": "Celestia mainnet"
     },
     {
@@ -2412,10 +2404,6 @@
         "chain_name": "Starknet Sepolia"
     },
     {
-        "url": "https://braavos-starknet-sepolia-rpc.n.dwellir.com",
-        "chain_name": "Starknet Sepolia"
-    },
-    {
         "url": "https://api-starknet-sepolia.n.dwellir.com",
         "chain_name": "Starknet Sepolia"
     },
@@ -2433,10 +2421,6 @@
     },
     {
         "url": "https://api-starknet-mainnet.dwellir.com",
-        "chain_name": "Starknet mainnet"
-    },
-    {
-        "url": "https://braavos-starknet-mainnet-rpc.n.dwellir.com",
         "chain_name": "Starknet mainnet"
     },
     {
