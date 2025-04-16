@@ -1,9 +1,5 @@
 [
     {
-        "name": "Aleph Zero",
-        "api_class": "substrate"
-    },
-    {
         "name": "Aleph Zero EVM Mainnet",
         "api_class": "ethereum"
     },
@@ -12,8 +8,8 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Aleph Zero Testnet",
-        "api_class": "substrate"
+        "name": "Aptos mainnet",
+        "api_class": "movement"
     },
     {
         "name": "Arbitrum Sepolia",
@@ -78,10 +74,6 @@
     {
         "name": "Celo Mainnet",
         "api_class": "ethereum"
-    },
-    {
-        "name": "Chainflip",
-        "api_class": "substrate"
     },
     {
         "name": "Chiado",
@@ -196,10 +188,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Kusama-pc Amplitude",
-        "api_class": "substrate"
-    },
-    {
         "name": "Kusama-pc AssetHub (Statemine)",
         "api_class": "substrate"
     },
@@ -233,10 +221,6 @@
     },
     {
         "name": "Kusama-pc Kintsugi BTC",
-        "api_class": "substrate"
-    },
-    {
-        "name": "Kusama-pc Krest",
         "api_class": "substrate"
     },
     {
@@ -432,10 +416,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Polkadot-pc Laos",
-        "api_class": "substrate"
-    },
-    {
         "name": "Polkadot-pc Litentry",
         "api_class": "substrate"
     },
@@ -449,10 +429,6 @@
     },
     {
         "name": "Polkadot-pc Mythos",
-        "api_class": "substrate"
-    },
-    {
-        "name": "Polkadot-pc NeuroWeb (OriginTrail)",
         "api_class": "substrate"
     },
     {

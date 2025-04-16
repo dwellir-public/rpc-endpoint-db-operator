@@ -1,13 +1,5 @@
 [
     {
-        "url": "https://ws.azero.dev",
-        "chain_name": "Aleph Zero"
-    },
-    {
-        "url": "https://api-aleph-zero-mainnet.dwellir.com",
-        "chain_name": "Aleph Zero"
-    },
-    {
         "url": "https://api-aleph-zero-evm-mainnet.dwellir.com",
         "chain_name": "Aleph Zero EVM Mainnet"
     },
@@ -32,12 +24,20 @@
         "chain_name": "Aleph Zero EVM Testnet"
     },
     {
-        "url": "https://ws.test.azero.dev",
-        "chain_name": "Aleph Zero Testnet"
+        "url": "https://fullnode.mainnet.aptoslabs.com/v1",
+        "chain_name": "Aptos mainnet"
     },
     {
-        "url": "https://api-aleph-zero-testnet.dwellir.com",
-        "chain_name": "Aleph Zero Testnet"
+        "url": "https://api-aptos-mainnet.n.dwellir.com/v1",
+        "chain_name": "Aptos mainnet"
+    },
+    {
+        "url": "https://1rpc.io/aptos/v1",
+        "chain_name": "Aptos mainnet"
+    },
+    {
+        "url": "https://aptos-rest.publicnode.com/v1",
+        "chain_name": "Aptos mainnet"
     },
     {
         "url": "https://arbitrum-sepolia-archive-rpc-1.dwellir.com",
@@ -360,18 +360,6 @@
         "chain_name": "Celo Mainnet"
     },
     {
-        "url": "https://api-chainflip.dwellir.com",
-        "chain_name": "Chainflip"
-    },
-    {
-        "url": "https://chainflip-rpc.dwellir.com",
-        "chain_name": "Chainflip"
-    },
-    {
-        "url": "https://mainnet-archive.chainflip.io",
-        "chain_name": "Chainflip"
-    },
-    {
         "url": "https://chiado-archive-rpc-1.dwellir.com",
         "chain_name": "Chiado"
     },
@@ -612,19 +600,7 @@
         "chain_name": "Ethereum mainnet"
     },
     {
-        "url": "https://eth-mainnet-full-rpc-1.dwellir.com",
-        "chain_name": "Ethereum mainnet"
-    },
-    {
-        "url": "https://eth-mainnet-full-rpc-2.dwellir.com",
-        "chain_name": "Ethereum mainnet"
-    },
-    {
         "url": "https://api-eth-mainnet-archive.dwellir.com",
-        "chain_name": "Ethereum mainnet"
-    },
-    {
-        "url": "https://api-eth-mainnet-full.dwellir.com",
         "chain_name": "Ethereum mainnet"
     },
     {
@@ -685,14 +661,6 @@
     },
     {
         "url": "https://fantom-testnet.publicnode.com",
-        "chain_name": "Fantom testnet"
-    },
-    {
-        "url": "https://fantom-testnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Fantom testnet"
-    },
-    {
-        "url": "https://fantom-testnet-archive-rpc-2.dwellir.com",
         "chain_name": "Fantom testnet"
     },
     {
@@ -850,18 +818,6 @@
     {
         "url": "https://public-rpc.canary.acurast.com",
         "chain_name": "Kusama-pc Acurast Canary"
-    },
-    {
-        "url": "https://amplitude-rpc.dwellir.com",
-        "chain_name": "Kusama-pc Amplitude"
-    },
-    {
-        "url": "https://rpc-amplitude.pendulumchain.tech",
-        "chain_name": "Kusama-pc Amplitude"
-    },
-    {
-        "url": "https://api-amplitude.dwellir.com",
-        "chain_name": "Kusama-pc Amplitude"
     },
     {
         "url": "https://statemine-rpc-tn.dwellir.com",
@@ -1024,26 +980,6 @@
         "chain_name": "Kusama-pc Kintsugi BTC"
     },
     {
-        "url": "https://krest-rpc.dwellir.com",
-        "chain_name": "Kusama-pc Krest"
-    },
-    {
-        "url": "https://api-krest.dwellir.com",
-        "chain_name": "Kusama-pc Krest"
-    },
-    {
-        "url": "https://krest.unitedbloc.com",
-        "chain_name": "Kusama-pc Krest"
-    },
-    {
-        "url": "https://krest.api.onfinality.io/public-ws",
-        "chain_name": "Kusama-pc Krest"
-    },
-    {
-        "url": "https://wss-krest.peaq.network",
-        "chain_name": "Kusama-pc Krest"
-    },
-    {
         "url": "https://moonriver-rpc.dwellir.com",
         "chain_name": "Kusama-pc Moonriver"
     },
@@ -1057,14 +993,6 @@
     },
     {
         "url": "https://moonriver.unitedbloc.com",
-        "chain_name": "Kusama-pc Moonriver"
-    },
-    {
-        "url": "https://moonriver-rpc-1.dwellir.com",
-        "chain_name": "Kusama-pc Moonriver"
-    },
-    {
-        "url": "https://moonriver-rpc-2.dwellir.com",
         "chain_name": "Kusama-pc Moonriver"
     },
     {
@@ -1900,18 +1828,6 @@
         "chain_name": "Polkadot-pc Kilt Spiritnet"
     },
     {
-        "url": "https://laos-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Laos"
-    },
-    {
-        "url": "https://rpc.laos.laosfoundation.io",
-        "chain_name": "Polkadot-pc Laos"
-    },
-    {
-        "url": "https://laos-rpc.n.dwellir.com",
-        "chain_name": "Polkadot-pc Laos"
-    },
-    {
         "url": "https://litentry-rpc.dwellir.com",
         "chain_name": "Polkadot-pc Litentry"
     },
@@ -1990,22 +1906,6 @@
     {
         "url": "https://mythos-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc Mythos"
-    },
-    {
-        "url": "https://parachain-rpc.origin-trail.network",
-        "chain_name": "Polkadot-pc NeuroWeb (OriginTrail)"
-    },
-    {
-        "url": "https://api-neuroweb.dwellir.com",
-        "chain_name": "Polkadot-pc NeuroWeb (OriginTrail)"
-    },
-    {
-        "url": "https://neuroweb-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc NeuroWeb (OriginTrail)"
-    },
-    {
-        "url": "https://api-origintrail.dwellir.com",
-        "chain_name": "Polkadot-pc NeuroWeb (OriginTrail)"
     },
     {
         "url": "https://nodle-rpc.dwellir.com",
