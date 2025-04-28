@@ -1,11 +1,19 @@
 [
     {
+        "name": "Aleph Zero",
+        "api_class": "substrate"
+    },
+    {
         "name": "Aleph Zero EVM Mainnet",
         "api_class": "ethereum"
     },
     {
         "name": "Aleph Zero EVM Testnet",
         "api_class": "ethereum"
+    },
+    {
+        "name": "Aleph Zero Testnet",
+        "api_class": "substrate"
     },
     {
         "name": "Aptos mainnet",
@@ -185,6 +193,10 @@
     },
     {
         "name": "Kusama-pc Acurast Canary",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Kusama-pc Amplitude",
         "api_class": "substrate"
     },
     {
@@ -432,6 +444,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Neuroweb",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Nodle (Eden)",
         "api_class": "substrate"
     },
@@ -456,10 +472,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Polkadot-pc Polkadex",
-        "api_class": "substrate"
-    },
-    {
         "name": "Polkadot-pc Polkadot Offchain Indexing",
         "api_class": "substrate"
     },
@@ -473,6 +485,10 @@
     },
     {
         "name": "Polkadot-pc Unique",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Polkadot-pc Xcavate",
         "api_class": "substrate"
     },
     {
