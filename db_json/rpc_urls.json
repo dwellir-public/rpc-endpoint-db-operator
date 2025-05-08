@@ -1100,14 +1100,6 @@
         "chain_name": "Lisk Sepolia"
     },
     {
-        "url": "https://lisk-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Lisk mainnet"
-    },
-    {
-        "url": "https://lisk-mainnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Lisk mainnet"
-    },
-    {
         "url": "https://rpc.api.lisk.com",
         "chain_name": "Lisk mainnet"
     },
@@ -1385,6 +1377,10 @@
     },
     {
         "url": "https://acala-rpc-ng.dwellir.com",
+        "chain_name": "Polkadot-pc Acala"
+    },
+    {
+        "url": "https://api-acala.n.dwellir.com",
         "chain_name": "Polkadot-pc Acala"
     },
     {
@@ -1912,10 +1908,6 @@
         "chain_name": "Polkadot-pc Unique"
     },
     {
-        "url": "https://unique-rpc.n.dwellir.com",
-        "chain_name": "Polkadot-pc Unique"
-    },
-    {
         "url": "https://xcavate-polkadot-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc Xcavate"
     },
@@ -2004,6 +1996,10 @@
         "chain_name": "Polygon zkEVM mainnet"
     },
     {
+        "url": "https://api-polygon-zkevm-mainnet.n.dwellir.com",
+        "chain_name": "Polygon zkEVM mainnet"
+    },
+    {
         "url": "https://2442.rpc.thirdweb.com",
         "chain_name": "Polygon zkEVM sepolia"
     },
@@ -2054,14 +2050,6 @@
     {
         "url": "https://api-ronin-saigon-testnet.n.dwellir.com",
         "chain_name": "Ronin Saigon testnet"
-    },
-    {
-        "url": "https://ronin-mainnet-archive-rpc-1.dwellir.com",
-        "chain_name": "Ronin mainnet"
-    },
-    {
-        "url": "https://ronin-mainnet-archive-rpc-2.dwellir.com",
-        "chain_name": "Ronin mainnet"
     },
     {
         "url": "https://api-ronin-mainnet.dwellir.com",
