@@ -56,6 +56,10 @@
         "chain_name": "Aptos mainnet"
     },
     {
+        "url": "https://api-aptos-mainnet.n.dwellir.com/v1",
+        "chain_name": "Aptos mainnet"
+    },
+    {
         "url": "https://arbitrum-sepolia-archive-rpc-1.dwellir.com",
         "chain_name": "Arbitrum Sepolia"
     },
@@ -753,6 +757,10 @@
     },
     {
         "url": "https://public-rpc.canary.acurast.com",
+        "chain_name": "Kusama-pc Acurast Canary"
+    },
+    {
+        "url": "https://api-acurast-canary.n.dwellir.com",
         "chain_name": "Kusama-pc Acurast Canary"
     },
     {
