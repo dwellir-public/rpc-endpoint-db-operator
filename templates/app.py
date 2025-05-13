@@ -434,6 +434,7 @@ VALID_API_CLASSES = [
     "sui",
     "waves",
     "ton",
+    "tonv3",
     "sidecar",
     "cosmos-tendermint",
     "eos",
