@@ -44,6 +44,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "Berachain Bepolia",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Berachain mainnet",
         "api_class": "ethereum"
     },
@@ -64,20 +68,16 @@
         "api_class": "substrate"
     },
     {
-        "name": "Blast Sepolia",
+        "name": "Blast mainnet",
         "api_class": "ethereum"
     },
     {
-        "name": "Blast mainnet",
+        "name": "Boba mainnet",
         "api_class": "ethereum"
     },
     {
         "name": "Celestia mainnet",
         "api_class": "cosmos-tendermint"
-    },
-    {
-        "name": "Celo Alfajores",
-        "api_class": "ethereum"
     },
     {
         "name": "Celo Mainnet",
@@ -560,16 +560,20 @@
         "api_class": "sui"
     },
     {
-        "name": "Sui testnet",
-        "api_class": "sui"
-    },
-    {
         "name": "TON mainnet",
         "api_class": "ton"
     },
     {
+        "name": "TON mainnet v3",
+        "api_class": "tonv3"
+    },
+    {
         "name": "TON testnet",
         "api_class": "ton"
+    },
+    {
+        "name": "TON testnet v3",
+        "api_class": "tonv3"
     },
     {
         "name": "TRON mainnet",
