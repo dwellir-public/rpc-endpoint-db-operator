@@ -172,6 +172,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Hyperliquid mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Hyperliquid testnet",
         "api_class": "ethereum"
     },
@@ -321,6 +325,10 @@
     },
     {
         "name": "Paseo-pc Coretime",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Paseo-pc PassetHub",
         "api_class": "substrate"
     },
     {
@@ -630,6 +638,10 @@
     {
         "name": "Westend-pc Westend Offchain Indexing",
         "api_class": "substrate"
+    },
+    {
+        "name": "XDC mainnet",
+        "api_class": "ethereum"
     },
     {
         "name": "Zetachain Mainnet",
