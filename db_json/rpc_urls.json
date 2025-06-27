@@ -944,6 +944,10 @@
         "chain_name": "Kusama-pc Encointer"
     },
     {
+        "url": "https://api-encointer-kusama.n.dwellir.com",
+        "chain_name": "Kusama-pc Encointer"
+    },
+    {
         "url": "https://karura-rpc.dwellir.com",
         "chain_name": "Kusama-pc Karura"
     },
@@ -961,6 +965,10 @@
     },
     {
         "url": "https://karura-rpc.n.dwellir.com",
+        "chain_name": "Kusama-pc Karura"
+    },
+    {
+        "url": "https://api-karura.n.dwellir.com",
         "chain_name": "Kusama-pc Karura"
     },
     {
@@ -1040,6 +1048,10 @@
         "chain_name": "Kusama-pc Picasso"
     },
     {
+        "url": "https://api-picasso.n.dwellir.com",
+        "chain_name": "Kusama-pc Picasso"
+    },
+    {
         "url": "https://eu-ws-quartz.unique.network",
         "chain_name": "Kusama-pc Quartz"
     },
@@ -1116,6 +1128,10 @@
         "chain_name": "Liberland mainnet"
     },
     {
+        "url": "https://api-liberland.n.dwellir.com",
+        "chain_name": "Liberland mainnet"
+    },
+    {
         "url": "https://linea-mainnet.public.blastapi.io",
         "chain_name": "Linea mainnet"
     },
@@ -1149,6 +1165,10 @@
     },
     {
         "url": "https://api-lisk-sepolia.dwellir.com",
+        "chain_name": "Lisk Sepolia"
+    },
+    {
+        "url": "https://api-lisk-sepolia.n.dwellir.com",
         "chain_name": "Lisk Sepolia"
     },
     {
@@ -1393,6 +1413,10 @@
     },
     {
         "url": "https://polkadex.public.curie.radiumblock.co/ws",
+        "chain_name": "Polkadex mainnet"
+    },
+    {
+        "url": "https://api-polkadex-mainnet.n.dwellir.com",
         "chain_name": "Polkadex mainnet"
     },
     {
@@ -1880,6 +1904,10 @@
         "chain_name": "Polkadot-pc Litentry"
     },
     {
+        "url": "https://api-heima.n.dwellir.com",
+        "chain_name": "Polkadot-pc Litentry"
+    },
+    {
         "url": "https://api-manta-atlantic-mainnet.n.dwellir.com",
         "chain_name": "Polkadot-pc Manta Atlantic mainnet"
     },
@@ -1956,12 +1984,8 @@
         "chain_name": "Polkadot-pc Nodle (Eden)"
     },
     {
-        "url": "https://rpc.parallel.fi",
-        "chain_name": "Polkadot-pc Parallel"
-    },
-    {
-        "url": "https://api-parallel.dwellir.com",
-        "chain_name": "Polkadot-pc Parallel"
+        "url": "https://api-nodle.n.dwellir.com",
+        "chain_name": "Polkadot-pc Nodle (Eden)"
     },
     {
         "url": "https://rpc-pendulum.prd.pendulumchain.tech",
@@ -1969,6 +1993,10 @@
     },
     {
         "url": "https://api-pendulum.dwellir.com",
+        "chain_name": "Polkadot-pc Pendulum"
+    },
+    {
+        "url": "https://api-pendulum.n.dwellir.com",
         "chain_name": "Polkadot-pc Pendulum"
     },
     {
@@ -2013,6 +2041,10 @@
     },
     {
         "url": "https://phala-rpc.n.dwellir.com",
+        "chain_name": "Polkadot-pc Phala Network"
+    },
+    {
+        "url": "https://api-phala.n.dwellir.com",
         "chain_name": "Polkadot-pc Phala Network"
     },
     {
@@ -2104,11 +2136,23 @@
         "chain_name": "Polkadot-pc peaq"
     },
     {
+        "url": "https://api-peaq.n.dwellir.com",
+        "chain_name": "Polkadot-pc peaq"
+    },
+    {
         "url": "https://polygon-amoy.drpc.org",
         "chain_name": "Polygon Amoy"
     },
     {
         "url": "https://api-polygon-amoy.n.dwellir.com",
+        "chain_name": "Polygon Amoy"
+    },
+    {
+        "url": "https://rpc-amoy.polygon.technology",
+        "chain_name": "Polygon Amoy"
+    },
+    {
+        "url": "https://polygon-amoy-bor-rpc.publicnode.com",
         "chain_name": "Polygon Amoy"
     },
     {
@@ -2165,6 +2209,10 @@
     },
     {
         "url": "https://rpc.cardona.zkevm-rpc.com",
+        "chain_name": "Polygon zkEVM sepolia"
+    },
+    {
+        "url": "https://api-polygon-zkevm-sepolia.n.dwellir.com",
         "chain_name": "Polygon zkEVM sepolia"
     },
     {

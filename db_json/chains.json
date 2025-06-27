@@ -460,10 +460,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Polkadot-pc Parallel",
-        "api_class": "substrate"
-    },
-    {
         "name": "Polkadot-pc Pendulum",
         "api_class": "substrate"
     },
