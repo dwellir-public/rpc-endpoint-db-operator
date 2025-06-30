@@ -532,10 +532,6 @@
         "chain_name": "Ethereum Sepolia testnet"
     },
     {
-        "url": "https://rpc-sepolia.rockx.com",
-        "chain_name": "Ethereum Sepolia testnet"
-    },
-    {
         "url": "https://gateway.tenderly.co/public/sepolia",
         "chain_name": "Ethereum Sepolia testnet"
     },
@@ -545,6 +541,14 @@
     },
     {
         "url": "https://api-ethereum-sepolia.n.dwellir.com",
+        "chain_name": "Ethereum Sepolia testnet"
+    },
+    {
+        "url": "https://ethereum-sepolia-rpc.publicnode.com",
+        "chain_name": "Ethereum Sepolia testnet"
+    },
+    {
+        "url": "https://sepolia.drpc.org",
         "chain_name": "Ethereum Sepolia testnet"
     },
     {
@@ -1076,6 +1080,10 @@
         "chain_name": "Kusama-pc Robonomics"
     },
     {
+        "url": "https://api-robonomics.n.dwellir.com",
+        "chain_name": "Kusama-pc Robonomics"
+    },
+    {
         "url": "https://shiden-rpc.dwellir.com",
         "chain_name": "Kusama-pc Shiden"
     },
@@ -1109,6 +1117,10 @@
     },
     {
         "url": "https://api-turing.dwellir.com",
+        "chain_name": "Kusama-pc Turing Network"
+    },
+    {
+        "url": "https://api-turing.n.dwellir.com",
         "chain_name": "Kusama-pc Turing Network"
     },
     {
@@ -2080,6 +2092,10 @@
         "chain_name": "Polkadot-pc Subsocial"
     },
     {
+        "url": "https://api-subsocial.n.dwellir.com",
+        "chain_name": "Polkadot-pc Subsocial"
+    },
+    {
         "url": "https://asia-ws.unique.network",
         "chain_name": "Polkadot-pc Unique"
     },
@@ -2117,6 +2133,10 @@
     },
     {
         "url": "https://main.rpc.zeitgeist.pm/ws",
+        "chain_name": "Polkadot-pc Zeitgeist"
+    },
+    {
+        "url": "https://api-zeitgeist.n.dwellir.com",
         "chain_name": "Polkadot-pc Zeitgeist"
     },
     {
@@ -2233,6 +2253,10 @@
     },
     {
         "url": "https://api-pulsechain-testnet-v4.dwellir.com",
+        "chain_name": "PulseChain testnet"
+    },
+    {
+        "url": "https://api-pulsechain-testnet-v4.n.dwellir.com",
         "chain_name": "PulseChain testnet"
     },
     {
@@ -2465,6 +2489,10 @@
     },
     {
         "url": "https://tangle-mainnet-rpc.n.dwellir.com",
+        "chain_name": "Tangle Mainnet"
+    },
+    {
+        "url": "https://api-tangle-mainnet.n.dwellir.com",
         "chain_name": "Tangle Mainnet"
     },
     {
@@ -2728,6 +2756,10 @@
         "chain_name": "Zetachain Mainnet"
     },
     {
+        "url": "https://api-zetachain-mainnet.n.dwellir.com",
+        "chain_name": "Zetachain Mainnet"
+    },
+    {
         "url": "https://api-zora-mainnet-archive.dwellir.com",
         "chain_name": "Zora Mainnet"
     },
@@ -2797,6 +2829,10 @@
     },
     {
         "url": "https://xxnetwork-rpc.n.dwellir.com",
+        "chain_name": "xx network"
+    },
+    {
+        "url": "https://api-xxnetwork.n.dwellir.com",
         "chain_name": "xx network"
     },
     {
