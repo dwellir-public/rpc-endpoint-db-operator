@@ -1604,6 +1604,14 @@
         "chain_name": "Polkadot-pc Astar"
     },
     {
+        "url": "https://public-rpc.mainnet.aventus.io",
+        "chain_name": "Polkadot-pc Aventus"
+    },
+    {
+        "url": "https://api-aventus.n.dwellir.com",
+        "chain_name": "Polkadot-pc Aventus"
+    },
+    {
         "url": "https://hk.p.bifrost-rpc.liebi.com/http",
         "chain_name": "Polkadot-pc Bifrost"
     },

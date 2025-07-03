@@ -368,6 +368,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Polkadot-pc Aventus",
+        "api_class": "substrate"
+    },
+    {
         "name": "Polkadot-pc Bifrost",
         "api_class": "substrate"
     },
