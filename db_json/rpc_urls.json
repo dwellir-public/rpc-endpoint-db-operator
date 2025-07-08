@@ -608,26 +608,6 @@
         "chain_name": "Fantom testnet"
     },
     {
-        "url": "https://api-filecoin-mainnet.dwellir.com/rpc/v1",
-        "chain_name": "Filecoin mainnet"
-    },
-    {
-        "url": "https://rpc.ankr.com/filecoin",
-        "chain_name": "Filecoin mainnet"
-    },
-    {
-        "url": "https://api.node.glif.io",
-        "chain_name": "Filecoin mainnet"
-    },
-    {
-        "url": "https://filecoin.chainup.net/rpc/v1",
-        "chain_name": "Filecoin mainnet"
-    },
-    {
-        "url": "https://api-filecoin-mainnet.n.dwellir.com/rpc/v1",
-        "chain_name": "Filecoin mainnet"
-    },
-    {
         "url": "https://mainnet.evm.nodes.onflow.org",
         "chain_name": "Flow EVM Gateway mainnet"
     },
@@ -1228,11 +1208,19 @@
         "chain_name": "Mantle mainnet"
     },
     {
+        "url": "https://api-mantle-mainnet.n.dwellir.com",
+        "chain_name": "Mantle mainnet"
+    },
+    {
         "url": "https://rpc.sepolia.mantle.xyz",
         "chain_name": "Mantle sepolia"
     },
     {
         "url": "https://api-mantle-sepolia-archive.dwellir.com",
+        "chain_name": "Mantle sepolia"
+    },
+    {
+        "url": "https://api-mantle-sepolia.n.dwellir.com",
         "chain_name": "Mantle sepolia"
     },
     {
@@ -2821,6 +2809,10 @@
     },
     {
         "url": "https://api-opbnb-testnet-archive.dwellir.com",
+        "chain_name": "opBNB testnet"
+    },
+    {
+        "url": "https://api-opbnb-testnet.n.dwellir.com",
         "chain_name": "opBNB testnet"
     },
     {
