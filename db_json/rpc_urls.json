@@ -688,18 +688,6 @@
         "chain_name": "Immutable zkEVM mainnet"
     },
     {
-        "url": "https://rpc.joyutils.org",
-        "chain_name": "Joystream Mainnet"
-    },
-    {
-        "url": "https://rpc.joystream.org",
-        "chain_name": "Joystream Mainnet"
-    },
-    {
-        "url": "https://api-joystream.n.dwellir.com",
-        "chain_name": "Joystream Mainnet"
-    },
-    {
         "url": "https://kusama-rpc.dwellir.com",
         "chain_name": "Kusama Relaychain"
     },

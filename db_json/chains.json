@@ -180,10 +180,6 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Joystream Mainnet",
-        "api_class": "substrate"
-    },
-    {
         "name": "Kusama Relaychain",
         "api_class": "substrate"
     },
