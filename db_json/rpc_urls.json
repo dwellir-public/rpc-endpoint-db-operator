@@ -2636,6 +2636,10 @@
         "chain_name": "Zora mainnet"
     },
     {
+        "url": "https://api-zora-mainnet.n.dwellir.com",
+        "chain_name": "Zora mainnet"
+    },
+    {
         "url": "https://opbnb-rpc.publicnode.com",
         "chain_name": "opBNB mainnet"
     },
