@@ -560,22 +560,6 @@
         "api_class": "sui"
     },
     {
-        "name": "TON mainnet",
-        "api_class": "ton"
-    },
-    {
-        "name": "TON mainnet v3",
-        "api_class": "tonv3"
-    },
-    {
-        "name": "TON testnet",
-        "api_class": "ton"
-    },
-    {
-        "name": "TON testnet v3",
-        "api_class": "tonv3"
-    },
-    {
         "name": "TRON mainnet",
         "api_class": "tron"
     },
