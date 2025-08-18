@@ -668,6 +668,22 @@
         "chain_name": "Immutable zkEVM mainnet"
     },
     {
+        "url": "https://api-iotex-mainnet.n.dwellir.com",
+        "chain_name": "Iotex Mainnet"
+    },
+    {
+        "url": "https://iotex-network.rpc.thirdweb.com/",
+        "chain_name": "Iotex Mainnet"
+    },
+    {
+        "url": "https://iotex.api.onfinality.io/public",
+        "chain_name": "Iotex Mainnet"
+    },
+    {
+        "url": "https://iotex.rpc.grove.city/v1/01fdb492",
+        "chain_name": "Iotex Mainnet"
+    },
+    {
         "url": "https://kusama-rpc.dwellir.com",
         "chain_name": "Kusama Relaychain"
     },
