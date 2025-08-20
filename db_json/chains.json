@@ -224,6 +224,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Kusama-pc ETH AssetHub",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Kusama-pc Encointer",
         "api_class": "substrate"
     },
@@ -322,6 +326,10 @@
     {
         "name": "Paseo-pc Coretime",
         "api_class": "substrate"
+    },
+    {
+        "name": "Paseo-pc ETH PassetHub",
+        "api_class": "ethereum"
     },
     {
         "name": "Paseo-pc PassetHub",

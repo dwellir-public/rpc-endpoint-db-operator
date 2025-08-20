@@ -872,6 +872,18 @@
         "chain_name": "Kusama-pc Darwinia Crab"
     },
     {
+        "url": "https://eth-asset-hub-kusama-rpc-ng.dwellir.com",
+        "chain_name": "Kusama-pc ETH AssetHub"
+    },
+    {
+        "url": "https://eth-asset-hub-kusama.ibp.network",
+        "chain_name": "Kusama-pc ETH AssetHub"
+    },
+    {
+        "url": "https://eth-asset-hub-kusama.dotters.network",
+        "chain_name": "Kusama-pc ETH AssetHub"
+    },
+    {
         "url": "https://encointer-kusama-rpc-ng.dwellir.com",
         "chain_name": "Kusama-pc Encointer"
     },
@@ -1330,6 +1342,18 @@
     {
         "url": "https://coretime-paseo-rpc-ng.dwellir.com",
         "chain_name": "Paseo-pc Coretime"
+    },
+    {
+        "url": "https://eth-passet-hub-paseo-rpc-ng.dwellir.com",
+        "chain_name": "Paseo-pc ETH PassetHub"
+    },
+    {
+        "url": "https://eth-passet-hub-paseo.ibp.network",
+        "chain_name": "Paseo-pc ETH PassetHub"
+    },
+    {
+        "url": "https://eth-passet-hub-paseo.dotters.network",
+        "chain_name": "Paseo-pc ETH PassetHub"
     },
     {
         "url": "https://passet-hub-paseo.ibp.network",
