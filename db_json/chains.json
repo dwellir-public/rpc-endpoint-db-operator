@@ -140,14 +140,6 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Fantom mainnet",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "Fantom testnet",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Flow EVM Gateway mainnet",
         "api_class": "ethereum"
     },
