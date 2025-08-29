@@ -284,18 +284,6 @@
         "chain_name": "Boba mainnet"
     },
     {
-        "url": "https://api.lunaroasis.net/cosmos/base/tendermint/v1beta1/blocks/latest",
-        "chain_name": "Celestia mainnet"
-    },
-    {
-        "url": "https://public-celestia-lcd.numia.xyz/cosmos/base/tendermint/v1beta1/blocks/latest",
-        "chain_name": "Celestia mainnet"
-    },
-    {
-        "url": "https://api-celestia-mainnet-full.n.dwellir.com/status",
-        "chain_name": "Celestia mainnet"
-    },
-    {
         "url": "https://forno.celo.org",
         "chain_name": "Celo Mainnet"
     },
