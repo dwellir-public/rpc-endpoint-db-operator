@@ -616,6 +616,14 @@
         "chain_name": "Hyperliquid mainnet"
     },
     {
+        "url": "https://api-hyperliquid-mainnet-evm.n.dwellir.com",
+        "chain_name": "Hyperliquid mainnet"
+    },
+    {
+        "url": "https://alpha-hyperliquid-mainnet-evm.n.dwellir.com",
+        "chain_name": "Hyperliquid mainnet"
+    },
+    {
         "url": "https://rpc.hyperliquid-testnet.xyz/evm",
         "chain_name": "Hyperliquid testnet"
     },
@@ -804,10 +812,6 @@
         "chain_name": "Kusama-pc Coretime"
     },
     {
-        "url": "https://darwiniacrab-rpc.dwellir.com",
-        "chain_name": "Kusama-pc Darwinia Crab"
-    },
-    {
         "url": "https://crab-rpc.darwiniacommunitydao.xyz",
         "chain_name": "Kusama-pc Darwinia Crab"
     },
@@ -854,10 +858,6 @@
     {
         "url": "https://api-encointer-kusama.n.dwellir.com",
         "chain_name": "Kusama-pc Encointer"
-    },
-    {
-        "url": "https://karura-rpc.dwellir.com",
-        "chain_name": "Kusama-pc Karura"
     },
     {
         "url": "https://karura-rpc-0.aca-api.network",
@@ -970,10 +970,6 @@
     {
         "url": "https://api-robonomics.n.dwellir.com",
         "chain_name": "Kusama-pc Robonomics"
-    },
-    {
-        "url": "https://shiden-rpc.dwellir.com",
-        "chain_name": "Kusama-pc Shiden"
     },
     {
         "url": "https://shiden.public.blastapi.io",
@@ -1352,10 +1348,6 @@
         "chain_name": "Polkadot Relaychain sidecar"
     },
     {
-        "url": "https://acala-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Acala"
-    },
-    {
         "url": "https://acala-polkadot.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Acala"
     },
@@ -1446,10 +1438,6 @@
     {
         "url": "https://polkadot-asset-hub-public-sidecar.parity-chains.parity.io/blocks/head/header",
         "chain_name": "Polkadot-pc AssetHub Sidecar"
-    },
-    {
-        "url": "https://astar-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Astar"
     },
     {
         "url": "https://rpc.astar.network",
@@ -1594,10 +1582,6 @@
     {
         "url": "https://coretime-polkadot-rpc.n.dwellir.com",
         "chain_name": "Polkadot-pc Coretime"
-    },
-    {
-        "url": "https://darwinia-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Darwinia"
     },
     {
         "url": "https://darwinia-rpc.darwiniacommunitydao.xyz",
@@ -1848,10 +1832,6 @@
         "chain_name": "Polkadot-pc People"
     },
     {
-        "url": "https://phala-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Phala Network"
-    },
-    {
         "url": "https://phala.api.onfinality.io/public-http",
         "chain_name": "Polkadot-pc Phala Network"
     },
@@ -2078,10 +2058,6 @@
     {
         "url": "https://scroll-rpc.publicnode.com",
         "chain_name": "Scroll mainnet"
-    },
-    {
-        "url": "https://shibuya-rpc.dwellir.com",
-        "chain_name": "Shibuya"
     },
     {
         "url": "https://rpc.shibuya.astar.network",
