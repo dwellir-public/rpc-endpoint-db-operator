@@ -1560,14 +1560,6 @@
         "chain_name": "Polkadot-pc Collectives"
     },
     {
-        "url": "https://rpc.composable.finance",
-        "chain_name": "Polkadot-pc Composable Finance"
-    },
-    {
-        "url": "https://api-composable.n.dwellir.com",
-        "chain_name": "Polkadot-pc Composable Finance"
-    },
-    {
         "url": "https://coretime-polkadot-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc Coretime"
     },
