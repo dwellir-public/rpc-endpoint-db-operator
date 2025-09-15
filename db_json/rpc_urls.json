@@ -940,14 +940,6 @@
         "chain_name": "Kusama-pc People"
     },
     {
-        "url": "https://rpc.composablenodes.tech",
-        "chain_name": "Kusama-pc Picasso"
-    },
-    {
-        "url": "https://api-picasso.n.dwellir.com",
-        "chain_name": "Kusama-pc Picasso"
-    },
-    {
         "url": "https://eu-ws-quartz.unique.network",
         "chain_name": "Kusama-pc Quartz"
     },
