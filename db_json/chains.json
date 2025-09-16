@@ -472,10 +472,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Polkadot-pc Subsocial",
-        "api_class": "substrate"
-    },
-    {
         "name": "Polkadot-pc Unique",
         "api_class": "substrate"
     },

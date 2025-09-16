@@ -532,10 +532,6 @@
         "chain_name": "Ethereum mainnet"
     },
     {
-        "url": "https://snowfork-eth-mainnet-full-geth.dwellir.com",
-        "chain_name": "Ethereum mainnet"
-    },
-    {
         "url": "https://snowfork-eth-mainnet-full-geth.n.dwellir.com",
         "chain_name": "Ethereum mainnet"
     },
@@ -1368,6 +1364,10 @@
         "chain_name": "Polkadot-pc Acala"
     },
     {
+        "url": "https://paribu-acala.n.dwellir.com",
+        "chain_name": "Polkadot-pc Acala"
+    },
+    {
         "url": "https://ajuna-polkadot-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc Ajuna"
     },
@@ -1854,14 +1854,6 @@
     {
         "url": "https://polkadot.rpc.robonomics.network",
         "chain_name": "Polkadot-pc Robonomics"
-    },
-    {
-        "url": "https://para.f3joule.space",
-        "chain_name": "Polkadot-pc Subsocial"
-    },
-    {
-        "url": "https://api-subsocial.n.dwellir.com",
-        "chain_name": "Polkadot-pc Subsocial"
     },
     {
         "url": "https://asia-ws.unique.network",
