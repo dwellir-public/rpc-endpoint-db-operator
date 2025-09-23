@@ -4,14 +4,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Aleph Zero EVM Mainnet",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "Aleph Zero EVM Testnet",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Aleph Zero Testnet",
         "api_class": "substrate"
     },
@@ -245,10 +237,6 @@
     },
     {
         "name": "Kusama-pc Shiden",
-        "api_class": "substrate"
-    },
-    {
-        "name": "Kusama-pc Turing Network",
         "api_class": "substrate"
     },
     {

@@ -8,34 +8,6 @@
         "chain_name": "Aleph Zero"
     },
     {
-        "url": "https://api-aleph-zero-evm-mainnet.dwellir.com",
-        "chain_name": "Aleph Zero EVM Mainnet"
-    },
-    {
-        "url": "https://rpc.alephzero.raas.gelato.cloud",
-        "chain_name": "Aleph Zero EVM Mainnet"
-    },
-    {
-        "url": "https://alephzero.drpc.org",
-        "chain_name": "Aleph Zero EVM Mainnet"
-    },
-    {
-        "url": "https://api-aleph-zero-evm-mainnet.n.dwellir.com",
-        "chain_name": "Aleph Zero EVM Mainnet"
-    },
-    {
-        "url": "https://rpc.alephzero-testnet.gelato.digital",
-        "chain_name": "Aleph Zero EVM Testnet"
-    },
-    {
-        "url": "https://alephzero-sepolia.drpc.org",
-        "chain_name": "Aleph Zero EVM Testnet"
-    },
-    {
-        "url": "https://api-aleph-zero-evm-testnet.n.dwellir.com",
-        "chain_name": "Aleph Zero EVM Testnet"
-    },
-    {
         "url": "https://api-aleph-zero-testnet.n.dwellir.com",
         "chain_name": "Aleph Zero Testnet"
     },
@@ -978,14 +950,6 @@
     {
         "url": "https://shiden-rpc.n.dwellir.com",
         "chain_name": "Kusama-pc Shiden"
-    },
-    {
-        "url": "https://rpc.turing.oak.tech",
-        "chain_name": "Kusama-pc Turing Network"
-    },
-    {
-        "url": "https://api-turing.n.dwellir.com",
-        "chain_name": "Kusama-pc Turing Network"
     },
     {
         "url": "https://liberland-rpc.dwellir.com",
