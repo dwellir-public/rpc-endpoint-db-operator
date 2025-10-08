@@ -704,7 +704,7 @@
         "chain_name": "Kusama-pc AssetHub (Statemine)"
     },
     {
-        "url": "https://api-asset-hub-kusama-sidecar.n.dwellir.com",
+        "url": "https://api-asset-hub-kusama-sidecar.n.dwellir.com/blocks/head/header",
         "chain_name": "Kusama-pc AssetHub Sidecar"
     },
     {
