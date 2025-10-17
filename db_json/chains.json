@@ -140,10 +140,6 @@
         "api_class": "ethereum"
     },
     {
-        "name": "Gravity Alpha mainnet",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Humanode Mainnet",
         "api_class": "substrate"
     },
@@ -289,6 +285,10 @@
     },
     {
         "name": "Paseo Relaychain",
+        "api_class": "substrate"
+    },
+    {
+        "name": "Paseo-Pc Collectives",
         "api_class": "substrate"
     },
     {

@@ -556,18 +556,6 @@
         "chain_name": "Gnosis"
     },
     {
-        "url": "https://rpc.ankr.com/gravity",
-        "chain_name": "Gravity Alpha mainnet"
-    },
-    {
-        "url": "https://rpc.gravity.xyz",
-        "chain_name": "Gravity Alpha mainnet"
-    },
-    {
-        "url": "https://api-gravity-alpha-mainnet.n.dwellir.com",
-        "chain_name": "Gravity Alpha mainnet"
-    },
-    {
         "url": "https://explorer-rpc-http.mainnet.stages.humanode.io",
         "chain_name": "Humanode Mainnet"
     },
@@ -1162,6 +1150,14 @@
     {
         "url": "https://paseo-rpc.n.dwellir.com",
         "chain_name": "Paseo Relaychain"
+    },
+    {
+        "url": "https://collectives-paseo-rpc-ng.dwellir.com",
+        "chain_name": "Paseo-Pc Collectives"
+    },
+    {
+        "url": "https://collectives-paseo.ibp.network/",
+        "chain_name": "Paseo-Pc Collectives"
     },
     {
         "url": "https://pas-rpc.stakeworld.io/assethub",
