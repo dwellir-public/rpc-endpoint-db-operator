@@ -84,10 +84,6 @@
         "chain_name": "Avalanche mainnet"
     },
     {
-        "url": "https://api-avalanche-mainnet-archive.dwellir.com/ext/bc/C/rpc",
-        "chain_name": "Avalanche mainnet"
-    },
-    {
         "url": "https://api-avalanche-mainnet-archive.n.dwellir.com/ext/bc/C/rpc",
         "chain_name": "Avalanche mainnet"
     },
@@ -1117,10 +1113,6 @@
     },
     {
         "url": "https://mainnet.optimism.io",
-        "chain_name": "Optimism mainnet"
-    },
-    {
-        "url": "https://api-optimism-mainnet-archive.dwellir.com",
         "chain_name": "Optimism mainnet"
     },
     {
