@@ -836,10 +836,6 @@
         "chain_name": "Kusama-pc Kintsugi BTC"
     },
     {
-        "url": "https://moonriver-rpc.dwellir.com",
-        "chain_name": "Kusama-pc Moonriver"
-    },
-    {
         "url": "https://moonriver.api.onfinality.io/public-http",
         "chain_name": "Kusama-pc Moonriver"
     },
@@ -849,14 +845,6 @@
     },
     {
         "url": "https://moonriver.unitedbloc.com",
-        "chain_name": "Kusama-pc Moonriver"
-    },
-    {
-        "url": "https://api-moonriver.dwellir.com",
-        "chain_name": "Kusama-pc Moonriver"
-    },
-    {
-        "url": "https://moonriver-rpc.n.dwellir.com",
         "chain_name": "Kusama-pc Moonriver"
     },
     {
@@ -1044,10 +1032,6 @@
         "chain_name": "Mantle sepolia"
     },
     {
-        "url": "https://moonbase-rpc.dwellir.com",
-        "chain_name": "Moonbase Alpha testnet"
-    },
-    {
         "url": "https://rpc.api.moonbase.moonbeam.network",
         "chain_name": "Moonbase Alpha testnet"
     },
@@ -1060,15 +1044,7 @@
         "chain_name": "Moonbase Alpha testnet"
     },
     {
-        "url": "https://api-moonbase.dwellir.com",
-        "chain_name": "Moonbase Alpha testnet"
-    },
-    {
         "url": "https://api-moonbase-alpha.n.dwellir.com",
-        "chain_name": "Moonbase Alpha testnet"
-    },
-    {
-        "url": "https://moonbase-rpc.n.dwellir.com",
         "chain_name": "Moonbase Alpha testnet"
     },
     {
@@ -1664,10 +1640,6 @@
         "chain_name": "Polkadot-pc Manta Atlantic mainnet"
     },
     {
-        "url": "https://moonbeam-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Moonbeam"
-    },
-    {
         "url": "https://moonbeam.public.blastapi.io",
         "chain_name": "Polkadot-pc Moonbeam"
     },
@@ -1680,15 +1652,7 @@
         "chain_name": "Polkadot-pc Moonbeam"
     },
     {
-        "url": "https://api-moonbeam.dwellir.com",
-        "chain_name": "Polkadot-pc Moonbeam"
-    },
-    {
         "url": "https://moonbeam-rpc-ng.dwellir.com",
-        "chain_name": "Polkadot-pc Moonbeam"
-    },
-    {
-        "url": "https://moonbeam-rpc.n.dwellir.com",
         "chain_name": "Polkadot-pc Moonbeam"
     },
     {
