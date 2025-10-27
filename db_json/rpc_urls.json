@@ -504,10 +504,6 @@
         "chain_name": "Ethereum mainnet"
     },
     {
-        "url": "https://api-ethereum-mainnet-full.n.dwellir.com",
-        "chain_name": "Ethereum mainnet"
-    },
-    {
         "url": "https://mainnet.evm.nodes.onflow.org",
         "chain_name": "Flow EVM Gateway mainnet"
     },
