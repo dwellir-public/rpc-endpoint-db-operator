@@ -452,10 +452,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Polkadot-pc Polimec",
-        "api_class": "substrate"
-    },
-    {
         "name": "Polkadot-pc Polkadot Offchain Indexing",
         "api_class": "substrate"
     },

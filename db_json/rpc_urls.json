@@ -1684,10 +1684,6 @@
         "chain_name": "Polkadot-pc Nodle (Eden)"
     },
     {
-        "url": "https://nodle-rpc.dwellir.com",
-        "chain_name": "Polkadot-pc Nodle (Eden)"
-    },
-    {
         "url": "https://api-nodle.n.dwellir.com",
         "chain_name": "Polkadot-pc Nodle (Eden)"
     },
@@ -1738,22 +1734,6 @@
     {
         "url": "https://api-phala.n.dwellir.com",
         "chain_name": "Polkadot-pc Phala Network"
-    },
-    {
-        "url": "https://polimec-rpc-ng.dwellir.com",
-        "chain_name": "Polkadot-pc Polimec"
-    },
-    {
-        "url": "https://polimec.rpc.amforc.com",
-        "chain_name": "Polkadot-pc Polimec"
-    },
-    {
-        "url": "https://rpc.polimec.org",
-        "chain_name": "Polkadot-pc Polimec"
-    },
-    {
-        "url": "https://api-polimec.n.dwellir.com",
-        "chain_name": "Polkadot-pc Polimec"
     },
     {
         "url": "https://api-robonomics-polkadot.n.dwellir.com",
