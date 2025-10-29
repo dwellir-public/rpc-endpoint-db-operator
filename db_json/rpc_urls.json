@@ -768,10 +768,6 @@
         "chain_name": "Kusama-pc Darwinia Crab"
     },
     {
-        "url": "https://darwiniacrab-rpc.n.dwellir.com",
-        "chain_name": "Kusama-pc Darwinia Crab"
-    },
-    {
         "url": "https://eth-asset-hub-kusama-rpc-ng.dwellir.com",
         "chain_name": "Kusama-pc ETH AssetHub"
     },
@@ -1497,10 +1493,6 @@
     },
     {
         "url": "https://api-darwinia.n.dwellir.com",
-        "chain_name": "Polkadot-pc Darwinia"
-    },
-    {
-        "url": "https://darwinia-rpc.n.dwellir.com",
         "chain_name": "Polkadot-pc Darwinia"
     },
     {
