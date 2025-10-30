@@ -1436,10 +1436,6 @@
         "chain_name": "Polkadot-pc Centrifuge"
     },
     {
-        "url": "https://api-centrifuge-sidecar.n.dwellir.com/blocks/head/header",
-        "chain_name": "Polkadot-pc Centrifuge Sidecar"
-    },
-    {
         "url": "https://collectives-polkadot-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc Collectives"
     },
@@ -1586,10 +1582,6 @@
     {
         "url": "https://api-invarch.n.dwellir.com",
         "chain_name": "Polkadot-pc InvArch"
-    },
-    {
-        "url": "https://api-kilt-sidecar.n.dwellir.com/blocks/head/header",
-        "chain_name": "Polkadot-pc Kilt Sidecar"
     },
     {
         "url": "https://spiritnet.kilt.io",
