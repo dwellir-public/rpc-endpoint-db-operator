@@ -228,10 +228,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Kusama-pc Quartz",
-        "api_class": "substrate"
-    },
-    {
         "name": "Kusama-pc Robonomics",
         "api_class": "substrate"
     },

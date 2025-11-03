@@ -872,18 +872,6 @@
         "chain_name": "Kusama-pc Quartz"
     },
     {
-        "url": "https://us-ws-quartz.unique.network",
-        "chain_name": "Kusama-pc Quartz"
-    },
-    {
-        "url": "https://api-quartz.dwellir.com",
-        "chain_name": "Kusama-pc Quartz"
-    },
-    {
-        "url": "https://api-quartz.n.dwellir.com",
-        "chain_name": "Kusama-pc Quartz"
-    },
-    {
         "url": "https://kusama.rpc.robonomics.network",
         "chain_name": "Kusama-pc Robonomics"
     },
