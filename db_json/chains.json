@@ -116,10 +116,6 @@
         "api_class": "eth-v1-beacon"
     },
     {
-        "name": "Ethereum Holesky Testnet",
-        "api_class": "ethereum"
-    },
-    {
         "name": "Ethereum Sepolia testnet",
         "api_class": "ethereum"
     },
@@ -225,10 +221,6 @@
     },
     {
         "name": "Kusama-pc People",
-        "api_class": "substrate"
-    },
-    {
-        "name": "Kusama-pc Quartz",
         "api_class": "substrate"
     },
     {
@@ -449,10 +441,6 @@
     },
     {
         "name": "Polkadot-pc Phala Network",
-        "api_class": "substrate"
-    },
-    {
-        "name": "Polkadot-pc Polimec",
         "api_class": "substrate"
     },
     {
