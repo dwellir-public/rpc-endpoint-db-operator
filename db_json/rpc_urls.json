@@ -44,10 +44,6 @@
         "chain_name": "Arbitrum Sepolia"
     },
     {
-        "url": "https://api-arbitrum-sepolia-archive.dwellir.com",
-        "chain_name": "Arbitrum Sepolia"
-    },
-    {
         "url": "https://api-arbitrum-sepolia.n.dwellir.com",
         "chain_name": "Arbitrum Sepolia"
     },
@@ -61,10 +57,6 @@
     },
     {
         "url": "https://arbitrum-one.publicnode.com",
-        "chain_name": "Arbitrum mainnet"
-    },
-    {
-        "url": "https://api-arbitrum-mainnet-archive.dwellir.com",
         "chain_name": "Arbitrum mainnet"
     },
     {
@@ -116,10 +108,6 @@
         "chain_name": "Base Sepolia"
     },
     {
-        "url": "https://api-base-sepolia-archive.dwellir.com",
-        "chain_name": "Base Sepolia"
-    },
-    {
         "url": "https://api-base-sepolia-archive.n.dwellir.com",
         "chain_name": "Base Sepolia"
     },
@@ -133,10 +121,6 @@
     },
     {
         "url": "https://mainnet.base.org",
-        "chain_name": "Base mainnet"
-    },
-    {
-        "url": "https://api-base-mainnet-archive.dwellir.com",
         "chain_name": "Base mainnet"
     },
     {
@@ -172,10 +156,6 @@
         "chain_name": "Binance Smart Chain mainnet"
     },
     {
-        "url": "https://api-bsc-mainnet-full.dwellir.com",
-        "chain_name": "Binance Smart Chain mainnet"
-    },
-    {
         "url": "https://api-bsc-mainnet-full.n.dwellir.com",
         "chain_name": "Binance Smart Chain mainnet"
     },
@@ -192,10 +172,6 @@
         "chain_name": "Binance Smart Chain testnet"
     },
     {
-        "url": "https://api-bsc-testnet-full.dwellir.com",
-        "chain_name": "Binance Smart Chain testnet"
-    },
-    {
         "url": "https://api-bsc-testnet-full.n.dwellir.com",
         "chain_name": "Binance Smart Chain testnet"
     },
@@ -208,20 +184,12 @@
         "chain_name": "Bittensor Mainnet"
     },
     {
-        "url": "https://api-bittensor-testnet.dwellir.com",
-        "chain_name": "Bittensor Testnet"
-    },
-    {
         "url": "https://test.finney.opentensor.ai",
         "chain_name": "Bittensor Testnet"
     },
     {
         "url": "https://api-bittensor-testnet.n.dwellir.com",
         "chain_name": "Bittensor Testnet"
-    },
-    {
-        "url": "https://api-blast-mainnet-archive.dwellir.com",
-        "chain_name": "Blast mainnet"
     },
     {
         "url": "https://rpc.blast.io",
@@ -272,10 +240,6 @@
         "chain_name": "Celo Mainnet"
     },
     {
-        "url": "https://api-celo-mainnet-archive.dwellir.com",
-        "chain_name": "Celo Mainnet"
-    },
-    {
         "url": "https://api-celo-mainnet-archive.n.dwellir.com",
         "chain_name": "Celo Mainnet"
     },
@@ -296,10 +260,6 @@
         "chain_name": "Chiliz Spicy testnet"
     },
     {
-        "url": "https://api-chiliz-spicy-archive.dwellir.com",
-        "chain_name": "Chiliz Spicy testnet"
-    },
-    {
         "url": "https://api-chiliz-spicy.n.dwellir.com",
         "chain_name": "Chiliz Spicy testnet"
     },
@@ -312,19 +272,11 @@
         "chain_name": "Chiliz mainnet"
     },
     {
-        "url": "https://api-chiliz-mainnet-archive.dwellir.com",
-        "chain_name": "Chiliz mainnet"
-    },
-    {
         "url": "https://api-chiliz-mainnet-archive.n.dwellir.com",
         "chain_name": "Chiliz mainnet"
     },
     {
         "url": "https://evm.cronos.org",
-        "chain_name": "Cronos mainnet"
-    },
-    {
-        "url": "https://api-cronos-mainnet.dwellir.com",
         "chain_name": "Cronos mainnet"
     },
     {
@@ -357,10 +309,6 @@
     },
     {
         "url": "https://rpc.matrix.canary.enjin.io",
-        "chain_name": "Enjin Canary Matrix Chain"
-    },
-    {
-        "url": "https://api-enjin-canary-matrix.dwellir.com",
         "chain_name": "Enjin Canary Matrix Chain"
     },
     {
@@ -436,10 +384,6 @@
         "chain_name": "Ethereum Sepolia testnet"
     },
     {
-        "url": "https://api-eth-sepolia-archive.dwellir.com",
-        "chain_name": "Ethereum Sepolia testnet"
-    },
-    {
         "url": "https://api-ethereum-sepolia.n.dwellir.com",
         "chain_name": "Ethereum Sepolia testnet"
     },
@@ -500,10 +444,6 @@
         "chain_name": "Gnosis"
     },
     {
-        "url": "https://api-gnosis-archive.dwellir.com",
-        "chain_name": "Gnosis"
-    },
-    {
         "url": "https://api-gnosis-mainnet.n.dwellir.com",
         "chain_name": "Gnosis"
     },
@@ -525,10 +465,6 @@
     },
     {
         "url": "https://api-hyperliquid-mainnet-evm.n.dwellir.com",
-        "chain_name": "Hyperliquid mainnet"
-    },
-    {
-        "url": "https://alpha-hyperliquid-mainnet-evm.n.dwellir.com",
         "chain_name": "Hyperliquid mainnet"
     },
     {
@@ -800,10 +736,6 @@
         "chain_name": "Kusama-pc People"
     },
     {
-        "url": "https://api-people-kusama.dwellir.com",
-        "chain_name": "Kusama-pc People"
-    },
-    {
         "url": "https://api-people-kusama.n.dwellir.com",
         "chain_name": "Kusama-pc People"
     },
@@ -876,10 +808,6 @@
         "chain_name": "Linea mainnet"
     },
     {
-        "url": "https://api-linea-mainnet-archive.dwellir.com",
-        "chain_name": "Linea mainnet"
-    },
-    {
         "url": "https://api-linea-mainnet-archive.n.dwellir.com",
         "chain_name": "Linea mainnet"
     },
@@ -898,10 +826,6 @@
     {
         "url": "https://api-lisk-mainnet.n.dwellir.com",
         "chain_name": "Lisk mainnet"
-    },
-    {
-        "url": "https://api-manta-pacific-archive.dwellir.com",
-        "chain_name": "Manta Pacific"
     },
     {
         "url": "https://manta-pacific.drpc.org",
@@ -932,19 +856,11 @@
         "chain_name": "Mantle mainnet"
     },
     {
-        "url": "https://api-mantle-mainnet-archive.dwellir.com",
-        "chain_name": "Mantle mainnet"
-    },
-    {
         "url": "https://api-mantle-mainnet.n.dwellir.com",
         "chain_name": "Mantle mainnet"
     },
     {
         "url": "https://rpc.sepolia.mantle.xyz",
-        "chain_name": "Mantle sepolia"
-    },
-    {
-        "url": "https://api-mantle-sepolia-archive.dwellir.com",
         "chain_name": "Mantle sepolia"
     },
     {
@@ -984,10 +900,6 @@
         "chain_name": "Optimism Sepolia"
     },
     {
-        "url": "https://api-optimism-sepolia-archive.dwellir.com",
-        "chain_name": "Optimism Sepolia"
-    },
-    {
         "url": "https://api-optimism-sepolia.n.dwellir.com",
         "chain_name": "Optimism Sepolia"
     },
@@ -1013,10 +925,6 @@
     },
     {
         "url": "https://rpc.ibp.network/paseo",
-        "chain_name": "Paseo Relaychain"
-    },
-    {
-        "url": "https://api-paseo.dwellir.com",
         "chain_name": "Paseo Relaychain"
     },
     {
@@ -1057,10 +965,6 @@
     },
     {
         "url": "https://bridge-hub-paseo-rpc-ng.dwellir.com",
-        "chain_name": "Paseo-pc BridgeHub"
-    },
-    {
-        "url": "https://api-bridge-hub-paseo.dwellir.com",
         "chain_name": "Paseo-pc BridgeHub"
     },
     {
@@ -1148,10 +1052,6 @@
         "chain_name": "Polkadot Relaychain"
     },
     {
-        "url": "https://api-polkadot.dwellir.com",
-        "chain_name": "Polkadot Relaychain"
-    },
-    {
         "url": "https://api-polkadot.n.dwellir.com",
         "chain_name": "Polkadot Relaychain"
     },
@@ -1192,11 +1092,11 @@
         "chain_name": "Polkadot-pc Acala"
     },
     {
-        "url": "https://acala-rpc.n.dwellir.com",
+        "url": "https://paribu-acala.n.dwellir.com",
         "chain_name": "Polkadot-pc Acala"
     },
     {
-        "url": "https://paribu-acala.n.dwellir.com",
+        "url": "https://acala-rpc.n.dwellir.com",
         "chain_name": "Polkadot-pc Acala"
     },
     {
@@ -1636,10 +1536,6 @@
         "chain_name": "Polkadot-pc Unique"
     },
     {
-        "url": "https://api-unique.dwellir.com",
-        "chain_name": "Polkadot-pc Unique"
-    },
-    {
         "url": "https://unique-rpc-ng.dwellir.com",
         "chain_name": "Polkadot-pc Unique"
     },
@@ -1704,44 +1600,12 @@
         "chain_name": "Polygon mainnet"
     },
     {
-        "url": "https://api-polygon-mainnet-full.dwellir.com",
-        "chain_name": "Polygon mainnet"
-    },
-    {
         "url": "https://rpc-mainnet.maticvigil.com",
         "chain_name": "Polygon mainnet"
     },
     {
         "url": "https://api-polygon-mainnet-full.n.dwellir.com",
         "chain_name": "Polygon mainnet"
-    },
-    {
-        "url": "https://zkevm-rpc.com",
-        "chain_name": "Polygon zkEVM mainnet"
-    },
-    {
-        "url": "https://1rpc.io/polygon/zkevm",
-        "chain_name": "Polygon zkEVM mainnet"
-    },
-    {
-        "url": "https://polygon-zkevm-mainnet.public.blastapi.io",
-        "chain_name": "Polygon zkEVM mainnet"
-    },
-    {
-        "url": "https://api-polygon-zkevm-mainnet.n.dwellir.com",
-        "chain_name": "Polygon zkEVM mainnet"
-    },
-    {
-        "url": "https://2442.rpc.thirdweb.com",
-        "chain_name": "Polygon zkEVM sepolia"
-    },
-    {
-        "url": "https://rpc.cardona.zkevm-rpc.com",
-        "chain_name": "Polygon zkEVM sepolia"
-    },
-    {
-        "url": "https://api-polygon-zkevm-sepolia.n.dwellir.com",
-        "chain_name": "Polygon zkEVM sepolia"
     },
     {
         "url": "https://rpc.pulsechain.com",
@@ -1760,20 +1624,12 @@
         "chain_name": "PulseChain testnet"
     },
     {
-        "url": "https://api-ronin-saigon-testnet.dwellir.com",
-        "chain_name": "Ronin Saigon testnet"
-    },
-    {
         "url": "https://saigon-testnet.roninchain.com/rpc",
         "chain_name": "Ronin Saigon testnet"
     },
     {
         "url": "https://api-ronin-saigon-testnet.n.dwellir.com",
         "chain_name": "Ronin Saigon testnet"
-    },
-    {
-        "url": "https://api-ronin-mainnet.dwellir.com",
-        "chain_name": "Ronin mainnet"
     },
     {
         "url": "https://ronin.lgns.net/rpc",
@@ -1840,10 +1696,6 @@
         "chain_name": "Sora Mainnet"
     },
     {
-        "url": "https://api-sora-mainnet.dwellir.com",
-        "chain_name": "Sora Mainnet"
-    },
-    {
         "url": "https://mof3.sora.org",
         "chain_name": "Sora Mainnet"
     },
@@ -1868,10 +1720,6 @@
         "chain_name": "Starknet Sepolia"
     },
     {
-        "url": "https://api-starknet-sepolia.dwellir.com",
-        "chain_name": "Starknet Sepolia"
-    },
-    {
         "url": "https://api-starknet-sepolia.n.dwellir.com",
         "chain_name": "Starknet Sepolia"
     },
@@ -1885,10 +1733,6 @@
     },
     {
         "url": "https://free-rpc.nethermind.io/mainnet-juno",
-        "chain_name": "Starknet mainnet"
-    },
-    {
-        "url": "https://api-starknet-mainnet.dwellir.com",
         "chain_name": "Starknet mainnet"
     },
     {
@@ -1918,10 +1762,6 @@
     {
         "url": "https://api.trongrid.io/wallet/getnowblock",
         "chain_name": "TRON mainnet"
-    },
-    {
-        "url": "https://api-tron-mainnet-jsonrpc.n.dwellir.com",
-        "chain_name": "TRON mainnet(JSON-RPC)"
     },
     {
         "url": "https://tron-evm.publicnode.com",
@@ -2016,10 +1856,6 @@
         "chain_name": "Westend Relaychain"
     },
     {
-        "url": "https://api-westend.dwellir.com",
-        "chain_name": "Westend Relaychain"
-    },
-    {
         "url": "https://api-westend.n.dwellir.com",
         "chain_name": "Westend Relaychain"
     },
@@ -2088,20 +1924,12 @@
         "chain_name": "Westend-pc Coretime"
     },
     {
-        "url": "https://api-coretime-westend.dwellir.com",
-        "chain_name": "Westend-pc Coretime"
-    },
-    {
         "url": "https://api-coretime-westend.n.dwellir.com",
         "chain_name": "Westend-pc Coretime"
     },
     {
         "url": "https://coretime-westend-rpc.n.dwellir.com",
         "chain_name": "Westend-pc Coretime"
-    },
-    {
-        "url": "https://api-people-westend.dwellir.com",
-        "chain_name": "Westend-pc People"
     },
     {
         "url": "https://westend-people-rpc.polkadot.io",
@@ -2146,10 +1974,6 @@
     {
         "url": "https://api-zetachain-mainnet.n.dwellir.com",
         "chain_name": "Zetachain Mainnet"
-    },
-    {
-        "url": "https://api-zora-mainnet-archive.dwellir.com",
-        "chain_name": "Zora Mainnet"
     },
     {
         "url": "https://sepolia.rpc.zora.energy",
@@ -2197,10 +2021,6 @@
     },
     {
         "url": "https://opbnb-testnet-rpc.publicnode.com",
-        "chain_name": "opBNB testnet"
-    },
-    {
-        "url": "https://api-opbnb-testnet-archive.dwellir.com",
         "chain_name": "opBNB testnet"
     },
     {
