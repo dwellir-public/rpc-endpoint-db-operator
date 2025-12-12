@@ -1452,10 +1452,6 @@
         "chain_name": "Polkadot-pc Mythos"
     },
     {
-        "url": "https://mythos-rpc-ng.dwellir.com",
-        "chain_name": "Polkadot-pc Mythos"
-    },
-    {
         "url": "https://api-neuroweb.n.dwellir.com",
         "chain_name": "Polkadot-pc Neuroweb"
     },
