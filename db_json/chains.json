@@ -388,10 +388,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Polkadot-pc Integritee Shell",
-        "api_class": "substrate"
-    },
-    {
         "name": "Polkadot-pc Interlay",
         "api_class": "substrate"
     },

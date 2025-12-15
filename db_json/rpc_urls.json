@@ -1360,14 +1360,6 @@
         "chain_name": "Polkadot-pc Hyperbridge-Nexus"
     },
     {
-        "url": "https://polkadot.api.integritee.network",
-        "chain_name": "Polkadot-pc Integritee Shell"
-    },
-    {
-        "url": "https://api-integritee.n.dwellir.com",
-        "chain_name": "Polkadot-pc Integritee Shell"
-    },
-    {
         "url": "https://api.interlay.io/parachain",
         "chain_name": "Polkadot-pc Interlay"
     },
