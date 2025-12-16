@@ -1932,6 +1932,18 @@
         "chain_name": "Westend-pc People"
     },
     {
+        "url": "https://api-worldchain-mainnet.n.dwellir.com",
+        "chain_name": "Worldchain Mainnet"
+    },
+    {
+        "url": "https://worldchain.drpc.org",
+        "chain_name": "Worldchain Mainnet"
+    },
+    {
+        "url": "https://worldchain-mainnet.g.alchemy.com/public",
+        "chain_name": "Worldchain Mainnet"
+    },
+    {
         "url": "https://rpc.xdcrpc.com",
         "chain_name": "XDC mainnet"
     },

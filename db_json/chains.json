@@ -572,6 +572,10 @@
         "api_class": "substrate"
     },
     {
+        "name": "Worldchain Mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "XDC mainnet",
         "api_class": "ethereum"
     },
