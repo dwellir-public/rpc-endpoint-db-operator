@@ -84,10 +84,6 @@
         "chain_name": "Avalanche mainnet"
     },
     {
-        "url": "https://balanceai-mainnet-rpc.dwellir.com",
-        "chain_name": "BalanceAI mainnet"
-    },
-    {
         "url": "https://rpc.balanceai.network",
         "chain_name": "BalanceAI mainnet"
     },
