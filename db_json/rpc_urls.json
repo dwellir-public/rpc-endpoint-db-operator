@@ -496,10 +496,6 @@
         "chain_name": "Iotex Mainnet"
     },
     {
-        "url": "https://kusama-rpc-tn.dwellir.com",
-        "chain_name": "Kusama Relaychain"
-    },
-    {
         "url": "https://kusama-rpc-ng.dwellir.com",
         "chain_name": "Kusama Relaychain"
     },
@@ -542,10 +538,6 @@
     {
         "url": "https://rpc-amplitude.pendulumchain.tech",
         "chain_name": "Kusama-pc Amplitude"
-    },
-    {
-        "url": "https://statemine-rpc-tn.dwellir.com",
-        "chain_name": "Kusama-pc AssetHub (Statemine)"
     },
     {
         "url": "https://asset-hub-kusama-rpc-ng.dwellir.com",
@@ -605,10 +597,6 @@
     },
     {
         "url": "https://ksm-rpc.stakeworld.io/bridgehub",
-        "chain_name": "Kusama-pc BridgeHub"
-    },
-    {
-        "url": "https://kusama-bridge-hub-rpc-tn.dwellir.com",
         "chain_name": "Kusama-pc BridgeHub"
     },
     {
@@ -864,6 +852,18 @@
         "chain_name": "Mantle sepolia"
     },
     {
+        "url": "https://api-megaeth-mainnet.n.dwellir.com",
+        "chain_name": "MegaEth mainnet"
+    },
+    {
+        "url": "https://mainnet.megaeth.com/rpc",
+        "chain_name": "MegaEth mainnet"
+    },
+    {
+        "url": "https://rpc-megaeth-mainnet.globalstake.io",
+        "chain_name": "MegaEth mainnet"
+    },
+    {
         "url": "https://rpc.api.moonbase.moonbeam.network",
         "chain_name": "Moonbase Alpha testnet"
     },
@@ -1032,10 +1032,6 @@
         "chain_name": "Polkadex mainnet"
     },
     {
-        "url": "https://polkadot-rpc-tn.dwellir.com",
-        "chain_name": "Polkadot Relaychain"
-    },
-    {
         "url": "https://polkadot-rpc-ng.dwellir.com",
         "chain_name": "Polkadot Relaychain"
     },
@@ -1118,10 +1114,6 @@
     {
         "url": "https://api-ajuna-polkadot.n.dwellir.com",
         "chain_name": "Polkadot-pc Ajuna"
-    },
-    {
-        "url": "https://statemint-rpc-tn.dwellir.com",
-        "chain_name": "Polkadot-pc AssetHub (Statemint)"
     },
     {
         "url": "https://asset-hub-polkadot-rpc-ng.dwellir.com",
@@ -1212,10 +1204,6 @@
         "chain_name": "Polkadot-pc BridgeHub"
     },
     {
-        "url": "https://polkadot-bridge-hub-rpc-tn.dwellir.com",
-        "chain_name": "Polkadot-pc BridgeHub"
-    },
-    {
         "url": "https://api-bridge-hub-polkadot.n.dwellir.com",
         "chain_name": "Polkadot-pc BridgeHub"
     },
@@ -1253,10 +1241,6 @@
     },
     {
         "url": "https://collectives.public.curie.radiumblock.co/http",
-        "chain_name": "Polkadot-pc Collectives"
-    },
-    {
-        "url": "https://polkadot-collectives-rpc-tn.dwellir.com",
         "chain_name": "Polkadot-pc Collectives"
     },
     {
@@ -1486,22 +1470,6 @@
     {
         "url": "https://people-polkadot-rpc.n.dwellir.com",
         "chain_name": "Polkadot-pc People"
-    },
-    {
-        "url": "https://phala.api.onfinality.io/public-http",
-        "chain_name": "Polkadot-pc Phala Network"
-    },
-    {
-        "url": "https://api.phala.network/http",
-        "chain_name": "Polkadot-pc Phala Network"
-    },
-    {
-        "url": "https://phala-rpc.n.dwellir.com",
-        "chain_name": "Polkadot-pc Phala Network"
-    },
-    {
-        "url": "https://api-phala.n.dwellir.com",
-        "chain_name": "Polkadot-pc Phala Network"
     },
     {
         "url": "https://api-robonomics-polkadot.n.dwellir.com",
@@ -1824,10 +1792,6 @@
         "chain_name": "Waves mainnet"
     },
     {
-        "url": "https://westend-rpc-tn.dwellir.com",
-        "chain_name": "Westend Relaychain"
-    },
-    {
         "url": "https://westend.api.onfinality.io/public-http",
         "chain_name": "Westend Relaychain"
     },
@@ -1846,10 +1810,6 @@
     {
         "url": "https://westend-rpc.n.dwellir.com",
         "chain_name": "Westend Relaychain"
-    },
-    {
-        "url": "https://westmint-rpc-tn.dwellir.com",
-        "chain_name": "Westend-pc AssetHub (Westmint)"
     },
     {
         "url": "https://westend-asset-hub-rpc.polkadot.io",
@@ -1872,10 +1832,6 @@
         "chain_name": "Westend-pc BridgeHub"
     },
     {
-        "url": "https://westend-bridge-hub-rpc-tn.dwellir.com",
-        "chain_name": "Westend-pc BridgeHub"
-    },
-    {
         "url": "https://api-bridge-hub-westend.n.dwellir.com",
         "chain_name": "Westend-pc BridgeHub"
     },
@@ -1889,10 +1845,6 @@
     },
     {
         "url": "https://sys.dotters.network/collectives-westend",
-        "chain_name": "Westend-pc Collectives"
-    },
-    {
-        "url": "https://westend-collectives-rpc-tn.dwellir.com",
         "chain_name": "Westend-pc Collectives"
     },
     {

@@ -260,6 +260,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "MegaEth mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Moonbase Alpha testnet",
         "api_class": "substrate"
     },
@@ -433,10 +437,6 @@
     },
     {
         "name": "Polkadot-pc People",
-        "api_class": "substrate"
-    },
-    {
-        "name": "Polkadot-pc Phala Network",
         "api_class": "substrate"
     },
     {
