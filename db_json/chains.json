@@ -260,6 +260,10 @@
         "api_class": "ethereum"
     },
     {
+        "name": "MegaEth mainnet",
+        "api_class": "ethereum"
+    },
+    {
         "name": "Moonbase Alpha testnet",
         "api_class": "substrate"
     },
@@ -436,10 +440,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Polkadot-pc Phala Network",
-        "api_class": "substrate"
-    },
-    {
         "name": "Polkadot-pc Polkadot Offchain Indexing",
         "api_class": "substrate"
     },
@@ -570,6 +570,10 @@
     {
         "name": "Westend-pc Westend Offchain Indexing",
         "api_class": "substrate"
+    },
+    {
+        "name": "Worldchain Mainnet",
+        "api_class": "ethereum"
     },
     {
         "name": "XDC mainnet",
