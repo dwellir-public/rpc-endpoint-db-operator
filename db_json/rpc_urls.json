@@ -760,18 +760,6 @@
         "chain_name": "Kusama-pc Shiden"
     },
     {
-        "url": "https://mainnet.liberland.org",
-        "chain_name": "Liberland mainnet"
-    },
-    {
-        "url": "https://liberland-rpc.n.dwellir.com",
-        "chain_name": "Liberland mainnet"
-    },
-    {
-        "url": "https://api-liberland.n.dwellir.com",
-        "chain_name": "Liberland mainnet"
-    },
-    {
         "url": "https://linea-mainnet.public.blastapi.io",
         "chain_name": "Linea mainnet"
     },
@@ -940,10 +928,6 @@
         "chain_name": "Paseo-Pc Collectives"
     },
     {
-        "url": "https://pas-rpc.stakeworld.io/assethub",
-        "chain_name": "Paseo-pc AssetHub"
-    },
-    {
         "url": "https://asset-hub-paseo-rpc-ng.dwellir.com",
         "chain_name": "Paseo-pc AssetHub"
     },
@@ -984,30 +968,6 @@
         "chain_name": "Paseo-pc Coretime"
     },
     {
-        "url": "https://eth-passet-hub-paseo-rpc-ng.dwellir.com",
-        "chain_name": "Paseo-pc ETH PassetHub"
-    },
-    {
-        "url": "https://eth-passet-hub-paseo.ibp.network",
-        "chain_name": "Paseo-pc ETH PassetHub"
-    },
-    {
-        "url": "https://eth-passet-hub-paseo.dotters.network",
-        "chain_name": "Paseo-pc ETH PassetHub"
-    },
-    {
-        "url": "https://passet-hub-paseo.ibp.network",
-        "chain_name": "Paseo-pc PassetHub"
-    },
-    {
-        "url": "https://testnet-passet-hub.polkadot.io",
-        "chain_name": "Paseo-pc PassetHub"
-    },
-    {
-        "url": "https://passet-hub-paseo-rpc-ng.dwellir.com",
-        "chain_name": "Paseo-pc PassetHub"
-    },
-    {
         "url": "https://people-paseo-rpc-ng.dwellir.com",
         "chain_name": "Paseo-pc People"
     },
@@ -1018,18 +978,6 @@
     {
         "url": "https://people-paseo.rpc.amforc.com",
         "chain_name": "Paseo-pc People"
-    },
-    {
-        "url": "https://polkadex.api.onfinality.io/public-http",
-        "chain_name": "Polkadex mainnet"
-    },
-    {
-        "url": "https://polkadex.public.curie.radiumblock.co/ws",
-        "chain_name": "Polkadex mainnet"
-    },
-    {
-        "url": "https://api-polkadex-mainnet.n.dwellir.com",
-        "chain_name": "Polkadex mainnet"
     },
     {
         "url": "https://polkadot-rpc-ng.dwellir.com",
@@ -1356,18 +1304,6 @@
         "chain_name": "Polkadot-pc InvArch"
     },
     {
-        "url": "https://spiritnet.kilt.io",
-        "chain_name": "Polkadot-pc Kilt Spiritnet"
-    },
-    {
-        "url": "https://spiritnet.api.onfinality.io/public-ws",
-        "chain_name": "Polkadot-pc Kilt Spiritnet"
-    },
-    {
-        "url": "https://api-kilt.n.dwellir.com",
-        "chain_name": "Polkadot-pc Kilt Spiritnet"
-    },
-    {
         "url": "https://rpc.litentry-parachain.litentry.io",
         "chain_name": "Polkadot-pc Litentry"
     },
@@ -1490,14 +1426,6 @@
     {
         "url": "https://api-unique.n.dwellir.com",
         "chain_name": "Polkadot-pc Unique"
-    },
-    {
-        "url": "https://xcavate-polkadot-rpc-ng.dwellir.com",
-        "chain_name": "Polkadot-pc Xcavate"
-    },
-    {
-        "url": "https://rpc1-polkadot.xcavate.io",
-        "chain_name": "Polkadot-pc Xcavate"
     },
     {
         "url": "https://zeitgeist.api.onfinality.io/public-http",
@@ -1809,10 +1737,6 @@
     },
     {
         "url": "https://westend-asset-hub-rpc.polkadot.io",
-        "chain_name": "Westend-pc AssetHub (Westmint)"
-    },
-    {
-        "url": "https://wnd-rpc.stakeworld.io/westmint",
         "chain_name": "Westend-pc AssetHub (Westmint)"
     },
     {
