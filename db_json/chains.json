@@ -232,10 +232,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Liberland mainnet",
-        "api_class": "substrate"
-    },
-    {
         "name": "Linea mainnet",
         "api_class": "ethereum"
     },
@@ -300,19 +296,7 @@
         "api_class": "substrate"
     },
     {
-        "name": "Paseo-pc ETH PassetHub",
-        "api_class": "ethereum"
-    },
-    {
-        "name": "Paseo-pc PassetHub",
-        "api_class": "substrate"
-    },
-    {
         "name": "Paseo-pc People",
-        "api_class": "substrate"
-    },
-    {
-        "name": "Polkadex mainnet",
         "api_class": "substrate"
     },
     {
@@ -404,10 +388,6 @@
         "api_class": "sidecar"
     },
     {
-        "name": "Polkadot-pc Kilt Spiritnet",
-        "api_class": "substrate"
-    },
-    {
         "name": "Polkadot-pc Litentry",
         "api_class": "substrate"
     },
@@ -449,10 +429,6 @@
     },
     {
         "name": "Polkadot-pc Unique",
-        "api_class": "substrate"
-    },
-    {
-        "name": "Polkadot-pc Xcavate",
         "api_class": "substrate"
     },
     {
