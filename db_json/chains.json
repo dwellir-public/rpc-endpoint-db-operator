@@ -196,10 +196,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Kusama-pc Darwinia Crab",
-        "api_class": "substrate"
-    },
-    {
         "name": "Kusama-pc ETH AssetHub",
         "api_class": "ethereum"
     },

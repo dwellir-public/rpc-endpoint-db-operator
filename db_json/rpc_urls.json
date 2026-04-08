@@ -620,18 +620,6 @@
         "chain_name": "Kusama-pc Coretime"
     },
     {
-        "url": "https://crab-rpc.darwiniacommunitydao.xyz",
-        "chain_name": "Kusama-pc Darwinia Crab"
-    },
-    {
-        "url": "https://crab-rpc.darwinia.network",
-        "chain_name": "Kusama-pc Darwinia Crab"
-    },
-    {
-        "url": "https://api-darwiniacrab.n.dwellir.com",
-        "chain_name": "Kusama-pc Darwinia Crab"
-    },
-    {
         "url": "https://eth-asset-hub-kusama-rpc-ng.dwellir.com",
         "chain_name": "Kusama-pc ETH AssetHub"
     },
