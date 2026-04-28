@@ -4,10 +4,6 @@
         "api_class": "substrate"
     },
     {
-        "name": "Aleph Zero Testnet",
-        "api_class": "substrate"
-    },
-    {
         "name": "Aptos mainnet",
         "api_class": "movement"
     },

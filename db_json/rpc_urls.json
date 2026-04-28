@@ -8,14 +8,6 @@
         "chain_name": "Aleph Zero"
     },
     {
-        "url": "https://api-aleph-zero-testnet.n.dwellir.com",
-        "chain_name": "Aleph Zero Testnet"
-    },
-    {
-        "url": "https://ws.test.azero.dev",
-        "chain_name": "Aleph Zero Testnet"
-    },
-    {
         "url": "https://fullnode.mainnet.aptoslabs.com/v1",
         "chain_name": "Aptos mainnet"
     },
@@ -1282,10 +1274,6 @@
     {
         "url": "https://api-interlay.n.dwellir.com",
         "chain_name": "Polkadot-pc Interlay"
-    },
-    {
-        "url": "https://api-invarch.n.dwellir.com",
-        "chain_name": "Polkadot-pc InvArch"
     },
     {
         "url": "https://rpc.litentry-parachain.litentry.io",
