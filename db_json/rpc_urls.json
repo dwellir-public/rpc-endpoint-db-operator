@@ -76,14 +76,6 @@
         "chain_name": "Avalanche mainnet"
     },
     {
-        "url": "https://rpc.balanceai.network",
-        "chain_name": "BalanceAI mainnet"
-    },
-    {
-        "url": "https://balanceai-mainnet-rpc.n.dwellir.com",
-        "chain_name": "BalanceAI mainnet"
-    },
-    {
         "url": "https://sepolia.base.org/",
         "chain_name": "Base Sepolia"
     },
@@ -1336,14 +1328,6 @@
         "chain_name": "Polkadot-pc Neuroweb"
     },
     {
-        "url": "https://nodle-parachain.api.onfinality.io/public-http",
-        "chain_name": "Polkadot-pc Nodle (Eden)"
-    },
-    {
-        "url": "https://api-nodle.n.dwellir.com",
-        "chain_name": "Polkadot-pc Nodle (Eden)"
-    },
-    {
         "url": "https://rpc-pendulum.prd.pendulumchain.tech",
         "chain_name": "Polkadot-pc Pendulum"
     },
@@ -1398,18 +1382,6 @@
     {
         "url": "https://api-unique.n.dwellir.com",
         "chain_name": "Polkadot-pc Unique"
-    },
-    {
-        "url": "https://zeitgeist.api.onfinality.io/public-http",
-        "chain_name": "Polkadot-pc Zeitgeist"
-    },
-    {
-        "url": "https://main.rpc.zeitgeist.pm/ws",
-        "chain_name": "Polkadot-pc Zeitgeist"
-    },
-    {
-        "url": "https://api-zeitgeist.n.dwellir.com",
-        "chain_name": "Polkadot-pc Zeitgeist"
     },
     {
         "url": "https://peaq.api.onfinality.io/public-ws",
