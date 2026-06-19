@@ -1592,18 +1592,6 @@
         "chain_name": "TRON mainnet(JSON-RPC)"
     },
     {
-        "url": "https://rpc.tangle.tools",
-        "chain_name": "Tangle Mainnet"
-    },
-    {
-        "url": "https://tangle-mainnet-rpc.n.dwellir.com",
-        "chain_name": "Tangle Mainnet"
-    },
-    {
-        "url": "https://api-tangle-mainnet.n.dwellir.com",
-        "chain_name": "Tangle Mainnet"
-    },
-    {
         "url": "https://api-unichain-sepolia.n.dwellir.com",
         "chain_name": "Unichain Sepolia"
     },
