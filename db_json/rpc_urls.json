@@ -392,6 +392,10 @@
         "chain_name": "Ethereum mainnet"
     },
     {
+        "url": "https://api-ethereum-mainnet-erigon.n.dwellir.com",
+        "chain_name": "Ethereum mainnet"
+    },
+    {
         "url": "https://api-ethereum-mainnet-reth.n.dwellir.com",
         "chain_name": "Ethereum mainnet"
     },
